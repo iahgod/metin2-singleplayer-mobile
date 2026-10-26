@@ -32,6 +32,23 @@
     // PT-BR: barra semitransparente com botões de minimizar (–) e fechar (×).
     // Minimizada vira uma pílula pequena com a porcentagem (toque para abrir de novo);
     // fechada some até recarregar a página. O download continua em segundo plano.
+    // Textos da barra de download no idioma do jogador (pt padrão, en, pl).
+    var dlLang = 'pt';
+    try {
+        var _dsp = new URLSearchParams(location.search);
+        var _dl = _dsp.get('lang') || localStorage.getItem('m2w.uiLang') || localStorage.getItem('m2/lang') ||
+                  String((navigator.languages && navigator.languages[0]) || navigator.language || '');
+        _dl = String(_dl).toLowerCase().slice(0, 2);
+        if (_dl === 'en' || _dl === 'pl') dlLang = _dl;
+    } catch (e) { }
+    var DLT = {
+        pt: { data: 'Dados do jogo', saved: 'Dados do jogo: tudo salvo no aparelho', parts: ' partes', bg: 'Dados do jogo (em segundo plano): ',
+              errs: ', erros ', mem: 'carregando na mem\u00F3ria...', ess: 'Dados essenciais: ', fromSt: ' do armazenamento', essOk: 'Dados essenciais: prontos' },
+        en: { data: 'Game data', saved: 'Game data: all saved on this device', parts: ' parts', bg: 'Game data (in background): ',
+              errs: ', errors ', mem: 'loading into memory...', ess: 'Essential data: ', fromSt: ' from storage', essOk: 'Essential data: ready' },
+        pl: { data: 'Dane gry', saved: 'Dane gry: zapisano w pami\u0119ci', parts: ' cz.', bg: 'Dane gry (w tle): ',
+              errs: ', b\u0142\u0119dy ', mem: '\u0142adowanie do pami\u0119ci...', ess: 'Dane podstawowe: ', fromSt: ' z pami\u0119ci', essOk: 'Dane podstawowe: gotowe' }
+    }[dlLang];
     var isMobilePage = /[?&]mobile=1(&|$)/.test(location.search) || (!/[?&]mobile=0(&|$)/.test(location.search) && (/Android|iPhone|iPad|iPod|Mobile|Tablet/i.test(navigator.userAgent || '') || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches && Math.min(window.innerWidth || 9999, window.innerHeight || 9999) <= 920)));
     var barClosed = false;
     var barMin = false;
@@ -63,7 +80,7 @@
     if (isMobilePage) bar.className = 'mobile';
     bar.innerHTML =
         '<div class="dl-full">' +
-          '<div class="dl-head"><span class="dl-text" id="m2w_download_text">Dane gry</span>' +
+          '<div class="dl-head"><span class="dl-text" id="m2w_download_text">' + DLT.data + '</span>' +
           '<button type="button" class="dl-btn" data-act="min" title="Minimizar" aria-label="Minimizar">&#8211;</button>' +
           '<button type="button" class="dl-btn" data-act="close" title="Fechar" aria-label="Fechar">&#215;</button></div>' +
           '<div class="dl-track"><div class="dl-fill" id="m2w_download_fill"></div></div>' +
@@ -144,7 +161,7 @@
             function next() {
                 if (i >= list.length) {
                     download.end = performance.now();
-                    show('Dane gry: zapisano w pami\u0119ci', 1, download.total + ' cz.');
+                    show(DLT.saved, 1, download.total + DLT.parts);
                     console.log('[corpus] background: ' + download.done + ' downloaded, ' + download.fromCache + ' from disk, ' +
                                 download.errors + ' errors, ' + Math.round((download.end - download.start) / 1000) + ' s');
                     hide(4000);
@@ -183,8 +200,8 @@
                 }).catch(function (e) { ++download.errors; }).then(function () {
                     var n = download.done + download.fromCache + download.errors;
                     if (download.done > 0 || (n % 25) === 0)
-                        show('Dane gry (w tle): ' + n + ' / ' + download.total, n / download.total,
-                             download.done ? (megabytesPerSecond().toFixed(1) + ' MB/s' + (download.errors ? ', erros ' + download.errors : '')) : 'carregando na memória...');
+                        show(DLT.bg + n + ' / ' + download.total, n / download.total,
+                             download.done ? (megabytesPerSecond().toFixed(1) + ' MB/s' + (download.errors ? DLT.errs + download.errors : '')) : DLT.mem);
                     setTimeout(next, wasNet ? 35 : 5);
                 });
             }
@@ -207,11 +224,11 @@
             // we move to the background, which covers the rest of the list anyway.
             var bStalled = performance.now() - lastChange > 12000;
             if (w.done < w.total && !bStalled)
-                show('Dane podstawowe: ' + w.done + ' / ' + w.total, w.done / w.total,
-                     (w.fromStorage ? w.fromStorage + ' z pami\u0119ci' : ''));
+                show(DLT.ess + w.done + ' / ' + w.total, w.done / w.total,
+                     (w.fromStorage ? w.fromStorage + DLT.fromSt : ''));
             else if (!backgroundStarted) {
                 backgroundStarted = true;
-                show('Dane podstawowe: gotowe', 1, '');
+                show(DLT.essOk, 1, '');
                 setTimeout(backgroundPhase, 600);
             }
         } else if (!w && performance.now() > 25000 && !backgroundStarted && m2w.corpus && m2w.corpus.all.length) {

@@ -20,13 +20,13 @@
     (!/[?&]mobile=0(&|$)/.test(location.search) && isTouchDevice);
 
   // ---------------------------------------------------------------- IDIOMA DO OVERLAY
-  var M2I18N = { lang: "pl", texts: null };
+  var M2I18N = { lang: "pt", texts: null };
   try {
     var _sp = new URLSearchParams(location.search);
     var _ql = _sp.get("lang") || _sp.get("deflang");
     var _bl = String((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().slice(0, 2);
-    var _lv = _ql || localStorage.getItem("m2w.uiLang") || localStorage.getItem("m2/lang") || ((_bl === "pt" || _bl === "en" || _bl === "pl") ? _bl : "pl");
-    M2I18N.lang = String(_lv).toLowerCase().slice(0, 2) || "pl";
+    var _lv = _ql || localStorage.getItem("m2w.uiLang") || localStorage.getItem("m2/lang") || ((_bl === "pt" || _bl === "en" || _bl === "pl") ? _bl : "pt");
+    M2I18N.lang = String(_lv).toLowerCase().slice(0, 2) || "pt";
   } catch (e) { }
 
   // ---------------------------------------------------------------- FONTE "estilo Metin2"
@@ -2901,7 +2901,7 @@
   var chatInp = document.createElement("input");
   chatInp.type = "text";
   chatInp.className = "chat-inp";
-  chatInp.placeholder = isTouchDevice ? (M2I18N.lang === "pl" ? "Czat..." : "Chat...") : "Conversar... (ou /comando)";
+  chatInp.placeholder = isTouchDevice ? (M2I18N.lang === "pl" ? "Czat..." : (M2I18N.lang === "en" ? "Chat..." : "Conversar...")) : (M2I18N.lang === "pl" ? "Czat... (lub /komenda)" : (M2I18N.lang === "en" ? "Chat... (or /command)" : "Conversar... (ou /comando)"));
   chatInp.autocomplete = "off";
   chatInp.autocorrect = "off";
   chatInp.autocapitalize = "off";
