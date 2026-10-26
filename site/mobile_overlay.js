@@ -821,13 +821,13 @@
     "#m2o .chat-bar.typing .chat-inp{border-color:rgba(235,220,185,0.82);background:rgba(0,0,0,0.72)}" +
     "#m2o .chat-inp::placeholder{color:rgba(185,190,198,0.52)}" +
     "@media (max-width:1024px),(hover:none) and (pointer:coarse){" +
-    "#m2o .chat-bar{left:50%;transform:translateX(-50%);bottom:3px;width:clamp(195px,calc(100% - 392px),275px);min-width:0;height:20px;padding:0 2px;gap:2px;background:rgba(8,9,12,0.52);border-color:rgba(110,94,64,0.45);box-shadow:0 1px 4px rgba(0,0,0,0.6);opacity:0.86}" +
-    "#m2o .chat-log{left:50%;transform:translateX(-50%);bottom:25px;width:clamp(195px,calc(100% - 392px),275px);min-width:0;height:62px;font-size:9.5px;padding:2px 5px}" +
-    "#m2o .chat-histbtn{width:16px;height:15px}" +
-    "#m2o .chat-histbtn svg{width:11px;height:11px}" +
-    "#m2o .chat-tag{height:15px;padding:0 4px;font-size:8.5px}" +
-    "#m2o .chat-inp{height:15px;padding:0 4px;font-size:9.5px;background:rgba(0,0,0,0.28);border-color:rgba(150,140,115,0.28)}" +
-    "#m2o .chat-send{width:18px !important;height:15px !important;font-size:8.5px !important}" +
+    "#m2o .chat-bar{left:50%;transform:translateX(-50%);bottom:3px;width:clamp(220px,calc(100% - 380px),310px);min-width:0;height:27px;padding:0 3px;gap:3px;background:rgba(8,9,12,0.52);border-color:rgba(110,94,64,0.45);box-shadow:0 1px 4px rgba(0,0,0,0.6);opacity:0.86}" +
+    "#m2o .chat-log{left:50%;transform:translateX(-50%);bottom:32px;width:clamp(220px,calc(100% - 380px),310px);min-width:0;height:62px;font-size:9.5px;padding:2px 5px}" +
+    "#m2o .chat-histbtn{width:24px;height:21px}" +
+    "#m2o .chat-histbtn svg{width:14px;height:14px}" +
+    "#m2o .chat-tag{height:21px;padding:0 6px;font-size:10px}" +
+    "#m2o .chat-inp{height:21px;padding:0 5px;font-size:10.5px;background:rgba(0,0,0,0.28);border-color:rgba(150,140,115,0.28)}" +
+    "#m2o .chat-send{width:26px !important;height:21px !important;font-size:10px !important}" +
     "}" +
     "#m2o.win-open .chat-bar:not(.typing),#m2o.win-open .chat-log:not(.interactive),#m2o.win-open .target-pill{visibility:hidden !important;pointer-events:none !important}" +
     "#m2o.chatlog-open.win-open .chat-bar:not(.typing){visibility:visible !important;pointer-events:auto !important}" +
