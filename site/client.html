@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Metin2">
-<link rel="manifest" href="manifest.json?v=2">
+<link rel="manifest" href="manifest.json?v=bf228476c144">
 <link rel="apple-touch-icon" href="icons/ui/pwa_192.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/ui/pwa_192.png">
 <title>Metin2</title>
@@ -16,7 +16,7 @@
 // Versão desta página. Se o navegador abrir uma cópia ANTIGA guardada no cache
 // (acontecia: "às vezes volta uma atualização"), pergunta ao servidor qual é a
 // versão atual e, se for outra, recarrega uma vez já com a nova.
-var M2W_PAGE_VER = "ptbr28";
+var M2W_PAGE_VER = "bf228476c144";
 (function () {
   try {
     if (sessionStorage.getItem("m2w.verReload") === M2W_PAGE_VER) return;
@@ -103,7 +103,11 @@ body.mobile,body.mobile canvas#canvas{touch-action:none;overscroll-behavior:none
 // same server as the page (/to/...). Filled in by link_client.py from build/port/private/bridge.txt.
 // Mobile entry: client.html?mobile=1 (or mobile.html, which redirects here).
 // Same client.wasm / client.data / corpus; lower internal buffer (960x540, compat/runtime.js).
-var MOBILE = /[?&]mobile=1(&|$)/.test(location.search);
+var MOBILE = /[?&]mobile=1(&|$)/.test(location.search) ||
+  (!/[?&]mobile=0(&|$)/.test(location.search) && (
+    /Android|iPhone|iPad|iPod|Mobile|Tablet/i.test(navigator.userAgent || "") ||
+    (window.matchMedia && window.matchMedia("(pointer: coarse)").matches && Math.min(window.innerWidth, window.innerHeight) <= 1024)
+  ));
 window.m2w = { config: { bridge: "", mobile: MOBILE } };
 (function () {
   var _rawEffectiveDpr = null, _rawFpsLimit = null, _rawFetchSync = null, _rawPrefetchStart = null;
@@ -292,7 +296,7 @@ if (MOBILE) document.body.className += " mobile";
 var statusEl = document.getElementById("status");
 var Module = {
   /// Engine files get `?v=<build time>`, so a new build is never served from cache.
-  locateFile: function (p) { return p + "?v=b3245f2f8769p1"; },
+  locateFile: function (p) { return p + "?v=bf228476c144"; },
   canvas: document.getElementById("canvas"),
   preRun: [
     /// Mobile: /mobile.flag in the VFS makes game.py drop shadows and thicken fog.
@@ -307,7 +311,7 @@ var Module = {
       var pending = files.length;
       var done = function () { if (--pending === 0) Module.removeRunDependency("m2w_ptbr"); };
       files.forEach(function (f) {
-        fetch("i18n/pt/" + f + "?v=2", { cache: "no-cache" }).then(function (r) {
+        fetch("i18n/pt/" + f + "?v=bf228476c144", { cache: "no-cache" }).then(function (r) {
           return r.ok ? r.arrayBuffer() : null;
         }).then(function (buf) {
           if (buf && buf.byteLength) Module.FS.writeFile("/m2w_pt/" + f, new Uint8Array(buf));
@@ -349,7 +353,7 @@ window.addEventListener("error", function (ev) {
 // or F5 refresh they load from local disk in ~100 ms instead of re-downloading 32 MB.
 (function () {
   if (typeof indexedDB === "undefined" || typeof fetch !== "function") return;
-  var BUILD_VER = "1792621134p1";
+  var BUILD_VER = "2.0.129-pl215";
   var origFetch = window.fetch.bind(window);
   var dbPromise = new Promise(function (resolve) {
     try {
@@ -412,9 +416,9 @@ window.addEventListener("error", function (ev) {
   };
 })();
 </script>
-<script src="client.js?v=b3245f2f8769-ptbr28" async></script>
-<script src="preload.js?v=b3245f2f8769-ptbr28"></script>
-<script src="mobile_overlay.js?v=b3245f2f8769-ptbr28"></script>
-<script src="replay_hud.js?v=b3245f2f8769-ptbr28"></script>
+<script src="client.js?v=2.0.129-pl215" async></script>
+<script src="preload.js?v=2.0.129-pl215"></script>
+<script src="mobile_overlay.js?v=2.0.129-pl215"></script>
+<script src="replay_hud.js?v=bf228476c144"></script>
 </body>
 </html>

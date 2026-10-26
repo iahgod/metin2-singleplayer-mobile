@@ -5,36 +5,50 @@
 //   * synthetic keyboard / mouse events for movement (WASD), attack (Space), UI LMB drag & camera RMB drag.
 (function () {
   "use strict";
+  var isTouchDevice = (function () {
+    try {
+      var ua = navigator.userAgent || "";
+      if (/Android|iPhone|iPad|iPod|Mobile|Tablet/i.test(ua)) return true;
+      if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) return true;
+      if (window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches) return false;
+      return ("ontouchstart" in window) || (navigator.maxTouchPoints > 0);
+    } catch (e) { return false; }
+  })();
   var isMobile = /[?&]mobile=1(&|$)/.test(location.search) ||
     !!(window.m2w && window.m2w.config && window.m2w.config.mobile) ||
-    !!(window.m2w && typeof window.m2w.isMobile === "function" && window.m2w.isMobile());
+    !!(window.m2w && typeof window.m2w.isMobile === "function" && window.m2w.isMobile()) ||
+    (!/[?&]mobile=0(&|$)/.test(location.search) && isTouchDevice);
+
+  // ---------------------------------------------------------------- IDIOMA DO OVERLAY
+  var M2I18N = { lang: "pl", texts: null };
+  try {
+    var _sp = new URLSearchParams(location.search);
+    var _ql = _sp.get("lang") || _sp.get("deflang");
+    var _bl = String((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().slice(0, 2);
+    var _lv = _ql || localStorage.getItem("m2w.uiLang") || localStorage.getItem("m2/lang") || ((_bl === "pt" || _bl === "en" || _bl === "pl") ? _bl : "pl");
+    M2I18N.lang = String(_lv).toLowerCase().slice(0, 2) || "pl";
+  } catch (e) { }
 
   // ---------------------------------------------------------------- FONTE "estilo Metin2"
-  // O Metin2 usa Tahoma. No PC com Windows usamos a Tahoma de verdade; no celular
-  // (que não tem Tahoma) entra a DejaVu Sans Condensed, muito parecida com ela
-  // (site/fonts/, licença livre). Vale para todos os textos do overlay; os textos
-  // desenhados pelo próprio jogo já usam a fonte do jogo.
   (function () {
     try {
       var fcss = document.createElement("style");
-      fcss.textContent =
-        "@font-face{font-family:'M2Tahoma';font-weight:400;font-display:swap;src:local('Tahoma'),url(fonts/DejaVuSansCondensed.woff) format('woff')}" +
-        "@font-face{font-family:'M2Tahoma';font-weight:700;font-display:swap;src:local('Tahoma Bold'),local('Tahoma-Bold'),url(fonts/DejaVuSansCondensed-Bold.woff) format('woff')}" +
-        "#m2o,#m2o *,#m2o-kb,#m2o-kb *,#m2o_loading,#m2o_loading *,#m2w_download,#m2w_download *{font-family:'M2Tahoma',Tahoma,'Segoe UI',sans-serif !important}";
+      if (M2I18N.lang === "pl") {
+        fcss.textContent =
+          "@font-face{font-family:'Tahoma';font-weight:400;font-display:swap;src:local('Tahoma'),url(fonts/tahoma.ttf) format('truetype')}" +
+          "@font-face{font-family:'Tahoma';font-weight:700;font-display:swap;src:local('Tahoma Bold'),local('Tahoma-Bold'),local('Tahoma'),url(fonts/tahoma.ttf) format('truetype')}" +
+          "@font-face{font-family:'M2Tahoma';font-weight:400;font-display:swap;src:local('Tahoma'),url(fonts/tahoma.ttf) format('truetype')}" +
+          "@font-face{font-family:'M2Tahoma';font-weight:700;font-display:swap;src:local('Tahoma Bold'),local('Tahoma-Bold'),local('Tahoma'),url(fonts/tahoma.ttf) format('truetype')}" +
+          "#m2o,#m2o *,#m2o-kb,#m2o-kb *,#m2o_loading,#m2o_loading *,#m2w_download,#m2w_download *{font-family:Tahoma,'Segoe UI',Roboto,Arial,sans-serif !important}";
+      } else {
+        fcss.textContent =
+          "@font-face{font-family:'M2Tahoma';font-weight:400;font-display:swap;src:local('Tahoma'),url(fonts/DejaVuSansCondensed.woff) format('woff')}" +
+          "@font-face{font-family:'M2Tahoma';font-weight:700;font-display:swap;src:local('Tahoma Bold'),local('Tahoma-Bold'),url(fonts/DejaVuSansCondensed-Bold.woff) format('woff')}" +
+          "#m2o,#m2o *,#m2o-kb,#m2o-kb *,#m2o_loading,#m2o_loading *,#m2w_download,#m2w_download *{font-family:'M2Tahoma',Tahoma,'Segoe UI',sans-serif !important}";
+      }
       (document.head || document.documentElement).appendChild(fcss);
     } catch (e) { }
   })();
-
-  // ---------------------------------------------------------------- IDIOMA DO OVERLAY
-  // Os textos do overlay são escritos em português; i18n/overlay.json traz a tradução
-  // de cada um para en/pl e as dicas da tela de carregamento (uma lista por idioma).
-  // Para mudar/adicionar dicas ou traduções, edite só esse arquivo.
-  var M2I18N = { lang: "pt", texts: null };
-  try {
-    var _ql = new URLSearchParams(location.search).get("lang");
-    var _lv = _ql || localStorage.getItem("m2w.uiLang") || localStorage.getItem("m2/lang") || "pt";
-    M2I18N.lang = String(_lv).toLowerCase().slice(0, 2) || "pt";
-  } catch (e) { }
   function trS(s) {
     if (!M2I18N.texts || M2I18N.lang === "pt" || !s) return s;
     var k = String(s).trim();
@@ -690,10 +704,12 @@
     "#m2o .net-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:min(88vw,330px);padding:16px 20px;text-align:center;background:rgba(12,14,18,0.95);border:10px solid transparent;border-image:url(icons/ui/thinboard_gold.png) 10 fill repeat;box-shadow:0 8px 32px rgba(0,0,0,0.95);z-index:999999;display:none;color:#e8d9b8;pointer-events:auto}" +
     "#m2o .net-modal button{background:linear-gradient(180deg,#474b50 0%,#2a2c30 100%);border:1px solid #786b52;color:#f3dfb0;box-shadow:0 2px 4px rgba(0,0,0,0.6)}" +
     "#m2o .net-modal button:active{background:linear-gradient(180deg,#25272b 0%,#383b40 100%);border-color:#b8b09c}" +
-    "#m2o[data-scale=\"85\"] .hud-tl,#m2o[data-scale=\"85\"] .tl-side{transform:scale(0.82) !important;transform-origin:top left}" +
+    "#m2o[data-scale=\"85\"] .hud-tl{transform:scale(0.82) !important;transform-origin:top left}" +
+    "#m2o[data-scale=\"85\"] .tl-side{top:63px !important;transform:scale(0.82) !important;transform-origin:top left}" +
     "#m2o[data-scale=\"85\"] .joy{transform:scale(0.85) !important;transform-origin:bottom left}" +
     "#m2o[data-scale=\"85\"] .atk-btn,#m2o[data-scale=\"85\"] .pickup-btn,#m2o[data-scale=\"85\"] .qslot{transform:scale(0.85) !important;transform-origin:bottom right}" +
-    "#m2o[data-scale=\"115\"] .hud-tl,#m2o[data-scale=\"115\"] .tl-side{transform:scale(1.1) !important;transform-origin:top left}" +
+    "#m2o[data-scale=\"115\"] .hud-tl{transform:scale(1.1) !important;transform-origin:top left}" +
+    "#m2o[data-scale=\"115\"] .tl-side{top:82px !important;transform:scale(0.95) !important;transform-origin:top left}" +
     "#m2o[data-scale=\"115\"] .joy{transform:scale(1.15) !important;transform-origin:bottom left}" +
     "#m2o[data-scale=\"115\"] .atk-btn,#m2o[data-scale=\"115\"] .pickup-btn,#m2o[data-scale=\"115\"] .qslot{transform:scale(1.15) !important;transform-origin:bottom right}" +
 
@@ -733,12 +749,12 @@
     "#m2o .hud-tooltip{position:absolute;left:162px;top:8px;background:rgba(0,0,0,0.82);border:8px solid transparent;border-image:url(icons/ui/thinboard_9slice.png) 16 fill stretch;box-shadow:0 3px 10px rgba(0,0,0,0.95);padding:1px 6px;font-family:Tahoma,'Segoe UI',Arial,sans-serif;font-size:10.5px;font-weight:700;color:#e6e2d8;text-shadow:1px 1px 0 #000,-1px -1px 0 #000,0 1px 2px #000;white-space:nowrap;pointer-events:none;z-index:100000;opacity:0;transform:translateX(-4px);transition:opacity 0.16s ease,transform 0.16s ease;line-height:1.3;text-align:left}" +
     "#m2o .hud-tooltip.show{opacity:1;transform:translateX(0)}" +
     /* Steel buttons SLOTY / AUTO / LPM / PODZ directly below compact HUD */
-    "#m2o .tl-side{position:absolute;top:73px;left:5px;display:flex;flex-direction:row;gap:3px;pointer-events:auto;z-index:20}" +
-    "#m2o .tl-side button{position:relative;width:38px;height:19px;border:none;border-radius:2px;background:url(icons/ui/btn_steel_small.png) center/100% 100% no-repeat;box-shadow:0 1px 3px rgba(0,0,0,0.85);display:flex;flex-direction:row;align-items:center;justify-content:center;gap:2px;padding:0 2px;cursor:pointer}" +
+    "#m2o .tl-side{position:absolute;top:75px;left:6px;display:flex;flex-direction:row;gap:3px;pointer-events:auto;z-index:20}" +
+    "#m2o .tl-side button{position:relative;width:33px;height:16px;border:none;border-radius:2px;background:url(icons/ui/btn_steel_small.png) center/100% 100% no-repeat;box-shadow:0 1px 3px rgba(0,0,0,0.85);display:flex;flex-direction:row;align-items:center;justify-content:center;gap:1.5px;padding:0 2px;cursor:pointer}" +
     "#m2o .tl-side button:active{background-image:url(icons/ui/btn_steel_small_down.png);transform:scale(0.96)}" +
-    "#m2o .tl-side button img{width:11px;height:11px;object-fit:contain;margin:0;pointer-events:none;filter:drop-shadow(0 1px 1px #000)}" +
-    "#m2o .tl-side button .m2o-svg{width:11px;height:11px;margin:0;filter:drop-shadow(0 1px 1px #000)}" +
-    "#m2o .tl-side button .mini-tag{position:static;font-family:Tahoma,'Segoe UI',Arial,sans-serif;font-size:7.5px;font-weight:700;letter-spacing:0.2px;color:#d8dde3;line-height:1;text-shadow:1px 1px 0 #000,-1px -1px 0 #000;pointer-events:none}" +
+    "#m2o .tl-side button img{width:9.5px;height:9.5px;object-fit:contain;margin:0;pointer-events:none;filter:drop-shadow(0 1px 1px #000)}" +
+    "#m2o .tl-side button .m2o-svg{width:9.5px;height:9.5px;margin:0;filter:drop-shadow(0 1px 1px #000)}" +
+    "#m2o .tl-side button .mini-tag{position:static;font-family:Tahoma,'Segoe UI',Arial,sans-serif;font-size:6.8px;font-weight:700;letter-spacing:0.1px;color:#d8dde3;line-height:1;text-shadow:1px 1px 0 #000,-1px -1px 0 #000;pointer-events:none}" +
     "#m2o .tl-side button.active{background-image:url(icons/ui/btn_steel_small_over.png);box-shadow:0 0 5px rgba(216,221,227,0.45)}" +
     "#m2o .tl-side button.active .mini-tag{color:#ffe082}" +
     /* 2. Right edge below minimap - compact vertical column of 5 authentic icons in steel/antique-gold sockets */
@@ -787,7 +803,7 @@
     "#m2o .pickup-btn img{width:22px;height:22px;object-fit:contain;display:block;pointer-events:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.92))}" +
     "#m2o .pickup-btn:active{border-color:#b8b09c;transform:scale(0.94)}" +
     /* 5. Bottom-center Chat History & Chat Input bar in authentic Metin2 ThinBoard + steel button style */
-    "#m2o .chat-log{position:absolute;bottom:64px;left:50%;transform:translateX(-50%);width:min(320px,calc(100% - 380px));height:68px;z-index:2;background:rgba(0,0,0,0.68);border:1px solid #4a4e54;box-shadow:inset 0 0 0 1px #1d1f22;border-radius:2px;padding:3px 6px;overflow-y:auto;overflow-x:hidden;pointer-events:none;touch-action:pan-y;font:600 10.5px/1.28 Tahoma,'Segoe UI',sans-serif;text-shadow:1px 1px 1px #000;opacity:1;transition:opacity 0.45s ease,background-color 0.45s ease,border-color 0.45s ease}" +
+    "#m2o .chat-log{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);width:min(520px,calc(100% - 300px));min-width:220px;height:76px;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,0.22) 0%,rgba(0,0,0,0.72) 100%);border:1px solid rgba(110,96,70,0.48);border-bottom:none;border-radius:3px 3px 0 0;padding:3px 7px;overflow-y:auto;overflow-x:hidden;pointer-events:none;touch-action:pan-y;font:600 10.5px/1.3 Tahoma,'Segoe UI',sans-serif;text-shadow:1px 1px 1px #000;opacity:1;transition:opacity 0.45s ease}" +
     "#m2o .chat-log.interactive{pointer-events:auto}" +
     "#m2o .chat-log.faded{opacity:0;background-color:transparent;border-color:transparent;pointer-events:none}" +
     "#m2o .chat-log::-webkit-scrollbar{width:3px}" +
@@ -796,10 +812,23 @@
     "#m2o .chat-line.c-whisper{color:#58e66f}" +
     "#m2o .chat-line.c-notice{color:#e6c875}" +
     "#m2o .chat-line.c-guild{color:#76b9f0}" +
-    "#m2o .chat-bar{position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:min(320px,calc(100% - 380px));min-width:200px;height:28px;background:rgba(0,0,0,0.82);border:6px solid transparent;border-image:url(icons/ui/thinboard_9slice.png) 16 fill stretch;box-shadow:0 2px 8px rgba(0,0,0,0.9);display:flex;align-items:center;padding:0 2px;gap:5px;pointer-events:auto}" +
-    "#m2o .chat-tag{font-size:9.5px;font-weight:700;color:#d8dde3;background:url(icons/ui/btn_steel_small.png) center/100% 100% no-repeat;border:none;padding:2px 7px;white-space:nowrap;text-shadow:1px 1px 0 #000}" +
-    "#m2o .chat-inp{flex:1;min-width:0;height:20px;background:transparent;border:none;outline:none;color:#fff;font:600 11px Tahoma,'Segoe UI',sans-serif;pointer-events:auto;user-select:text;-webkit-user-select:text;touch-action:manipulation}" +
-    "#m2o .chat-inp::placeholder{color:rgba(180,185,192,0.55)}" +
+    "#m2o .chat-bar{position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:min(520px,calc(100% - 300px));min-width:220px;height:26px;background:rgba(8,9,12,0.82);border:1px solid rgba(110,94,64,0.72);border-image:none !important;box-shadow:inset 0 0 0 1px rgba(20,18,14,0.85),0 2px 6px rgba(0,0,0,0.8);border-radius:3px;display:flex;align-items:center;padding:0 4px;gap:4px;pointer-events:auto;transition:background 0.18s ease,border-color 0.18s ease,opacity 0.18s ease}" +
+    "#m2o .chat-bar.typing{background:rgba(8,9,12,0.94);border-color:#c8a862;box-shadow:inset 0 0 0 1px #3a2f1d,0 0 6px rgba(200,168,98,0.32),0 2px 8px rgba(0,0,0,0.92);opacity:1 !important}" +
+    "#m2o .chat-histbtn{flex:none;width:21px;height:19px;padding:0;display:flex;align-items:center;justify-content:center;background:rgba(36,32,26,0.85);border:1px solid rgba(110,90,53,0.75);border-radius:2px;pointer-events:auto}" +
+    "#m2o .chat-histbtn svg{width:13px;height:13px;display:block;pointer-events:none}" +
+    "#m2o .chat-tag{font-size:10px;font-weight:700;color:#d8dde3;background:linear-gradient(180deg,#30343a 0%,#1a1c20 100%);border:1px solid rgba(140,123,88,0.8);border-radius:2px;padding:0 6px;height:19px;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;text-shadow:1px 1px 0 #000}" +
+    "#m2o .chat-inp{flex:1;min-width:0;height:19px;background:rgba(0,0,0,0.38);border:1px solid rgba(160,150,128,0.38);border-radius:2px;padding:0 6px;outline:none;color:#fff;font:600 11px Tahoma,'Segoe UI',sans-serif;pointer-events:auto;user-select:text;-webkit-user-select:text;touch-action:manipulation}" +
+    "#m2o .chat-bar.typing .chat-inp{border-color:rgba(235,220,185,0.82);background:rgba(0,0,0,0.72)}" +
+    "#m2o .chat-inp::placeholder{color:rgba(185,190,198,0.52)}" +
+    "@media (max-width:1024px),(hover:none) and (pointer:coarse){" +
+    "#m2o .chat-bar{left:50%;transform:translateX(-50%);bottom:3px;width:clamp(195px,calc(100% - 392px),275px);min-width:0;height:20px;padding:0 2px;gap:2px;background:rgba(8,9,12,0.52);border-color:rgba(110,94,64,0.45);box-shadow:0 1px 4px rgba(0,0,0,0.6);opacity:0.86}" +
+    "#m2o .chat-log{left:50%;transform:translateX(-50%);bottom:25px;width:clamp(195px,calc(100% - 392px),275px);min-width:0;height:62px;font-size:9.5px;padding:2px 5px}" +
+    "#m2o .chat-histbtn{width:16px;height:15px}" +
+    "#m2o .chat-histbtn svg{width:11px;height:11px}" +
+    "#m2o .chat-tag{height:15px;padding:0 4px;font-size:8.5px}" +
+    "#m2o .chat-inp{height:15px;padding:0 4px;font-size:9.5px;background:rgba(0,0,0,0.28);border-color:rgba(150,140,115,0.28)}" +
+    "#m2o .chat-send{width:18px !important;height:15px !important;font-size:8.5px !important}" +
+    "}" +
     "#m2o.win-open .chat-bar:not(.typing),#m2o.win-open .chat-log:not(.interactive),#m2o.win-open .target-pill{visibility:hidden !important;pointer-events:none !important}" +
     "#m2o.chatlog-open.win-open .chat-bar:not(.typing){visibility:visible !important;pointer-events:auto !important}" +
     /* Controle deslizante de zoom (acima da barra de chat) */
@@ -1171,7 +1200,7 @@
       if (q) return q === "hd" ? "hd" : parseFloat(q);
       var v = localStorage.getItem("m2w.mobileScale");
       if (v === "hd") return "hd";
-      return v ? parseFloat(v) : 1.25;
+      return v ? parseFloat(v) : (M2I18N.lang === "pl" ? 1 : 1.25);
     } catch (e) { return 1.25; }
   }
   function setUiScale(v) {
@@ -2145,6 +2174,7 @@
   }, 5000);
   var kbBtn = btn('<span style="font:700 15px/1 Tahoma,sans-serif;color:#ffe9a8;text-shadow:0 1px 2px #000;pointer-events:none">\u2328</span>',
     function () { if (gameKbOpen()) hideGameKb(); else openGameKbManual(); }, "shop-btn kb-btn", "Teclado", true);
+  if (!isTouchDevice) kbBtn.style.display = "none";
   root.appendChild(kbBtn);
   // Posição em unidades do jogo (o minimapa é desenhado pelo jogo): ~168 px lógicos da direita.
   // O minimapa (do jogo) anda para a esquerda para dar lugar à barra de zoom vertical.
@@ -2675,33 +2705,54 @@
   // jogadores, bandeiras do reino), igual ao PC. O chat simples do overlay só via as
   // mensagens que passavam pelo Python. Preferência: m2o.nativeChat (padrão: ligado).
   function nativeChatOn() { try { return localStorage.getItem("m2o.nativeChat") !== "0"; } catch (e) { return true; } }
+  function setNativeChatEditBoard(editing) {
+    if (!inWorld || !nativeChatOn()) return;
+    runPy(safePy([
+      "import chat",
+      "_wc = getattr(getattr(self, 'interface', None), 'wndChat', None)",
+      "if _wc is not None and hasattr(_wc, '_m2oSetEdit'):",
+      "    _wc._m2oSetEdit(" + (editing ? "True" : "False") + ")"
+    ]));
+  }
   function applyNativeChat() {
     if (!inWorld) return;
     var on = nativeChatOn();
-    // Pos. das mensagens: logo acima da barra de digitar do overlay.
-    // ...e com a mesma largura e posição da barra (antes ficava bem mais largo).
     var barTopL = 0, barLeftL = 0, barWL = 0;
     try {
       var cbr = chatBar.getBoundingClientRect();
-      barTopL = cssToLogicalY(cbr.top);
-      barLeftL = cssToLogicalX(cbr.left);
-      barWL = cssToLogicalX(cbr.right) - barLeftL;
-      // Um pouco mais larga que a barra (o jogo não quebra linhas longas), centrada nela.
-      var lwAll = cssToLogicalX(window.innerWidth);
-      var wantW = Math.min(Math.max(barWL, lwAll - 520), Math.round(barWL * 1.6));
-      barLeftL = Math.max(4, Math.round(barLeftL + barWL / 2 - wantW / 2));
-      barWL = wantW;
+      barTopL = Math.round(cssToLogicalY(cbr.top));
+      barLeftL = Math.max(4, Math.round(cssToLogicalX(cbr.left)));
+      barWL = Math.max(160, Math.round(cssToLogicalX(cbr.right)) - barLeftL);
     } catch (e) { }
     runPy(safePy([
-      "import constInfo, wndMgr, systemSetting, ui",
+      "import constInfo, wndMgr, systemSetting, ui, chat, app",
       "constInfo._mob_show_pc_chat = " + (on ? "True" : "False"),
       "_wc = getattr(getattr(self, 'interface', None), 'wndChat', None)",
       "if _wc is not None:",
       "    if " + (on ? "True" : "False") + ":",
-      // o jogo esconde o chat a cada segundo no celular: enquanto ligado, Hide() não faz nada
       "        if not hasattr(_wc, '_m2oOrigHide'):",
       "            _wc._m2oOrigHide = _wc.Hide",
       "            _wc.Hide = (lambda *a, **k: None)",
+      "        if not hasattr(_wc, '_m2oOrigOpenChat'):",
+      "            _wc._m2oOrigOpenChat = _wc.OpenChat",
+      "            def _m2oSetEdit(_ed, _w=_wc):",
+      "                import app as _app",
+      "                _w._m2oEditing = bool(_ed)",
+      "                if not _ed:",
+      "                    _w._chatShowUntil = _app.GetTime() + 2.2",
+      "                _w.chatInputSet.Close()",
+      "                _w.btnSendWhisper.Hide()",
+      "                _w.btnChatLog.Hide()",
+      "                _w.btnChatSizing.Hide()",
+      "                _w.Refresh()",
+      "            _wc._m2oSetEdit = _m2oSetEdit",
+      "            def _m2oOpenChat(_w=_wc):",
+      "                _w._m2oSetEdit(True)",
+      "                try:",
+      "                    open('/m2w_focus_chat', 'w').close()",
+      "                except Exception:",
+      "                    pass",
+      "            _wc.OpenChat = _m2oOpenChat",
       "        try:",
       "            systemSetting.SetViewChatFlag(1)",
       "        except Exception:",
@@ -2709,19 +2760,22 @@
       "        _sw = wndMgr.GetScreenWidth()",
       "        _sh = wndMgr.GetScreenHeight()",
       "        _eh = int(getattr(_wc, 'EDIT_LINE_HEIGHT', 25))",
-      "        _cw = " + (barWL > 100 ? barWL : 0) + " or int(getattr(_wc, 'CHAT_WINDOW_WIDTH', 600))",
+      "        _cw = " + (barWL > 80 ? barWL : 0) + " or int(getattr(_wc, 'CHAT_WINDOW_WIDTH', 320))",
       "        _wc.CHAT_WINDOW_WIDTH = _cw",
-      "        _top = " + (barTopL || 0) + " or (_sh - 46)",
-      "        _left = " + (barWL > 100 ? barLeftL : -1),
+      "        _top = " + (barTopL || 0) + " or (_sh - 28)",
+      "        _left = " + (barWL > 80 ? barLeftL : -1),
       "        if _left < 0:",
       "            _left = max(0, (_sw - _cw) // 2)",
-      "        _wc.SetPosition(_left, _top - _eh + 1)",
+      "        _wc.SetPosition(_left, _top - _eh)",
       "        ui.Window.Show(_wc)",
       "        _wc.CloseChat()",
       "    else:",
       "        if hasattr(_wc, '_m2oOrigHide'):",
       "            _wc.Hide = _wc._m2oOrigHide",
       "            del _wc._m2oOrigHide",
+      "        if hasattr(_wc, '_m2oOrigOpenChat'):",
+      "            _wc.OpenChat = _wc._m2oOrigOpenChat",
+      "            del _wc._m2oOrigOpenChat",
       "        _wc.Hide()"
     ]));
     updateChatLogVisibility();
@@ -2810,7 +2864,7 @@
   }
 
   var chatBar = document.createElement("div");
-  chatBar.className = "chat-bar gold-box";
+  chatBar.className = "chat-bar";
   ["touchstart", "mousedown", "click"].forEach(function (evName) {
     chatBar.addEventListener(evName, function () { wakeChatLog(true); }, { passive: true });
   });
@@ -2847,41 +2901,98 @@
   var chatInp = document.createElement("input");
   chatInp.type = "text";
   chatInp.className = "chat-inp";
-  chatInp.placeholder = "Conversar... (ou /comando)";
+  chatInp.placeholder = isTouchDevice ? (M2I18N.lang === "pl" ? "Czat..." : "Chat...") : "Conversar... (ou /comando)";
   chatInp.autocomplete = "off";
   chatInp.autocorrect = "off";
   chatInp.autocapitalize = "off";
   chatInp.spellcheck = false;
 
+  var sentChatHistory = [];
+  var sentChatHistIdx = 0;
+
   chatInp.addEventListener("focus", function () {
-    chatBar.classList.add("typing"); wakeChatLog(true);
-    if (kbPref() !== "native") {
+    try {
+      if (window.m2w && window.m2w.dik) window.m2w.dik.fill(0);
+      if (window.m2w_keys) window.m2w_keys.fill(0);
+    } catch (e) { }
+    chatBar.classList.add("typing");
+    wakeChatLog(true);
+    setNativeChatEditBoard(true);
+    if (isTouchDevice && kbPref() !== "native") {
       try { chatInp.blur(); } catch (e) { }
       showGameKb(null, chatInp);
     }
   });
-  // Teclado do jogo escolhido -> o campo do chat não chama o teclado do celular.
   function applyChatKbMode() {
-    var game = kbPref() !== "native";
+    var game = isTouchDevice && kbPref() !== "native";
     chatInp.readOnly = game;
     chatInp.inputMode = game ? "none" : "text";
   }
   applyChatKbMode();
-  chatInp.addEventListener("blur", function () { chatBar.classList.remove("typing"); chatLog.classList.remove("interactive"); });
+  chatInp.addEventListener("blur", function () {
+    if (gameKbOpen() && kbTargetEl === chatInp) return;
+    chatBar.classList.remove("typing");
+    chatLog.classList.remove("interactive");
+    setNativeChatEditBoard(false);
+  });
   ["touchstart", "touchend", "mousedown", "mouseup", "click", "keydown", "keyup", "keypress"].forEach(function (evName) {
     chatInp.addEventListener(evName, function (e) {
       e.stopPropagation();
       wakeChatLog(true);
-      if (evName === "keydown" && (e.key === "Enter" || e.keyCode === 13)) {
-        e.preventDefault();
-        sendChatInput();
+      if (evName === "keydown") {
+        if (e.key === "Enter" || e.keyCode === 13) {
+          e.preventDefault();
+          sendChatInput();
+        } else if (e.key === "Escape" || e.keyCode === 27) {
+          e.preventDefault();
+          chatInp.value = "";
+          chatInp.blur();
+          setNativeChatEditBoard(false);
+        } else if (e.key === "Tab" || e.keyCode === 9) {
+          e.preventDefault();
+          cycleChatMode();
+        } else if (e.key === "ArrowUp" || e.keyCode === 38) {
+          if (sentChatHistory.length > 0 && sentChatHistIdx < sentChatHistory.length) {
+            e.preventDefault();
+            sentChatHistIdx++;
+            chatInp.value = sentChatHistory[sentChatHistory.length - sentChatHistIdx];
+          }
+        } else if (e.key === "ArrowDown" || e.keyCode === 40) {
+          e.preventDefault();
+          if (sentChatHistIdx > 1) {
+            sentChatHistIdx--;
+            chatInp.value = sentChatHistory[sentChatHistory.length - sentChatHistIdx];
+          } else {
+            sentChatHistIdx = 0;
+            chatInp.value = "";
+          }
+        }
       }
     });
   });
 
+  // On PC (or physical keyboard): pressing Enter in-world opens/focuses chatInp directly
+  window.addEventListener("keydown", function (e) {
+    if (!inWorld) return;
+    if (e.key === "Enter" || e.keyCode === 13) {
+      var ae = document.activeElement;
+      if (ae === chatInp || ae === hiddenIme || (ae && (ae.tagName === "INPUT" || ae.tagName === "TEXTAREA"))) return;
+      if (editActive || fsExists("/m2w_edit.json") || gameKbOpen()) return;
+      e.preventDefault();
+      e.stopPropagation();
+      chatInp.readOnly = false;
+      try { chatInp.focus(); } catch (err) { }
+    }
+  }, true);
+
   function sendChatInput() {
     var val = (chatInp.value || "").trim();
-    if (!val) { chatInp.blur(); return; }
+    sentChatHistIdx = 0;
+    if (!val) { chatInp.blur(); setNativeChatEditBoard(false); return; }
+    if (!sentChatHistory.length || sentChatHistory[sentChatHistory.length - 1] !== val) {
+      sentChatHistory.push(val);
+      if (sentChatHistory.length > 32) sentChatHistory.shift();
+    }
     // Aplica o tipo de chat escolhido (se a mensagem já não tiver um prefixo).
     var cm = CHAT_MODES[chatModeIdx];
     if (cm && cm.prefix && "/#%!@".indexOf(val.charAt(0)) < 0 && val.indexOf("py:") !== 0) val = cm.prefix + val;
@@ -2915,6 +3026,8 @@
       );
     }
     chatInp.value = "";
+    chatBar.classList.remove("typing");
+    setNativeChatEditBoard(false);
     chatInp.blur();
     wakeChatLog(false);
   }
@@ -2936,13 +3049,28 @@
   chatLogBtn.className = "chat-histbtn";
   chatLogBtn.title = "Hist\u00F3rico do chat";
   chatLogBtn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" style="display:block;pointer-events:none"><g fill="none" stroke="#e6d5a8" stroke-width="2" stroke-linecap="round"><path d="M5 4h11l3 3v13H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></g></svg>';
-  chatLogBtn.style.cssText = "flex:none;width:24px;height:22px;padding:0;display:flex;align-items:center;justify-content:center;background:rgba(40,36,30,0.9);border:1px solid #6e5a35;border-radius:3px;pointer-events:auto";
+  // styled via #m2o .chat-histbtn
   chatLogBtn.addEventListener("touchstart", function (e) { e.stopPropagation(); }, { passive: true });
   chatLogBtn.addEventListener("click", function (e) {
     e.preventDefault(); e.stopPropagation();
     toggleChatHistory();
   });
   chatBar.appendChild(chatLogBtn);
+  var chatWhisperBtn = document.createElement("button");
+  chatWhisperBtn.type = "button";
+  chatWhisperBtn.className = "chat-histbtn";
+  chatWhisperBtn.title = "Sussurro (MP)";
+  chatWhisperBtn.innerHTML = '<svg viewBox="0 0 24 24" width="15" height="15" style="display:block;pointer-events:none"><g fill="none" stroke="#e6d5a8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></g></svg>';
+  // styled via #m2o .chat-histbtn
+  chatWhisperBtn.addEventListener("touchstart", function (e) { e.stopPropagation(); }, { passive: true });
+  chatWhisperBtn.addEventListener("click", function (e) {
+    e.preventDefault(); e.stopPropagation();
+    runPy(safePy([
+      "if hasattr(self, 'interface') and self.interface and hasattr(self.interface, 'OpenWhisperDialogWithoutTarget'):",
+      "    self.interface.OpenWhisperDialogWithoutTarget()"
+    ]));
+  });
+  chatBar.appendChild(chatWhisperBtn);
   // Painel do histórico: largura da barra de chat (mín. 450 do jogo), do topo da tela
   // até logo acima da barra. Fecha no botão, no X da janela ou tocando fora dela.
   var chatHistRect = null;   // retângulo em px CSS, para fechar ao tocar fora
@@ -2951,16 +3079,22 @@
     var lx0 = cssToLogicalX(br.left), lx1 = cssToLogicalX(br.right);
     var ltop = cssToLogicalY(br.top);
     var W = Math.max(450, lx1 - lx0);
-    var y0 = 8;
-    var H = Math.max(140, ltop - 6 - y0);
+    var H = Math.min(230, Math.max(150, Math.round(ltop * 0.46)));
+    var y0 = Math.max(8, ltop - H - 3);
     var cx = Math.round((lx0 + lx1) / 2);
-    chatHistRect = { left: br.left - 20, right: br.right + 20, top: 0, bottom: br.top };
+    chatHistRect = { left: br.left - 20, right: br.right + 20, top: Math.max(0, br.top - (H * (br.height / 25))), bottom: br.top };
     runPy(safePy([
       "import wndMgr",
       "_w = self.interface.wndChatLog",
+      "_wc = getattr(self.interface, 'wndChat', None)",
       "if _w.IsShow() or " + (forceClose ? "True" : "False") + ":",
       "    _w.Hide()",
+      "    if _wc is not None:",
+      "        _wc.CloseChat()",
       "else:",
+      "    if _wc is not None:",
+      "        _wc.CloseChat()",
+      "        _wc.btnChatSizing.Hide()",
       "    _sw = wndMgr.GetScreenWidth()",
       "    _W = min(" + W + ", _sw)",
       "    _H = " + H,
@@ -2969,6 +3103,8 @@
       "        _bh = _w.btnSizing.GetHeight()",
       "        _w.btnSizing.SetPosition(_W - _bw, _H - _bh)",
       "        _w.OnResize()",
+      "        if hasattr(_w, 'chatInputSet') and _w.chatInputSet:",
+      "            _w.chatInputSet.Close()",
       "    except Exception:",
       "        pass",
       "    _w.SetPosition(max(0, min(_sw - _W, " + cx + " - _W // 2)), " + y0 + ")",
@@ -3471,14 +3607,14 @@
   function handleEditInfo(ei, fromTap) {
     if (!ei) return;
     var seq = Number(ei.seq) || 1;
-    if (editActive && seq === lastEditSeq) return;       // mesmo foco: não mexe no texto
+    var kbOpen = document.activeElement === hiddenIme || gameKbOpen();
+    if (editActive && seq === lastEditSeq && kbOpen && !fromTap) return;
+    var isNewSeq = (!editActive || seq !== lastEditSeq);
     editActive = true;
     lastEditSeq = seq;
-    var kbOpen = document.activeElement === hiddenIme || gameKbOpen();
-    var userTapped = !!ei.tap || (!tapPatchOk && (fromTap || Date.now() - lastCanvasTapAt < 600));
-    // Tela de criar personagem: o campo do nome já começa com foco -> abre direto.
-    var autoOpen = lastPhase === "CreateCharacterWindow";
-    if (userTapped || kbOpen || autoOpen || Date.now() < keepKbUntil) {
+    var userTapped = (isNewSeq && !!ei.tap) || !!fromTap || (isNewSeq && Date.now() - lastCanvasTapAt < 650);
+    var autoOpen = isNewSeq && lastPhase === "CreateCharacterWindow";
+    if (userTapped || kbOpen || autoOpen || (isNewSeq && Date.now() < keepKbUntil)) {
       openKeyboardFor(ei);
     }
   }
@@ -3521,7 +3657,13 @@
   // jogo: cada tecla acrescenta/apaga no texto ATUAL do campo (via Python), então
   // apagar sempre funciona. "Teclado do celular" continua disponível (botão 📱).
   // =========================================================================
-  function kbPref() { try { return localStorage.getItem("m2o.kb") === "native" ? "native" : "game"; } catch (e) { return "game"; } }
+  function kbPref() {
+    try {
+      var s = localStorage.getItem("m2o.kb");
+      if (s === "native" || s === "game") return s;
+    } catch (e) { }
+    return isTouchDevice ? "game" : "native";
+  }
   var kbCss = document.createElement("style");
   kbCss.textContent =
     "#m2o-kb{position:fixed;left:0;right:0;bottom:0;z-index:200;pointer-events:auto;display:none;flex-direction:column;gap:4px;padding:5px 6px calc(6px + env(safe-area-inset-bottom));" +
@@ -3554,7 +3696,7 @@
   var kbNative = document.createElement("button");
   kbNative.type = "button";
   kbNative.className = "kb-small";
-  kbNative.textContent = "📱 Teclado do celular";
+  kbNative.textContent = M2I18N.lang === "pl" ? "\uD83D\uDCF1 Klawiatura telefonu" : (M2I18N.lang === "en" ? "\uD83D\uDCF1 Phone keyboard" : "\uD83D\uDCF1 Teclado do celular");
   var kbClose = document.createElement("button");
   kbClose.type = "button";
   kbClose.className = "kb-small";
@@ -3692,7 +3834,7 @@
         b.className = "kb-key";
         var label = k;
         if (!kbSym && kbShift && k.length === 1 && /[a-z]/.test(k)) label = k.toUpperCase();
-        if (k === " ") { b.className += " space"; label = "espaço"; }
+        if (k === " ") { b.className += " space"; label = M2I18N.lang === "pl" ? "spacja" : (M2I18N.lang === "en" ? "space" : "espa\u00e7o"); }
         if (k === "⌫" || k === "⇧" || k === "?123" || k === "ABC") b.className += " act wide";
         if (k === "⇧" && kbShift) b.className += " down";
         if (k === "OK") b.className += " ok wide";
@@ -3715,14 +3857,20 @@
     buildKbRows();
     renderKbView();
     gameKb.classList.add("open");
+    if (lastPhase === "LoginWindow") {
+      runPy("import constInfo\nif hasattr(constInfo, '_m2oFitLogin'):\n    try:\n        constInfo._m2oFitLogin(self, True)\n    except TypeError:\n        constInfo._m2oFitLogin(self)");
+    }
     if (targetEl === chatInp) { chatBar.classList.add("typing"); wakeChatLog(true); }
-    if (!targetEl) { kbAwaitView = true; runPy(kbPy("view")); }   // texto real do campo (e se é senha)
+    if (!targetEl) { kbAwaitView = true; runPy(kbPy("view")); }
   }
   function hideGameKb() {
     if (!gameKbOpen()) return;
     gameKb.classList.remove("open");
+    if (lastPhase === "LoginWindow") {
+      runPy("import constInfo\nif hasattr(constInfo, '_m2oFitLogin'):\n    try:\n        constInfo._m2oFitLogin(self, False)\n    except TypeError:\n        constInfo._m2oFitLogin(self)");
+    }
     if (kbRepeat) { clearTimeout(kbRepeat); kbRepeat = null; }
-    if (kbTargetEl === chatInp) { chatBar.classList.remove("typing"); chatLog.classList.remove("interactive"); }
+    if (kbTargetEl === chatInp) { chatBar.classList.remove("typing"); chatLog.classList.remove("interactive"); setNativeChatEditBoard(false); }
     kbTargetEl = null;
   }
   // Botão "Teclado": abre o teclado do jogo quando quiser. No jogo, sem campo de texto
@@ -3734,6 +3882,8 @@
     showGameKb(null);
   }
   function openKeyboardFor(ei) {
+    // On desktop PC (non-touch), let the user type directly on their physical keyboard into the game canvas
+    if (!isTouchDevice) { hideGameKb(); return; }
     if (kbPref() === "native") { hideGameKb(); focusHiddenIme(ei); }
     else { if (document.activeElement === hiddenIme) { try { hiddenIme.blur(); } catch (e) { } } showGameKb(ei); }
   }
@@ -3768,6 +3918,11 @@
   setInterval(function () {
     try {
       if (!window.Module || !Module.FS) return;
+      if (fsExists("/m2w_focus_chat")) {
+        fsRm("/m2w_focus_chat");
+        if (isTouchDevice && kbPref() !== "native") showGameKb(null, chatInp);
+        else { chatInp.readOnly = false; try { chatInp.focus(); } catch (e2) { } }
+      }
       var ei = readEditInfo();
       if (ei) {
         handleEditInfo(ei, false);
@@ -3958,7 +4113,7 @@
     if (inWorld) {
       positionShopBtn();
       setTimeout(applyGfx, 2600);
-      setTimeout(applyNativeChat, 2900);
+      setTimeout(applyNativeChat, 350); setTimeout(applyNativeChat, 1200); setTimeout(applyNativeChat, 2900);
       setTimeout(shiftMiniMap, 1200);
       setTimeout(shiftMiniMap, 4500);
       setTimeout(function () { runPy(SHOP_PEEK_PY); }, 3200);

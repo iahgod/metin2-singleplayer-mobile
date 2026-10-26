@@ -32,10 +32,10 @@
     // PT-BR: barra semitransparente com botões de minimizar (–) e fechar (×).
     // Minimizada vira uma pílula pequena com a porcentagem (toque para abrir de novo);
     // fechada some até recarregar a página. O download continua em segundo plano.
-    var isMobilePage = /[?&]mobile=1(&|$)/.test(location.search);
+    var isMobilePage = /[?&]mobile=1(&|$)/.test(location.search) || (!/[?&]mobile=0(&|$)/.test(location.search) && (/Android|iPhone|iPad|iPod|Mobile|Tablet/i.test(navigator.userAgent || '') || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches && Math.min(window.innerWidth || 9999, window.innerHeight || 9999) <= 920)));
     var barClosed = false;
     var barMin = false;
-    try { barMin = localStorage.getItem('m2w.dlbar') === 'min'; } catch (e) { }
+    try { var _dlPref = localStorage.getItem('m2w.dlbar'); barMin = _dlPref ? (_dlPref === 'min') : isMobilePage; } catch (e) { barMin = isMobilePage; }
 
     var css = document.createElement('style');
     css.textContent =
@@ -63,7 +63,7 @@
     if (isMobilePage) bar.className = 'mobile';
     bar.innerHTML =
         '<div class="dl-full">' +
-          '<div class="dl-head"><span class="dl-text" id="m2w_download_text">Dados do jogo</span>' +
+          '<div class="dl-head"><span class="dl-text" id="m2w_download_text">Dane gry</span>' +
           '<button type="button" class="dl-btn" data-act="min" title="Minimizar" aria-label="Minimizar">&#8211;</button>' +
           '<button type="button" class="dl-btn" data-act="close" title="Fechar" aria-label="Fechar">&#215;</button></div>' +
           '<div class="dl-track"><div class="dl-fill" id="m2w_download_fill"></div></div>' +
@@ -144,7 +144,7 @@
             function next() {
                 if (i >= list.length) {
                     download.end = performance.now();
-                    show('Dados do jogo: tudo salvo no aparelho', 1, download.total + ' partes');
+                    show('Dane gry: zapisano w pami\u0119ci', 1, download.total + ' cz.');
                     console.log('[corpus] background: ' + download.done + ' downloaded, ' + download.fromCache + ' from disk, ' +
                                 download.errors + ' errors, ' + Math.round((download.end - download.start) / 1000) + ' s');
                     hide(4000);
@@ -190,7 +190,7 @@
                 }).catch(function (e) { ++download.errors; }).then(function () {
                     var n = download.done + download.fromCache + download.errors;
                     if (download.done > 0 || (n % 25) === 0)
-                        show('Dados do jogo (em segundo plano): ' + n + ' / ' + download.total, n / download.total,
+                        show('Dane gry (w tle): ' + n + ' / ' + download.total, n / download.total,
                              download.done ? (megabytesPerSecond().toFixed(1) + ' MB/s' + (download.errors ? ', erros ' + download.errors : '')) : 'carregando na memória...');
                     setTimeout(next, wasNet ? 35 : 5);
                 });
@@ -214,11 +214,11 @@
             // we move to the background, which covers the rest of the list anyway.
             var bStalled = performance.now() - lastChange > 12000;
             if (w.done < w.total && !bStalled)
-                show('Dados essenciais: ' + w.done + ' / ' + w.total, w.done / w.total,
-                     (w.fromStorage ? w.fromStorage + ' do armazenamento' : ''));
+                show('Dane podstawowe: ' + w.done + ' / ' + w.total, w.done / w.total,
+                     (w.fromStorage ? w.fromStorage + ' z pami\u0119ci' : ''));
             else if (!backgroundStarted) {
                 backgroundStarted = true;
-                show('Dados essenciais: prontos', 1, '');
+                show('Dane podstawowe: gotowe', 1, '');
                 setTimeout(backgroundPhase, 600);
             }
         } else if (!w && performance.now() > 25000 && !backgroundStarted && m2w.corpus && m2w.corpus.all.length) {

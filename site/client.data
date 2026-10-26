@@ -11710,6 +11710,9 @@ RESULT_NOT_UNLOCKED = 21
 REFINE_PROTOCOL = 3
 
 
+REFINE_SCROLL_PROTOCOL = 4
+
+
 OPEN_WRONG_PASSWORD = 1
 OPEN_ELSEWHERE = 2
 OPEN_DISABLED = 3
@@ -11897,7 +11900,7 @@ def Money(value):
 
 CLOSE_COMMAND = '/collector close'
 
-_state = {'speaks': False, 'older': False, 'refine': False}
+_state = {'speaks': False, 'older': False, 'refine': False, 'refineScroll': False}
 
 
 def OnHello(*protocols):
@@ -11910,11 +11913,17 @@ def OnHello(*protocols):
 	_state['speaks'] = CLIENT_PROTOCOL in offered
 	_state['older'] = not _state['speaks'] and any(0 < protocol < CLIENT_PROTOCOL for protocol in offered)
 	_state['refine'] = _state['speaks'] and REFINE_PROTOCOL in offered
+	_state['refineScroll'] = _state['refine'] and REFINE_SCROLL_PROTOCOL in offered
 
 
 def ServesRefine():
 	"""Whether the blacksmith's window may ask the warehouse for materials."""
 	return _state['refine']
+
+
+def ServesRefineScroll():
+	"""Whether a refine scroll's window may ask the warehouse too (#275)."""
+	return _state['refineScroll']
 
 
 def Speaks():
@@ -11932,6 +11941,7 @@ def Forget():
 	_state['speaks'] = False
 	_state['older'] = False
 	_state['refine'] = False
+	_state['refineScroll'] = False
 
 
 def ViewName(view, english):
@@ -35159,6 +35169,9 @@ class Interface(object):
 		return False
 
 	def BULID_EnterGuildArea(self, areaID):
+		# Another area is nobody's plot to demolish on until it proves the
+		# master's own (NxcK_Os, 24 October; uitarget.py) - clientrootify.py.
+		self.__SetOwnGuildArea(False)
 		# GUILD_BUILDING
 		mainCharacterName = player.GetMainCharacterName()
 		masterName = guild.GetGuildMasterName()
@@ -35171,9 +35184,18 @@ class Interface(object):
 		# END_OF_GUILD_BUILDING
 
 		self.wndGameButton.ShowBuildButton()
+		self.__SetOwnGuildArea(True)
 
 	def BULID_ExitGuildArea(self, areaID):
 		self.wndGameButton.HideBuildButton()
+		self.__SetOwnGuildArea(False)
+
+	def __SetOwnGuildArea(self, own):
+		try:
+			import uiTarget
+			uiTarget.SetOwnGuildArea(own)
+		except Exception:
+			pass
 
 	#####################################################################################
 
@@ -36853,6 +36875,7 @@ OLD_EXE_HASHES = (
 	"ED673A6F02C66D505183942AAC24B941A07E30A24F507F4F54E627A8C2D098F8",
 	"A4AE236009E8D95C1C8F7D7421C5ABF3401365F821621ABED9A8846100B387E0",
 	"49868B06256851E5EF602F013303D790831F2EC579A837805E918D67F204E1B1",
+	"ECE10CBDFBE731EBEACD66145124888FD056F552E6A951F1C6FD7148FEFF724A",
 )
 _EXE_OUTDATED = [None]
 _EXE_WARNED = [False]
@@ -37909,6 +37932,7 @@ class LoginWindow(ui.ScriptWindow):
 		self.__CreateCredentialsPager()
 
 		self.SetVersion()
+		self.__FitMobileLayout()
 		return 1
 
 	def __CreateCredentialsPager(self):
@@ -38010,6 +38034,67 @@ class LoginWindow(ui.ScriptWindow):
 
 	def __OnClickExitButton(self):
 		self.stream.SetPhaseWindow(0)
+
+	def __FitMobileLayout(self, kb_open=False):
+		if not os.path.exists("/mobile.flag"):
+			return
+		try:
+			if self.pwdEditLine:
+				self.pwdEditLine._m2oSecret = True
+			sw = wndMgr.GetScreenWidth()
+			sh = wndMgr.GetScreenHeight()
+			for _b in getattr(self, "credentialsPageButtons", []) or []:
+				_b.Hide()
+			_lab = getattr(self, "credentialsPageLabel", None)
+			if _lab is not None:
+				_lab.Hide()
+			_items = getattr(self, "save_credential_items", []) or []
+			for _i, _it in enumerate(_items):
+				if _i < 3:
+					_it.Show()
+				else:
+					_it.Hide()
+			_hc = 105 if _items else 0
+			if self.credentialsWindow is not None:
+				self.credentialsWindow.SetSize(208, 105)
+			_hb = self.connectBoard.GetHeight() if self.connectBoard is not None else 30
+			_lbh = self.loginBoard.GetHeight() if self.loginBoard is not None else 97
+			def _place(w, x, y):
+				w.SetWindowHorizontalAlignLeft()
+				w.SetWindowVerticalAlignTop()
+				w.SetPosition(x, y)
+			if kb_open:
+				_left_x = max(8, (sw - (428 if _hc else 208)) // 2)
+				_y = 8
+				if self.connectBoard is not None:
+					_place(self.connectBoard, _left_x, _y)
+					_y += _hb + 6
+				if self.loginBoard is not None:
+					_place(self.loginBoard, _left_x, _y)
+				if self.credentialsWindow is not None and _hc:
+					_place(self.credentialsWindow, _left_x + 220, 20)
+			else:
+				_total = _hb + 8 + _lbh + 10 + _hc
+				_y = max(6, (sh - _total) // 2)
+				_cx = (sw - 208) // 2
+				if self.connectBoard is not None:
+					_place(self.connectBoard, _cx, _y)
+					_y += _hb + 8
+				if self.loginBoard is not None:
+					_place(self.loginBoard, _cx, _y)
+					_y += _lbh + 10
+				if self.credentialsWindow is not None:
+					_place(self.credentialsWindow, _cx, _y)
+			if self.serverBoard is not None:
+				self.serverBoard.SetWindowHorizontalAlignLeft()
+				self.serverBoard.SetWindowVerticalAlignTop()
+				self.xServerBoard = max(0, (sw - self.serverBoard.GetWidth()) // 2)
+				self.yServerBoard = max(8, (sh - self.serverBoard.GetHeight()) // 2)
+				if self.serverBoard.IsShow():
+					_place(self.serverBoard, self.xServerBoard, self.yServerBoard)
+			constInfo._m2oFitLogin = lambda win, kb=False: win._LoginWindow__FitMobileLayout(kb)
+		except Exception:
+			pass
 
 	def __SetServerInfo(self, name):
 		net.SetServerInfo(name.strip())
@@ -38168,6 +38253,7 @@ class LoginWindow(ui.ScriptWindow):
 			self.saveAccountBoard.Show()
 
 		self.credentialsWindow.Show()
+		self.__FitMobileLayout()
 
 		## if users have the login infomation, then don't initialize.2005.9 haho
 		if self.idEditLine == None:
@@ -41096,6 +41182,14 @@ _SETTLE_LINGER = 1.5
 _BATCH_LIFETIME = 15.0
 
 
+
+
+
+
+
+_REFUSAL_PRESUMED = 1.0
+
+
 def _EquipmentCells():
     
     start = getattr(player, 'EQUIPMENT_SLOT_START', player.INVENTORY_DEFAULT_MAX_NUM)
@@ -41539,8 +41633,15 @@ def _Begin(window, source, destinations, count, kind):
     overlapping = False
     for request in old:
         if cells.intersection(request['before']):
-            overlapping = True
-            _Cancel(window, request, dict((cell, _Look(request, cell)) for cell in request['before']))
+            current = dict((cell, _Look(request, cell)) for cell in request['before'])
+            
+            
+            
+            
+            if not (current == request['before'] and not request['changed'] and
+                    now >= request['last'] + _REFUSAL_PRESUMED):
+                overlapping = True
+            _Cancel(window, request, current)
         else:
             window._sortPinPending.append(request)
     _Save(window)
@@ -41562,8 +41663,25 @@ def _Begin(window, source, destinations, count, kind):
                                   'started': now, 'last': now, 'clicks': 1})
 
 
+def _RefusedOutright(source, destination):
+    """A worn piece dropped on another bag item: the server refuses it.
+
+    CHARACTER::MoveItem takes a piece out of an equipment slot only into free
+    bag cells (IsEmptyItemGrid) or onto a stack it merges with, so the piece
+    stays worn and nothing is answered (issue #248). Recording that move held
+    the worn piece's cell, and the takeoff that followed was recorded as
+    nothing and lost the star.
+    """
+    if source not in _EquipmentCells() or not 0 <= destination < player.INVENTORY_DEFAULT_MAX_NUM:
+        return False
+    occupant = _Snapshot(destination)
+    return occupant is not None and not _SameKind(_Snapshot(source), occupant)
+
+
 def Moving(window, source, destination, count=0):
     if source != destination and _Tracked(destination):
+        if _RefusedOutright(source, destination):
+            return
         _Begin(window, source, [destination], count, 'move')
 
 
@@ -79644,7 +79762,7 @@ for military purposes.14013	FACILITY	jedan	Armoury	-525	-525	525	525	0	0	360	400
 71125	Wild Battle Boar Seal
 71126	Fight Wolf Seal
 71127	Storm Tiger Seal
-71128	Battle Lion Seal
+71128	Manny Seal
 71129	Dragon Claw
 71130	Passage Ticket
 71131	Black Horse Seal
@@ -80629,6 +80747,7 @@ for military purposes.14013	FACILITY	jedan	Armoury	-525	-525	525	525	0	0	360	400
 164200	Legendary Dragon Onyx
 164300	Legendary Dragon Onyx
 164400	Legendary Dragon Onyx
+54700	Beran-Setaou Chest
 100000	Time Elixir (S)	Refills the duration of a Dragon Stone.
 100001	Time Elixir (M)	Refills the duration of a Dragon Stone.
 100002	Time Elixir (L)	Refills the duration of a Dragon Stone.
@@ -82664,7 +82783,7 @@ for military purposes.14013	FACILITY	jedan	Armoury	-525	-525	525	525	0	0	360	400
 71125	Wild Battle Boar Seal	Taming evil animal spirits takes a lot of magical skill. However, the result is very impressive.
 71126	Fight Wolf Seal	Taming evil animal spirits takes a lot of magical skill. However, the result is very impressive.
 71127	Storm Tiger Seal	Taming evil animal spirits takes a lot of magical skill. However, the result is very impressive.
-71128	Battle Lion Seal	Taming evil animal spirits takes a lot of magical skill. However, the result is very impressive.
+71128	Manny Seal	Taming evil animal spirits takes a lot of magical skill. This seal summons Manny, a mighty mammoth.
 71129	Dragon Claw	The look of this terrifying claw brings back memories...
 71130	Passage Ticket	If you give this ticket to the guard, you will be allowed to enter a new floor of the Spider Dungeon as well as the Red Dragon Fortress. This item is tradeable.
 71131	Black Horse Seal	Seal for the Noble Black Horse.
@@ -83418,6 +83537,7 @@ for military purposes.14013	FACILITY	jedan	Armoury	-525	-525	525	525	0	0	360	400
 30383	x	An ancient scroll that lets the power of Woel flow - it lets you roll new blessings.
 30384	x	A stone cleansed of every flaw - key to refining Spirit Stones.
 30206	x	A stone tablet with ancient runes. It radiates an unknown energy.
+54700	Beran-Setaou Chest	Contains two reward draws. Leave room for two items.
 [DELAY value;0]
 Ninjas are professional[ENTER]
 killers, capable of carrying[ENTER]
@@ -85464,9 +85584,9 @@ ZONE_MAP	Large Map
 10075	Yongbi_Desert 2879 5407
 10076	MonkeyDungeon 1352 7300
 10077	????1? 9 12078
-10078	??? 2842 8106
-10079	????1? 1459 13236
-10080	????2? 2413 12755
+10078	Orc_Valley 2842 8106
+10079	Grotto_V1 1459 13236
+10080	Grotto_V2 2413 12755
 10081	????1? 99 13618
 10082	???? 5028 9998
 10083	????1? 1360 14972
@@ -89102,7 +89222,7 @@ wojny.14013	FACILITY	jedan	Fabryka Broni	-525	-525	525	525	0	0	360	40000000	9001
 71125	Pieczêæ Dzika Wojennego	Okie³znanie z³ych Duchów Zwierz¹t wymaga nie lada kunsztu magicznego. Odpowiednio zadziwiaj¹cy jest rezultat.
 71126	Pieczêæ Wilka Wojennego	Okie³znanie z³ych Duchów Zwierz¹t wymaga nie lada kunsztu magicznego. Odpowiednio zadziwiaj¹cy jest rezultat.
 71127	Pieczêæ Szar¿. Tygrysa	Okie³znanie z³ych Duchów Zwierz¹t wymaga nie lada kunsztu magicznego. Odpowiednio zadziwiaj¹cy jest rezultat.
-71128	Pieczêæ Manu	Okie³znanie z³ych Duchów Zwierz¹t wymaga nie lada kunsztu magicznego. Zmienia wygl¹d Twojego konia, je¿eli za³o¿ysz przed przywo³aniem.
+71128	Pieczêæ Manu	Okie³znanie z³ych Duchów Zwierz¹t wymaga nie lada kunsztu magicznego. Ta pieczêæ przywo³uje Manu, potê¿nego mamuta.
 71129	Smoczy Szpon	Widok tego strasznego szponu budzi wspomnienia...
 71130	Przepustka	Przepustka ta umo¿liwia dostanie siê na nowy poziom w Lochu Paj¹ków.
 71131	Pieczêæ Czarnego Konia	Pieczêæ dla Szlachetnego Czarnego Konia.
@@ -89667,7 +89787,9 @@ wojny.14013	FACILITY	jedan	Fabryka Broni	-525	-525	525	525	0	0	360	40000000	9001
 30382	x	Dowód na ujarzmienie si³y trzech dusz – niezbêdny do przebudzenia mocy Elitarnych Kamieni Duszy.
 30383	x	Staro¿ytny zwój umo¿liwiaj¹cy przep³yw mocy Woela - pozwala losowaæ nowe b³ogos³awieñstwa.
 30384	x	Kamieñ oczyszczony z wszelkiej skazy - kluczowy w procesie uszlachetniania Kamieni Duszy.
-30206	x	Kamienna tabliczka z pradawnymi runami. Emanuje nieznan¹ energi¹.[DELAY value;0]
+30206	x	Kamienna tabliczka z pradawnymi runami. Emanuje nieznan¹ energi¹.
+54700	Skrzynia Berana-Setaou	Zawiera dwa losowania nagród. Zostaw miejsce na dwa przedmioty.
+[DELAY value;0]
 Ninja s¹ profesjonalnymi[ENTER]
 zabójcami, którzy s¹ w[ENTER]
 stanie zaatakowaæ swojego[ENTER]
@@ -113691,7 +113813,7 @@ VNUM	LOCALE_NAME
 71125	Savaþ Yaban Domuzu Mührü
 71126	Kýzgýn Kurt Mührü
 71127	Vahþi Kaplan Mührü
-71128	Yýrtýcý Aslan Mührü
+71128	Manu Mührü
 71129	Ejderha Pençesi
 71130	Geçit Bileti
 71131	Siyah At Mührü
@@ -135202,7 +135324,7 @@ RîZöõ÷IÏ~À=
 71125	Wild Battle Boar Seal	Kötü hayvan ruhlarýný dizginlemek ancak büyü sanatýyla mümkün. Sonucuysa çok etkileyici.
 71126	Kýzgýn kurt	Kötü hayvan ruhlarýný dizginlemek ancak büyü sanatýyla mümkün. Sonucuysa çok etkileyici.
 71127	Vahþi kaplan	Kötü hayvan ruhlarýný dizginlemek ancak büyü sanatýyla mümkün. Sonucuysa çok etkileyici.
-71128	Yýrtýcý aslan	Kötü hayvan ruhlarýný dizginlemek ancak büyü sanatýyla mümkün. Sonucuysa çok etkileyici.
+71128	Manu Mührü	Kötü hayvan ruhlarýný dizginlemek ancak büyü sanatýyla mümkün. Bu mühür güçlü bir mamut olan Manu'yu çaðýrýr.
 71129	Ejderha Pençesi	Bu ürkütücü pençeyi görünce anýlar canlanýyor...
 71130	Geçit Bileti	Bu geçit biletini yetkili bekçiye gösterdiðinde, Örümcek Zindaný'nýn yeni bir katýna ve Kýrmýzý Ejderha Kalesi'ne girebilirsin. Bu eþyanýn ticareti yapýlabilir.
 71131	Black Horse Seal	Asil bir kara yaðýz at mührü.
@@ -151264,6 +151386,7 @@ Your storage is not available now.	Depon þu anda kullanýlamýyor.
 The database did not confirm the save - open your storage at the storekeeper and check.	Veritabaný kaydý onaylamadý - deponu depocuda aç ve kontrol et.
 The materials could not be taken from your storage - nothing was moved.	Malzemeler depodan alýnamadý - hiçbir þey taþýnmadý.
 Your storage does not have enough of it either: %s	Depoda da yeterince yok: %s
+The game server is older than the client and its smith does not reach into your storage - update the server.	Oyun sunucusu istemciden eski ve demircisi depona ulaþamýyor - sunucuyu güncelle.
 Left Alt + Shift + LMB: lock this page against sorting	Sol Alt + Shift + Sol Týk: bu sayfayý sýralamaya karþý kilitle
 Page locked against sorting. Left Alt + Shift + LMB: unlock	Sayfa sýralamaya karþý kilitli. Sol Alt + Shift + Sol Týk: kilidi aç
 Page %s locked - sorting leaves it as it is.	Sayfa %s kilitlendi - sýralama ona dokunmaz.
@@ -151275,6 +151398,19 @@ Support the project	Projeyi destekle
 Voluntary support for the project on buycoffee.to - it gives nothing in the game.	buycoffee.to üzerinden projeye gönüllü destek - oyunda hiçbir þey vermez.
 Support is voluntary and gives nothing in the game.	Destek gönüllüdür ve oyunda hiçbir þey vermez.
 It buys no Dragon Coins, VIP or items. Open buycoffee.to?	Ejderha Parasý, VIP veya eþya satýn almaz. buycoffee.to açýlsýn mý?
+# Chimpian, 24 October: "Walka z konia" in the companion's window.
+Mounted	Atlý
+Ranged	Menzil
+auto	oto
+never	asla
+Fights from its horse beside you while you ride: auto (Shaman, black-magic Sura climb off), always, never.	Sen at sürerken yanýnda atýndan savaþýr: oto (Þaman, kara büyü Sura iner), hep, asla.
+Upgrading with a scroll takes materials from your storage only in a first or second village.	Parþömenle yükseltme depondan malzemeyi yalnýzca birinci veya ikinci köyde alýr.
+The game server is older than the client and upgrading with a scroll does not reach into your storage - update the server.	Oyun sunucusu istemciden eski ve parþömenle yükseltme depona ulaþamýyor - sunucuyu güncelle.
+# Guild building demolition (NxcK_Os, 24 October).
+Demolish %s?	%s yýkýlsýn mý?
+No refund: the %s and the materials it cost are lost.	Ýade yok: %s ve malzemeler kaybolur.
+No refund: the yang and the materials it cost are lost.	Ýade yok: yang ve malzemeler kaybolur.
+%sHorse training is waiting for yang	%sAt eðitimi Yang bekliyor
 Genel
 1.1. Metin2 Singleplayer ücretsiz bir hayran projesidir: sunucu kendi bilgisayarýnda çalýþýr ve dünya botlarla (Playerbots) doludur. Proje Gameforge veya Webzen ile baðlantýlý deðildir.[ENTER]1.2. Projenin sürümleri ve güncellemeleri GitHub'da yayýnlanýr: github.com/TieruYT/metin2-playerbots.[ENTER]1.3. Kendi sorumluluðunda oynarsýn. Proje herhangi bir garanti verilmeksizin "olduðu gibi" sunulur.
 Kurallar
@@ -153483,6 +153619,16 @@ def DO_YOU_BUY_ITEM(buyItemName, buyItemCount, buyItemPrice) :
 	else:
 		return DO_YOU_BUY_ITEM1 % ( buyItemName, buyItemPrice )
 
+# The keys the functions below read that a locale file may lack: the one
+# without the 0, else a Polish default (launcher report #281) - clientrootify.py.
+for _key in ('REFINE_FAILURE_CAN_NOT_ATTACH', 'REFINE_FAILURE_NO_SOCKET', 'REFINE_FAILURE_NO_GOLD_SOCKET'):
+	if not isinstance(globals().get(_key + '0'), str) and isinstance(globals().get(_key), str):
+		globals()[_key + '0'] = globals()[_key]
+globals().setdefault('FISHING_NOTIFY1', 'Wyglada na to, ze %s polknal przynete.')
+globals().setdefault('FISHING_NOTIFY2', 'Wyglada na to, ze %s jest na haczyku.')
+globals().setdefault('FISHING_SUCCESS1', 'Zlowiles %s!')
+globals().setdefault('FISHING_SUCCESS2', 'Wyciagnales z wody %s!')
+
 def REFINE_FAILURE_CAN_NOT_ATTACH(attachedItemName) :
 	return REFINE_FAILURE_CAN_NOT_ATTACH0 % (attachedItemName)
 
@@ -154092,6 +154238,17 @@ ATTR_MAX_VALUES = {
 	player.POINT_ITEM_DROP_BONUS: 20,
 }
 
+# clientrootify: the item-shop drop bonuses are a per cent the server adds
+# to the chance (char_battle.cpp: 50 is +50%), said by every language but
+# Italian as a multiplier, "%.1f": a Lucky Medal is x1.5, not x50.0 (Klimo).
+MALL_DROP_MULTIPLIER_POINTS = (
+	player.POINT_MALL_ITEMBONUS,
+	player.POINT_MALL_GOLDBONUS,
+)
+
+def IsMultiplierText(text):
+	return isinstance(text, str) and "%" in text and "%%" not in text
+
 def Is1000PCT(affectType):
 	return affectType in POINT_1000PCT_Tuple
 
@@ -154109,6 +154266,9 @@ def GetApplyString(affectType, affectValue):
 		affectValue = float(affectValue)/10
 
 	if affectType == player.POINT_LEARN_CHANCE:
+		affectValue = 1.0 + float(affectValue)/100
+
+	if affectType in MALL_DROP_MULTIPLIER_POINTS and IsMultiplierText(AFFECT_DICT.get(affectType)):
 		affectValue = 1.0 + float(affectValue)/100
 
 	try:
@@ -159884,7 +160044,7 @@ def Show(required):
 	return keeper
 # The client's version, rendered by clientrootify.py from
 # linux-port-mt2009/CLIENT_VERSION. DO NOT EDIT.
-VERSION = "2.0.123"
+VERSION = "2.0.129"
 # Which of our texts' two languages the player reads.
 #
 # Everything this project wrote into the client - Auto Lowy, the companion's
@@ -160078,6 +160238,8 @@ STATUS_KEYS = {
  'sfc7c2d44273a': ('%sSzukam drogi przez Loch Malp', '%sFinding my way through the Monkey Dungeon'),
  's4a9a7b77fa1d': ('%sZdobywam konia bojowego na pustyni (%d/%d)', '%sEarning a battle horse in the desert (%d/%d)'),
  's632844186320': ('%sIde do najblizszego Stajennego z Medalem', '%sTaking a Medal to the nearest Stable Boy'),
+ 's9a5b8ab66f59': ('%sOdpoczywam po kilku smierciach (przerwa %u s)', '%sResting after several deaths (break %u s)'),
+ 's37fd20b059ca': ('%sOdpoczywam po smierci - czekam na mane', '%sResting after death - waiting for mana'),
  'sedc7911acc1b': ('Kupuje ulepszacze na rynku', 'Buying refine materials at the market'),
  'sd97f0b90cad9': ('%sZbiorka przed wojna gildii z %s (%s)', '%sMustering for the guild war with %s (%s)'),
  's0b407d7551e5': ('%sCzekam na trase do handlarza', '%sWaiting for a route to the merchant'),
@@ -160086,6 +160248,7 @@ STATUS_KEYS = {
  'sd6564774a171': ('%sSzukam broni na 30 poziom na M3', '%sLooking for a level 30 weapon on M3'),
  's08cacb50841b': ('%sSzukam lepszego miejsca (cel: %s)', '%sLooking for a better spot (goal: %s)'),
  's6112b28f8449': ('%sSzukam celu dla grupy', '%sLooking for a target for the group'),
+ 's6deb09547ba3': ('%sTrening konia czeka na yangi', '%sHorse training is waiting for yang'),
  's71c4c5a8a691': ('%sIde do kowala ulepszyc ekwipunek', '%sGoing to the blacksmith to upgrade'),
  'sd2b1526e2bd4': ('%sProbuje wydropic dla Biologa: %s', '%sTrying to drop for the Biologist: %s'),
  's555d539a79ac': ('Towarzysz %s - u kowala', "%s's companion - at the blacksmith"),
@@ -160172,7 +160335,7 @@ STATUS_KEYS = {
  's1792cca96181': ('%sRobie questa', '%sDoing a quest'),
  's427001bcca51': ('gracz', 'the player is'),
  'sbcbcfebc2fec': (' do druzyny', ' to the party'),
- 'sd5f5158c655d': ('%sRegeneruje HP', '%sRecovering HP'),
+ 'sc557d2904d63': ('Badania ziol', 'Herb research'),
  's1d65d9accd8e': ('Towarzysz %s', "%s's companion"),
  's9cc34962dbca': ('%s%s - potki %u/%u', '%s%s - potions %u/%u'),
  's9ddac2754cc1': ('Metiny', 'Metin stones'),
@@ -174172,10 +174335,14 @@ def QuestionDialog():
 #     all a player could tell. Once a SAY_GAP for the same reason, because
 #     "Ulepszaj dalej" opens the window again after every attempt.
 #
-# Only the NPC's own refines (REFINE_TYPE_NORMAL, FISHER, HERB_KNIFE,
-# PICKAXE): a scroll is used anywhere, and the server answers for the smith
-# in front of the player alone. A server that does not offer
-# collectorproto.REFINE_PROTOCOL in its hello is never asked anything.
+# The NPC's own refines (REFINE_TYPE_NORMAL, FISHER, HERB_KNIFE, PICKAXE),
+# and since #275 a refine scroll's (SCROLL, NO_REDUCTION_WHEN_FAIL,
+# UP_TO_3TH_LEVEL, BDRAGON): a Blessing Scroll or a Magic Metal used on an
+# item reads the same recipe's materials from the bag as the smith does, and
+# the server answers for it in the same villages - a scroll is used anywhere,
+# the warehouse only there. A server that does not offer
+# collectorproto.REFINE_PROTOCOL in its hello is never asked anything, and
+# one without REFINE_SCROLL_PROTOCOL (2.2.117-2.2.123) nothing for a scroll.
 #
 # Every request waits for its answer and none goes sooner than SEND_GAP after
 # the last (uicollector.py's pacing: the server drops a sixth command in half
@@ -174190,6 +174357,9 @@ from playerbot_lang import T
 
 
 NPC_TYPES = (0, 7, 8, 9)
+
+
+SCROLL_TYPES = (2, 3, 5, 6)
 
 STOCK_GAP = 1.5          
 STOCK_FRESH = 60.0       
@@ -174262,6 +174432,22 @@ def Serves():
 		return False
 
 
+def ServesScroll():
+	try:
+		import collectorproto
+		return collectorproto.ServesRefine() and collectorproto.ServesRefineScroll()
+	except Exception:
+		return False
+
+
+def _Type(window):
+	return _Int(getattr(window, 'type', -1), -1)
+
+
+def _IsScroll(window):
+	return _Type(window) in SCROLL_TYPES
+
+
 def _Ref(window):
 	try:
 		import weakref
@@ -174300,7 +174486,33 @@ def _Send(command):
 
 
 def _Smiths(window):
-	return Serves() and _Int(getattr(window, 'type', -1), -1) in NPC_TYPES
+	"""Whether the server answers for this window: an NPC's on a server that
+	takes the smith's requests, a refine scroll's on one that takes them for
+	a scroll too."""
+	kind = _Type(window)
+	if kind in NPC_TYPES:
+		return Serves()
+	if kind in SCROLL_TYPES:
+		return ServesScroll()
+	return False
+
+
+def _OlderServer(window=None):
+	"""The server keeps the warehouse but its hello leaves the smith out: a
+	game core from before 2.2.117 - or one a third-party pack put back over
+	the update (Hiob, 23 October: his "Rozszerzenie Panelu" carries a 2.2.109
+	core, and the window stayed silent because it asks such a server nothing).
+	For a refine scroll's window: a server without the scroll's number, from
+	before #275."""
+	try:
+		import collectorproto
+		if not collectorproto.Speaks():
+			return False
+		if window is not None and _IsScroll(window):
+			return not ServesScroll()
+		return not collectorproto.ServesRefine()
+	except Exception:
+		return False
 
 
 def Stock(vnum):
@@ -174392,6 +174604,19 @@ def Accept(window):
 		
 		return _Window(_fetch) is window
 	if not _Smiths(window):
+		if (_Type(window) in NPC_TYPES + SCROLL_TYPES and _OlderServer(window) and
+				_Short(window)):
+			
+			if _IsScroll(window):
+				_Tell(('older', 'scroll'), T('Serwer gry jest starszy ni\xbf klient i ulepszanie zwojem nie si\xeaga '
+					'do magazynu - zaktualizuj serwer.',
+					'The game server is older than the client and upgrading with a scroll does not reach into your '
+					'storage - update the server.'))
+			else:
+				_Tell(('older',), T('Serwer gry jest starszy ni\xbf klient i kowal nie si\xeaga do magazynu - '
+					'zaktualizuj serwer.',
+					'The game server is older than the client and its smith does not reach into your storage - '
+					'update the server.'))
 		return False
 	short = []
 	for vnum, count, unused in getattr(window, 'refineStorageLines', ()):
@@ -174458,7 +174683,10 @@ def _Took(vnum, units):
 	_fetch['taken'].append((vnum, units))
 
 
-def _Refusal(code):
+def _Refusal(code, window=None):
+	if code == RESULT_TOO_FAR and window is not None and _IsScroll(window):
+		return T('Ulepszanie zwojem bierze materia\xb3y z magazynu tylko w pierwszej i drugiej wiosce.',
+			'Upgrading with a scroll takes materials from your storage only in a first or second village.')
 	if code == RESULT_NOT_UNLOCKED:
 		return T('Kowal si\xeaga do magazynu dopiero, gdy raz otworzysz go u Dozorcy (has\xb3em).',
 			'The smith reaches into your storage once you have opened it at the storekeeper (with its password).')
@@ -174512,7 +174740,7 @@ def _Explain(window, cell, code):
 		return
 	if code != RESULT_DONE:
 		if code in STOCK_REFUSALS_TOLD:
-			_Tell(('refused', code), _Refusal(code))
+			_Tell(('refused', code, _IsScroll(window)), _Refusal(code, window))
 		return
 	lacking = []
 	for vnum, count in short:
@@ -174578,7 +174806,7 @@ def OnFetch(cell='-1', code='-1', units='0', vnum='0', left='0'):
 		net.SendRefinePacket(window.targetItemPos, kind)
 		window.Close()
 		return
-	_Say(_Refusal(code))
+	_Say(_Refusal(code, window))
 	_End()
 import io
 import os
@@ -192313,6 +192541,7 @@ class TextLine(Window):
 		self.SetWindowVerticalAlignCenter()
 
 	def SetSecret(self, Value=True):
+		self._m2oSecret = bool(Value)
 		wndMgr.SetSecret(self.hWnd, Value)
 
 	def SetOutline(self, Value=True):
@@ -198403,11 +198632,13 @@ AFFECT_SHOW_DATA = {
 			"icon" : "d:/ymir work/ui/skill/common/affect/exp_bonus.sub",
 		},
 		player.POINT_MALL_ITEMBONUS : {
-			"description" : localeInfo.TOOLTIP_MALL_ITEMBONUS,
+			# clientrootify: the item's name over its one green line (Klimo).
+			"description" : "",
 			"icon" : "d:/ymir work/ui/skill/common/affect/item_bonus.sub",
 		},
 		player.POINT_MALL_GOLDBONUS : {
-			"description" : localeInfo.TOOLTIP_MALL_GOLDBONUS,
+			# clientrootify: the item's name over its one green line (Klimo).
+			"description" : "",
 			"icon" : "d:/ymir work/ui/skill/common/affect/gold_bonus.sub",
 		},
 
@@ -200816,10 +201047,29 @@ class CharacterWindow(ui.ScriptWindow):
 		self.statusInputDialog = input
 
 	def __OnStatusInputAccept(self, statusKey):
-		self.SendAddStatPacket(statusKey, int(self.statusInputDialog.GetText()))
-		if self.statusInputDialog:
-			self.statusInputDialog.Close()
-			self.statusInputDialog = None
+		dialog = self.statusInputDialog
+		self.statusInputDialog = None
+		if not dialog:
+			return
+		text = dialog.GetText()
+		dialog.Close()
+		count = self.ClampStatusInputCount(text, player.GetStatus(player.STAT))
+		if count > 0:
+			self.SendAddStatPacket(statusKey, count)
+
+	# Too high a number is every free point (#292); the stat's cap is the
+	# server's, which counts the base points an item's bonus hides here.
+	@staticmethod
+	def ClampStatusInputCount(text, freePoints):
+		try:
+			count = int(text)
+		except ValueError:
+			return 0
+		if count <= 0:
+			return 0
+		if freePoints > 0:
+			return min(count, freePoints)
+		return count
 
 	def SendAddStatPacket(self, statusKey, count=1):
 		if count == 1:
@@ -202436,7 +202686,7 @@ class ChatInputSet(ui.Window):
 	def __Create(self):
 		chatModeButton = ChatModeButton()
 		chatModeButton.SetParent(self)
-		chatModeButton.SetSize(40, 17)
+		chatModeButton.SetSize(56, 17)
 		chatModeButton.SetText(localeInfo.CHAT_NORMAL)
 		chatModeButton.SetPosition(7, 2)
 		chatModeButton.SAFE_SetEvent(self.OnChangeChatMode)
@@ -202473,7 +202723,7 @@ class ChatInputSet(ui.Window):
 
 	def Open(self):
 		self.chatLine.Show()
-		self.chatLine.SetPosition(57, 5)
+		self.chatLine.SetPosition(70, 5)
 		self.chatLine.SetFocus()
 		self.chatLine.OpenChat()
 
@@ -202518,9 +202768,9 @@ class ChatInputSet(ui.Window):
 
 	def RefreshPosition(self):
 		if localeInfo.IsARABIC():
-			self.chatLine.SetSize(self.GetWidth() - 93, 18)
+			self.chatLine.SetSize(self.GetWidth() - 106, 18)
 		else:
-			self.chatLine.SetSize(self.GetWidth() - 93, 13)
+			self.chatLine.SetSize(self.GetWidth() - 106, 13)
 
 		self.btnSend.SetPosition(self.GetWidth() - 25, 2)
 
@@ -202772,6 +203022,9 @@ class ChatWindow(ui.Window):
 
 	def SetSize(self, width, height):
 		ui.Window.SetSize(self, width, height)
+		if hasattr(self, "chatInputSet") and self.chatInputSet:
+			self.chatInputSet.SetSize(max(120, width - 50), 25)
+			self.chatInputSet.RefreshPosition()
 		self.__RefreshSizingBar()
 
 	def SetHeight(self, height):
@@ -202786,80 +203039,62 @@ class ChatWindow(ui.Window):
 		elif self.boardState == chat.BOARD_STATE_VIEW:
 			self.RefreshBoardViewState()
 
-	def RefreshBoardEditState(self):
-
+	def _RefreshCompactBoard(self):
 		(x, y, width, height) = self.GetRect()
-		(btnX, btnY) = self.btnChatSizing.GetGlobalPosition()
-
-		self.xBar = x
-		self.yBar = btnY
-		self.widthBar = width
-		self.heightBar = y - btnY + self.EDIT_LINE_HEIGHT
-		self.curHeightBar = self.heightBar
-
+		step = max(14, chat.GetLineStep(self.chatID))
+		chat.SetBoardState(self.chatID, chat.BOARD_STATE_EDIT)
+		chat.SetHeight(self.chatID, 4 * step + 2)
 		if localeInfo.IsARABIC():
-			chat.SetPosition(self.chatID, x + width - 10, y)
+			chat.SetPosition(self.chatID, x + width - 6, y + self.EDIT_LINE_HEIGHT)
 		else:
-			chat.SetPosition(self.chatID, x + 10, y)
-
-		chat.SetHeight(self.chatID, y - btnY - self.EDIT_LINE_HEIGHT)
+			chat.SetPosition(self.chatID, x + 5, y + self.EDIT_LINE_HEIGHT)
 		chat.ArrangeShowingChat(self.chatID)
-
-		if btnY > y:
-			self.btnChatSizing.SetPosition(btnX, y)
-			self.heightBar = self.EDIT_LINE_HEIGHT
-
-	def RefreshBoardViewState(self):
-		(x, y, width, height) = self.GetRect()
-		(btnX, btnY) = self.btnChatSizing.GetGlobalPosition()
-		textAreaHeight = self.visibleLineCount * chat.GetLineStep(self.chatID)
-
-		if localeInfo.IsARABIC():
-			chat.SetPosition(self.chatID, x + width - 10, y + self.EDIT_LINE_HEIGHT)
-		else:
-			chat.SetPosition(self.chatID, x + 10, y + self.EDIT_LINE_HEIGHT)
-
-		chat.SetHeight(self.chatID, y - btnY - self.EDIT_LINE_HEIGHT + 100)
-
-		if self.boardState == chat.BOARD_STATE_EDIT:
-			textAreaHeight += 45
-		elif self.visibleLineCount != 0:
-			textAreaHeight += 10 + 10
-
+		chat.Update(self.chatID)
+		vis = min(4, chat.GetVisibleLineCount(self.chatID))
+		self.visibleLineCount = vis
+		textAreaHeight = (vis * step + 10) if vis > 0 else 0
 		self.xBar = x
 		self.yBar = y + self.EDIT_LINE_HEIGHT - textAreaHeight
 		self.widthBar = width
 		self.heightBar = textAreaHeight
-
+		self.curHeightBar = textAreaHeight
 		self.scrollBar.Hide()
+		self.btnChatSizing.Hide()
 
-	
-	
+	def RefreshBoardEditState(self):
+		self._RefreshCompactBoard()
+
+	def RefreshBoardViewState(self):
+		self._RefreshCompactBoard()
+
 	def OnUpdate(self):
-		if self.boardState == chat.BOARD_STATE_EDIT:
-			chat.Update(self.chatID)
-		elif self.boardState == chat.BOARD_STATE_VIEW:
-			if systemSetting.IsViewChat():
-				chat.Update(self.chatID)
+		chat.Update(self.chatID)
+		cur_lc = chat.GetLineCount(self.chatID)
+		cur_seq = getattr(constInfo, "_mob_chat_seq", 0)
+		if getattr(self, "_last_lc", None) is None:
+			self._last_lc = cur_lc
+			self._last_seq = cur_seq
+			self._chatShowUntil = app.GetTime() + 2.2
+			self._RefreshCompactBoard()
+		elif cur_lc != self._last_lc or cur_seq != self._last_seq:
+			self._last_lc = cur_lc
+			self._last_seq = cur_seq
+			self._chatShowUntil = app.GetTime() + 2.2
+			self._RefreshCompactBoard()
 
 	def OnRender(self):
-		if _MOB_IS_MOBILE and not getattr(constInfo, "_mob_show_pc_chat", False):
+		if self.interface and hasattr(self.interface, "wndChatLog") and self.interface.wndChatLog and self.interface.wndChatLog.IsShow():
+			return
+		if _MOB_IS_MOBILE and not getattr(constInfo, "_mob_show_pc_chat", True):
+			return
+		is_editing = bool(getattr(self, "_m2oEditing", False))
+		if not is_editing and app.GetTime() > getattr(self, "_chatShowUntil", 0.0):
 			return
 		if chat.GetVisibleLineCount(self.chatID) != self.visibleLineCount:
-			self.visibleLineCount = chat.GetVisibleLineCount(self.chatID)
-			self.Refresh()
-
-		if self.curHeightBar != self.heightBar:
-			self.curHeightBar += (self.heightBar - self.curHeightBar) // 10
-
-		if self.boardState == chat.BOARD_STATE_EDIT:
-			grp.SetColor(self.BOARD_MIDDLE_COLOR)
-			grp.RenderBar(self.xBar, self.yBar + (self.heightBar - self.curHeightBar) + 10, self.widthBar, self.curHeightBar)
+			self._RefreshCompactBoard()
+		if self.heightBar > 0 and self.visibleLineCount > 0:
+			grp.RenderGradationBar(self.xBar, self.yBar, self.widthBar, self.heightBar, self.BOARD_START_COLOR, self.BOARD_END_COLOR)
 			chat.Render(self.chatID)
-		elif self.boardState == chat.BOARD_STATE_VIEW:
-			if systemSetting.IsViewChat():
-				grp.RenderGradationBar(self.xBar, self.yBar + (self.heightBar - self.curHeightBar), self.widthBar, self.curHeightBar, self.BOARD_START_COLOR, self.BOARD_END_COLOR)
-				chat.Render(self.chatID)
 
 	
 	
@@ -224873,6 +225108,58 @@ def IsPoisonedTarget(vid, affects):
 	except Exception:
 		return False
 
+# Whether the main character may demolish this guild building: the master
+# of the guild whose plot he stands on (NxcK_Os, 24 October) - clientrootify.py.
+# The server's /build d asks the same and refuses anybody else.
+OWN_GUILD_AREA = [False]
+
+def SetOwnGuildArea(own):
+	OWN_GUILD_AREA[0] = bool(own)
+
+def CanDemolishBuilding(vid):
+	if not vid or not OWN_GUILD_AREA[0]:
+		return False
+	try:
+		if chr.GetInstanceType(vid) != chr.INSTANCE_TYPE_BUILDING:
+			return False
+		if not guild.IsGuildEnable():
+			return False
+		master = guild.GetGuildMasterName()
+		return bool(master) and player.GetMainCharacterName() == master
+	except Exception:
+		return False
+
+# The question's two lines: what the building cost, by the guild building
+# list the client loaded, and that nothing of it comes back.
+def DemolishQuestionLines(vid, name):
+	try:
+		import playerbot_lang
+		T = playerbot_lang.T
+	except Exception:
+		T = lambda pl, en: pl
+	price = 0
+	try:
+		import uiGuild
+		vnum = nonplayer.GetVnumByVID(vid)
+		for data in uiGuild.BUILDING_DATA_LIST:
+			if data["VNUM"] == vnum:
+				price = int(data["PRICE"])
+				break
+	except Exception:
+		price = 0
+	first = T("Zburzyc %s?", "Demolish %s?") % name
+	if price > 0:
+		try:
+			cost = localeInfo.NumberToMoneyString(price)
+		except Exception:
+			cost = "%d Yang" % price
+		second = T("Bez zwrotu: przepadnie %s i materialy budowy.",
+			"No refund: the %s and the materials it cost are lost.") % cost
+	else:
+		second = T("Bez zwrotu: przepadnie yang i materialy budowy.",
+			"No refund: the yang and the materials it cost are lost.")
+	return first, second
+
 if app.ENABLE_ELEMENTAL_TARGET:
 	ELEMENTAL_PATH = "d:/ymir work/ui/game/12zi/element/{}.sub"
 
@@ -225118,6 +225405,9 @@ class TargetBoard(ui.ThinBoard):
 
 		self.__Initialize()
 		self.ResetTargetBoard()
+		self.demolishQuestion = None
+		self.demolishVID = 0
+		SetOwnGuildArea(False)
 
 	def __del__(self):
 		ui.ThinBoard.__del__(self)
@@ -225191,7 +225481,13 @@ class TargetBoard(ui.ThinBoard):
 			if player.IsMainCharacterIndex(vid):
 				self.__ShowMainCharacterMenu()
 			elif chr.INSTANCE_TYPE_BUILDING == chr.GetInstanceType(self.vid):
-				self.Hide()
+				# A building's board is its guild master's on his own plot, for
+				# "Destroy" (NxcK_Os) - clientrootify.py; nobody else's.
+				if CanDemolishBuilding(self.vid):
+					self.RefreshButton()
+					self.Show()
+				else:
+					self.Hide()
 			else:
 				self.RefreshButton()
 				self.Show()
@@ -225615,8 +225911,41 @@ class TargetBoard(ui.ThinBoard):
 	def __OnRequestParty(self):
 		net.SendChatPacket("/party_request " + str(self.vid))
 
+	# Asked first, with what the building cost and that nothing comes back
+	# (NxcK_Os, 24 October) - clientrootify.py.
 	def __OnDestroyBuilding(self):
-		net.SendChatPacket("/build d %d" % (self.vid))
+		vid = self.vid
+		if not CanDemolishBuilding(vid):
+			return
+		self.__CloseDemolishQuestion()
+		import uiCommon
+		dialog = uiCommon.QuestionDialog2()
+		first, second = DemolishQuestionLines(vid, self.nameString)
+		dialog.SetText1(first)
+		dialog.SetText2(second)
+		try:
+			width = max(dialog.textLine1.GetTextSize()[0], dialog.textLine2.GetTextSize()[0]) + 40
+			if width > dialog.GetWidth():
+				dialog.SetWidth(width)
+		except Exception:
+			pass
+		dialog.SAFE_SetAcceptEvent(self.__OnDemolishAccept)
+		dialog.SAFE_SetCancelEvent(self.__CloseDemolishQuestion)
+		dialog.Open()
+		self.demolishQuestion = dialog
+		self.demolishVID = vid
+
+	def __OnDemolishAccept(self):
+		vid = self.demolishVID
+		self.__CloseDemolishQuestion()
+		if CanDemolishBuilding(vid):
+			net.SendChatPacket("/build d %d" % (vid))
+
+	def __CloseDemolishQuestion(self):
+		if self.demolishQuestion:
+			self.demolishQuestion.Close()
+			self.demolishQuestion = None
+		self.demolishVID = 0
 
 	def __OnEmotionAllow(self):
 		net.SendChatPacket("/emotion_allow %d" % (self.vid))
@@ -225640,8 +225969,11 @@ class TargetBoard(ui.ThinBoard):
 		self.HideAllButton()
 
 		if chr.INSTANCE_TYPE_BUILDING == chr.GetInstanceType(self.vid):
-			#self.__ShowButton(localeInfo.TARGET_BUTTON_BUILDING_DESTROY)
-			#self.__ArrangeButtonPosition()
+			# "Destroy" for the guild's master on his own plot only (NxcK_Os,
+			# 24 October) - clientrootify.py.
+			if CanDemolishBuilding(self.vid):
+				self.__ShowButton(localeInfo.TARGET_BUTTON_BUILDING_DESTROY)
+				self.__ArrangeButtonPosition()
 			return
 
 		if player.IsObserverMode():
@@ -241610,6 +241942,16 @@ def ApplyLabel(number, suffix):
 
 
 
+
+
+
+
+
+
+
+
+
+
 SPAWN_TIERS = [
 	("Lv 1-40",
 		[5161, 591, 531, 532, 533, 534],
@@ -241621,11 +241963,9 @@ SPAWN_TIERS = [
 		[2094, 2092, 1901, 1902, 2206, 2207, 1191, 2291, 1091, 1092, 1304, 1306, 1334, 1093, 2306, 1192, 2591, 2592, 2593, 2594, 2595, 2596, 2495],
 		[8024, 8025, 8036, 8026, 8038, 8027]),
 	("Lv 91-110",
-		[2597, 2598, 2492, 1491, 2307, 2493, 1095, 1094, 1307, 693, 2093, 2192, 1903, 795, 796,
-		 3090, 3190, 3290, 3390, 3490, 3590, 3690, 3790, 3890, 3910, 3911, 3912, 3913,
-		 3091, 3191, 3291, 3391, 3491, 3591, 3595, 3596, 3691, 3791, 3891,
-		 6151, 6191, 6091, 3901, 3902, 3903, 3905, 3906],
-		[8051, 8052, 8053, 8054, 8055, 8056]),
+		[2597, 2598, 2492, 1491, 2307, 2493, 1095, 1094, 1307, 693, 2093, 2192, 1903, 795,
+		 3911, 3912, 3913, 3905, 3906],
+		[8027]),
 ]
 
 # Teleport: (etykieta, x, y) w globalnych metrach - /warp x y.
@@ -250948,9 +251288,9 @@ class PlayerbotAdminWindow(ui.BoardWithTitleBar):
 			clear = self.__PBAMakeButton(self.botListPanel,self.PBA_LIST_WIDTH-22,21,22,20,"X")
 			clear.SetEvent(ui.__mem_func__(self.__PBAClearSearch))
 			self.__PBAMakeText(self.botListPanel,3,86,"Lv    "+localeInfo.PBA_NAME)
-			for index, (title,action) in enumerate(((localeInfo.PBA_WARP_BOT,"warp"),(localeInfo.PBA_SUMMON_BOT,"transfer"),(localeInfo.PBA_FAVORITE,"favorite"))):
-				button = self.__PBAMakeButton(self.liveRightPanel, index*((self.PBA_RIGHT_WIDTH-8)//3+4),81,(self.PBA_RIGHT_WIDTH-8)//3,20,title)
-				button.SetEvent(ui.__mem_func__(self.__PBAQuickAction),action)
+			
+			
+			
 			self.logSearchEdit.pbaSlot.SetPosition(0,107); self.logSearchHint.SetPosition(3,111); self.logCategoryButton.SetPosition(self.PBA_RIGHT_WIDTH-80,107)
 			self.liveLogBoard.SetPosition(0,132); self.liveLogScrollBar.SetPosition(self.PBA_RIGHT_WIDTH-18,132)
 			self.PBA_LIVE_LOG_BOARD_HEIGHT = self.liveRightPanel.GetHeight()-160
@@ -287972,7 +288312,7 @@ def Stop():
 #                <maxsp> <where> <dist> <mode> <stance> <loot> <protect>
 #                <buffs> <gold> <red> <blue> <dead> [<lure> <luring> [<solo> [<chests>
 #                [<party> [<filter> [<rank> [<coins> [<balance> [<equipment_lock>
-#                [<shop> [<ranged> [<poly>]]]]]]]]]]]]
+#                [<shop> [<ranged> [<poly> [<saddle>]]]]]]]]]]]]]
 #   SidekickNames <name> <place> <doing>            - hex of the CP1250 bytes
 #   SidekickGear <slot 0-7> <name>                  - hex, only when changed
 #
@@ -287983,7 +288323,7 @@ def Stop():
 # nothing the server did not already take from the quest: przywolaj, wolny,
 # czekaj, zakupy, stan, walka N, zbieraj N, ochrona N, buffy N, luruj N, sam N,
 # skrzynki N, grupa N, filtr 1 K | filtr 0, monety N, blokada N, lowienie,
-# dystans N, marmury N, odprawa tak.
+# dystans N, marmury N, kon N, odprawa tak.
 # lure (server 2.2.19): the companion wakes packs round the owner and brings
 # them over; luring: 0 no course, 1 out to a pack, 2 back
 # with them. solo (server 2.2.30, "Gra beze mnie"): with its owner out of the
@@ -288021,7 +288361,14 @@ def Stop():
 # (the question it always had), 1 follows it with its own marble of the same
 # monster without asking, 2 that and on its own in a fight against monsters,
 # 3 never. One button that goes round the four (SWITCH_CYCLES); an older
-# server sends no word and the switch is not there.
+# server sends no word and the switch is not there. saddle (24 October,
+# Chimpian's "Companion horse fighting", "Walka z konia"): whether a fight
+# beside an owner who rides is fought from the companion's battle horse -
+# 0 auto, by its build (a Shaman and a black-magic Sura climb off to cast,
+# the rest keep the saddle), 1 always, 2 never (on foot, as before 2.2.119).
+# It shares "Najpierw dystans"'s row, which then names itself shorter
+# (SWITCH_SHORT); with an older server's window the row is "Najpierw
+# dystans"'s whole again (RefreshOptionsPage lays a row out by what it shows).
 #
 # The status and skill pages read the answer to "/towarzysz umiejetnosci"
 # (SidekickSkillBegin with the stats, the skills, SidekickSkillEnd), which the
@@ -288236,21 +288583,35 @@ SWITCHES = (
 	('poly', 'marmury', 0, T('Marmury', 'Marbles'),
 		T('Polimorfia z jego plecaka: pytaj, z tob\xb9 (bez pytania), zawsze (te\xbf sam w walce), nie.',
 			'Polymorph from its bag: ask, with you (no question), always (also alone in a fight), off.')),
+	
+	
+	('saddle', 'kon', 0, T('Z konia', 'Mounted'),
+		T('Walka z konia przy tobie, gdy jedziesz: auto (szaman, sura cz. magii schodz\xb9), zawsze, nigdy.',
+			'Fights from its horse beside you while you ride: auto (Shaman, black-magic Sura climb off), always, never.')),
 )
 
 
 
+
+
 SWITCH_ROWS = (('protect', 'buffs'), ('lure', 'poly'), ('solo',), ('chests', 'party'), ('coins',),
-	('equipment_lock',), ('ranged',))
+	('equipment_lock',), ('ranged', 'saddle'))
+
+
+SWITCH_SHORT = {
+	'ranged': T('Dystans', 'Ranged'),
+}
 
 
 SWITCH_STATES = {
 	'coins': T(('nie wydaje', 'wydaje'), ('keeps', 'spends')),
 	'poly': T(('pytaj', 'z tob\xb9', 'zawsze', 'nie'), ('ask', 'with you', 'always', 'off')),
+	'saddle': T(('auto', 'zawsze', 'nigdy'), ('auto', 'always', 'never')),
 }
 
 SWITCH_CYCLES = {
 	'poly': 4,
+	'saddle': 3,
 }
 SWITCH_BUTTONS = {
 	'coins': 'middle',
@@ -288683,6 +289044,9 @@ def ParseInfo(args):
 	
 	if len(values) >= len(names) + 13:
 		info['poly'] = ParseInt(values[len(names) + 12])
+	
+	if len(values) >= len(names) + 14:
+		info['saddle'] = ParseInt(values[len(names) + 13])
 	return info
 
 
@@ -289245,6 +289609,18 @@ class SidekickWindow(ui.ScriptWindow):
 		self._Hover(button, hint)
 		return (bar, label, button)
 
+	def _PlaceSwitch(self, key, r, slot, share):
+		"""A switch's place on its row: the whole row, or its share of one
+		with the switches it shares it with (SWITCH_ROWS)."""
+		bar, label, button = self.switchRows[key]
+		y = SWITCH_TOP + r * ROW_STEP
+		width = SECTION_WIDTH // max(1, share)
+		x = SECTION_X + slot * width
+		bar.SetPosition(x, y)
+		bar.SetSize(width, ROW_HEIGHT - 1)
+		label.SetPosition(x + 8, y + 3)
+		button.SetPosition(x + width - BUTTON_WIDTHS[SWITCH_BUTTONS.get(key, 'small')] - 2, y - 1)
+
 	def _BuildOptionsPage(self):
 		page = self.pages[PAGE_OPTIONS]
 		self._Section(page, 8, TEXT_SECTION_BEHAVIOUR)
@@ -289258,15 +289634,8 @@ class SidekickWindow(ui.ScriptWindow):
 			y = SWITCH_TOP + r * ROW_STEP
 			row = self._Switch(page, y, r, text, hint,
 				SWITCH_BUTTONS.get(key, 'small'), self.OnSwitch, key)
-			
-			if share > 1:
-				half = SECTION_WIDTH // share
-				x = SECTION_X + slot * half
-				row[0].SetPosition(x, y)
-				row[0].SetSize(half, ROW_HEIGHT - 1)
-				row[1].SetPosition(x + 8, y + 3)
-				row[2].SetPosition(x + half - BUTTON_WIDTHS['small'] - 2, y - 1)
 			self.switchRows[key] = row
+			self._PlaceSwitch(key, r, slot, share)
 		points = SWITCH_TOP + len(SWITCH_ROWS) * ROW_STEP
 		self._Section(page, points, TEXT_SECTION_POINTS)
 		self.statManualRow = self._Switch(page, points + 20, 0, TEXT_STAT_MANUAL, TEXT_STAT_MANUAL_HINT, 'small',
@@ -289564,7 +289933,17 @@ class SidekickWindow(ui.ScriptWindow):
 
 	def RefreshOptionsPage(self):
 		info = self.info
+		
+		
+		shares = {}
+		for r, keys in enumerate(SWITCH_ROWS):
+			shown = [key for key in keys if key in info]
+			for slot, key in enumerate(shown):
+				shares[key] = len(shown)
+				self._PlaceSwitch(key, r, slot, len(shown))
 		for key, order, default, text, hint in SWITCHES:
+			if shares.get(key, 1) > 1 and key in SWITCH_SHORT:
+				text = SWITCH_SHORT[key]
 			bar, label, button = self.switchRows[key]
 			
 			
