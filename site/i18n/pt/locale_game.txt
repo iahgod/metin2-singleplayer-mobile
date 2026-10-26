@@ -1,0 +1,1310 @@
+AFFECT_INACTIVE	Inativo	
+AFF_LOVE_POINT	Pontos de amor: %d%%	
+ALIGNMENT_NAME	Pontos de rank:	
+ATTACK_ERROR_UNKNOWN	Erro de ataque desconhecido: %s	
+AUTOSTACK_INVENTORY	Todos os itens empilháveis do inventário foram agrupados.	
+BOT_ADMIN_ACHIEVEMENT_N	Conquista #%d	
+BOT_ADMIN_ACTIVE_BOTS	Bots ativos	
+BOT_ADMIN_ACTIVE_BOTS_COUNT	Bots ativos: %s	
+BOT_ADMIN_ACTIVE_BOTS_NONE	Bots ativos: -	
+BOT_ADMIN_BOT_DETAILS	%s (Nv %d) - pid %d, pos (%d, %d), reino %d	
+BOT_ADMIN_CHOOSE_BOT	Escolha um bot na lista à esquerda	
+BOT_ADMIN_FIRST_30	Primeiro nível 30	
+BOT_ADMIN_FIRST_60	Primeiro nível 60	
+BOT_ADMIN_FIRST_90	Primeiro nível 90	
+BOT_ADMIN_GIVE_ITEM	Dar item (vnum / quantidade):	
+BOT_ADMIN_IN_PARTY	Em grupo: %s	
+BOT_ADMIN_IN_PARTY_NONE	Em grupo: -	
+BOT_ADMIN_KICK	Expulsar bot	
+BOT_ADMIN_LOAD_FAILED	A janela de admin dos bots não carregou neste cliente - detalhes no syserr.txt	
+BOT_ADMIN_NOBODY_YET	Ninguém ainda	
+BOT_ADMIN_NOTHING_SAID	(este bot ainda não disse nada)	
+BOT_ADMIN_REFRESH	Atualizar	
+BOT_ADMIN_REFRESH_LOG	Atualizar log	
+BOT_ADMIN_RESPAWN	Recriar	
+BOT_ADMIN_SEND	Enviar	
+BOT_ADMIN_STALLS	Com barraca: %s	
+BOT_ADMIN_STALLS_NONE	Com barraca: -	
+BOT_ADMIN_TAB_ACHIEVEMENTS	Conquistas	
+BOT_ADMIN_TAB_GENERAL	Geral	
+BOT_ADMIN_TAB_LIVE	Ações dos bots	
+BOT_ADMIN_TAB_MANAGE	Gerenciar	
+BOT_ADMIN_TITLE	Gerenciar bots [GM]	
+BOT_ADMIN_WON_BY	Conquistado por: %s	
+BUSY_ACTION_FAILED	Falhou	
+BUSY_ACTION_GATHERING	Coletando	
+BUSY_ACTION_INTERRUPTED	Interrompido	
+BUSY_ACTION_IN_PROGRESS	Ação em andamento	
+BUSY_ACTION_SUCCESS	Sucesso	
+CANNOT_ATTACK_DEST_IN_SAFE	O oponente está longe demais.	
+CANNOT_ATTACK_SELF_IN_SAFE	Não posso atacar meu oponente daqui.	
+CANNOT_EQUIP_IN_EXCHANGE	Você não pode trocar seu equipamento durante uma negociação.	
+CANNOT_EQUIP_IN_SHOP	Você não pode trocar seu equipamento durante uma negociação.	
+CANNOT_OPEN_PRIVATE_SHOP_IN_SAFE_AREA	Você não pode abrir uma loja particular em uma área pública.	
+CANNOT_SHOOT_DEST_IN_SAFE	O inimigo está longe demais.	
+CANNOT_SHOOT_EMPTY_ARROW	Preciso de uma flecha.	
+CANNOT_SHOOT_SELF_IN_SAFE	Não posso atacar meu oponente daqui.	
+CANNOT_SKILL_APPROACH	Tenho certeza de que não consigo chegar mais perto.	
+CANNOT_SKILL_ATTACK	Não posso atacar isso.	
+CANNOT_SKILL_DEST_IN_SAFE	O oponente está longe demais.	
+CANNOT_SKILL_EQUIP_FISHING_ROD	Preciso de uma vara de pesca.	
+CANNOT_SKILL_HAVE_TO_RIDE	Preciso de um cavalo para usar isso.	
+CANNOT_SKILL_NEED_EMPTY_BOTTLE	Não tenho uma garrafa vazia.	
+CANNOT_SKILL_NEED_POISON_BOTTLE	Não tenho uma garrafa de veneno.	
+CANNOT_SKILL_NEED_TARGET	Quem é o alvo?	
+CANNOT_SKILL_NOT_ENOUGH_HP	Não tenho HP suficiente!	
+CANNOT_SKILL_NOT_ENOUGH_SP	Não tenho MP suficiente!	
+CANNOT_SKILL_NOT_HORSE_SKILL	Não posso usar isso enquanto estou montado.	
+CANNOT_SKILL_NOT_MATCHABLE_WEAPON	Não posso usar esta habilidade com esta arma.	
+CANNOT_SKILL_NOT_YET_LEARN	Ainda não aprendi esta habilidade.	
+CANNOT_SKILL_ONLY_FOR_ALLIANCE	Isso só afeta membros do grupo.	
+CANNOT_SKILL_ONLY_FOR_CORPSE	Isso só afeta pessoas mortas.	
+CANNOT_SKILL_REMOVE_FISHING_ROD	Não posso usar esta habilidade com uma vara de pesca.	
+CANNOT_SKILL_SELF_IN_SAFE	Não posso atacar daqui.	
+CANNOT_SKILL_USE_SELF	Não posso usar isso em mim mesmo.	
+CANNOT_SKILL_WAIT_COOLTIME	Ainda não posso usar esta habilidade.	
+CANNOT_USE	Você não pode usar isto.	
+CANNOT_WHISPER_DEST_REFUSE	%s bloqueou mensagens privadas.	SA
+CANNOT_WHISPER_NOT_LOGON	%s não está online.	SA
+CANNOT_WHISPER_SELF_REFUSE	Você não pode enviar mensagens privadas enquanto as bloqueou totalmente.	SNA
+CANNOT_WHISPER_TARGET_IS_BLOCKED	Você não pode enviar mensagem a um jogador bloqueado.	SNA
+CHANNEL	Canal	
+CHANNELING_CANNOT_LOGOUT	Você não pode voltar para a tela de login.	
+CHANNEL_EMPTY_SERVER	Sem servidor	
+CHANNEL_NORMAL	Canal %d	
+CHANNEL_NOTIFY_FULL	Este canal está cheio! Escolha outro.	
+CHANNEL_NOT_FIND_INFO	Nenhuma informação encontrada pelo canal.	
+CHANNEL_PVP	Duelo livre	
+CHANNEL_SELECT_CHANNEL	Escolha o canal	
+CHANNEL_SELECT_REGION	Escolha a região.	
+CHANNEL_SELECT_SERVER	Escolha o servidor	
+CHANNEL_TEST_SERVER	Servidor de teste	
+CHANNEL_TEST_SERVER_ADDR	Teste %s:%d	
+CHAT_ALL	Todos	
+CHAT_BLOCK	Bloquear	
+CHAT_GUILD	Guilda	
+CHAT_INFORMATION	Info	
+CHAT_INSULT_STRING	Esta frase contém palavras proibidas.	
+CHAT_LOG	Mostrar mensagens antigas [L]	
+CHAT_LOG_TITLE	Histórico do chat	
+CHAT_NORMAL	Normal	
+CHAT_NOTICE	Anúncio	
+CHAT_PARTY	Grupo	
+CHAT_SEND_CHAT	Enviar chat	
+CHAT_SEND_MEMO	Enviar mensagem privada [Shift+Enter]	
+CHAT_SHOUT	Gritar	
+CHAT_SHOUT_LIMIT	Você só pode gritar a cada 15 segundos.	
+CHAT_WHISPER	Mensagem privada	
+CONFIG_RESOLUTION_CUSTOM	Personalizada	
+CONFIG_SCALE_VALUE	Escala (%s)	
+CRAFT_CATEGORY_ARMOUR	Armaduras	
+CRAFT_CATEGORY_EXCHANGES	Trocas	
+CRAFT_CATEGORY_OTHER	Outros	
+CRAFT_CATEGORY_SCROLLS_MARBLES	Pergaminhos e Bolas	
+CRAFT_CATEGORY_TRADEABLE	Negociáveis	
+CRAFT_CATEGORY_UNTRADEABLE	Não negociáveis	
+CRAFT_CATEGORY_WEAPONS	Armas	
+CREATE_ERROR_GM_NAME	Você não pode usar 'GM' no nome do personagem.	
+CREATE_ERROR_INSULT_NAME	Este nome é inválido.	
+CREATE_EXIST_SAME_NAME	Outro personagem já tem este nome.	
+CREATE_FAILURE	Não foi possível criar o personagem	
+CREATE_GM_NAME	GM	
+CREATE_INPUT_NAME	Digite o nome.	
+CREATE_PLUS_STAT	Ainda há pontos de status disponíveis.	
+DAY	Dias	
+DO_YOU_BUY_ITEM1	Deseja comprar %s por %s?	
+DO_YOU_BUY_ITEM2	Deseja comprar %s %s por %s?	
+DO_YOU_DROP_MONEY	Deseja jogar fora %d Yang?	
+DO_YOU_SELL_ITEM1	Deseja vender %s por %s?	
+DO_YOU_SELL_ITEM2	Deseja vender %s %s por %s?	
+DRAGON_SOUL_CANNOT_REFINE	Esta Pedra do Dragão não pode ser refinada.	
+DRAGON_SOUL_CANNOT_REFINE_MORE	Esta Pedra do Dragão já atingiu o nível máximo.	
+DRAGON_SOUL_EQUIP_WARNING1	É difícil remover uma Pedra do Dragão depois de colocada.	
+DRAGON_SOUL_EQUIP_WARNING2	Deseja continuar mesmo assim?	
+DRAGON_SOUL_EXPIRED	Pedra do Dragão expirada	
+DRAGON_SOUL_INVALID_DRAGON_SOUL	Esta é a Pedra do Dragão errada.	
+DRAGON_SOUL_IS_NOT_DRAGON_SOUL	Isto não é uma Pedra do Dragão.	
+DRAGON_SOUL_NOT_DRAGON_SOUL_REFINE_STONE	Esta não é a Pedra do Dragão certa.	
+DRAGON_SOUL_NOT_ENOUGH_MATERIAL	Você não tem material suficiente para refinar.	
+DRAGON_SOUL_NOT_MATCHED_SLOT	A Pedra do Dragão não encaixa neste espaço.	
+DRAGON_SOUL_STEP_LEVEL1	Pureza: opaca,	
+DRAGON_SOUL_STEP_LEVEL2	Pureza: clara,	
+DRAGON_SOUL_STEP_LEVEL3	Pureza: perfeita,	
+DRAGON_SOUL_STEP_LEVEL4	Pureza: brilhante,	
+DRAGON_SOUL_STEP_LEVEL5	Pureza: excelente,	
+DRAGON_SOUL_STRENGTH	Nível: +%d	SA
+DRAGON_SOUL_UNEQUIP_WARNING1	A Pedra do Dragão pode ser destruída no processo.	
+DRAGON_SOUL_UNEQUIP_WARNING2	Deseja continuar mesmo assim?	
+DRAGON_SOUL_UNMATCHED_SLOT	Este é o espaço errado.	
+DRAGON_SOUL_UNQUALIFIED	Você ainda não pode usar a alquimia de Pedras do Dragão.	
+DROP_ITEM_FAILURE_EQUIP_ITEM	Você não pode jogar fora itens equipados.	
+DROP_ITEM_FAILURE_PRIVATE_SHOP	Você não pode jogar itens fora enquanto uma loja particular estiver aberta.	
+DROP_MONEY_FAILURE_1000_OVER	Você pode jogar fora no máximo 999 Yang.	
+EMOTION_ANGRY	Provocar	
+EMOTION_ATTRACTIVE	Seduzir	
+EMOTION_BANTER	Zombar	
+EMOTION_CHEERS_1	Brinde 1	
+EMOTION_CHEERS_2	Brinde 2	
+EMOTION_CHEERUP	Animar	
+EMOTION_CHOOSE_ONE	Escolha um alvo.	
+EMOTION_CLAP	Aplaudir	
+EMOTION_CLAP_KISS	Beijo	
+EMOTION_CONGRATULATION	Aprovação	
+EMOTION_DANCE_1	Dança 1	
+EMOTION_DANCE_2	Dança 2	
+EMOTION_DANCE_3	Dança 3	
+EMOTION_DANCE_4	Dança 4	
+EMOTION_DANCE_5	Dança 5	
+EMOTION_DANCE_6	Estilo Gumsan	
+EMOTION_FORGIVE	Perdão	
+EMOTION_FRENCH_KISS	Beijo francês	
+EMOTION_JOY	Alegria	
+EMOTION_SAD	Tristeza	
+EMOTION_SHY	Rejeição	
+EMOTION_SLAP	Tapa	
+EMPIRE_A	Reino Shinsoo	
+EMPIRE_B	Reino Chunjo	
+EMPIRE_C	Reino Jinno	
+EXCHANGE_CANNOT_GIVE	Este item não pode ser negociado.	
+EXCHANGE_CANT_EDIT_MONEY	Você não pode alterar o valor agora.	
+EXCHANGE_FAILURE_EQUIP_ITEM	Você não pode negociar itens equipados.	
+EXCHANGE_MONEY	Valor	
+EXCHANGE_TITLE	Negociação com %s	
+FISHING_FAILURE	Você perdeu a isca.	
+FISHING_NOTIFY1	Parece que %s mordeu a isca.	
+FISHING_NOTIFY2	Parece que %s está no anzol.	
+FISHING_SUCCESS1	Você pescou %s!	
+FISHING_SUCCESS2	Você tirou %s da água!	
+FISHING_UNKNOWN	Algo mordeu a isca, mas você não consegue ver o que é.	
+FISHING_WRONG_PLACE	Você não pode pescar aqui.	
+FOR_FEMALE	para mulheres	
+FOR_MALE	para homens	
+GAME_CANNOT_MINING	Você não pode minerar enquanto está montado.	
+GAME_CANNOT_PICK_ITEM	Você não pode pegar este item porque não foi você quem o ganhou.	
+GAME_INIT_ERROR_CURSOR	Não foi possível criar o cursor.	
+GAME_INIT_ERROR_DIRECTX	O DirectX 8.1 precisa estar instalado para o jogo rodar.\nInstale o DirectX 8.1 ou superior.	
+GAME_INIT_ERROR_GRAPHICS_BAD_PERFORMANCE	Nenhum dispositivo gráfico encontrado. \nVerifique se sua placa de vídeo está instalada corretamente.	
+GAME_INIT_ERROR_GRAPHICS_NOT_EXIST	Não foi possível criar o dispositivo gráfico. \nVerifique se você tem uma placa de vídeo. \nVocê também pode ativar a aceleração de hardware.\n(Coloque a aceleração de hardware no máximo em \nPainel de Controle->Vídeo->Configurações->Avançado->Solução de problemas)	
+GAME_INIT_ERROR_GRAPHICS_NOT_SUPPORT_32BIT	A placa de vídeo não suporta o modo janela em 32 bits. \nMude para 16 bits ou use tela cheia.	
+GAME_INIT_ERROR_ITEM_PROTO	Dados de itens ausentes.\nInstale o jogo novamente.	
+GAME_INIT_ERROR_MAIN_WINDOW	Não foi possível criar a janela principal	
+GAME_INIT_ERROR_MOB_PROTO	Dados de monstros ausentes.\nInstale o jogo novamente.	
+GAME_INIT_ERROR_NETWORK	Não foi possível iniciar a rede.\nVerifique sua conexão com a internet.	
+GAME_PICK_MONEY	Você recebeu %s.	
+GM_BAN_NEED_DAYS	Informe a duração do bloqueio em dias.	
+GM_BAN_NEED_REASON	Informe o motivo (mín. 3 caracteres)	
+GM_CAPTCHA_CHECKING	Verificando o jogador %s (pid %s) código: %s	
+GM_CAPTCHA_CODE	Código: |cffffa826%s|r	
+GM_CAPTCHA_CODE_CHANGED	Código trocado (|cffffa826%s|r)	
+GM_CAPTCHA_LOGGED_OUT	O jogador saiu.	
+GM_CAPTCHA_NO_ATTEMPTS	Todas as tentativas foram usadas. (|cffffa826%s|r)	
+GM_CAPTCHA_SOLVED	Código correto. Levou %d segundos.	
+GM_CAPTCHA_STARTED	Iniciado com o código |cffffa826%s|r	
+GM_CAPTCHA_TIMEOUT	O tempo acabou.	
+GM_CAPTCHA_TIME_LEFT	Tempo restante: %ds	
+GM_CAPTCHA_WRONG_CODE	Código incorreto (|cffffa826%s|r)	
+GM_COMMAND_A	/a - dá um nível a alguém	
+GM_COMMAND_A_LEVEL	/a level - muda o nível do jogador	
+GM_COMMAND_B	/b - anúncio em destaque	
+GM_COMMAND_BLOCK_CHAT	/block_chat - bloqueia o chat por um tempo	
+GM_COMMAND_BLOCK_CHAT_LIST	/block_chat_list - lista de jogadores com chat bloqueado	
+GM_COMMAND_DC	/dc - expulsa alguém do servidor	
+GM_COMMAND_E_LOTTO_DROP	/e lotto-drop - ...desconhecido...	
+GM_COMMAND_E_LOTTO_ROUND	/e lotto_round - ...desconhecido...	
+GM_COMMAND_F	/f - ...desconhecido...	
+GM_COMMAND_GETE	/gete - ...desconhecido...	
+GM_COMMAND_GETQ	/getq - ...desconhecido...	
+GM_COMMAND_GO_D	/go d - teleporte ao deserto	
+GM_COMMAND_GO_F	/go f - teleporte ao Inferno	
+GM_COMMAND_GO_M	/go m - teleporte ao Templo Hwang	
+GM_COMMAND_GO_O	/go o - teleporte à Arena OX	
+GM_COMMAND_GO_S	/go s - teleporte ao Monte Sohan	
+GM_COMMAND_GO_T	/go t - teleporte ao Vale dos Orcs	
+GM_COMMAND_GO_TR	/go tr - teleporte à Floresta Fantasma	
+GM_COMMAND_GO_TRENT2	/go trent2 - teleporte à Floresta Vermelha	
+GM_COMMAND_GO_X_Y	/go x y - vai para as coordenadas x y	
+GM_COMMAND_GWCANCEL	/gwcancel - termina a guerra entre as guildas	
+GM_COMMAND_GWLIST	/gwlist - mostra as guerras de guildas	
+GM_COMMAND_H	/h - informações do cavalo	
+GM_COMMAND_HORSE_LEVEL	/horse_level - aumenta o nível do cavalo	
+GM_COMMAND_HORSE_RIDE	/horse_ride - chama o cavalo	
+GM_COMMAND_INV	/inv - invisibilidade	
+GM_COMMAND_ITEM	/item - adiciona um item	
+GM_COMMAND_ITEM_2	/item - adiciona várias unidades de um item	
+GM_COMMAND_KILL	/kill - mata o jogador	
+GM_COMMAND_LEVEL	/level - muda o nível do personagem	
+GM_COMMAND_M	/m - invoca um monstro ou NPC	
+GM_COMMAND_MSPD_0	/mspd 0 - 1000 - velocidade de movimento	
+GM_COMMAND_N	/n - mensagem no topo da tela	
+GM_COMMAND_O	/o - modo observador	
+GM_COMMAND_OPEN	/open - inicia o evento OX	
+GM_COMMAND_P	/p - transforma em monstro ou NPC	
+GM_COMMAND_PKMODE_0	/pkmode 0 - modo PvP Paz	
+GM_COMMAND_PKMODE_1	/pkmode 1 - modo PvP Agressivo	
+GM_COMMAND_PKMODE_2	/pkmode 2 - modo PvP Livre	
+GM_COMMAND_POLYITEM	/polyitem - dá uma Bola de Polimorfia do monstro escolhido	
+GM_COMMAND_POLY_0_3	/poly 0-3 - seu personagem	
+GM_COMMAND_POLY_4	/poly 4 - Guerreiro	
+GM_COMMAND_POLY_6	/poly 6 - Sura mulher	
+GM_COMMAND_POLY_7	/poly 7 - Xamã	
+GM_COMMAND_PRIV_EMPIRE_0_1_ITEM_DROP	/priv_empire 0 1:item_drop - aumenta o drop de itens em X% por um tempo	
+GM_COMMAND_PRIV_EMPIRE_0_2_GOLD_DROP	/priv_empire 0 2:gold_drop - aumenta o drop de Yang em X% por um tempo	
+GM_COMMAND_PRIV_EMPIRE_0_3_GOLD10_DROP	/priv_empire 0 3:gold10_drop - aumenta o drop de Yang em X% por um tempo e multiplica por 10	
+GM_COMMAND_PRIV_EMPIRE_0_4EXP	/priv_empire 0:4exp - aumenta a EXP em X% por um tempo	
+GM_COMMAND_PURGE	/purge - remove monstros, NPCs etc. por perto	
+GM_COMMAND_R	/r - restaura todo o HP e MP	
+GM_COMMAND_RELOAD_Q	/reload q - ...desconhecido...	
+GM_COMMAND_REPEAT	/ - repete o comando anterior	
+GM_COMMAND_RESET	/reset - restaura HP e MP	
+GM_COMMAND_RESP_ALL	/resp all - se algum NPC foi removido com /purge	
+GM_COMMAND_SECTION_NINJA_ARCHER	-- Ninja Arqueiro - habilidades P --	
+GM_COMMAND_SECTION_NINJA_DAGGER	-- Ninja Adaga - habilidades P --	
+GM_COMMAND_SECTION_SURA_BM	-- Sura Magia Negra - habilidades P --	
+GM_COMMAND_SECTION_SURA_WP	-- Sura Arma - habilidades P --	
+GM_COMMAND_SECTION_SZAMAN_HEALER	-- Xamã Cura - habilidades P --	
+GM_COMMAND_SECTION_SZAMAN_SMOK	-- Xamã Dragão - habilidades P --	
+GM_COMMAND_SECTION_WOJOWNIK_BODY	-- Guerreiro Corpo - habilidades P --	
+GM_COMMAND_SECTION_WOJOWNIK_MENTAL	-- Guerreiro Mental - habilidades P --	
+GM_COMMAND_SETSKILLOTHER_59	/setskillother 59 - dá uma habilidade P a alguém	
+GM_COMMAND_SETSK_121_59	/setsk 121 59 - Liderança P	
+GM_COMMAND_SETSK_124_59	/setsk 124 59 - Mineração P	
+GM_COMMAND_SETSK_125_59	/setsk 125 59 - Forja P	
+GM_COMMAND_SETSK_126_59	/setsk 126 59 - Idioma Shinsoo P	
+GM_COMMAND_SETSK_127_59	/setsk 127 59 - Idioma Chunjo P	
+GM_COMMAND_SETSK_128_59	/setsk 128 59 - Idioma Jinno P	
+GM_COMMAND_SETSK_129_59	/setsk 129 59 - Polimorfia P	
+GM_COMMAND_SETSK_130_30	/setsk 130 30 - cavalo nível 30	
+GM_COMMAND_SETSK_131_10	/setsk 131 10 - Chamar cavalo 100%	
+GM_COMMAND_SETSK_137_59	/setsk 137 59 - Golpe da Sela P	
+GM_COMMAND_SETSK_138_59	/setsk 138 59 - Pisoteio do Cavalo P	
+GM_COMMAND_SETSK_139_59	/setsk 139 59 - Onda de Poder P	
+GM_COMMAND_SETSK_140_59	/setsk 140 59 - 4ª habilidade militar	
+GM_COMMAND_SETSK_151_7	/setsk 151 7 - Sangue do Deus Dragão	
+GM_COMMAND_SETSK_152_7	/setsk 152 7 - Bênção do Deus Dragão	
+GM_COMMAND_SETSK_153_7	/setsk 153 7 - Armadura Sagrada	
+GM_COMMAND_SETSK_154_7	/setsk 154 7 - Aceleração	
+GM_COMMAND_SETSK_155_7	/setsk 155 7 - Fúria do Deus Dragão	
+GM_COMMAND_SETSK_156_7	/setsk 156 7 - Desejo do Dragão	
+GM_COMMAND_SETSK_157_7	/setsk 157 7 - ...desconhecido...	
+GM_COMMAND_SET_ALIGN_200000	/set align 200000 - rank cavalheiro	
+GM_COMMAND_SET_EXP	/set exp - recebe a quantidade de EXP	
+GM_COMMAND_SET_GOLD	/set gold - recebe a quantidade de Yang	
+GM_COMMAND_SET_MAXHP	/set_maxhp - recarrega o HP	
+GM_COMMAND_SET_MAXSP	/set_maxsp - recarrega o MP	
+GM_COMMAND_SET_MAX_HP	/set max_hp - aumenta o HP	
+GM_COMMAND_SET_MAX_SP	/set max_sp - aumenta o MP	
+GM_COMMAND_SET_SKILL	/set skill - adiciona pontos de habilidade	
+GM_COMMAND_SET_STATE_INFORMATION	/set_state information - ...desconhecido...	
+GM_COMMAND_SET_STATE_RUN	/set_state run - ...desconhecido...	
+GM_COMMAND_SET_STATE_START	/set_state start - ...desconhecido...	
+GM_COMMAND_SKI_121	/ski 121 - Liderança	
+GM_COMMAND_SKI_124	/ski 124 - Mineração	
+GM_COMMAND_SKI_125	/ski 125 - Forja	
+GM_COMMAND_SKI_131	/ski 131 - Chamar cavalo	
+GM_COMMAND_SLOW	/slow - deixa o jogador lento	
+GM_COMMAND_STUN	/stun - atordoa o jogador	
+GM_COMMAND_TRANSFER	/transfer - traz o jogador até o GM	
+GM_COMMAND_U	/u - jogadores online	
+GM_COMMAND_W	/w - jogadores online	
+GM_COMMAND_WARP	/warp - leva o GM até o jogador	
+GM_COMMAND_WARP_200_100	/warp 200 100 - Ilha da neve (casa dos GMs)	
+GM_COMMAND_WARP_400_600	/warp 400 600 - teleporte à Arena dos GMs	
+GM_COMMAND_WARP_7032_5225	/warp 7032 5225 - teleporte ao V2	
+GM_COMMAND_WEAK	/weak - clique no monstro com o botão direito, digite o comando e o monstro fica com 1 HP	
+GM_COMMAND_X	/x - dia	
+GM_COMMAND_XMAS_0	/xmas 0 - Dia	
+GM_COMMAND_XMAS_1	/xmas 1 - Noite	
+GM_COMMAND_XMAS_BOOM_0	/xmas_boom 0 - Dia	
+GM_COMMAND_XMAS_BOOM_1	/xmas_boom 1 - Noite	
+GM_COMMAND_XMAS_SANTA_0	/xmas_santa 0 - Papai Noel desligado	
+GM_COMMAND_XMAS_SANTA_1	/xmas_santa 1 - Papai Noel ligado	
+GM_COMMAND_XMAS_SNOW_0	/xmas_snow 0 - desliga a neve	
+GM_COMMAND_XMAS_SNOW_1	/xmas_snow 1 - liga a neve	
+GM_COMMAND_XMAS_SONG_0	/xmas_song 0 - desliga a música	
+GM_COMMAND_XMAS_SONG_1	/xmas_song 1 - liga a música de Natal	
+GM_COMMAND_XMAS_TREE_0	/xmas_tree 0 - Natal DESLIGADO	
+GM_COMMAND_XMAS_TREE_1	/xmas_tree 1 - Natal, 1ª etapa.	
+GM_COMMAND_XMAS_TREE_2	/xmas_tree 2 - Natal, 2ª etapa.	
+GM_COMMAND_XMAS_TREE_3	/xmas_tree 3 - Natal, 3ª etapa.	
+GM_PANEL_ACCOUNT	Conta:	
+GM_PANEL_ACCOUNT_STATUS	Status da conta: %s, acesso: %s	
+GM_PANEL_ACTION	Ação:	
+GM_PANEL_ADD_GM	Adicionar GM	
+GM_PANEL_ADD_GM_NOTE1	Vale na hora (sem reiniciar o servidor) - atualiza a lista de GMs	
+GM_PANEL_ADD_GM_NOTE2	em todos os personagens já conectados.	
+GM_PANEL_ADD_STATS	Adicionar status	
+GM_PANEL_ADMIN_TITLE	Painel Administrativo GM	
+GM_PANEL_AI_BIOLOG	Biólogo	
+GM_PANEL_AI_BIOLOG_HELP	Coletar para o Biólogo em vez de subir de nível.	
+GM_PANEL_AI_BOOKS	Ler livros sem esperar o dia	
+GM_PANEL_AI_BOOKS_HELP	O jogo exige cerca de um dia entre duas leituras da mesma habilidade, então o bot leva um mês para levar uma habilidade de M1 a G1, e os livros ficam parados na mochila. Ligado: o bot lê o livro assim que o tem - o único limite é o próprio jogo. Desligado: a espera diária do jogo continua.	
+GM_PANEL_AI_CHAT	Bots escrevem no chat	
+GM_PANEL_AI_CHAT_HELP	Texto sobre a cabeça do bot (caçando, indo ao ferreiro, pescando). Desligue para jogadores que se incomodam. O aviso no chat global de aprimoramento +7/+8/+9 continua de qualquer forma.	
+GM_PANEL_AI_CHEST	Baú Lunar - de monstros mortos	
+GM_PANEL_AI_CHEST_HELP	Com que frequência cai o baú: de monstros mortos e de Metins destruídos. Padrão do jogo: 1% e 30%; mais baús significa mais pergaminhos de bônus, poções de velocidade e Pergaminhos da Bênção para os bots. Vale em cinco segundos, igual para bots e jogadores.	
+GM_PANEL_AI_CHEST_STONE	Baú Lunar - de Metins destruídos	
+GM_PANEL_AI_CHEST_STONE_HELP	Segunda metade da opção acima - uma chance separada, contada ao destruir uma Pedra Metin em vez de matar um monstro comum.	
+GM_PANEL_AI_FISHING	Pesca	
+GM_PANEL_AI_FISHING_HELP	Quantos bots pescam. Decidido uma vez por bot, então a mudança vale para a próxima geração de pescadores.	
+GM_PANEL_AI_HORSE	Cavalo	
+GM_PANEL_AI_HORSE_HELP	Estábulo e caça de medalhas na Masmorra dos Macacos.	
+GM_PANEL_AI_HUNTING	Missões de caça	
+GM_PANEL_AI_HUNTING_HELP	Caçar para subir de nível no mapa indicado pela missão.	
+GM_PANEL_AI_LEVEL	Caça comum de monstros	
+GM_PANEL_AI_LEVEL_HELP	O que o bot faz quando nada mais pede atenção. Aumente e as compras perdem prioridade.	
+GM_PANEL_AI_METIN	Pedras Metin	
+GM_PANEL_AI_METIN_HELP	Caçar Metins em vez de monstros comuns.	
+GM_PANEL_AI_NIGHT	Noite/neve depois das 22:00	
+GM_PANEL_AI_NIGHT_HELP	Entre 22:00 e 05:59 (hora do servidor) o núcleo ativa a flag de noite - a mesma que o GM ativa com /xmas_snow 1 - e a desativa de manhã. O cliente mostra o céu noturno e, por ser a flag de Natal, neve.	
+GM_PANEL_AI_PARTY	Grupos (PT)	
+GM_PANEL_AI_PARTY_HELP	Lutar juntos, em vez de cada bot por conta própria.	
+GM_PANEL_AI_REFINE	Ferreiro	
+GM_PANEL_AI_REFINE_HELP	Aprimorar arma e armadura em vez de caçar.	
+GM_PANEL_AI_REST	Descanso na cidade	
+GM_PANEL_AI_RESTOCK	Comprar poções	
+GM_PANEL_AI_RESTOCK_HELP	Voltar à cidade assim que acabarem as poções vermelhas.	
+GM_PANEL_AI_REST_HELP	Parte dos bots que, depois de fazer compras na cidade, fica um pouco perto das barracas em vez de voltar direto para a caça. 100% é uma cidade viva, 0% - todos no campo.	
+GM_PANEL_AI_SCRAP	Bots sucateiros	
+GM_PANEL_AI_SCRAP_HELP	Parte dos comerciantes que coloca à venda seus aprimoramentos fracos (+0 a +3) por quase nada, em vez de vender ao NPC - sucata para queimar no ferreiro, como em servidores hard. Desligado por padrão.	
+GM_PANEL_AI_SKILL	Livros de habilidade	
+GM_PANEL_AI_SKILL_HELP	Ler livros para levar a habilidade de M rumo a G.	
+GM_PANEL_AI_TRADE	Barracas	
+GM_PANEL_AI_TRADE_HELP	Quantos bots mantêm uma barraca aberta. Os comerciantes sempre mantêm, independentemente deste controle.	
+GM_PANEL_AMOUNT	Valor:	
+GM_PANEL_AMOUNT_DC	Valor em MD:	
+GM_PANEL_AMOUNT_YANG	Valor em Yang:	
+GM_PANEL_BACK	Voltar	
+GM_PANEL_BAD_AMOUNT	Erro nos dados - verifique o valor.	
+GM_PANEL_BAD_ANSWER	Erro na resposta do servidor.	
+GM_PANEL_BAD_CHAR_ACCOUNT	Caractere não permitido no nome da conta.	
+GM_PANEL_BAD_CHAR_FIELD	Caractere não permitido no campo.	
+GM_PANEL_BAD_CHAR_NICK	Caractere não permitido no nick.	
+GM_PANEL_BAD_DATA	Erro nos dados.	
+GM_PANEL_BAD_EMPIRE	Reino inválido.	
+GM_PANEL_BAD_FORMAT	Formato inválido (ex.: 18, M5, G1, P).	
+GM_PANEL_BAD_ID_COUNT	Erro nos dados - verifique o ID e a quantidade.	
+GM_PANEL_BAD_PID_COUNT	Erro nos dados - verifique o PID e a quantidade.	
+GM_PANEL_BAD_RANK	Cargo inválido.	
+GM_PANEL_BAD_VALUE	Erro nos dados - verifique o valor.	
+GM_PANEL_BAD_VNUM	Vnum de item inválido.	
+GM_PANEL_BAN_CHECK	Verificar status	
+GM_PANEL_BAN_DAYS	Dias (só bloqueio temporário):	
+GM_PANEL_BAN_NOTE1	O bloqueio vale a partir do PRÓXIMO login nesta conta - não	
+GM_PANEL_BAN_NOTE2	desconecta a sessão atual. Expulsar do servidor só funciona	
+GM_PANEL_BAN_NOTE3	se o jogador estiver online AGORA.	
+GM_PANEL_BAN_PERM	Bloqueio permanente	
+GM_PANEL_BAN_TEMP	Bloqueio temporário	
+GM_PANEL_BONUSES	Bônus (tipo 0 = vazio):	
+GM_PANEL_BOSSES	Chefes	
+GM_PANEL_BOSSES_SPAWNED	Chefes criados: %s/%s.	
+GM_PANEL_BOTS_TO_SPAWN	Bots para criar	
+GM_PANEL_BOT_BEHAVIOUR	Comportamento dos bots	
+GM_PANEL_BOT_ID	ID do bot:	
+GM_PANEL_CANCEL	Cancelar	
+GM_PANEL_CATEGORY	Categoria:	
+GM_PANEL_CATEGORY_ARMOUR	Armaduras	
+GM_PANEL_CATEGORY_BRACELETS	Braceletes	
+GM_PANEL_CATEGORY_EARRINGS	Brincos	
+GM_PANEL_CATEGORY_HELMET	Elmos	
+GM_PANEL_CATEGORY_MATERIAL	Materiais de aprimoramento	
+GM_PANEL_CATEGORY_NECKLACES	Colares	
+GM_PANEL_CATEGORY_OTHER	Outros itens	
+GM_PANEL_CATEGORY_SHIELD	Escudos	
+GM_PANEL_CATEGORY_SHOES	Sapatos	
+GM_PANEL_CATEGORY_WEAPON	Armas	
+GM_PANEL_CHECK	Verificar	
+GM_PANEL_CHOOSE	(escolher)	
+GM_PANEL_CHOOSE_CREATURE	(escolher criatura)	
+GM_PANEL_CHOOSE_FROM_LIST	(escolha na lista)	
+GM_PANEL_CLASS	Classe:	
+GM_PANEL_COMING_SOON	Em preparação.	
+GM_PANEL_COUNT	Quantidade:	
+GM_PANEL_CREATE	Criar	
+GM_PANEL_CREATING	Criando...	
+GM_PANEL_DB_ERROR	Erro na consulta ao banco de dados.	
+GM_PANEL_DESTINATION	Local de entrega:	
+GM_PANEL_DEX	Des:	
+GM_PANEL_DONE	Concluído.	
+GM_PANEL_EMPIRE	Reino:	
+GM_PANEL_EMPTY	(vazio)	
+GM_PANEL_ERROR	Erro: %s	
+GM_PANEL_EXECUTE	Executar	
+GM_PANEL_FETCH_RATES	Buscar taxas atuais	
+GM_PANEL_GIVE	Dar	
+GM_PANEL_GIVE_DC	Dar Moedas do Dragão	
+GM_PANEL_GIVE_YANG	Dar Yang	
+GM_PANEL_GM_COMMANDS	Lista de comandos GM	
+GM_PANEL_GM_COMMANDS_TITLE	Lista de comandos GM:	
+GM_PANEL_GM_RANK	Cargo:	
+GM_PANEL_HORSE_LEVEL	Nível do cavalo:	
+GM_PANEL_HORSE_POINTS	Pontos de montaria:	
+GM_PANEL_INT	Int:	
+GM_PANEL_ITEM	Item:	
+GM_PANEL_ITEM_CREATED	Item criado.	
+GM_PANEL_JOB_NINJA_F	Ninja (M)	
+GM_PANEL_JOB_SHAMAN_F	Xamã (M)	
+GM_PANEL_JOB_SHAMAN_M	Xamã (H)	
+GM_PANEL_JOB_SURA_F	Sura (M)	
+GM_PANEL_JOB_WARRIOR_F	Guerreira (M)	
+GM_PANEL_JOB_WARRIOR_M	Guerreiro (H)	
+GM_PANEL_KICK	Expulsar do servidor	
+GM_PANEL_KICKING	Expulsando...	
+GM_PANEL_KICK_SELF	Você não pode expulsar a si mesmo.	
+GM_PANEL_LAST_ONLINE	Última vez online:	
+GM_PANEL_LOAD	Carregar	
+GM_PANEL_LOADED	Carregado.	
+GM_PANEL_LOADING	Carregando...	
+GM_PANEL_LOADING_PLACE	Carregando local %d...	
+GM_PANEL_LOAD_FAILED	O Painel GM não carregou neste cliente - detalhes no syserr.txt	
+GM_PANEL_MAIN_LINE1	Escolha uma aba acima. Toda ação é	
+GM_PANEL_MAIN_LINE2	verificada também pelo servidor.	
+GM_PANEL_MAIN_LINE3	O painel está em versão BETA. Se encontrar bugs,	
+GM_PANEL_MAIN_LINE4	escreva no Discord para OskarPWA.	
+GM_PANEL_MALL_CLOSED	O jogador não abriu a Loja de Itens nesta sessão.	
+GM_PANEL_MAP_INDEX	Mapa (índice):	
+GM_PANEL_MARBLE_ADDED	Bola adicionada ao inventário.	
+GM_PANEL_MARBLE_FAILED	Erro: não foi possível criar a bola.	
+GM_PANEL_METINS	Metins	
+GM_PANEL_METINS_LABEL	Metins:	
+GM_PANEL_METINS_SPAWNED	Metins criados: %s/%s.	
+GM_PANEL_MOBS	Monstros:	
+GM_PANEL_MUST_BE_ONLINE	O jogador precisa estar online.	
+GM_PANEL_NEED_AMOUNT	Informe o valor.	
+GM_PANEL_NEED_CREATURE	Escolha uma criatura.	
+GM_PANEL_NEED_ID_COUNT	Informe o ID e a quantidade.	
+GM_PANEL_NEED_LEVEL	Informe o nível.	
+GM_PANEL_NEED_NICK	Informe o nick.	
+GM_PANEL_NEED_NUMBER	Informe um número de 1 a 10000.	
+GM_PANEL_NEED_OWNER_ITEM	Informe o dono e escolha o item.	
+GM_PANEL_NEED_PID_COUNT	Informe o PID e a quantidade.	
+GM_PANEL_NEED_VALUE	Informe o valor.	
+GM_PANEL_NEW_HORSE_LEVEL	Novo nível do cavalo (0-30):	
+GM_PANEL_NEW_RANK_POINTS	Novos pontos de rank:	
+GM_PANEL_NEW_VALUE	Novo valor:	
+GM_PANEL_NEXT	Próximo	
+GM_PANEL_NONE	(nenhum)	
+GM_PANEL_NO_ANSWER_REOPEN	Sem resposta do servidor - abra a aba de novo.	
+GM_PANEL_NO_ANSWER_RETRY	Sem resposta do servidor, tente novamente.	
+GM_PANEL_NO_ROOM_INVENTORY	Sem espaço no inventário.	
+GM_PANEL_NO_ROOM_TARGET	Sem espaço no destino.	
+GM_PANEL_NO_SUCH_MOB	Nenhum monstro/metin com este ID.	
+GM_PANEL_NO_SUCH_PLAYER	O jogador não existe.	
+GM_PANEL_OK_DC_ADDED	OK. Moedas do Dragão adicionadas.	
+GM_PANEL_OK_HORSE_LEVEL	OK. Nível do cavalo: %s	
+GM_PANEL_OK_NEW_YANG	OK. Novo saldo de Yang: %s	
+GM_PANEL_OK_OFFLINE	OK (jogador offline, salvo no banco).	
+GM_PANEL_OK_RANK_POINTS	OK. Pontos de rank: %s	
+GM_PANEL_OWNER	Dono:	
+GM_PANEL_PLACE_INVENTORY	Inventário	
+GM_PANEL_PLACE_STOREROOM	Armazém	
+GM_PANEL_PLAYER_NOT_FOUND	Jogador não encontrado.	
+GM_PANEL_PLAYER_OFFLINE	O jogador não está online.	
+GM_PANEL_PLAYTIME	Tempo de jogo (min):	
+GM_PANEL_POLY_MARBLE	Bola de Polimorfia:	
+GM_PANEL_PURGE	Remover monstros	
+GM_PANEL_RANK_IMPLEMENTOR	Implementor (Dono)	
+GM_PANEL_RANK_POINTS	Pontos de rank:	
+GM_PANEL_RATES_NOTE	(Para as mudanças valerem é preciso reiniciar o servidor (nada será apagado))	
+GM_PANEL_RATE_DROP	Drop de itens:	
+GM_PANEL_RATE_EXP	Experiência:	
+GM_PANEL_RATE_YANG	Drop de Yang:	
+GM_PANEL_REFRESH_LIST	Atualizar lista	
+GM_PANEL_REMOVE_GM	Remover GM	
+GM_PANEL_REQUESTING_RESTART	Pedindo reinício...	
+GM_PANEL_RESTART	Reiniciar servidor	
+GM_PANEL_RESTART_FAILED	Erro: não foi possível salvar o pedido de reinício.	
+GM_PANEL_RESTART_REQUESTED	Pedido enviado - o servidor reinicia os cores sozinho em alguns segundos.	
+GM_PANEL_RETURN	Voltar	
+GM_PANEL_SAFEBOX_CLOSED	O jogador não abriu o armazém nesta sessão.	
+GM_PANEL_SAVE	Salvar	
+GM_PANEL_SAVED	Salvo.	
+GM_PANEL_SAVED_PCT	Salvo (%s%%).	
+GM_PANEL_SAVED_PLACES	Locais salvos	
+GM_PANEL_SAVING	Salvando...	
+GM_PANEL_SAVING_PLACE	Salvando local %d...	
+GM_PANEL_SCRAP_CAPTION	%d - desligado      %d - todos os comerciantes	
+GM_PANEL_SEARCHING	Procurando...	
+GM_PANEL_SENDING	Enviando...	
+GM_PANEL_SET_HORSE_LEVEL	Mudar nível do cavalo	
+GM_PANEL_SET_RANK	Mudar rank	
+GM_PANEL_SET_SKILLS	Mudar habilidades	
+GM_PANEL_SKILLS	Habilidades:	
+GM_PANEL_SKILLS_OFFLINE	(personagem offline - sem prévia das habilidades)	
+GM_PANEL_SKILL_POINTS	Pontos de habil.:	
+GM_PANEL_SKILL_ROW	%s (atual %s/%s):	
+GM_PANEL_SPAWNED	Criados %s/%s.	
+GM_PANEL_SPAWNING	Criando...	
+GM_PANEL_SPAWN_DONE	Concluído %s/%s. Ativos no total: %s	
+GM_PANEL_STAT	Status:	
+GM_PANEL_STAT_DEX	Destreza	
+GM_PANEL_STAT_INT	Inteligência	
+GM_PANEL_STAT_POINTS	Pontos de status:	
+GM_PANEL_STAT_STR	Força	
+GM_PANEL_STAT_VIT	Vitalidade	
+GM_PANEL_STONES	Pedras Espirituais (0 = vazio):	
+GM_PANEL_STR	For:	
+GM_PANEL_SUPPORT_SKILL_POINTS	Pontos de habil. (extra):	
+GM_PANEL_TAB_BAN	Bloquear conta	
+GM_PANEL_TAB_CREATE_ITEM	Criar item	
+GM_PANEL_TAB_LOOKUP	Consultar jogador	
+GM_PANEL_TAB_MAIN	Painel principal	
+GM_PANEL_TAB_SERVER	Controle do servidor	
+GM_PANEL_TAB_SPAWN_BOTS	Criar bots	
+GM_PANEL_TAB_SPAWN_MOBS	Criar monstros	
+GM_PANEL_TELEPORTING	Teleportando para: %s	
+GM_PANEL_TELEPORT_DESERT	Deserto de Yongbi	
+GM_PANEL_TELEPORT_FIRE_LAND	Terra do Fogo	
+GM_PANEL_TELEPORT_GHOST_WOOD	Floresta Fantasma	
+GM_PANEL_TELEPORT_HWANG	Templo Hwang	
+GM_PANEL_TELEPORT_MONKEY_EASY	Masmorra dos Macacos fácil	
+GM_PANEL_TELEPORT_MONKEY_HARD	Masmorra dos Macacos difícil	
+GM_PANEL_TELEPORT_MONKEY_NORMAL	Masmorra dos Macacos normal	
+GM_PANEL_TELEPORT_ORC_VALLEY	Vale dos Orcs	
+GM_PANEL_TELEPORT_RED_FOREST	Floresta Vermelha	
+GM_PANEL_TELEPORT_SOHAN	Monte Sohan	
+GM_PANEL_TELEPORT_SPIDER_V1	Masmorra das Aranhas V1	
+GM_PANEL_TELEPORT_SPIDER_V2	Masmorra das Aranhas V2	
+GM_PANEL_UNBAN	Desbloquear	
+GM_PANEL_UNKNOWN_CREATURE	Criatura desconhecida.	
+GM_PANEL_UNKNOWN_PLACE	Desconhecido	
+GM_PANEL_UNKNOWN_SKILL	Habilidade desconhecida.	
+GM_PANEL_UNKNOWN_STAT	Status desconhecido.	
+GM_PANEL_VALUE	Valor:	
+GM_PANEL_VALUE_REFUSED	O servidor recusou o valor (1-10000).	
+GM_PANEL_VIT	Vit:	
+GM_PANEL_WEAKEN	Monstros 1 golpe	
+GM_PANEL_WEIGHT_CAPTION	%d - raro      100 - como no jogo      %d - frequente	
+GUILDMARK_UPLOADER_ERROR_128_HEIGHT	A altura não é de 128 pixels	
+GUILDMARK_UPLOADER_ERROR_12_HEIGHT	A altura não é de 12 pixels	
+GUILDMARK_UPLOADER_ERROR_16_WIDTH	A largura não é de 16 pixels	
+GUILDMARK_UPLOADER_ERROR_64_WIDTH	A largura não é de 64 pixels	
+GUILDMARK_UPLOADER_ERROR_FILE_FORMAT	O jogo não suporta esta imagem.	
+GUILDMARK_UPLOADER_ERROR_PATH	Mova o arquivo para a pasta metin2/upload.	
+GUILDMARK_UPLOADER_ERROR_SELECT	Nenhuma imagem escolhida.	
+GUILDWAR_CTF_TITLE	Captura de bandeira	
+GUILDWAR_NORMAL_TITLE	Batalha de campo	
+GUILDWAR_QUESTION_LINE_1	A guilda %s declarou guerra à sua guilda.	
+GUILDWAR_QUESTION_LINE_2	Você aceita? (%s)	
+GUILDWAR_UNKNOWN_TITLE	...	
+GUILDWAR_WARP_TITLE	Batalha na arena	
+GUILD_BUILDING_GRADE	Rank	
+GUILD_BUILDING_NAME	Nome do prédio	
+GUILD_CANNOT_HEAL_GSP_ANYMORE	A Energia do Espírito do Dragão já está totalmente restaurada.	
+GUILD_COMMENT	Escrever	
+GUILD_CREATE_ERROR_INSULT_NAME	Nome de guilda inválido.	
+GUILD_DEFAULT_GRADE	Membros da guilda	
+GUILD_DELETE	Excluir	
+GUILD_DEPOSIT	Depositar	
+GUILD_DO_YOU_HEAL_GSP	Deseja gastar %s Yang para restaurar %d unidades do Espírito do Dragão?	
+GUILD_DO_YOU_JOIN	 convidou você. Deseja entrar na guilda?	
+GUILD_EMPTY_AREA	Terreno vazio	
+GUILD_ENEMY_GUILD_NAME	Nome da guilda inimiga	
+GUILD_FACILITY	Anexo	
+GUILD_GEM	Gema	
+GUILD_HEADQUARTER	Prédio principal	
+GUILD_HEAL_GSP	Restaurar Espírito do Dragão	
+GUILD_INFO_ENEMY_GUILD_EMPTY	Nenhuma	
+GUILD_MARK_NOT_ENOUGH_LEVEL	Requer no mínimo nível 3	
+GUILD_NAME	Nome da guilda	
+GUILD_NOT_ENOUGH_MATERIAL	Material de construção insuficiente para este prédio.	
+GUILD_NOT_ENOUGH_MONEY	Yang insuficiente para este prédio.	
+GUILD_NO_NOTICE_PERMISSION	Você não tem permissão para fazer anúncios.	
+GUILD_OBJECT	Objetos	
+GUILD_OFFER_EXP	Investir experiência	
+GUILD_SHORT_EXP	Pontos de experiência insuficientes.	
+GUILD_TILE_BASEINFO	Informações básicas	
+GUILD_TILE_BOARD	Mural	
+GUILD_TILE_GRADE	Administração de cargos	
+GUILD_TILE_INFO	Informações da guilda	
+GUILD_TILE_MEMBER	Membros da guilda	
+GUILD_TILE_SKILL	Habilidades da guilda	
+GUILD_WAR_LIMIT_30MIN	Tempo: 30 minutos	
+GUILD_WAR_REWARD_POTION	Prêmio: o vencedor recebe uma poção	
+GUILD_WAR_USE_BATTLE_MAP	Local: Arena de Guerra de Guildas	
+GUILD_WAR_USE_NORMAL_MAP	Local: Mapa normal	
+GUILD_WAR_WIN_CHECK_SCORE	A maior pontuação vence a guerra.	
+GUILD_WAR_WIN_TAKE_AWAY_FLAG1	Capture a bandeira do inimigo	
+GUILD_WAR_WIN_TAKE_AWAY_FLAG2	e leve-a até a sua base.	
+GUILD_WAR_WIN_WIPE_OUT_GUILD	Derrote todos os inimigos para vencer.	
+GUILD_WITHDRAW	Sacar	
+GUILD_YOU_DO_NOT_JOIN	Você não é membro de nenhuma guilda.	
+HORSE_HEALTH0	Morto	
+HORSE_HEALTH1	Faminto	
+HORSE_HEALTH2	Com fome	
+HORSE_HEALTH3	Satisfeito	
+HORSE_LEVEL1	Cavalo Normal	
+HORSE_LEVEL2	Cavalo de Batalha	
+HORSE_LEVEL3	Cavalo Militar	
+HOUR	Horas	
+HOW_MANY_ITEM_DO_YOU_DROP1	Deseja jogar fora %s?	
+HOW_MANY_ITEM_DO_YOU_DROP2	Deseja jogar fora %s %d?	
+INPUT_MATRIX_CARD_NUMBER	Digite o número do cartão matriz.	
+INPUT_MATRIX_CARD_TITLE	Cartão matriz	
+INPUT_PRIVATE_CODE_DIALOG_DESCRIPTION	Digite aqui o código de exclusão das configurações da sua conta.	
+INPUT_PRIVATE_CODE_DIALOG_TITLE	Excluir personagem	
+INVENTORY_DO_NOT_PACK_WARP_SCROLL	Pergaminhos de retorno não podem ser agrupados.	
+INVENTORY_REALLY_USE_ITEM	Deseja usar este item?	
+ITEMSHOP_CURRENCY_DC	MD	
+ITEMSHOP_CURRENCY_DM	MM	
+ITEMSHOP_ENDS_IN	Termina em %s	
+ITEMSHOP_NAME_30_DAYS	$ITEM_NAME (30 dias)	
+ITEMSHOP_NAME_30_HOURS	$ITEM_NAME (30 horas)	
+ITEMSHOP_NAME_7_DAYS	$ITEM_NAME (7 dias)	
+ITEMSHOP_NAME_PACK_25	$ITEM_NAME (Pacote 25)	
+ITEMSHOP_PIECES	Unidades: %d	
+ITEMSHOP_PIECES_BAR	Unidades: %d |	
+ITEMSHOP_PRICE_LABEL	Preço:	
+ITEMSHOP_PROMOTION_ENDS	Promoção termina em %s |	
+ITEMSHOP_STARTS_IN	Começa em %s	
+JOB_ASSASSIN	Ninja	
+JOB_ASSASSIN0	Ninja aprendiz	
+JOB_ASSASSIN1	Poder dos Ninjas	
+JOB_ASSASSIN2	Morto-vivo	
+JOB_SHAMAN	Xamã	
+JOB_SHAMAN0	Xamã aprendiz	
+JOB_SHAMAN1	Poder do Dragão	
+JOB_SHAMAN2	Poder do Relâmpago	
+JOB_SURA	Sura	
+JOB_SURA0	Sura aprendiz	
+JOB_SURA1	Poder da Fata Morgana	
+JOB_SURA2	Poder da Magia Negra	
+JOB_WARRIOR	Guerreiro	
+JOB_WARRIOR0	Guerreiro aprendiz	
+JOB_WARRIOR1	Poder de Arahan	
+JOB_WARRIOR2	Poder dos Partisans	
+LEFT_TIME	Tempo restante	
+LOGIN_CONNECT_FAILURE	Erro ao conectar ao servidor.	
+LOGIN_CONNECT_SUCCESS	Você foi conectado ao servidor.	
+LOGIN_CONNETING	Conectando ao servidor...	
+LOGIN_FAILURE_ALREAY	Sua conta já está conectada.	
+LOGIN_FAILURE_BE_SAME_KEY	Problema de registro.	
+LOGIN_FAILURE_BLOCK_ID	Sua conta está banida.	
+LOGIN_FAILURE_BLOCK_LOGIN	Escolha outro servidor!	
+LOGIN_FAILURE_NOBILL	Sua conta não tem tempo de jogo.	
+LOGIN_FAILURE_NOT_AVAIL	Sua conta não pode ser usada.	
+LOGIN_FAILURE_NOT_EXIST_ID	Nome da conta ou senha incorretos.	
+LOGIN_FAILURE_REPAIR_ID	Os itens desta conta foram restaurados.	
+LOGIN_FAILURE_SHUTDOWN	O servidor ainda não está aberto.	
+LOGIN_FAILURE_TOO_MANY_USER	Não foi possível conectar: há jogadores demais online.	
+LOGIN_FAILURE_UNKNOWN	Não foi possível entrar por motivo desconhecido.	
+LOGIN_FAILURE_WEB_BLOCK	Você foi bloqueado no site. Verifique seus e-mails.	
+LOGIN_FAILURE_WRONG_MATRIX_CARD_NUMBER	Você digitou um número errado.	
+LOGIN_FAILURE_WRONG_MATRIX_CARD_NUMBER_TRIPLE	Você digitou um número errado três vezes. /n Sua conexão será desativada.	
+LOGIN_FAILURE_WRONG_PASSWORD	Nome da conta ou senha incorretos.	
+LOGIN_INPUT_ID	Digite o usuário.	
+LOGIN_INPUT_PASSWORD	Digite a senha.	
+LOGIN_PROCESSING	Entrando...	
+MALL_CANNOT_INSERT	Você não pode colocar o item.	
+MALL_PASSWORD_TITLE	Senha	
+MAP_A1	Área de Yongan	
+MAP_A2	Vale de Seungryong	
+MAP_A3	Área de Yayang	
+MAP_AG	Jungrang	
+MAP_B1	Área de Joan	
+MAP_B2	Vale de Imji	
+MAP_B3	Área de Bokjung	
+MAP_BAY	Baía de Nefrita	
+MAP_BG	Waryong	
+MAP_C1	Área de Pyungmoo	
+MAP_C2	Vale de Bangsan	
+MAP_C3	Área de Bakra	
+MAP_CAPE	Cabo Fogo do Dragão	
+MAP_CG	Imha	
+MAP_DAWN	Penhasco de Gautama	
+MAP_DESERT	Deserto de Yongbi	
+MAP_FLAME	Doyyumhwan	
+MAP_NUSLUCK	Terra dos Gigantes	
+MAP_SKELTOWER	Torre de Gumsan	
+MAP_SNOW	Monte Sohan	
+MAP_SPIDER	Kuahlo Dong	
+MAP_TEMPLE	Templo Hwang	
+MAP_THUNDER	Montanhas do Trovão	
+MAP_TREE	Lungsam	
+MAP_TRENT02	Floresta Vermelha	
+MAP_WL	Campo das Serpentes	
+MESSENGER_ADD_FRIEND	Adicionar amigo	
+MESSENGER_DO_YOU_ACCEPT_ADD_FRIEND_1	%s adicionou você como amigo.	
+MESSENGER_DO_YOU_ACCEPT_ADD_FRIEND_2	Aceitar?	
+MESSENGER_DO_YOU_DELETE	Excluir?	
+MESSENGER_DO_YOU_DELETE_PHONE_NUMBER	Deseja excluir o número de celular?	
+MESSENGER_DO_YOU_MOVE	Deseja continuar?	
+MESSENGER_EMPTY_LIST	Vazio	
+MESSENGER_FAMILY	Família	
+MESSENGER_FRIEND	Amigos	
+MESSENGER_GUILD	Guilda	
+MESSENGER_INPUT_MOBILE_AUTHORITY_DESCRIPTION	Digite o número de confirmação enviado para o seu celular.	
+MESSENGER_INPUT_MOBILE_AUTHORITY_TITLE	Digite o número de confirmação	
+MESSENGER_INPUT_MOBILE_PHONE_NUMBER_1	Digite o número de celular para envio de SMS.	
+MESSENGER_INPUT_MOBILE_PHONE_NUMBER_2	Deseja digitar o número agora?	
+MESSENGER_INPUT_MOBILE_PHONE_NUMBER_TITLE	Digite o número de celular.	
+MESSENGER_SEND_MOBILE_MESSAGE_TITLE	Enviar mensagem.	
+MINIMAP	Abrir minimapa	
+MINIMAP_CANNOT_SEE	O minimapa não pode ser exibido.	
+MINIMAP_CAN_NOT_SHOW_AREAMAP	O mapa grande não pode ser exibido.	
+MINIMAP_DEC_SCALE	Afastar	
+MINIMAP_INC_SCALE	Aproximar	
+MINIMAP_OBSERVER_COUNT	%d observadores	
+MINIMAP_SHOW_AREAMAP	Abrir mapa grande	
+MINIMAP_SHRINK	Reduzir	
+MINIMAP_STRECH	Expandir	
+MINUTE	Minutos	
+MONETARY_UNIT0	Yang	
+MONETARY_UNIT1	Dez mil	
+MONETARY_UNIT2	Cem bilhões	
+MONEY_INPUT_DIALOG_SELLPRICE	Preço de venda:	
+MOVE_ITEM_FAILURE_PRIVATE_SHOP	Você não pode mover itens enquanto tiver uma loja particular aberta.	
+MUSIC_EMPTY_MUSIC_LIST	Sem música de fundo.	
+MUSIC_METIN2_DEFAULT_THEMA	Música padrão do Metin2	
+MUSIC_NOT_SELECT_MUSIC	Nenhum arquivo de música escolhido.	
+MYSHOP_BUY	Alguém comprou |cffd9ca75%dx %s|r da sua loja por |cffd9ca75%s|r.	
+MYSHOP_MANAGE_OPEN_ERROR	Você não tem loja aberta e o armazém da loja está vazio.	
+MYSHOP_REOPEN_INPUT_PLACEHOLDER	Nome da loja	
+MYSHOP_REOPEN_TITLE	Reabrir loja	
+MYSHOP_WHISPER_NAME	[Loja]	
+NEEFD_REST	Você precisa descansar primeiro.	
+NOT_YET_SUPPORT	Ainda não suportado	
+OFFLINE_SHOP_CANNOT_PLACE_ITEM_ON_ITEM	Você não pode colocar um item em cima de outro.	
+OFFLINE_SHOP_ESTIMATED_REVENUE	Ganho líquido estimado:	
+OPTION_PVPMODE_CANNOT_SET_GUILD_MODE	Você não pode ativar o modo Guilda se não pertencer a uma guilda.	
+OPTION_PVPMODE_NOT_SUPPORT	Você não pode escolher esta configuração no modo PvP.	
+OPTION_PVPMODE_PROTECT	Você precisa ter no mínimo nível %d para mudar o modo PvP.	
+PARTY_BONUS_ATTACKER	Valor de ataque: +%d	SA
+PARTY_BONUS_BERSERKER	Velocidade de ataque: +%d	SA
+PARTY_BONUS_BUFFER	Duração das habilidades: +%d	SA
+PARTY_BONUS_DEFENDER	Defesa: +%d	SA
+PARTY_BONUS_EXP	Bônus de EXP: %d%%	SA
+PARTY_BONUS_SKILL_MASTER	MP máx.: +%d	SA
+PARTY_BONUS_TANKER	HP máx.: +%d	SA
+PARTY_BREAK_UP	Desfazer grupo	
+PARTY_DO_YOU_ACCEPT	 gostaria de entrar no grupo.	
+PARTY_DO_YOU_JOIN	 convidou você para o grupo dele. Aceitar?	
+PARTY_EXP_DISTRIBUTION_MODE	Divisão de EXP	
+PARTY_EXP_DISTRIBUTION_MODE_LEVEL	Depende do nível	
+PARTY_EXP_DISTRIBUTION_MODE_LEVEL_TOOLTIP	Membros de nível mais alto recebem mais EXP.	
+PARTY_EXP_DISTRIBUTION_MODE_PARITY	igual	
+PARTY_EXP_DISTRIBUTION_MODE_PARITY_TOOLTIP	Todos os membros do grupo recebem a mesma EXP.	
+PARTY_HEAL_ALL_MEMBER	Restaurar tudo.	
+PARTY_INCREASE_AREA_150	Alcance do grupo aumentado em 1,5x.	SNA
+PARTY_INCREASE_AREA_200	Alcance do grupo aumentado em 2x.	SNA
+PARTY_LEAVE	Sair do grupo	
+PARTY_LONGTIME_BONUS_EXP	Bônus de EXP por grupo duradouro: +%d%%	SA
+PARTY_MEMBER_OFFLINE	[Offline]	
+PARTY_RECALL_MEMBER	Chamar membro do grupo.	
+PARTY_REGEN_BONUS	Bônus de regeneração de HP e MP: +%d%%	SA
+PARTY_REQUEST_DENIED	Seu pedido foi recusado.	
+PARTY_SET_ATTACKER	Definir como Atacante.	
+PARTY_SET_BERSERKER	Definir como Berserker.	
+PARTY_SET_BUFFER	Definir como Bloqueador.	
+PARTY_SET_DEFENDER	Definir como Defensor.	
+PARTY_SET_NORMAL	Remover função.	
+PARTY_SET_SKILL_MASTER	Definir como Mestre de Habilidades.	
+PARTY_SET_TANKER	Definir como Lutador de Lâmina.	
+PARTY_SKILL_ATTACKER	Valor de ataque base (Atacante) +%.0f	
+PARTY_SKILL_BERSERKER	Velocidade de ataque (Berserker) +%.0f	
+PARTY_SKILL_BUFFER	Duração das habilidades (Bloqueador) +%.0f	
+PARTY_SKILL_DEFENDER	Defesa (Defensor) +%.0f	
+PARTY_SKILL_HP_REGEN	Regeneração de HP +%.0f%%	
+PARTY_SKILL_PARTY_AREA	Alcance do grupo +%d%%	
+PARTY_SKILL_SKILL_MASTER	MP máx. (Mestre de Habilidades) +%.0f	
+PARTY_SKILL_SP_REGEN	Regeneração de MP +%.0f%%	
+PARTY_SKILL_TANKER	HP máx. (Lutador de Lâmina) +%.0f	
+PARTY_SKILL_WARP	Permite chamar membros do grupo.	
+PASSWORD_TITLE	Senha do armazém	
+PICK_ITEM_TITLE	Quantidade	
+PICK_MONEY_TITLE	Valor	
+PLAYER_SHOP_TITLE	Loja de %s	
+PRIVATE_SHOP_CANNOT_SELL_ITEM	Você não pode vender este item em uma loja particular.	
+PRIVATE_SHOP_CLOSE_QUESTION	Deseja fechar a loja particular?	
+PRIVATE_SHOP_INPUT_EDIT_ALL_PRICE_DIALOG_TITLE	Editar preços em massa	
+PRIVATE_SHOP_INPUT_EDIT_PRICE_DIALOG_TITLE	Editar preço	
+PRIVATE_SHOP_INPUT_NAME_DIALOG_TITLE	Nome da loja particular.	
+PRIVATE_SHOP_INPUT_PRICE_DIALOG_TITLE	Preço	
+PVP_LEVEL0	Cavalheiro	
+PVP_LEVEL1	Nobre	
+PVP_LEVEL2	Bom	
+PVP_LEVEL3	Amigável	
+PVP_LEVEL4	Neutro	
+PVP_LEVEL5	Agressivo	
+PVP_LEVEL6	Trapaceiro	
+PVP_LEVEL7	Malicioso	
+PVP_LEVEL8	Cruel	
+PVP_MODE_GUILD	PvP - Guilda ativado	
+PVP_MODE_KILL	PvP - Livre ativado	
+PVP_MODE_NORMAL	PvP - Paz ativado	
+PVP_MODE_PROTECT	PvP - Proteção ativada	
+PVP_MODE_REVENGE	PvP - Hostil ativado	
+PVP_OPTION_KILL	Livre	
+PVP_OPTION_NORMAL	Paz	
+PVP_OPTION_PROTECT	Proteção	
+PVP_OPTION_REVENGE	Hostil	
+QUEST_APPEND	Nova missão recebida.	
+QUEST_MIN	Min.	
+QUEST_SEC	Seg.	
+QUEST_TIMEOVER	Tempo esgotado	
+QUEST_UNLIMITED_TIME	Sem limite de tempo.	
+QUEST_ZEROSEC	0 seg.	
+QUICKSLOT_REGISTER_DISABLE_ITEM	Este item não pode ser colocado na barra de acesso rápido.	
+QUICK_ADD_TO_MYSHOP	|Eshortcut/mright|e - colocar na loja.	
+QUICK_BUY_SHOP	|Eshortcut/mleft|e ou |Eshortcut/mright|e - comprar item.	
+QUICK_EDIT_MYSHOP	|Eshortcut/mright|e - editar preço.	
+QUICK_EDIT_MYSHOP_SIMILAR	|Eshortcut/ctrl|e + |Eshortcut/mright|e - editar preços parecidos.	
+QUICK_REMOVE_FROM_MYSHOP	|Eshortcut/mleft|e - tirar da loja.	
+RECEIVE_MESSAGE	%s enviou uma mensagem para você.	
+REFINE_COST	Custo do aprimoramento: %s	
+REFINE_DESTROY_WARNING	Este item pode ser destruído durante o aprimoramento.	
+REFINE_DESTROY_WARNING_WITH_BONUS_PERCENT_1	Isso aumenta a chance de aprimoramento,	
+REFINE_DESTROY_WARNING_WITH_BONUS_PERCENT_2	mas se falhar o item pode ser destruído. /n Deseja continuar?	
+REFINE_DOWN_GRADE_WARNING	Desta forma o item pode perder nível.	
+REFINE_DO_YOU_SEPARATE_METIN	Deseja remover todas as pedras espirituais?	
+REFINE_FAILURE	Você falhou.	
+REFINE_FAILURE_CAN_NOT_ATTACH	%s não pode ser colocado neste item.	
+REFINE_FAILURE_EQUIP_ITEM	Você não pode aprimorar itens equipados.	
+REFINE_FAILURE_METIN_INSEPARABLE_ITEM	Nenhuma pedra espiritual pode ser removida.	
+REFINE_FAILURE_NEED_BETTER_SCROLL	Você precisa de um pergaminho de aprimoramento melhor.	
+REFINE_FAILURE_NO_GOLD_SOCKET	Não há encaixe de ouro para colocar %s.	
+REFINE_FAILURE_NO_MORE_SOCKET	Não é possível criar mais encaixes.	
+REFINE_FAILURE_NO_SOCKET0	Não há encaixe para colocar %s.	
+REFINE_FAILURE_SOCKET_DISABLE_ITEM	Não é possível criar encaixes neste item.	
+REFINE_FAILURE_UPGRADE_DISABLE_ITEM	Este item não pode ser aprimorado.	
+REFINE_SUCCESS	O aprimoramento do item foi um sucesso.	
+REFINE_SUCCESS_PROBALITY	Chance de aprimoramento: %d%%	
+REFINE_WARNING2	Deseja continuar?	
+REPORT_DONE	Obrigado pela denúncia!	
+REPORT_PLAYER_CHOOSE	Escolher	
+REPORT_PLAYER_REASON_BOT	Bot	
+REPORT_PLAYER_REASON_FISHBOT	Bot de pesca	
+REPORT_PLAYER_REASON_HACK	Outros hacks / trapaças	
+REPORT_PLAYER_REASON_INSULT	Linguagem ofensiva	
+REPORT_PLAYER_SELECT_REASON	Escolha um motivo para denunciar este jogador.	
+SAFEBOX_ERROR	Você digitou a senha errada.	
+SAFEBOX_SELL_DISABLE_SAFEITEM	Você não pode vender itens guardados.	
+SAFEBOX_WRONG_PASSWORD	As senhas precisam ser iguais.	
+SCREENSHOT_SAVE1	Captura de tela salva em '%s'.	
+SCREENSHOT_SAVE2	Arquivo de captura de tela	
+SCREENSHOT_SAVE_FAILURE	Falha ao salvar a captura de tela.	
+SECOND	Seg	
+SECONDS_LESS_THAN_MINUTE	Menos de 1 min.	
+SELECT_CANNOT_DELETE_USING_OFFLINESHOP	Recolha primeiro os itens do armazém da sua loja.	
+SELECT_CAN_NOT_DELETE	Você não pode excluir o personagem.	
+SELECT_CHANGED_NAME	Você mudou o nome do personagem.	
+SELECT_CHANGE_FAILURE_ALREADY_EXIST_NAME	Este nome de personagem já existe.	
+SELECT_CHANGE_FAILURE_STRANGE_INDEX	Tente novamente.	
+SELECT_CHANGE_FAILURE_STRANGE_NAME	Isso	
+SELECT_CHANGE_NAME_TITLE	Mudar nome do personagem.	
+SELECT_DELEING	O personagem será excluído.	
+SELECT_DELETED	Exclusão concluída.	
+SELECT_DO_YOU_DELETE_REALLY	Deseja continuar?	
+SELECT_EMPTY_SLOT	Este espaço está vazio.	
+SELECT_GM_NAME	GM	
+SELECT_INPUT_CHANGING_NAME	Digite um novo nome para o personagem.	
+SELECT_NOT_JOIN_GUILD	Sem guilda	
+SHOP_BUY_INFO	Escolha na janela da loja o item que deseja comprar.	
+SHOP_CANNOT_SELL_EQUIPMENT	Você não pode vender itens equipados.	
+SHOP_CANNOT_SELL_ITEM	Este item não pode ser vendido.	
+SHOP_DURATION_TOOLTIP_TEXT	De %d a %d horas	
+SHOP_DURATION_TOOLTIP_TEXT2	Mais de %d horas	
+SHOP_DURATION_TOOLTIP_TEXT3	Menos de %d horas	
+SHOP_EDIT_MODE_OFF	Edição da loja desativada.	
+SHOP_EDIT_MODE_ON	Edição da loja ativada.	
+SHOP_ERROR_EMPTY_SIGN	Digite um nome para a loja.	
+SHOP_ERROR_EMPTY_STOCK	Coloque itens na loja.	
+SHOP_ERROR_SELECT_TIME	Escolha o tipo de loja que deseja abrir.	
+SHOP_ERROR_TOO_MUCH_GOLD	Os ganhos da loja não podem passar de 2.000.000.000 Yang.	
+SHOP_ERROR_UNKNOWN	Erro desconhecido na loja: %s	
+SHOP_EXPIRE_NOTIFY_GUEST	A loja fechou ou expirou.	
+SHOP_HAS_BEEN_EDITED	Os itens da loja mudaram.	
+SHOP_INVALID_POS	Este item não pode ser usado aqui.	
+SHOP_INVENTORY_FULL	Seu inventário está cheio.	
+SHOP_LOAD_CONFIG_QUESTION1_1	Foi encontrada uma configuração de loja não concluída.	
+SHOP_LOAD_CONFIG_QUESTION1_2	Restaurar a configuração anterior da loja?	
+SHOP_LOAD_CONFIG_QUESTION2_1	Se os itens mudaram de lugar no inventário,	
+SHOP_LOAD_CONFIG_QUESTION2_2	a loja pode ficar com os itens errados. Continuar?	
+SHOP_NAME_TITLE	Loja - %s	
+SHOP_NOT_ENOUGH_MONEY	Yang insuficiente	
+SHOP_NOT_ENOUGH_MONEY_EX	Você não tem Yang suficiente.	
+SHOP_NO_PREMIUM	Você não tem uma loja premium.	
+SHOP_PLACE_ITEM_ON_LOCKED_SLOT	Você não pode colocar um item neste espaço da loja.	
+SHOP_REMOVE_ITEM_QUESTION	Remover %dx %s da loja?	
+SHOP_SEARCH_CLEAR_INFO	Todas as marcações de lojas offline foram removidas.	
+SHOP_SEARCH_NO_CATEGORY	Escolha uma categoria.	
+SHOP_SELL_INFO	Escolha no seu inventário o item que deseja vender.	
+SHOP_SOLDOUT	Esgotado	
+SHOT_ERROR_UNKNOWN	Erro desconhecido no ataque à distância: %s	
+SKILL_BOHO	Refletir	
+SKILL_BUDONG	não é mais usado	
+SKILL_CANNOT_LEVEL_UP_ANYMORE_BY_BOOK	Você precisa de EXP para aprender esta habilidade.	
+SKILL_CANNOT_LEVEL_UP_ANYMORE_BY_STAT	Você precisa de um livro para aprender esta habilidade.	
+SKILL_CHEONGEUN	Corpo Forte	
+SKILL_CRITICAL	Golpe crítico	
+SKILL_ENCHANT_POISON	Aplicar veneno	
+SKILL_EUNHYEONG	Camuflagem	
+SKILL_FAINT	Desmaio	
+SKILL_FIND_TRAP	Encontrar armadilha	
+SKILL_FIRE	Fogo permanente	
+SKILL_FISHMIND	Bola de pesca ativa	
+SKILL_GAMJI	Captura	
+SKILL_GEOMGYEONG	Aura da Espada	
+SKILL_GEONGON	SKILL_GEONGON não é mais usado	
+SKILL_GICHEON	Ajuda do Dragão	
+SKILL_GIGONG	Rotação do Chi	
+SKILL_GONGPO	Medo	
+SKILL_GRADE_NAME_GRAND_MASTER	%s Grão-Mestre	
+SKILL_GRADE_NAME_MASTER	%s Mestre	
+SKILL_GRADE_NAME_PERFECT_MASTER	%s Mestre Perfeito	
+SKILL_GROUP_ASSASSIN_1	Lâmina	
+SKILL_GROUP_ASSASSIN_2	Arco	
+SKILL_GROUP_HORSE	Montaria	
+SKILL_GROUP_SHAMAN_1	Dragão	
+SKILL_GROUP_SHAMAN_2	Cura	
+SKILL_GROUP_SURA_1	Arma	
+SKILL_GROUP_SURA_2	Magia	
+SKILL_GROUP_WARRIOR_1	Corpo	
+SKILL_GROUP_WARRIOR_2	Mental	
+SKILL_GWIGEOM	Lâmina Encantada	
+SKILL_GYEONGGONG	Passo de Pluma	
+SKILL_HEUKSIN	Proteção Sombria	
+SKILL_HOSIN	Bênção	
+SKILL_HWAYEOM	SKILL_HWAYEOM não é mais usado	
+SKILL_HYEOLMA	SKILL_HYEOLMA não é mais usado	
+SKILL_INC_ATKSPD	Velocidade de ataque aumentada	
+SKILL_INC_MOVSPD	Velocidade de movimento aumentada	
+SKILL_INMA	SKILL_INMA não é mais usado	
+SKILL_JEOJU	Maldição	
+SKILL_JEONGEOP	Cura	
+SKILL_JEONGWI	Fúria de Batalha	
+SKILL_JEONSINBANGEO	Defesa Total	
+SKILL_JEONSINGONGGYEOK	Ataque Total	
+SKILL_JEUNGCHE	SKILL_JEUNGCHE não é mais usado	
+SKILL_JEUNGHON	SKILL_JEUNGHON não é mais usado	
+SKILL_JEUNGRYEOK	Ataque +	
+SKILL_JEUNGSOK	Velocidade +	
+SKILL_JIGAM	SKILL_JIGAM não é mais usado	
+SKILL_JIPJUNG	SKILL_JIPJUNG não é mais usado	
+SKILL_JUMAGAP	Armadura Encantada	
+SKILL_JUMAGEOM	SKILL_JUMAGEOM não é mais usado	
+SKILL_KWAEGEOM	SKILL_KWAEGEOM não é mais usado	
+SKILL_KWAESOK	Velocidade	
+SKILL_LEGBOUND	SKILL_LEGBOUND não é mais usado	
+SKILL_MUSA	SKILL_MUSA não é mais usado	
+SKILL_MUYEONG	Fantasma da Chama	
+SKILL_NEED_EMPTY_BOTTLE	Não tenho uma garrafa vazia.	
+SKILL_NEED_POISON_BOTTLE	Não tenho uma garrafa de veneno	
+SKILL_ONLY_FOR_GUILD_WAR	Você só pode usar esta habilidade durante uma guerra de guildas.	
+SKILL_PABEOP	Neutralizar Feitiço	
+SKILL_POWERFUL_STRIKE	Ataque Atordoante	
+SKILL_SEOMGWANG	Bomba de Relâmpago	
+SKILL_SINCHAK	SKILL_SINCHAK não é mais usado	
+SKILL_SLEEP	Sono	
+SKILL_SLOW	Lentidão	
+SKILL_STUN	Atordoar	
+SKILL_SUHO	Guarda	
+SKILL_SUMMON_DESCRIPTION	Chance de invocação: %d%%	
+SKILL_TOOLTIP_INT	Inteligência	
+SKILL_TOOLTIP_LEVEL	Nível	
+SKILL_TOXICDIE	Envenenamento	
+SKILL_TOXICPOWER	Valor de ataque de veneno aumentado	
+SKILL_TUSOK	Golpe Fantasma	
+SKILL_WONSIN	SKILL_WONSIN não é mais usado	
+SKILL_YONGSIN	SKILL_YONGSIN não é mais usado	
+STAT_MINUS_CON	Ajuste de Vitalidade (chances restantes: %d)	
+STAT_MINUS_DEX	Ajuste de Destreza (chances restantes: %d)	
+STAT_MINUS_INT	Ajuste de Inteligência (chances restantes: %d)	
+STAT_MINUS_STR	Ajuste de Força (chances restantes: %d)	
+STAT_TOOLTIP_CON	Aumenta o HP e a defesa	
+STAT_TOOLTIP_DEX	Aumenta o ataque e a esquiva	
+STAT_TOOLTIP_INT	Aumenta o MP, o ataque mágico e a defesa mágica	
+STAT_TOOLTIP_STR	Aumenta o valor de ataque e o dano	
+SYMBOLLIST_TITLE	Registrar bandeira da guilda	
+SYSTEM_OPTION_CPU_TILING_1	O modo de renderização por CPU pode deixar PCs mais fracos mais rápidos.	
+SYSTEM_OPTION_CPU_TILING_2	Se houver problemas gráficos, abra as 'Opções do Sistema' ou o 'CONFIG.exe'	
+SYSTEM_OPTION_CPU_TILING_3	e mude para o modo de renderização por GPU.	
+SYSTEM_OPTION_GPU_TILING_1	O modo de renderização por GPU pode ficar lento em PCs mais fracos.	
+SYSTEM_OPTION_GPU_TILING_2	Se houver problemas gráficos, abra as 'Opções do Sistema' ou o 'CONFIG.exe'	
+SYSTEM_OPTION_GPU_TILING_3	e mude para o modo de renderização por GPU.	
+SYSTEM_OPTION_TILING_EXIT	Para mudar o modo de renderização, o jogo precisa ser reiniciado.	
+TARGET_BUTTON_ACCEPT_FIGHT	Aceitar	
+TARGET_BUTTON_AVENGE	Vingança	
+TARGET_BUTTON_BUILDING_DESTROY	Destruir	
+TARGET_BUTTON_DISMOUNT	Desmontar	
+TARGET_BUTTON_EMOTION_ALLOW	Emoções	
+TARGET_BUTTON_EXCHANGE	Negociar	
+TARGET_BUTTON_EXCLUDE	Expulsar	
+TARGET_BUTTON_EXIT_OBSERVER	Sair do modo observador	
+TARGET_BUTTON_FIGHT	Duelo	
+TARGET_BUTTON_FRIEND	Amigo	
+TARGET_BUTTON_GM_CHECK	Verificar	
+TARGET_BUTTON_INVITE_GUILD	Convidar p/ guilda	
+TARGET_BUTTON_INVITE_PARTY	Convidar p/ grupo	
+TARGET_BUTTON_LEAVE_PARTY	Sair do grupo	
+TARGET_BUTTON_REPORT	Denunciar	
+TARGET_BUTTON_REQUEST_ENTER_PARTY	Entrar no grupo	
+TARGET_BUTTON_VIEW_EQUIPMENT	Equipamento	
+TARGET_BUTTON_WHISPER	Mensagem	
+TARGET_LEVEL_BOSS	Chefe	
+TARGET_LEVEL_KING	Nível 5.	
+TARGET_LEVEL_KNIGHT	Nível 3.	
+TARGET_LEVEL_PAWN	Nível 1.	
+TARGET_LEVEL_S_KNIGHT	Nível 4.	
+TARGET_LEVEL_S_PAWN	Nível 2.	
+TASKBAR_ATTACK	Atacar	
+TASKBAR_AUTO	Ataque automático	
+TASKBAR_CAMERA	Câmera	
+TASKBAR_EXP	Experiência	
+TASKBAR_HP	HP	
+TASKBAR_MOVE	Mover	
+TASKBAR_SKILL	Habilidade	
+TASKBAR_SP	MP	
+TASKBAR_ST	ST	
+THING_COUNT	todos	
+TOOLTIP_ANTI_CRITICAL_PCT	Resistência a golpes críticos +%d%%	SA
+TOOLTIP_ANTI_PENETRATE_PCT	Resistência a golpes perfurantes +%d%%	SA
+TOOLTIP_ANTI_SELL	Não pode ser vendido na loja.	
+TOOLTIP_APPLY_ATTBONUS_ANIMAL	Forte contra Animais +%d%%	SA
+TOOLTIP_APPLY_ATTBONUS_ASSASSIN	Forte contra Ninjas +%d%%	SA
+TOOLTIP_APPLY_ATTBONUS_DEVIL	Forte contra Demônios +%d%%	SA
+TOOLTIP_APPLY_ATTBONUS_HUMAN	Forte contra Meio-Humanos +%d%%	SA
+TOOLTIP_APPLY_ATTBONUS_MILGYO	Forte contra Místicos +%d%%	SA
+TOOLTIP_APPLY_ATTBONUS_MONSTER	Forte contra monstros +%d%%	SA
+TOOLTIP_APPLY_ATTBONUS_ORC	Forte contra Orcs +%d%%	SA
+TOOLTIP_APPLY_ATTBONUS_SHAMAN	Forte contra Xamãs +%d%%	SA
+TOOLTIP_APPLY_ATTBONUS_SURA	Forte contra Suras +%d%%	SA
+TOOLTIP_APPLY_ATTBONUS_UNDEAD	Forte contra Mortos-vivos +%d%%	SA
+TOOLTIP_APPLY_ATTBONUS_WARRIOR	Forte contra Guerreiros +%d%%	SA
+TOOLTIP_APPLY_BLOCK	Chance de bloquear ataque corpo a corpo %d%%	SA
+TOOLTIP_APPLY_COMBAT_SP_RECOVER	Recupera MP a cada 5 segundos em combate %d	SA
+TOOLTIP_APPLY_CRITICAL_PCT	Chance de golpe crítico +%d%%	SA
+TOOLTIP_APPLY_DAMAGE_SP_RECOVER	%d%% de chance de recuperar MP ao ser atingido	SA
+TOOLTIP_APPLY_DODGE	Chance de desviar de flechas %d%%	SA
+TOOLTIP_APPLY_EXP_DOUBLE_BONUS	%d%% de chance de bônus de EXP	SA
+TOOLTIP_APPLY_GOLD_DOUBLE_BONUS	%d%% de chance de dropar Yang em dobro	SA
+TOOLTIP_APPLY_IMMUNE_FALL	Imune a quedas	SNA
+TOOLTIP_APPLY_IMMUNE_SLOW	Defesa contra lentidão	SNA
+TOOLTIP_APPLY_IMMUNE_STUN	Defesa contra desmaio	SNA
+TOOLTIP_APPLY_ITEM_DROP_BONUS	%d%% de chance de dropar itens em dobro	SA
+TOOLTIP_APPLY_KILL_HP_RECOVER	%d%% de chance de restaurar HP	SA
+TOOLTIP_APPLY_KILL_SP_RECOVER	%d%% de chance de restaurar MP	SA
+TOOLTIP_APPLY_MANA_BURN_PCT	%d%% de chance de roubar MP	SA
+TOOLTIP_APPLY_MAX_HP_PCT	HP máx. +%d%%	SA
+TOOLTIP_APPLY_MAX_SP_PCT	MP máx. +%d%%	SA
+TOOLTIP_APPLY_NOAFFECT	Sem efeito	
+TOOLTIP_APPLY_NO_DEATH_PENALTY	Nenhuma experiência é perdida se o personagem reviver no local da morte.	SNA
+TOOLTIP_APPLY_PENETRATE_PCT	%d%% de chance de golpe perfurante	SA
+TOOLTIP_APPLY_POISON_PCT	Chance de envenenar %d%%	SA
+TOOLTIP_APPLY_POISON_REDUCE	Resistência a veneno %d%%	SA
+TOOLTIP_APPLY_POTION_BONUS	Efeito das poções +%d%%	SA
+TOOLTIP_APPLY_REFLECT_CURSE	Chance de refletir maldição: %d%%	SA
+TOOLTIP_APPLY_REFLECT_MELEE	%d%% de chance de refletir golpes corpo a corpo	SA
+TOOLTIP_APPLY_RESIST_ASSASSIN	Chance de defesa contra ataques de Ninja: %d%%	SA
+TOOLTIP_APPLY_RESIST_BELL	Defesa contra Sino %d%%	SA
+TOOLTIP_APPLY_RESIST_DAGGER	Defesa contra Adaga %d%%	SA
+TOOLTIP_APPLY_RESIST_FAN	Defesa contra Leque %d%%	SA
+TOOLTIP_APPLY_RESIST_SHAMAN	Chance de defesa contra ataques de Xamã: %d%%	SA
+TOOLTIP_APPLY_RESIST_SURA	Chance de defesa contra ataques de Sura: %d%%	SA
+TOOLTIP_APPLY_RESIST_SWORD	Defesa contra Espada %d%%	SA
+TOOLTIP_APPLY_RESIST_TWOHAND	Defesa contra Duas Mãos %d%%	SA
+TOOLTIP_APPLY_RESIST_WARRIOR	Chance de defesa contra ataques de Guerreiro: %d%%	SA
+TOOLTIP_APPLY_RESIST_WIND	Resistência ao vento %d%%	SA
+TOOLTIP_APPLY_SKILL_BOOK_BONUS	Chance de aprender com livros aumentada em 2,5x.	SNA
+TOOLTIP_APPLY_SKILL_BOOK_NO_DELAY	Se falhar ao aprender, você pode tentar de novo na hora, de graça	SNA
+TOOLTIP_APPLY_SLOW_PCT	Chance de lentidão %d%%	SA
+TOOLTIP_APPLY_STEAL_HP	%d%% do dano será absorvido como HP	SA
+TOOLTIP_APPLY_STEAL_SP	%d%% do dano será absorvido como MP	SA
+TOOLTIP_APPLY_STUN_PCT	Chance de desmaio %d%%	SA
+TOOLTIP_ARMOR	Armadura	
+TOOLTIP_ARROW	Flecha	
+TOOLTIP_ASSASSIN	Ninja	
+TOOLTIP_ATT_GRADE	Valor de ataque +%d	SA
+TOOLTIP_ATT_SPEED	Velocidade de ataque +%d%%	SA
+TOOLTIP_AUTO_POTION_HP	Elixir do Sol	
+TOOLTIP_AUTO_POTION_REST	Restante: %.2f%%	
+TOOLTIP_AUTO_POTION_SP	Elixir da Lua	
+TOOLTIP_AUTO_POTION_USING	Ativo	
+TOOLTIP_BOW_DISTANCE	Alcance do arco +%dm	SA
+TOOLTIP_BUYPRICE	Preço: %s	
+TOOLTIP_CAST_SPEED	Velocidade de conjuração +%d%%	SA
+TOOLTIP_CON	Vitalidade +%d	SA
+TOOLTIP_COSTUME_ATTR_BONUS	Bônus de traje %d%%	SA
+TOOLTIP_DEF_GRADE	Defesa +%d	SA
+TOOLTIP_DEX	Destreza +%d	SA
+TOOLTIP_DRAGON_SOUL_DECK1	Terra	SNA
+TOOLTIP_DRAGON_SOUL_DECK2	Céu	SNA
+TOOLTIP_EAR	Brinco	
+TOOLTIP_ENERGY	Energia %d	SA
+TOOLTIP_ESCAPE_OPTION	Use se o seu personagem ficar preso.	
+TOOLTIP_ETC	Diversos	
+TOOLTIP_FISHINGROD_EXP	Pontos %d / %d	
+TOOLTIP_FISHINGROD_LEVEL	Nível: %d	
+TOOLTIP_FISHINGROD_UPGRADE1	Entregue ao Pescador	
+TOOLTIP_FISHINGROD_UPGRADE2	para conseguir uma	
+TOOLTIP_FISHINGROD_UPGRADE3	vara de pesca melhor.	
+TOOLTIP_FISH_LEN	Tamanho: %.2fcm	
+TOOLTIP_HELMET	Elmo	
+TOOLTIP_HP_REGEN	Regeneração de HP +%d%%	SA
+TOOLTIP_INT	Inteligência +%d	SA
+TOOLTIP_ITEM_ATT_GRADE	Valor de ataque %d	
+TOOLTIP_ITEM_ATT_POWER	Valor de ataque %d - %d	
+TOOLTIP_ITEM_ATT_POWER_ONE_ARG	Valor de ataque %d	
+TOOLTIP_ITEM_ATT_POWER_REFINE	Valor de ataque %d - %d (+%d)	
+TOOLTIP_ITEM_ATT_SPEED	Velocidade de ataque %s	
+TOOLTIP_ITEM_DEF_GRADE	Defesa %d	
+TOOLTIP_ITEM_FAST	Rápida	
+TOOLTIP_ITEM_LIMIT_CON	Limite de Vitalidade: %d	
+TOOLTIP_ITEM_LIMIT_DEX	Limite de Destreza: %d	
+TOOLTIP_ITEM_LIMIT_INT	Limite de Inteligência: %d	
+TOOLTIP_ITEM_LIMIT_LEVEL	A partir do nível: %d	
+TOOLTIP_ITEM_LIMIT_STR	Limite de Força: %d	
+TOOLTIP_ITEM_MAGIC_ATT_POWER	Valor de ataque mágico %d - %d	
+TOOLTIP_ITEM_MAGIC_ATT_POWER_ONE_ARG	Valor de ataque mágico %d	
+TOOLTIP_ITEM_MAGIC_DEF_POWER	Defesa mágica %d	
+TOOLTIP_ITEM_NORMAL	Normal	
+TOOLTIP_ITEM_SLOW	Lenta	
+TOOLTIP_ITEM_VERY_FAST	Muito rápida	
+TOOLTIP_ITEM_VERY_SLOW	Muito lenta	
+TOOLTIP_ITEM_WEARABLE_JOB	[ Pode usar ]	
+TOOLTIP_LOTTERY_STEP_NUMBER	%d	
+TOOLTIP_LOTTO_NUMBER	Número da sorte: %d	
+TOOLTIP_MAGIC_ATTBONUS_PER	Ataque mágico +%d%%	SA
+TOOLTIP_MAGIC_ATT_GRADE	Valor de ataque mágico +%d	SA
+TOOLTIP_MAGIC_DEF_GRADE	Defesa mágica +%d	SA
+TOOLTIP_MALL_ATTBONUS	Valor de ataque +%d%%	SA
+TOOLTIP_MALL_ATTBONUS_STATIC	Valor de ataque +12~15%	SNA
+TOOLTIP_MALL_AUTOLOOT	Uma mão que pega automaticamente o Yang do chão	SNA
+TOOLTIP_MALL_DEFBONUS	Defesa +%d%%	SA
+TOOLTIP_MALL_DEFBONUS_STATIC	Defesa +12~15%	SNA
+TOOLTIP_MALL_EXPBONUS	EXP +%d%%	SA
+TOOLTIP_MALL_EXPBONUS_P_STATIC	Bônus de EXP iCafe +%d%%	SA
+TOOLTIP_MALL_EXPBONUS_STATIC	Aumenta a EXP ganha em 50%	SNA
+TOOLTIP_MALL_FISH_MIND	Sua chance de pescar um peixe raro dobra.	SNA
+TOOLTIP_MALL_GOLDBONUS	Chance de obter Yang multiplicada por %.1f	SA
+TOOLTIP_MALL_GOLDBONUS_STATIC	Dobra sua chance de obter Yang	SNA
+TOOLTIP_MALL_ITEMBONUS	Chance de obter itens multiplicada por %.1f	SA
+TOOLTIP_MALL_ITEMBONUS_P_STATIC	iCafe: chance de obter itens +%.1f%%	SA
+TOOLTIP_MALL_ITEMBONUS_STATIC	Dobra sua chance de obter itens	SNA
+TOOLTIP_MALL_MARRIAGE_FAST	Os pontos de amor sobem mais rápido.	SNA
+TOOLTIP_MALL_SAFEBOX	Seu armazém ganha 2 compartimentos	SNA
+TOOLTIP_MALL_SHOP_PREMIUM	Loja Premium	SNA
+TOOLTIP_MAX_HP	HP máx. +%d	SA
+TOOLTIP_MAX_HP_PCT	HP máx. +%d%%	SA
+TOOLTIP_MAX_SP	MP máx. +%d	SA
+TOOLTIP_MAX_SP_PCT	MP máx. +%d%%	SA
+TOOLTIP_MAX_STAMINA	Resistência máx. +%d	SA
+TOOLTIP_MELEE_MAGIC_ATTBONUS_PER	Ataque mágico/corpo a corpo +%d%%	SA
+TOOLTIP_MEMORIZED_POSITION	%s(%d, %d)	
+TOOLTIP_MEMORIZED_POSITION_ERROR	ERRO DE GPS(%d, %d)	
+TOOLTIP_MOV_SPEED	Velocidade de movimento %d%%	SA
+TOOLTIP_NECK	Colar	
+TOOLTIP_NEED_ALL_SP	MP necessário: máx.	
+TOOLTIP_NEED_GSP	Espírito do Dragão necessário: %d	
+TOOLTIP_NEED_HP	HP necessário: %d	
+TOOLTIP_NEED_HP_PER_SEC	HP / seg.: %d	
+TOOLTIP_NEED_SKILL_POINT	Pontos de habilidade necessários:	
+TOOLTIP_NEED_SP	MP necessário: %d	
+TOOLTIP_NEED_SP_PER_SEC	MP / seg.: %d	
+TOOLTIP_NEXT_SKILL_LEVEL_1	Próximo nível: %d (máx. %d)	
+TOOLTIP_NEXT_SKILL_LEVEL_2	Próximo nível: %d (máx. %d-%d)	
+TOOLTIP_NORMAL_HIT_DAMAGE_BONUS	Dano médio %d%%	SA
+TOOLTIP_NORMAL_HIT_DEFEND_BONUS	Resistência a dano médio %d%%	SA
+TOOLTIP_PARTY_INFO_GRADE_UP1	Mais de %d membros no grupo	
+TOOLTIP_PARTY_INFO_GRADE_UP2	Nível de ataque +%d	
+TOOLTIP_PARTY_INFO_GRADE_UP3	Nível de defesa +%d	
+TOOLTIP_PARTY_INFO_HEAL_18_LEVEL	Restaura HP/MP de todos os membros a cada 60 minutos.	
+TOOLTIP_PARTY_INFO_HEAL_40_LEVEL	Restaura HP/MP de todos os membros a cada 30 minutos	
+TOOLTIP_PARTY_INFO_RECALL_12_LEVEL	É preciso esperar 3 minutos após a morte de um membro do grupo.	
+TOOLTIP_PARTY_INFO_RECALL_20_LEVEL	Você pode chamar a qualquer momento membros do grupo que estejam no mesmo servidor.	
+TOOLTIP_PARTY_INFO_SET_ATTACKER	Nível de ataque +(nº de membros/2). Pode escolher %d Atacante(s).	
+TOOLTIP_PARTY_INFO_SET_TANKER	Nível de defesa +(nº de membros). Pode escolher 1 Lutador de Lâmina.	
+TOOLTIP_PARTY_SKILL_LEVEL	Nível atual: %d	
+TOOLTIP_PARTY_TITLE_GRADE_UP	[Ataque/Defesa aprimorados]	
+TOOLTIP_PARTY_TITLE_HEAL	[restaurar]	
+TOOLTIP_PARTY_TITLE_INFO_BONUS_EXP	Com mais de %d membros no grupo, você ganha %d%% de bônus de EXP.	
+TOOLTIP_PARTY_TITLE_MEMBER_BONUS_EXP	[Bônus de EXP]	
+TOOLTIP_PARTY_TITLE_RECALL	[Chamar]	
+TOOLTIP_PARTY_TITLE_SET_ATTACKER	[Definir Atacante]	
+TOOLTIP_PARTY_TITLE_SET_TANKER	[Definir Lutador de Lâmina]	
+TOOLTIP_PICK_EXP	Pontos: %d / %d	
+TOOLTIP_PICK_LEVEL	Nível: %d	
+TOOLTIP_PICK_UPGRADE1	Entregue ao Lenhador	
+TOOLTIP_PICK_UPGRADE2	para conseguir uma	
+TOOLTIP_PICK_UPGRADE3	picareta melhor.	
+TOOLTIP_POTION_CURE	Cura efeitos negativos.	
+TOOLTIP_POTION_MIN	Min.	
+TOOLTIP_POTION_PLUS_ATTACK_SPEED	Velocidade de ataque +%d	
+TOOLTIP_POTION_PLUS_HP_PERCENT	HP +%d%%	
+TOOLTIP_POTION_PLUS_HP_POINT	HP +%d	
+TOOLTIP_POTION_PLUS_MOVING_SPEED	Velocidade de movimento +%d	
+TOOLTIP_POTION_PLUS_SP_PERCENT	MP +%d%%	
+TOOLTIP_POTION_PLUS_SP_POINT	MP +%d	
+TOOLTIP_POTION_SEC	Seg.	
+TOOLTIP_POTION_TIME	Duração:	
+TOOLTIP_REQUIREMENT_21_LEVEL	É preciso ter atingido o nível 21.	
+TOOLTIP_REQUIREMENT_41_LEVEL	É preciso ter atingido o nível 41.	
+TOOLTIP_REQUIREMENT_LEVEL	É preciso ter atingido o nível %d.	
+TOOLTIP_REQUIREMENT_SKILL_LEVEL	Necessário %s nível %d.	
+TOOLTIP_REQUIREMENT_STAT_LEVEL	Necessário %s %d	
+TOOLTIP_RESIST_BOW	Resistência a flechas %d%%	SA
+TOOLTIP_RESIST_DARK	Resistência às trevas +%d%%	SA
+TOOLTIP_RESIST_EARTH	Resistência à terra +%d%%	SA
+TOOLTIP_RESIST_ELEC	Resistência a relâmpago %d%%	SA
+TOOLTIP_RESIST_FIRE	Resistência ao fogo %d%%	SA
+TOOLTIP_RESIST_ICE	Resistência ao gelo +%d%%	SA
+TOOLTIP_RESIST_MAGIC	Resistência mágica %d%%	SA
+TOOLTIP_REST_USABLE_COUNT	Restam: %d	
+TOOLTIP_SEALED	Vinculado à alma	
+TOOLTIP_SELLPRICE	Preço: %s	
+TOOLTIP_SHAMAN	Xamã	
+TOOLTIP_SHIELD	Escudo	
+TOOLTIP_SHOES	Sapatos	
+TOOLTIP_SKILL	Habilidades	SNA
+TOOLTIP_SKILLBOOK_NAME	Livro de habilidade	
+TOOLTIP_SKILL_AFFECT_ATT_GRADE	Valor de ataque: +	
+TOOLTIP_SKILL_AFFECT_ATT_POWER	Valor de ataque:	
+TOOLTIP_SKILL_AFFECT_ATT_SPEED	Velocidade de ataque: +	
+TOOLTIP_SKILL_AFFECT_DEF_GRADE	Defesa:	
+TOOLTIP_SKILL_AFFECT_DODGE	Valor de ataque do oponente: -	
+TOOLTIP_SKILL_AFFECT_HEAL	Restaura HP:	
+TOOLTIP_SKILL_AFFECT_MOV_SPEED	Velocidade de movimento: +	
+TOOLTIP_SKILL_AFFECT_REFLECT_MELEE	Chance de refletir ataque corpo a corpo:	
+TOOLTIP_SKILL_AFFECT_RESIST_NORMAL	Resistência a dano físico:	
+TOOLTIP_SKILL_COOL_TIME	Recarga:	
+TOOLTIP_SKILL_DAMAGE_BONUS	Dano de habilidade %d%%	SA
+TOOLTIP_SKILL_DEFEND_BONUS	Resistência a dano de habilidade %d%%	SA
+TOOLTIP_SKILL_DURATION	Duração: %d seg.	
+TOOLTIP_SKILL_FORGET_BOOK_NAME	Livro do Esquecimento	
+TOOLTIP_SKILL_LEVEL	Nível atual: %d	
+TOOLTIP_SKILL_LEVEL_MASTER	Nível atual: %d (Mestre)	
+TOOLTIP_SKILL_LEVEL_WITH_MAX	Nível atual: %d (máx. %d)	
+TOOLTIP_SOCKET_EMPTY	Vazio	
+TOOLTIP_SOCKET_REFINABLE_ITEM	[Item com encaixe]	
+TOOLTIP_SP_REGEN	Regeneração de MP +%d%%	SA
+TOOLTIP_STR	Força +%d	SA
+TOOLTIP_SURA	Sura	
+TOOLTIP_TIME_CHARGER_FIX	Recarga de tempo %d seg.	SA
+TOOLTIP_TIME_CHARGER_PER	Recarga de tempo %d%%	SA
+TOOLTIP_TIPS_SPLIT_ITEM	{} + {} divide itens.	
+TOOLTIP_UNIQUE	Único	
+TOOLTIP_UNSEAL_LEFT_TIME	Desbloqueia em %d horas e %d minutos.	
+TOOLTIP_WARRIOR	Guerreiro	
+TOOLTIP_WEAPON	Arma	
+TOOLTIP_WRISTLET	Bracelete	
+TOO_HIGH_SHOP_VALUE	O valor da loja passa de 2 bilhões de Yang.	
+UI_ACCEPT	Aceitar	
+UI_CANCEL	Cancelar	
+UI_CLOSE	Fechar	
+UI_DEF_FONT	Tahoma:12	
+UI_DEF_FONT_LARGE	Tahoma:14	
+UI_DEF_FONT_SMALL	Tahoma:9	
+UI_DENY	Recusar	
+UI_ITEM	Item	
+UI_LEFT_TIME	Tempo restante: %d seg.	
+UI_NEXT	Continuar	
+UI_NEXTPAGE	Próxima	
+UI_NOCONTENTS	Sem conteúdo	
+UI_NONAME	Sem nome	
+UI_OK	OK	
+UI_POS_UNKNOWN	Local desconhecido	
+UI_PREVPAGE	Voltar	
+UI_UNKNOWN	Desconhecido	
+UPLOAD_MARK_CHECK_NEED_RECONNECT	O envio precisa ser iniciado de novo.	
+UPLOAD_MARK_UPLOAD_NEED_RECONNECT	O envio precisa ser iniciado de novo.	
+USE_ITEM_FAILURE_PRIVATE_SHOP	Você não pode usar itens enquanto tiver uma loja particular aberta.	
+USE_SKILL_ERROR_UNKNOWN	Erro desconhecido de habilidade: %s	

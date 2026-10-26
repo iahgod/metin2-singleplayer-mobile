@@ -1,0 +1,677 @@
+{
+ "_info": "Textos do overlay do celular (botões, menus, dicas). 'tips' = dicas da tela de carregamento, uma lista por idioma (pt, en, pl) - edite à vontade. 'texts' = tradução de cada texto em português para en/pl. Idioma sem tradução usa o inglês.",
+ "tips": {
+  "pt": [
+   "Dica: aperte Espaço ou toque no botão de ataque para lutar.",
+   "Dica: Pedras Espirituais podem ser encaixadas em armas e armaduras no Ferreiro.",
+   "Dica: use Poções Vermelhas e Azuis para recuperar HP e MP rapidamente.",
+   "Dica: as habilidades de montaria evoluem depois que você consegue um Cavalo de Batalha ou Militar.",
+   "Dica: itens podem ser aprimorados no Ferreiro da primeira vila.",
+   "Dica: aperte Z ou toque no ícone da mão para pegar rapidamente os itens do chão.",
+   "Dica: grupos de monstros são agressivos e atacam quando você chega perto demais.",
+   "Dica: habilidades com 17 a 20 pontos podem subir para o nível Mestre (M1).",
+   "Dica: arraste o dedo no lado direito da tela para girar a câmera; use a barra do topo para o zoom.",
+   "Dica: você pode fundar sua própria guilda com o Guarda da Vila a partir do nível 40.",
+   "Dica: toque duas vezes em um item ou NPC para usar o clique direito.",
+   "Dica: peixes pescados em rios e lagos podem ser assados na fogueira."
+  ],
+  "en": [
+   "Tip: press Space or tap the attack button to fight.",
+   "Tip: Spirit Stones can be added to weapons and armour at the Blacksmith.",
+   "Tip: use Red and Blue Potions to quickly restore HP and MP.",
+   "Tip: riding skills improve once you get a Battle Horse or Military Horse.",
+   "Tip: items can be upgraded at the Blacksmith in the first village.",
+   "Tip: press Z or tap the hand icon to quickly pick up items from the ground.",
+   "Tip: monster groups are aggressive and attack when you get too close.",
+   "Tip: skills with 17 to 20 points can reach the Master level (M1).",
+   "Tip: drag your finger on the right side of the screen to rotate the camera; use the top bar to zoom.",
+   "Tip: you can found your own guild with the Village Guard from level 40.",
+   "Tip: double-tap an item or NPC to use the right click.",
+   "Tip: fish caught in rivers and lakes can be grilled at a campfire."
+  ],
+  "pl": [
+   "Wskazówka: naciśnij Spację lub dotknij przycisku ataku, aby walczyć.",
+   "Wskazówka: Kamienie Duszy można osadzać w broni i zbrojach u Kowala.",
+   "Wskazówka: używaj Czerwonych i Niebieskich Mikstur, aby szybko odnowić HP i PE.",
+   "Wskazówka: umiejętności jeździeckie rozwijają się po zdobyciu Konia Bojowego lub Wojskowego.",
+   "Wskazówka: przedmioty można ulepszać u Kowala w pierwszej wiosce.",
+   "Wskazówka: naciśnij Z lub dotknij ikony dłoni, aby szybko podnieść przedmioty.",
+   "Wskazówka: grupy potworów są agresywne i atakują, gdy podejdziesz za blisko.",
+   "Wskazówka: umiejętności z 17-20 punktami mogą wejść na poziom Mistrza (M1).",
+   "Wskazówka: przesuń palcem po prawej stronie ekranu, aby obracać kamerę; pasek u góry to zoom.",
+   "Wskazówka: od 40 poziomu możesz założyć gildię u Strażnika Wioski.",
+   "Wskazówka: dotknij dwukrotnie przedmiotu lub NPC, aby użyć prawego kliknięcia.",
+   "Wskazówka: ryby złowione w rzekach i jeziorach można upiec przy ognisku."
+  ]
+ },
+ "texts": {
+  "Configurações": {
+   "en": "Settings",
+   "pl": "Ustawienia"
+  },
+  "⚙ Configurações": {
+   "en": "⚙ Settings",
+   "pl": "⚙ Ustawienia"
+  },
+  "⚙ Configurações do cliente": {
+   "en": "⚙ Client settings",
+   "pl": "⚙ Ustawienia klienta"
+  },
+  "Jogo": {
+   "en": "Game",
+   "pl": "Gra"
+  },
+  "Gráficos e HUD": {
+   "en": "Graphics & HUD",
+   "pl": "Grafika i HUD"
+  },
+  "Cidade e M1": {
+   "en": "City & M1",
+   "pl": "Miasto i M1"
+  },
+  "Ferramentas": {
+   "en": "Tools",
+   "pl": "Narzędzia"
+  },
+  "Ferramentas:": {
+   "en": "Tools:",
+   "pl": "Narzędzia:"
+  },
+  "Gráficos / desempenho:": {
+   "en": "Graphics / performance:",
+   "pl": "Grafika / wydajność:"
+  },
+  "Gráficos / desempenho": {
+   "en": "Graphics / performance",
+   "pl": "Grafika / wydajność"
+  },
+  "Baixo": {
+   "en": "Low",
+   "pl": "Niska"
+  },
+  "Médio": {
+   "en": "Medium",
+   "pl": "Średnia"
+  },
+  "Alto": {
+   "en": "High",
+   "pl": "Wysoka"
+  },
+  "Limite de quadros (FPS):": {
+   "en": "Frame limit (FPS):",
+   "pl": "Limit klatek (FPS):"
+  },
+  "Sem limite": {
+   "en": "Unlimited",
+   "pl": "Bez limitu"
+  },
+  "Tamanho do HUD (botões da tela):": {
+   "en": "HUD size (screen buttons):",
+   "pl": "Rozmiar HUD (przyciski):"
+  },
+  "Lojas privadas (M1):": {
+   "en": "Private shops (M1):",
+   "pl": "Sklepy prywatne (M1):"
+  },
+  "Esconder lojas (mais FPS)": {
+   "en": "Hide shops (more FPS)",
+   "pl": "Ukryj sklepy (więcej FPS)"
+  },
+  "Perto (10 m)": {
+   "en": "Nearby (10 m)",
+   "pl": "Bliskie (10 m)"
+  },
+  "Todas": {
+   "en": "All",
+   "pl": "Wszystkie"
+  },
+  "Placas das lojas:": {
+   "en": "Shop signs:",
+   "pl": "Szyldy sklepów:"
+  },
+  "Esconder placas": {
+   "en": "Hide signs",
+   "pl": "Ukryj szyldy"
+  },
+  "Mostrar placas": {
+   "en": "Show signs",
+   "pl": "Pokaż szyldy"
+  },
+  "Nomes de monstros/personagens e balões de chat:": {
+   "en": "Monster/character names and chat bubbles:",
+   "pl": "Nazwy potworów/postaci i dymki czatu:"
+  },
+  "Esconder nomes": {
+   "en": "Hide names",
+   "pl": "Ukryj nazwy"
+  },
+  "Mostrar nomes": {
+   "en": "Show names",
+   "pl": "Pokaż nazwy"
+  },
+  "Barra do PC liga/desliga": {
+   "en": "PC taskbar on/off",
+   "pl": "Pasek PC wł./wył."
+  },
+  "Registro de erros": {
+   "en": "Error log",
+   "pl": "Logi błędów"
+  },
+  "Tela cheia": {
+   "en": "Fullscreen",
+   "pl": "Pełny ekran"
+  },
+  "Idioma do jogo": {
+   "en": "Game language",
+   "pl": "Język gry"
+  },
+  "Idioma": {
+   "en": "Language",
+   "pl": "Język"
+  },
+  "Tamanho das janelas": {
+   "en": "Window size",
+   "pl": "Rozmiar okien"
+  },
+  "Tamanho": {
+   "en": "Size",
+   "pl": "Rozmiar"
+  },
+  "Tamanho das janelas do jogo": {
+   "en": "Game window size",
+   "pl": "Rozmiar okien gry"
+  },
+  "Instalar app no celular": {
+   "en": "Install app on phone",
+   "pl": "Zainstaluj aplikację"
+  },
+  "Instalar app": {
+   "en": "Install app",
+   "pl": "Zainstaluj"
+  },
+  "Caça automática (K)": {
+   "en": "Auto hunt (K)",
+   "pl": "Auto łowy (K)"
+  },
+  "Modo de toque": {
+   "en": "Touch mode",
+   "pl": "Tryb dotyku"
+  },
+  "Mapa grande (Atlas)": {
+   "en": "Big map (Atlas)",
+   "pl": "Duża mapa (Atlas)"
+  },
+  "Teclado: do jogo / do celular": {
+   "en": "Keyboard: game / phone",
+   "pl": "Klawiatura: gry / telefonu"
+  },
+  "ESC / Fechar janela": {
+   "en": "ESC / Close window",
+   "pl": "ESC / Zamknij okno"
+  },
+  "Chat: do jogo / simples": {
+   "en": "Chat: game / simple",
+   "pl": "Czat: gry / prosty"
+  },
+  "Mais ▾": {
+   "en": "More ▾",
+   "pl": "Więcej ▾"
+  },
+  "Menos ▴": {
+   "en": "Less ▴",
+   "pl": "Mniej ▴"
+  },
+  "Entrar": {
+   "en": "Log in",
+   "pl": "Zaloguj"
+  },
+  "Iniciar (ENTER)": {
+   "en": "Start (ENTER)",
+   "pl": "Start (ENTER)"
+  },
+  "Digitar": {
+   "en": "Type",
+   "pl": "Wpisz"
+  },
+  "Erros": {
+   "en": "Errors",
+   "pl": "Błędy"
+  },
+  "⌨ Teclado": {
+   "en": "⌨ Keyboard",
+   "pl": "⌨ Klawiatura"
+  },
+  "Teclado": {
+   "en": "Keyboard",
+   "pl": "Klawiatura"
+  },
+  "📱 Teclado do celular": {
+   "en": "📱 Phone keyboard",
+   "pl": "📱 Klawiatura telefonu"
+  },
+  "espaço": {
+   "en": "space",
+   "pl": "spacja"
+  },
+  "Fechar": {
+   "en": "Close",
+   "pl": "Zamknij"
+  },
+  "O jogo será recarregado para aplicar.": {
+   "en": "The game will reload to apply.",
+   "pl": "Gra zostanie przeładowana."
+  },
+  "Normal (100%)": {
+   "en": "Normal (100%)",
+   "pl": "Normalny (100%)"
+  },
+  "Grande (125%) - recomendado": {
+   "en": "Large (125%) - recommended",
+   "pl": "Duży (125%) - zalecany"
+  },
+  "Grande HD (125%) - textos nítidos, exige mais do celular": {
+   "en": "Large HD (125%) - sharp text, heavier on the phone",
+   "pl": "Duży HD (125%) - ostry tekst, bardziej obciąża telefon"
+  },
+  "Muito grande (150%)": {
+   "en": "Very large (150%)",
+   "pl": "Bardzo duży (150%)"
+  },
+  "Aumenta inventário, janelas, ícones e textos do jogo. O jogo será recarregado. O modo HD desenha o jogo em resolução maior (letras sem borrão), mas pode deixar o jogo mais lento ou esquentar o celular.": {
+   "en": "Enlarges inventory, windows, icons and texts. The game will reload. HD mode renders at a higher resolution (sharp letters) but may be slower or heat the phone.",
+   "pl": "Powiększa ekwipunek, okna, ikony i teksty. Gra zostanie przeładowana. Tryb HD rysuje w wyższej rozdzielczości (ostre litery), ale może zwolnić grę lub nagrzać telefon."
+  },
+  "Baixo - mais leve (30 FPS, menos resolução, visão curta)": {
+   "en": "Low - lightest (30 FPS, lower resolution, short view)",
+   "pl": "Niska - najlżejsza (30 FPS, niższa rozdzielczość, krótki widok)"
+  },
+  "Médio - equilibrado (visão média)": {
+   "en": "Medium - balanced (medium view)",
+   "pl": "Średnia - zrównoważona (średni widok)"
+  },
+  "Alto - melhor visual (como o jogo vem)": {
+   "en": "High - best visuals (game default)",
+   "pl": "Wysoka - najlepszy wygląd (domyślna)"
+  },
+  "Use \"Baixo\" se o jogo estiver travando ou o celular esquentando.": {
+   "en": "Use \"Low\" if the game stutters or the phone gets hot.",
+   "pl": "Użyj \"Niska\", jeśli gra się tnie lub telefon się grzeje."
+  },
+  "Geral": {
+   "en": "All",
+   "pl": "Ogólny"
+  },
+  "Grupo": {
+   "en": "Party",
+   "pl": "Grupa"
+  },
+  "Guilda": {
+   "en": "Guild",
+   "pl": "Gildia"
+  },
+  "Gritar": {
+   "en": "Shout",
+   "pl": "Wołaj"
+  },
+  "Comércio": {
+   "en": "Trade",
+   "pl": "Handel"
+  },
+  "Conversar... (ou /comando)": {
+   "en": "Chat... (or /command)",
+   "pl": "Czat... (lub /komenda)"
+  },
+  "Histórico do chat": {
+   "en": "Chat history",
+   "pl": "Historia czatu"
+  },
+  "Ataque automático no alvo selecionado": {
+   "en": "Auto attack on selected target",
+   "pl": "Auto atak na wybrany cel"
+  },
+  "Dividir pilha de itens (Shift + clique)": {
+   "en": "Split item stack (Shift + click)",
+   "pl": "Podziel stos (Shift + klik)"
+  },
+  "Modo de toque: 👆 SEL (clique esquerdo: selecionar) / ⚡ USAR (clique direito: usar / equipar / comprar)": {
+   "en": "Touch mode: 👆 SEL (left click: select) / ⚡ USE (right click: use / equip / buy)",
+   "pl": "Tryb dotyku: 👆 SEL (lewy klik: wybierz) / ⚡ UŻYJ (prawy klik: użyj / załóż / kup)"
+  },
+  "USAR": {
+   "en": "USE",
+   "pl": "UŻYJ"
+  },
+  "DIV": {
+   "en": "SPLIT",
+   "pl": "DZIEL"
+  },
+  "Companheiro (P)": {
+   "en": "Companion (P)",
+   "pl": "Towarzysz (P)"
+  },
+  "Inventário (I)": {
+   "en": "Inventory (I)",
+   "pl": "Ekwipunek (I)"
+  },
+  "Inventário": {
+   "en": "Inventory",
+   "pl": "Ekwipunek"
+  },
+  "Missões": {
+   "en": "Quests",
+   "pl": "Misje"
+  },
+  "Nenhuma missão no momento.": {
+   "en": "No quests right now.",
+   "pl": "Brak misji."
+  },
+  "Montar / desmontar": {
+   "en": "Mount / dismount",
+   "pl": "Wsiądź / zsiądź"
+  },
+  "Montaria": {
+   "en": "Mount",
+   "pl": "Wierzchowiec"
+  },
+  "Pegar itens do chão (Z)": {
+   "en": "Pick up items (Z)",
+   "pl": "Podnieś przedmioty (Z)"
+  },
+  "Pegar": {
+   "en": "Pick up",
+   "pl": "Podnieś"
+  },
+  "Loja de itens": {
+   "en": "Item shop",
+   "pl": "Sklep z przedmiotami"
+  },
+  "Opções": {
+   "en": "Options",
+   "pl": "Opcje"
+  },
+  "Personagem / Status (C)": {
+   "en": "Character / Status (C)",
+   "pl": "Postać / Status (C)"
+  },
+  "Toque para mostrar/ocultar os números": {
+   "en": "Tap to show/hide numbers",
+   "pl": "Dotknij, aby pokazać/ukryć liczby"
+  },
+  "Pontos de Vida (HP)": {
+   "en": "Health points (HP)",
+   "pl": "Punkty życia (HP)"
+  },
+  "Pontos de Mana (MP)": {
+   "en": "Mana points (MP)",
+   "pl": "Punkty many (MP)"
+  },
+  "Resistência (ST)": {
+   "en": "Stamina (ST)",
+   "pl": "Wytrzymałość (ST)"
+  },
+  "Experiência": {
+   "en": "Experience",
+   "pl": "Doświadczenie"
+  },
+  "Zoom da câmera": {
+   "en": "Camera zoom",
+   "pl": "Przybliżenie kamery"
+  },
+  "Aproximar": {
+   "en": "Zoom in",
+   "pl": "Przybliż"
+  },
+  "Afastar": {
+   "en": "Zoom out",
+   "pl": "Oddal"
+  },
+  "Painel GM": {
+   "en": "GM panel",
+   "pl": "Panel GM"
+  },
+  "Painel GM (F9)": {
+   "en": "GM panel (F9)",
+   "pl": "Panel GM (F9)"
+  },
+  "Painel GM / Ferramentas": {
+   "en": "GM panel / Tools",
+   "pl": "Panel GM / Narzędzia"
+  },
+  "Possuir bot": {
+   "en": "Possess bot",
+   "pl": "Przejmij bota"
+  },
+  "Próx. jogador/bot": {
+   "en": "Next player/bot",
+   "pl": "Następny gracz/bot"
+  },
+  "Voltar ao GM": {
+   "en": "Back to GM",
+   "pl": "Wróć do GM"
+  },
+  "HP/MP cheios": {
+   "en": "Full HP/MP",
+   "pl": "Pełne HP/MP"
+  },
+  "Invisibilidade (/inv)": {
+   "en": "Invisibility (/inv)",
+   "pl": "Niewidzialność (/inv)"
+  },
+  "Velocidade 200": {
+   "en": "Speed 200",
+   "pl": "Prędkość 200"
+  },
+  "Câmera zoom máx.": {
+   "en": "Max camera zoom",
+   "pl": "Maks. oddalenie kamery"
+  },
+  "Teleportes": {
+   "en": "Teleports",
+   "pl": "Teleporty"
+  },
+  "Vale dos Orcs": {
+   "en": "Orc Valley",
+   "pl": "Dolina Orków"
+  },
+  "Deserto": {
+   "en": "Desert",
+   "pl": "Pustynia"
+  },
+  "Iniciando o jogo...": {
+   "en": "Starting the game...",
+   "pl": "Uruchamianie gry..."
+  },
+  "Iniciando...": {
+   "en": "Starting...",
+   "pl": "Uruchamianie..."
+  },
+  "Carregando mapa e terreno...": {
+   "en": "Loading map and terrain...",
+   "pl": "Wczytywanie mapy i terenu..."
+  },
+  "Carregando áudio...": {
+   "en": "Loading audio...",
+   "pl": "Wczytywanie audio..."
+  },
+  "Carregando efeitos...": {
+   "en": "Loading effects...",
+   "pl": "Wczytywanie efektów..."
+  },
+  "Carregando modelos dos personagens...": {
+   "en": "Loading character models...",
+   "pl": "Wczytywanie modeli postaci..."
+  },
+  "Registrando animações de combate...": {
+   "en": "Registering combat animations...",
+   "pl": "Rejestracja animacji walki..."
+  },
+  "Registrando armaduras e armas...": {
+   "en": "Registering armor and weapons...",
+   "pl": "Rejestracja zbroi i broni..."
+  },
+  "Registrando habilidades...": {
+   "en": "Registering skills...",
+   "pl": "Rejestracja umiejętności..."
+  },
+  "Carregando habilidades...": {
+   "en": "Loading skills...",
+   "pl": "Wczytywanie umiejętności..."
+  },
+  "Carregando monstros...": {
+   "en": "Loading monsters...",
+   "pl": "Wczytywanie potworów..."
+  },
+  "Carregando NPCs...": {
+   "en": "Loading NPCs...",
+   "pl": "Wczytywanie NPC..."
+  },
+  "Carregando objetos...": {
+   "en": "Loading objects...",
+   "pl": "Wczytywanie obiektów..."
+  },
+  "Carregando o mundo do jogo...": {
+   "en": "Loading the game world...",
+   "pl": "Wczytywanie świata gry..."
+  },
+  "Entrando no jogo...": {
+   "en": "Entering the game...",
+   "pl": "Wejście do gry..."
+  },
+  "Carregando personagem...": {
+   "en": "Loading character...",
+   "pl": "Wczytywanie postaci..."
+  },
+  "Ataque automático: DESLIGADO": {
+   "en": "Auto attack: OFF",
+   "pl": "Auto atak: WYŁ."
+  },
+  "Ataque automático: LIGADO": {
+   "en": "Auto attack: ON",
+   "pl": "Auto atak: WŁ."
+  },
+  "Toque num monstro: o personagem ataca até ele morrer.": {
+   "en": "Tap a monster: your character attacks until it dies.",
+   "pl": "Dotknij potwora: postać atakuje, aż zginie."
+  },
+  "Teclado do celular ativado.": {
+   "en": "Phone keyboard enabled.",
+   "pl": "Klawiatura telefonu włączona."
+  },
+  "Para voltar ao teclado do jogo: engrenagem → Teclado.": {
+   "en": "To go back to the game keyboard: gear → Keyboard.",
+   "pl": "Aby wrócić do klawiatury gry: zębatka → Klawiatura."
+  },
+  "Teclado:": {
+   "en": "Keyboard:",
+   "pl": "Klawiatura:"
+  },
+  "Chat:": {
+   "en": "Chat:",
+   "pl": "Czat:"
+  },
+  "Modo de toque:": {
+   "en": "Touch mode:",
+   "pl": "Tryb dotyku:"
+  },
+  "do jogo (com tecla apagar)": {
+   "en": "game (with backspace)",
+   "pl": "gry (z backspace)"
+  },
+  "do celular": {
+   "en": "phone",
+   "pl": "telefonu"
+  },
+  "do jogo (todas as mensagens, bandeiras do reino)": {
+   "en": "game (all messages, kingdom flags)",
+   "pl": "gry (wszystkie wiadomości, flagi królestw)"
+  },
+  "simples (do overlay)": {
+   "en": "simple (overlay)",
+   "pl": "prosty (nakładka)"
+  },
+  "arrastar janelas": {
+   "en": "drag windows",
+   "pl": "przeciąganie okien"
+  },
+  "girar câmera": {
+   "en": "rotate camera",
+   "pl": "obrót kamery"
+  },
+  "automático": {
+   "en": "automatic",
+   "pl": "automatyczny"
+  },
+  "A resolução muda na próxima vez que o jogo abrir (ou recarregue a página).": {
+   "en": "Resolution changes next time the game opens (or reload the page).",
+   "pl": "Rozdzielczość zmieni się przy następnym uruchomieniu (lub przeładuj stronę)."
+  },
+  "A resolução muda na próxima vez que o jogo abrir.": {
+   "en": "Resolution changes next time the game opens.",
+   "pl": "Rozdzielczość zmieni się przy następnym uruchomieniu."
+  },
+  "Gráficos: Baixo": {
+   "en": "Graphics: Low",
+   "pl": "Grafika: Niska"
+  },
+  "Gráficos: Médio": {
+   "en": "Graphics: Medium",
+   "pl": "Grafika: Średnia"
+  },
+  "Gráficos: Alto": {
+   "en": "Graphics: High",
+   "pl": "Grafika: Wysoka"
+  },
+  "Dica: aperte Espaço ou toque no botão de ataque para lutar.": {
+   "en": "Tip: press Space or tap the attack button to fight.",
+   "pl": "Wskazówka: naciśnij Spację lub dotknij przycisku ataku, aby walczyć."
+  },
+  "Dica: Pedras Espirituais podem ser encaixadas em armas e armaduras no Ferreiro.": {
+   "en": "Tip: Spirit Stones can be added to weapons and armour at the Blacksmith.",
+   "pl": "Wskazówka: Kamienie Duszy można osadzać w broni i zbrojach u Kowala."
+  },
+  "Dica: use Poções Vermelhas e Azuis para recuperar HP e MP rapidamente.": {
+   "en": "Tip: use Red and Blue Potions to quickly restore HP and MP.",
+   "pl": "Wskazówka: używaj Czerwonych i Niebieskich Mikstur, aby szybko odnowić HP i PE."
+  },
+  "Dica: as habilidades de montaria evoluem depois que você consegue um Cavalo de Batalha ou Militar.": {
+   "en": "Tip: riding skills improve once you get a Battle Horse or Military Horse.",
+   "pl": "Wskazówka: umiejętności jeździeckie rozwijają się po zdobyciu Konia Bojowego lub Wojskowego."
+  },
+  "Dica: itens podem ser aprimorados no Ferreiro da primeira vila.": {
+   "en": "Tip: items can be upgraded at the Blacksmith in the first village.",
+   "pl": "Wskazówka: przedmioty można ulepszać u Kowala w pierwszej wiosce."
+  },
+  "Dica: aperte Z ou toque no ícone da mão para pegar rapidamente os itens do chão.": {
+   "en": "Tip: press Z or tap the hand icon to quickly pick up items from the ground.",
+   "pl": "Wskazówka: naciśnij Z lub dotknij ikony dłoni, aby szybko podnieść przedmioty."
+  },
+  "Dica: grupos de monstros são agressivos e atacam quando você chega perto demais.": {
+   "en": "Tip: monster groups are aggressive and attack when you get too close.",
+   "pl": "Wskazówka: grupy potworów są agresywne i atakują, gdy podejdziesz za blisko."
+  },
+  "Dica: habilidades com 17 a 20 pontos podem subir para o nível Mestre (M1).": {
+   "en": "Tip: skills with 17 to 20 points can reach the Master level (M1).",
+   "pl": "Wskazówka: umiejętności z 17-20 punktami mogą wejść na poziom Mistrza (M1)."
+  },
+  "Dica: arraste o dedo no lado direito da tela para girar a câmera; use a barra do topo para o zoom.": {
+   "en": "Tip: drag your finger on the right side of the screen to rotate the camera; use the top bar to zoom.",
+   "pl": "Wskazówka: przesuń palcem po prawej stronie ekranu, aby obracać kamerę; pasek u góry to zoom."
+  },
+  "Dica: você pode fundar sua própria guilda com o Guarda da Vila a partir do nível 40.": {
+   "en": "Tip: you can found your own guild with the Village Guard from level 40.",
+   "pl": "Wskazówka: od 40 poziomu możesz założyć gildię u Strażnika Wioski."
+  },
+  "Dica: toque duas vezes em um item ou NPC para usar o clique direito.": {
+   "en": "Tip: double-tap an item or NPC to use the right click.",
+   "pl": "Wskazówka: dotknij dwukrotnie przedmiotu lub NPC, aby użyć prawego kliknięcia."
+  },
+  "Dica: peixes pescados em rios e lagos podem ser assados na fogueira.": {
+   "en": "Tip: fish caught in rivers and lakes can be grilled at a campfire.",
+   "pl": "Wskazówka: ryby złowione w rzekach i jeziorach można upiec przy ognisku."
+  },
+  "Dica: arraste o dedo no lado direito da tela para girar a câmera; use dois dedos para dar zoom.": {
+   "en": "Tip: drag your finger on the right side of the screen to rotate the camera; use the top bar to zoom.",
+   "pl": "Wskazówka: przesuń palcem po prawej stronie ekranu, aby obracać kamerę; pasek u góry to zoom."
+  }
+ }
+}

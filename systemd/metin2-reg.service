@@ -1,0 +1,13 @@
+[Unit]
+Description=Metin2 WebClient Registration API
+After=network.target docker.service
+
+[Service]
+WorkingDirectory=/opt/metin2-web/reg
+ExecStart=/usr/bin/python3 /opt/metin2-web/reg/server.py
+Restart=always
+RestartSec=3
+User=root
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="theme-color" content="#080604">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Metin2">
+<link rel="manifest" href="manifest.json?v=2">
+<link rel="apple-touch-icon" href="icons/ui/pwa_192.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/ui/pwa_192.png">
+<title>Metin2</title>
+<script>
+// Versão desta página. Se o navegador abrir uma cópia ANTIGA guardada no cache
+// (acontecia: "às vezes volta uma atualização"), pergunta ao servidor qual é a
+// versão atual e, se for outra, recarrega uma vez já com a nova.
+var M2W_PAGE_VER = "ptbr28";
+(function () {
+  try {
+    if (sessionStorage.getItem("m2w.verReload") === M2W_PAGE_VER) return;
+    if (typeof fetch !== "function") return;
+    fetch(location.pathname + "?_vc=" + Date.now(), { cache: "no-store" }).then(function (r) {
+      return r.ok ? r.text() : "";
+    }).then(function (t) {
+      var m = /M2W_PAGE_VER = "([^"]+)"/.exec(t || "");
+      if (m && m[1] !== M2W_PAGE_VER) {
+        sessionStorage.setItem("m2w.verReload", m[1]);
+        var u = new URL(location.href);
+        u.searchParams.set("_v", m[1]);
+        location.replace(u.toString());
+      }
+    }).catch(function () { });
+  } catch (e) { }
+})();
+</script>
+<style>
+:root{--sat:env(safe-area-inset-top,0px);--sar:env(safe-area-inset-right,0px);--sab:env(safe-area-inset-bottom,0px);--sal:env(safe-area-inset-left,0px);}
+
+html,body{margin:0 !important;padding:0 !important;width:100vw !important;height:100vh !important;width:100dvw !important;height:100dvh !important;overflow:hidden !important;background:#000 !important;position:fixed !important;inset:0 !important;touch-action:none;overscroll-behavior:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;color:#ccc;font:13px/1.5 system-ui,sans-serif}
+#canvas{
+  position:fixed !important;
+  inset:0 !important;
+  top:0 !important;
+  left:0 !important;
+  width:100vw !important;
+  height:100vh !important;
+  width:100dvw !important;
+  height:100dvh !important;
+  max-width:none !important;
+  max-height:none !important;
+  object-fit:fill !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:none !important;
+  display:block !important;
+  outline:0 !important;
+  touch-action:none !important;
+  overscroll-behavior:none !important;
+  -webkit-user-select:none !important;
+  user-select:none !important;
+  -webkit-touch-callout:none !important;
+}
+body.mobile,body.mobile canvas#canvas{touch-action:none;overscroll-behavior:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+#status{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;pointer-events:none;color:#e8d9b8;text-shadow:0 1px 3px #000}
+#status.done{display:none}
+#m2w_error{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.85);z-index:30}
+#m2w_error.visible{display:flex}
+#m2w_error div{max-width:min(92vw,560px);background:#16130f;border:1px solid #3a2f22;border-radius:10px;padding:22px 26px;color:#e8d9b8}
+#m2w_error pre{white-space:pre-wrap;color:#9a8f7c;font:12px/1.4 ui-monospace,monospace;max-height:40vh;overflow:auto}
+</style>
+</head>
+<body>
+<canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+<div id="status">carregando…</div>
+<div id="m2w_error"><div><b>O cliente parou de funcionar.</b><pre id="m2w_error_text"></pre>Recarregue a página para começar de novo.</div></div>
+<script>
+// Force high-performance WebGL GPU profile before Emscripten creates the context
+(function () {
+  if (window._m2wGlPatched || typeof HTMLCanvasElement === "undefined") return;
+  window._m2wGlPatched = true;
+  var isMob = /[?&]mobile=1(&|$)/.test(location.search);
+  var origGetContext = HTMLCanvasElement.prototype.getContext;
+  HTMLCanvasElement.prototype.getContext = function (type, attrs) {
+    if (type === "webgl" || type === "webgl2" || type === "experimental-webgl") {
+      attrs = Object.assign(
+        { powerPreference: "high-performance", antialias: !isMob },
+        attrs || {},
+        { powerPreference: "high-performance" }
+      );
+    }
+    return origGetContext.call(this, type, attrs);
+  };
+})();
+// The client shell - OURS, minimal. No
+// counting of GL calls or other instrumentation on the hot path
+// (the lesson: a counter in the shell slowed the client down 60x).
+// The client itself reads the URL parameters (compat/runtime.js, m2w.options):
+// ?scale, ?return, ?bridge, ?lang, ?deflang, ?fps, ?corpusMB, ?noprefetch,
+// ?nofetch.
+// m2w.config.bridge = the address of the WebSocket bridge (wss://host[:port]). Empty = the
+// same server as the page (/to/...). Filled in by link_client.py from build/port/private/bridge.txt.
+// Mobile entry: client.html?mobile=1 (or mobile.html, which redirects here).
+// Same client.wasm / client.data / corpus; lower internal buffer (960x540, compat/runtime.js).
+var MOBILE = /[?&]mobile=1(&|$)/.test(location.search);
+window.m2w = { config: { bridge: "", mobile: MOBILE } };
+(function () {
+  var _rawEffectiveDpr = null, _rawFpsLimit = null, _rawFetchSync = null, _rawPrefetchStart = null;
+  Object.defineProperty(window.m2w, "effectiveDpr", {
+    configurable: true, enumerable: true,
+    get: function () {
+      return function () {
+        var baseDpr = _rawEffectiveDpr ? _rawEffectiveDpr() : (window.devicePixelRatio || 1);
+        var p = localStorage.getItem("m2o_perf_mode") || (MOBILE ? "balanced" : "quality");
+        if (p === "eco") return Math.min(baseDpr, 1.0);
+        if (p === "balanced") return Math.min(baseDpr, 1.25);
+        return baseDpr;
+      };
+    },
+    set: function (fn) { _rawEffectiveDpr = fn; }
+  });
+  Object.defineProperty(window.m2w, "corpusBudget", {
+    configurable: true, enumerable: true,
+    get: function () {
+      return function () {
+        var gb = (typeof navigator !== "undefined" && navigator.deviceMemory) ? navigator.deviceMemory : 4;
+        if (MOBILE) return gb >= 6 ? 896 : 768;
+        return gb >= 4 ? 1024 : 768;
+      };
+    },
+    set: function (fn) { }
+  });
+  Object.defineProperty(window.m2w, "fpsLimit", {
+    configurable: true, enumerable: true,
+    get: function () {
+      return function () {
+        if (document.hidden) return 15;
+        var f = parseInt(localStorage.getItem("m2o_fps_limit"), 10);
+        if (f > 0) return f;
+        return _rawFpsLimit ? _rawFpsLimit() : 0;
+      };
+    },
+    set: function (fn) { _rawFpsLimit = fn; }
+  });
+  Object.defineProperty(window.m2w, "fetchSync", {
+    configurable: true, enumerable: true,
+    get: function () {
+      return function (url, expected) {
+        try {
+          var m = /([0-9a-f]{32})\.bin/.exec(url);
+          if (m && m[1]) {
+            var h = m[1];
+            var raw = localStorage.getItem("m2w_learned_order") || "";
+            var arr = raw ? raw.split(",") : [];
+            if (arr.indexOf(h) < 0) {
+              arr.push(h);
+              if (arr.length > 180) arr = arr.slice(arr.length - 180);
+              localStorage.setItem("m2w_learned_order", arr.join(","));
+            }
+          }
+        } catch (e) { }
+        return _rawFetchSync ? _rawFetchSync(url, expected) : null;
+      };
+    },
+    set: function (fn) { _rawFetchSync = fn; }
+  });
+  Object.defineProperty(window.m2w, "prefetchStart", {
+    configurable: true, enumerable: true,
+    get: function () {
+      return function (base) {
+        var state = window.m2w.chunks;
+        if (!state || window.m2w.prefetch) return;
+        if (window.m2w.options && window.m2w.options.get("noprefetch") === "1") return;
+        var CHUNK = 4 * 1048576;
+        var w = window.m2w.prefetch = {
+          total: 0, done: 0, toMemory: 0, fromStorage: 0, errors: 0,
+          waits: 0, forcedEvictions: 0, start: performance.now(), end: 0,
+          lastProgress: performance.now()
+        };
+        var makeRoom = function () {
+          var it = state.map.keys();
+          while (state.bytes + CHUNK > state.budget) {
+            var k = it.next();
+            if (k.done) return false;
+            if (!state.used.has(k.value)) continue;
+            state.bytes -= state.map.get(k.value).length;
+            state.map.delete(k.value);
+            state.used.delete(k.value);
+          }
+          return true;
+        };
+        var waitForRoom = function () {
+          if (!makeRoom()) {
+            if (performance.now() - w.lastProgress > 8000 && state.map.size) {
+              var oldest = state.map.keys().next().value;
+              state.bytes -= state.map.get(oldest).length;
+              state.map.delete(oldest);
+              ++w.forcedEvictions;
+              w.lastProgress = performance.now();
+            }
+            if (!makeRoom()) {
+              ++w.waits;
+              return new Promise(function (r) { setTimeout(r, 20); }).then(waitForRoom);
+            }
+          }
+          state.bytes += CHUNK;
+          return Promise.resolve();
+        };
+        var put = function (name, buffer) {
+          state.bytes -= CHUNK;
+          if (state.map.has(name)) return;
+          var data = new Uint8Array(buffer);
+          state.map.set(name, data);
+          state.bytes += data.length;
+          ++w.toMemory;
+          w.lastProgress = performance.now();
+        };
+        var report = function () {
+          if ((w.done % 10) !== 0 && w.done !== w.total) return;
+          try {
+            var s = document.getElementById("status");
+            if (s && s.className !== "done" && typeof Module !== "undefined" && Module.setStatus && w.done !== w.total)
+              Module.setStatus("Game data: " + w.done + " / " + w.total + " chunks...");
+          } catch (e) { }
+        };
+        fetch(base + "order.txt", { cache: "no-store" }).then(function (o) {
+          return o.ok ? o.text() : "";
+        }).catch(function () { return ""; }).then(function (t) {
+          var serverHashes = t.match(/[0-9a-f]{32}/g) || [];
+          var learnedRaw = "";
+          try { learnedRaw = localStorage.getItem("m2w_learned_order") || ""; } catch (e) { }
+          var learnedHashes = learnedRaw ? learnedRaw.split(",").filter(function (x) { return /^[0-9a-f]{32}$/.test(x); }) : [];
+          var seen = new Set();
+          var hashes = [];
+          // Priority 1: first 45 login/select chunks from order.txt, then user's learned world chunks, then rest of order.txt
+          var head = serverHashes.slice(0, 45);
+          var combined = head.concat(learnedHashes).concat(serverHashes);
+          for (var idx = 0; idx < combined.length; idx++) {
+            var h = combined[idx];
+            if (h && !seen.has(h)) { seen.add(h); hashes.push(h); }
+          }
+          w.total = hashes.length;
+          return state.storage.then(function (storage) {
+            var i = 0;
+            var one = function () {
+              if (i >= hashes.length) return Promise.resolve();
+              var name = hashes[i++] + ".bin";
+              var url = base + name;
+              if (state.map.has(name) || state.inFlight.has(name)) {
+                ++w.done; report(); return one();
+              }
+              return waitForRoom().then(function () {
+                if (state.map.has(name) || state.inFlight.has(name)) {
+                  state.bytes -= CHUNK;
+                  return;
+                }
+                state.inFlight.add(name);
+                var p = storage ? storage.match(url) : Promise.resolve(null);
+                return Promise.resolve(p).then(function (response) {
+                  if (response) {
+                    ++w.fromStorage;
+                    return response.arrayBuffer().then(function (b) { put(name, b); });
+                  }
+                  return fetch(url).then(function (response2) {
+                    if (!response2 || !response2.ok) throw new Error("HTTP " + (response2 && response2.status));
+                    if (storage) { try { storage.put(url, response2.clone()); } catch (e) { } }
+                    return response2.arrayBuffer().then(function (b) { put(name, b); });
+                  }).then(function () {
+                    return new Promise(function (r) { setTimeout(r, 15); });
+                  });
+                }).catch(function () {
+                  ++w.errors;
+                  state.bytes -= CHUNK;
+                }).then(function () { state.inFlight.delete(name); });
+              }).then(function () {
+                ++w.done; report();
+                return one();
+              });
+            };
+            var lanes = 5, jobs = [];
+            for (var lane = 0; lane < lanes; ++lane) jobs.push(one());
+            return Promise.all(jobs);
+          });
+        }).then(function () { w.end = performance.now(); });
+      };
+    },
+    set: function (fn) { _rawPrefetchStart = fn; }
+  });
+})();
+if (MOBILE) document.body.className += " mobile";
+var statusEl = document.getElementById("status");
+var Module = {
+  /// Engine files get `?v=<build time>`, so a new build is never served from cache.
+  locateFile: function (p) { return p + "?v=b3245f2f8769p1"; },
+  canvas: document.getElementById("canvas"),
+  preRun: [
+    /// Mobile: /mobile.flag in the VFS makes game.py drop shadows and thicken fog.
+    function () { if (MOBILE) Module.FS_createDataFile('/', 'mobile.flag', '1', true, true); },
+    /// PT-BR: baixa a traducao (site/i18n/pt/) para /m2w_pt/ antes do jogo iniciar;
+    /// client.js (m2w.installPtBr) a instala quando o idioma escolhido for 'pt'.
+    function () {
+      if (typeof fetch !== "function" || !Module.addRunDependency) return;
+      var files = ["locale_game.txt", "locale_interface.txt", "item_names.txt", "mob_names.txt"];
+      try { Module.FS.mkdir("/m2w_pt"); } catch (e) { }
+      Module.addRunDependency("m2w_ptbr");
+      var pending = files.length;
+      var done = function () { if (--pending === 0) Module.removeRunDependency("m2w_ptbr"); };
+      files.forEach(function (f) {
+        fetch("i18n/pt/" + f + "?v=2", { cache: "no-cache" }).then(function (r) {
+          return r.ok ? r.arrayBuffer() : null;
+        }).then(function (buf) {
+          if (buf && buf.byteLength) Module.FS.writeFile("/m2w_pt/" + f, new Uint8Array(buf));
+        }).catch(function () { }).then(done);
+      });
+    }
+  ],
+  /// Engine start-up text in the middle of the screen; empty = hide it.
+  setStatus: function (t) {
+    if (!statusEl) return;
+    // Mensagens padrão do Emscripten -> PT-BR
+    t = String(t || "")
+      .replace(/^Downloading data\.\.\./, "Baixando dados...")
+      .replace(/^Downloading\.\.\./, "Baixando...")
+      .replace(/^Preparing\.\.\./, "Preparando...")
+      .replace(/^Running\.\.\./, "Iniciando...")
+      .replace(/^All downloads complete\./, "Downloads concluídos.");
+    statusEl.textContent = t;
+    if (!t) statusEl.className = "done";
+  },
+  /// Engine stdout to the browser console.
+  print: function (t) { console.log(t); },
+  /// Engine stderr to the browser console as errors.
+  printErr: function (t) {
+    if (/SpeedTreeRT Error|UNKNOWN NAME/.test(t)) return;   // repeating per-frame noise
+    console.error(t);
+  },
+  /// The engine stopped: shows the error overlay with the reason.
+  onAbort: function (what) {
+    var e = document.getElementById("m2w_error");
+    document.getElementById("m2w_error_text").textContent = String(what);
+    e.className = "visible";
+  }
+};
+window.addEventListener("error", function (ev) {
+  if (ev && ev.message && /RuntimeError|abort|unreachable/.test(ev.message)) Module.onAbort(ev.message);
+});
+// Cache client.data and client.wasm in IndexedDB (m2w-corpus -> chunks) so even on plain HTTP
+// or F5 refresh they load from local disk in ~100 ms instead of re-downloading 32 MB.
+(function () {
+  if (typeof indexedDB === "undefined" || typeof fetch !== "function") return;
+  var BUILD_VER = "1792621134p1";
+  var origFetch = window.fetch.bind(window);
+  var dbPromise = new Promise(function (resolve) {
+    try {
+      var r = indexedDB.open("m2w-corpus", 1);
+      r.onupgradeneeded = function () {
+        if (!r.result.objectStoreNames.contains("chunks")) r.result.createObjectStore("chunks");
+      };
+      r.onsuccess = function () { resolve(r.result); };
+      r.onerror = function () { resolve(null); };
+    } catch (e) { resolve(null); }
+  });
+  window.fetch = function (input, init) {
+    var url = typeof input === "string" ? input : (input && input.url) || "";
+    if (!/client\.(data|wasm)(\?|$)/.test(url) || (init && init.method && init.method !== "GET")) {
+      return origFetch(input, init);
+    }
+    var isWasm = /client\.wasm(\?|$)/.test(url);
+    var mime = isWasm ? "application/wasm" : "application/octet-stream";
+    var cacheKey = url + "@" + BUILD_VER;
+    return dbPromise.then(function (db) {
+      if (!db) return origFetch(input, init);
+      return new Promise(function (resolve) {
+        try {
+          var req = db.transaction("chunks", "readonly").objectStore("chunks").get(cacheKey);
+          req.onsuccess = function () { resolve(req.result || null); };
+          req.onerror = function () { resolve(null); };
+        } catch (e) { resolve(null); }
+      }).then(function (cached) {
+        if (cached) {
+          var buf = cached.buffer ? cached.buffer : cached;
+          if (!isWasm) window.m2wDataFromCache = true;
+          console.log("[cache] loaded from IndexedDB: " + cacheKey + " (" + (buf.byteLength >> 10) + " kB)");
+          return new Response(buf, { status: 200, headers: { "Content-Type": mime, "Content-Length": String(buf.byteLength) } });
+        }
+        return origFetch(url + (url.indexOf("?") < 0 ? "?v=" + BUILD_VER : ""), init).then(function (resp) {
+          if (!resp || !resp.ok) return resp;
+          // Com compressão (gzip/br) o Content-Length é do arquivo comprimido: não dá para comparar.
+          var expectLen = resp.headers.get("Content-Encoding") ? 0 : Number(resp.headers.get("Content-Length") || 0);
+          resp.clone().arrayBuffer().then(function (buf) {
+            // So guarda no cache um download completo (um arquivo cortado ficaria salvo para sempre).
+            if (expectLen && buf.byteLength !== expectLen) return;
+            try {
+              var store = db.transaction("chunks", "readwrite").objectStore("chunks");
+              store.getAllKeys().onsuccess = function (ev) {
+                var keys = (ev && ev.target && ev.target.result) || [];
+                for (var i = 0; i < keys.length; i++) {
+                  var k = String(keys[i]);
+                  if (/client\.(data|wasm)/.test(k) && k.indexOf("@" + BUILD_VER) < 0) {
+                    try { store.delete(keys[i]); } catch (e2) {}
+                  }
+                }
+              };
+              store.put(buf, cacheKey);
+            } catch (e) {}
+          }).catch(function () {});
+          return resp;
+        });
+      });
+    });
+  };
+})();
+</script>
+<script src="client.js?v=b3245f2f8769-ptbr28" async></script>
+<script src="preload.js?v=b3245f2f8769-ptbr28"></script>
+<script src="mobile_overlay.js?v=b3245f2f8769-ptbr28"></script>
+<script src="replay_hud.js?v=b3245f2f8769-ptbr28"></script>
+</body>
+</html>

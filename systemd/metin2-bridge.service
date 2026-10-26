@@ -1,0 +1,18 @@
+[Unit]
+Description=Metin2 WebClient bridge (WebSocket -> TCP)
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/metin2-web/bridge
+ExecStart=/usr/bin/node src/index.js bridge-site.json
+Restart=always
+RestartSec=3
+User=www-data
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

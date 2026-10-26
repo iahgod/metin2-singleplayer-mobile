@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Metin2 — Rejestracja konta</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; min-height: 100vh;
+    background: radial-gradient(circle at 50% 20%, #2a1d12 0%, #120e0a 55%, #090705 100%);
+    color: #e8d9b8;
+    font: 14px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .card {
+    width: 100%; max-width: 430px; margin: 20px;
+    background: rgba(22, 18, 14, 0.94);
+    border: 1px solid #4a3a28;
+    border-radius: 12px;
+    padding: 28px 26px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 220, 160, 0.08);
+  }
+  h1 {
+    margin: 0 0 6px; font-size: 22px; font-weight: 700;
+    color: #f3d287; text-align: center; letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  }
+  .sub {
+    margin: 0 0 22px; text-align: center; color: #a79982; font-size: 13px;
+  }
+  .field { margin-bottom: 15px; }
+  label {
+    display: block; margin-bottom: 5px; font-weight: 600; font-size: 13px; color: #decba4;
+  }
+  .hint {
+    font-weight: 400; font-size: 11.5px; color: #8c7e68; margin-left: 4px;
+  }
+  input {
+    width: 100%; padding: 10px 12px;
+    background: #0e0b08; color: #f5ebd6;
+    border: 1px solid #3d3020; border-radius: 7px;
+    font-size: 14px; outline: none; transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  input:focus {
+    border-color: #c9a24a;
+    box-shadow: 0 0 0 2px rgba(201, 162, 74, 0.2);
+  }
+  .btn {
+    width: 100%; padding: 11px 16px; margin-top: 6px;
+    background: linear-gradient(180deg, #d4ac54 0%, #9e7624 100%);
+    color: #140f08; font-weight: 700; font-size: 14.5px;
+    border: 1px solid #e5c370; border-radius: 7px;
+    cursor: pointer; transition: filter 0.15s, transform 0.05s;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn:active { transform: translateY(1px); }
+  .btn:disabled { opacity: 0.6; cursor: wait; }
+  .btn-play {
+    display: block; text-align: center; text-decoration: none;
+    margin-top: 14px; padding: 10px 14px;
+    background: #1f1912; color: #d8c398;
+    border: 1px solid #3c3022; border-radius: 7px;
+    font-weight: 600; font-size: 13.5px; transition: background 0.15s, border-color 0.15s;
+  }
+  .btn-play:hover { background: #2a2218; border-color: #5c4932; color: #f3d287; }
+  .msg {
+    display: none; margin-bottom: 16px; padding: 11px 13px;
+    border-radius: 7px; font-size: 13.5px;
+  }
+  .msg.error {
+    display: block; background: rgba(140, 35, 30, 0.25);
+    border: 1px solid #8c2f28; color: #ff9e96;
+  }
+  .msg.ok {
+    display: block; background: rgba(40, 120, 55, 0.25);
+    border: 1px solid #3b8c4a; color: #a3f0b0;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>METIN2 — REJESTRACJA</h1>
+    <p class="sub">Utwórz nowe konto na serwerze</p>
+
+    <div id="msg" class="msg"></div>
+
+    <form id="regForm" autocomplete="off">
+      <div class="field">
+        <label for="login">Login <span class="hint">(4–16 znaków, litery i cyfry)</span></label>
+        <input id="login" name="login" type="text" minlength="4" maxlength="16" pattern="[A-Za-z0-9]{4,16}" required placeholder="np. Wojownik99">
+      </div>
+      <div class="field">
+        <label for="password">Hasło <span class="hint">(6–16 znaków)</span></label>
+        <input id="password" name="password" type="password" minlength="6" maxlength="16" required placeholder="Wpisz hasło">
+      </div>
+      <div class="field">
+        <label for="password2">Powtórz hasło</label>
+        <input id="password2" name="password2" type="password" minlength="6" maxlength="16" required placeholder="Powtórz hasło">
+      </div>
+      <div class="field">
+        <label for="social_id">Kod usunięcia postaci <span class="hint">(dokładnie 7 cyfr)</span></label>
+        <input id="social_id" name="social_id" type="text" inputmode="numeric" minlength="7" maxlength="7" pattern="[0-9]{7}" value="1234567" required placeholder="1234567">
+      </div>
+      <button id="submitBtn" class="btn" type="submit">Utwórz konto</button>
+    </form>
+
+    <a class="btn-play" href="/client.html?deflang=pl">Wejdź do gry w przeglądarce →</a>
+  </div>
+
+<script>
+(function () {
+  var form = document.getElementById('regForm');
+  var msg = document.getElementById('msg');
+  var btn = document.getElementById('submitBtn');
+
+  function showMsg(text, isOk) {
+    msg.textContent = text;
+    msg.className = 'msg ' + (isOk ? 'ok' : 'error');
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var login = document.getElementById('login').value.trim();
+    var password = document.getElementById('password').value;
+    var password2 = document.getElementById('password2').value;
+    var social_id = document.getElementById('social_id').value.trim();
+
+    if (!/^[A-Za-z0-9]{4,16}$/.test(login)) {
+      return showMsg('Login musi mieć od 4 do 16 znaków (tylko litery A-Z i cyfry 0-9).', false);
+    }
+    if (password.length < 6 || password.length > 16) {
+      return showMsg('Hasło musi mieć od 6 do 16 znaków.', false);
+    }
+    if (password !== password2) {
+      return showMsg('Podane hasła nie są identyczne.', false);
+    }
+    if (!/^[0-9]{7}$/.test(social_id)) {
+      return showMsg('Kod usunięcia postaci musi składać się dokładnie z 7 cyfr (np. 1234567).', false);
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Tworzenie konta...';
+    msg.className = 'msg';
+
+    fetch('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ login: login, password: password, password2: password2, social_id: social_id })
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (res) {
+      if (res && res.ok) {
+        showMsg(res.message || ('Konto „' + login + '” zostało utworzone!'), true);
+        form.reset();
+        document.getElementById('social_id').value = '1234567';
+      } else {
+        showMsg((res && res.error) || 'Nie udało się utworzyć konta.', false);
+      }
+    })
+    .catch(function () {
+      showMsg('Błąd połączenia z serwerem rejestracji.', false);
+    })
+    .finally(function () {
+      btn.disabled = false;
+      btn.textContent = 'Utwórz konto';
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,550 @@
+ACCEPT	Aceitar	
+ACCEPT_RULES	Li e aceito as regras.	
+ATTACH_METIN_INFO	Deseja usar a Pedra Espiritual?	
+ATTACH_METIN_TITLE	Usar Pedra Espiritual	
+ATTRIBUTE_LIST_TITLE	Bônus do personagem	
+BOT_TITLES_LABEL	Títulos dos bots	
+BOT_TITLES_OFF	Desligado	
+BOT_TITLES_PERSONALITY	Personalidade	
+BUTTON_HOMEPAGE	Site	
+CANCEL	Cancelar	
+CAPTCHA_REQUEST_NEW_IMAGE	Pedir novo código (até 2 vezes)	
+CAPTCHA_TIP1	|cfff58742ATENÇÃO!|r Verificação de segurança!	
+CAPTCHA_TIP2	Um Mestre do Jogo pediu uma verificação.	
+CAPTCHA_TIP3	Digite o código CAPTCHA corretamente	
+CAPTCHA_TIP4	para continuar jogando.	
+CAPTCHA_TIP5	Digitar o código errado pode resultar	
+CAPTCHA_TIP6	no banimento permanente da conta.	
+CHANGE_PASSWORD_CONFIRM	Confirmar nova senha	
+CHANGE_PASSWORD_NEW	Nova senha	
+CHANGE_PASSWORD_OLD	Senha antiga	
+CHANGE_PASSWORD_TITLE	Trocar senha	
+CHARACTER_ACTION	Emoção	
+CHARACTER_ATTRIBUTES_TITLE	Atributos	
+CHARACTER_EMOTICON	Emoção	
+CHARACTER_MAIN	Personagem	
+CHARACTER_MUTUAL_ACTION	Emoção em dupla	
+CHARACTER_NORMAL_ACTION	Emoção normal	
+CHARACTER_QUEST	Missões	
+CHARACTER_SKILL	Habilidades	
+CHARACTER_STATUS_TITLE	Status do personagem	
+CLASS_INFO_TITLE	Classes disponíveis	
+CLASS_INFO_TOOLTIP	(Passe sobre um ícone)	
+CLOSE	Fechar	
+COMB_APPEARANCE	Traje 1	
+COMB_ATTRIBUTE	Traje 2	
+COMB_SKILLBOOK_TILE	Trocar livros	
+COMB_TITLE		
+CONFIG_CUSTOM_RESOLUTION	Resolução personalizada	
+CONFIG_FONT	Fonte	
+CONFIG_FONT_BIG	Arial	
+CONFIG_FONT_SMALL	Tahoma	
+CONFIG_LANGUAGE	Idioma	
+CONFIG_MULTISAMPLING	Antisserrilhado	
+CONFIG_MUTLISAMPLING_LEVEL0	Desligado	
+CONFIG_MUTLISAMPLING_LEVEL1	2x	
+CONFIG_MUTLISAMPLING_LEVEL2	4x	
+CONFIG_MUTLISAMPLING_LEVEL3	8x	
+CONFIG_NEED_RESTART	Algumas mudanças exigem reiniciar. Continuar?	
+CONFIG_RENDER_DISTANCE	Distância de visão	
+CONFIG_RENDER_DISTANCE_LEVEL1	Muito curta	
+CONFIG_RENDER_DISTANCE_LEVEL2	Curta	
+CONFIG_RENDER_DISTANCE_LEVEL3	Média	
+CONFIG_RENDER_DISTANCE_LEVEL4	Longa	
+CONFIG_RENDER_DISTANCE_LEVEL5	Muito longa	
+CONFIG_RENDER_DISTANCE_LEVEL6	Ultra	
+CONFIG_RENDER_DISTANCE_LEVEL7	Máxima	
+CONFIG_RESOLUTION	Resolução	
+CONFIG_SAVE	Salvar	
+CONFIG_SCALE_MODE	Escala da interface	
+CONFIG_SCALE_MODE_NONE	Desligada	
+CONFIG_SCALE_MODE_YES	Ligada	
+CONFIG_SHADOWS	Sombras	
+CONFIG_SHADOW_GROUND	Terreno	
+CONFIG_SHADOW_GROUND_ALL	Terreno, jogador e NPCs	
+CONFIG_SHADOW_GROUND_ALL_HIGH	Baixa	
+CONFIG_SHADOW_GROUND_ALL_MAX	Média	
+CONFIG_SHADOW_GROUND_ALL_MAX_4K	Alta	
+CONFIG_SHADOW_GROUND_ALL_MAX_8K	Ultra	
+CONFIG_SHADOW_GROUND_AND_SOLO	Terreno e jogador	
+CONFIG_SHADOW_NONE	Nenhuma	
+CONFIG_SOUND	Som	
+CONFIG_TEXTURE	Texturas	
+CONFIG_TEXTURE_0	Padrão	
+CONFIG_TEXTURE_1	Texturas clássicas	
+CONFIG_TEXTURE_2	Efeitos clássicos	
+CONFIG_TEXTURE_3	Texturas e efeitos clássicos	
+CONFIG_TITLE	Configurações	
+CONFIG_WINDOW	Modo de exibição	
+CONFIG_WINDOW_FULL	Tela cheia	
+CONFIG_WINDOW_FULL_WINDOWED	Sem bordas	
+CONFIG_WINDOW_WINDOWED	Janela	
+COSTUME_TITLE	Trajes	
+COSTUME_WINDOW_TITLE	Trajes	
+CRAFT	Fabricar	
+CRAFTING_WINDOW	Fabricação	
+CRAFT_QUANTITY	Quantidade	
+CREATE_ATT_GRADE	FOR	
+CREATE_CREATE	Criar	
+CREATE_DEX_GRADE	DES	
+CREATE_HP	HP	
+CREATE_LAST_POINT	Pontos	
+CREATE_MAN	Homem	
+CREATE_NAME	Nome	
+CREATE_NEXT	Próximo	
+CREATE_PREV	Voltar	
+CREATE_SEX	Sexo	
+CREATE_SHAPE	Aparência	
+CREATE_SP	INT	
+CREATE_STAT_RESET	Resetar	
+CREATE_WOMAN	Mulher	
+CREDENTIALS_DELETE	Excluir	
+CREDENTIALS_LOAD	Conectar	
+CREDENTIALS_SAVE	Salvar	
+CUBE_INFO_TITLE	Manual de Refino	
+CUBE_REQUIRE_MATERIAL	Materiais necessários	
+CUBE_REQUIRE_MATERIAL_OR	ou	
+CUBE_TITLE	Janela de Refino	
+DO_REFINE	Refinar	
+DRAGONSOUL_ACTIVATE	Ativar	
+DRAGONSOUL_PAGE_BUTTON_1	Bruta	
+DRAGONSOUL_PAGE_BUTTON_2	Lapidada	
+DRAGONSOUL_PAGE_BUTTON_3	Rara	
+DRAGONSOUL_PAGE_BUTTON_4	Antiga	
+DRAGONSOUL_PAGE_BUTTON_5	Lendária	
+DRAGONSOUL_REFINE_WINDOW_TITLE	Janela de Refino	
+DRAGONSOUL_TAP_TITLE_1	Diamante do Dragão	
+DRAGONSOUL_TAP_TITLE_2	Rubi do Dragão	
+DRAGONSOUL_TAP_TITLE_3	Jade do Dragão	
+DRAGONSOUL_TAP_TITLE_4	Safira do Dragão	
+DRAGONSOUL_TAP_TITLE_5	Granada do Dragão	
+DRAGONSOUL_TAP_TITLE_6	Ônix do Dragão	
+DRAGONSOUL_TITLE	Alquimia de Pedras do Dragão	
+EMPIRE_EXIT	Sair	
+EMPIRE_NEXT	Próximo	
+EMPIRE_PREV	Voltar	
+EMPIRE_SELECT	Escolher	
+EXCHANGE_ACCEPT	Aceitar	
+EXCHANGE_TITLE	Negociação	
+GAMEMASTER_WHIPSER_TIP1	- Faça sua pergunta diretamente.	
+GAMEMASTER_WHIPSER_TIP2	- Seja breve e claro.	
+GAMEMASTER_WHIPSER_TIP3	- Aguarde a resposta com paciência.	
+GAMEMASTER_WHIPSER_TITLE	Você está falando com um |cffffb514Mestre do Jogo|r.	
+GAMEOPTION_TITLE	Opções de jogo	
+GAME_EXIT_OBSERVER	Sair do modo observador	
+GAME_HELP	Ajuda	
+GAME_OPTIONS_FLOATING_TEXT	Info de efeitos	
+GAME_OPTIONS_FLOATING_TEXT_0	Esquerda	
+GAME_OPTIONS_FLOATING_TEXT_1	Direita	
+GAME_OPTIONS_FLOATING_TEXT_2	Ocultar	
+GAME_OPTIONS_NIGHT_0	Desligado	
+GAME_OPTIONS_NIGHT_1	Ligado	
+GAME_OPTIONS_NIGHT_2	Auto	
+GAME_OPTIONS_NIGHT_INFO1	Ativa o modo noturno na maioria dos mapas.	
+GAME_OPTIONS_NIGHT_INFO_AUTO1	A noite vai das 22:00 às 06:00.	
+GAME_OPTIONS_NIGHT_INFO_AUTO2	Usa o relógio do seu aparelho.	
+GAME_OPTIONS_NIGHT_TITLE	Modo noturno	
+GAME_OPTIONS_QUEST_TEXT_DELAY_0	Normal	
+GAME_OPTIONS_QUEST_TEXT_DELAY_1	Rápido	
+GAME_OPTIONS_QUEST_TEXT_DELAY_2	Instantâneo	
+GAME_OPTIONS_QUEST_TEXT_TITLE	Texto das missões	
+GAME_QUEST	Missões	
+GAME_SKILL_UP	Subir habilidades	
+GAME_STAT_UP	Subir status	
+GIFT_FROM	Remetente	
+GIFT_GET_ALL	Recolher tudo	
+GIFT_GET_QUEST	Recolher o item "%s"?	
+GIFT_GET_QUEST_ALL	Recolher todos os itens?	
+GIFT_MONEY_DESC	Ganhos da sua loja.	
+GIFT_NEXT_PAGE	Próxima página	
+GIFT_PREV_PAGE	Página anterior	
+GIFT_REASON	Motivo	
+GIFT_WINDOW_NAME	Seus presentes	
+GRADE	Classe	
+GRADE_SELECT	Classe	
+GUILD_BASENAME	Nome da base	
+GUILD_BOARD_ID	Nome	
+GUILD_BOARD_REFRESH	Atualizar (F5)	
+GUILD_BOARD_TEXT	Mensagem	
+GUILD_BUILDING_CATEGORY_TITLE	Construções	
+GUILD_BUILDING_CHANGE	Mudar	
+GUILD_BUILDING_DIRECTION	Direção	
+GUILD_BUILDING_GRADE	Rank	
+GUILD_BUILDING_INFO	Prédios e custos	
+GUILD_BUILDING_LIST_TITLE	Lista de prédios	
+GUILD_BUILDING_LOG	Madeira	
+GUILD_BUILDING_NAME	Nome do prédio	
+GUILD_BUILDING_OPERATE	Operar	
+GUILD_BUILDING_PLY	Compensado	
+GUILD_BUILDING_POSITION	Posição	
+GUILD_BUILDING_PREVIEW	Prévia	
+GUILD_BUILDING_PRICE	Preço	
+GUILD_BUILDING_REFRESH	Atualizar (F5)	
+GUILD_BUILDING_STONE	Pedra	
+GUILD_BUILDING_TITLE	Construção da sede da guilda	
+GUILD_CRYSTAL	Cristal	
+GUILD_DEPOSIT	Depositar	
+GUILD_DROP_RESOURCE1	Solte	
+GUILD_DROP_RESOURCE2	o recurso aqui	
+GUILD_GEM	Gema	
+GUILD_GRADE_CHANGE_GRADE_NAME	Novo nome do cargo	
+GUILD_GRADE_NUM	Nº	
+GUILD_GRADE_PERMISSION_DELETE	Expulsar	
+GUILD_GRADE_PERMISSION_JOIN	Convidar	
+GUILD_GRADE_PERMISSION_NOTICE	Escrever	
+GUILD_GRADE_PERMISSION_SKILL	Habilid.	
+GUILD_GRADE_RANK	Cargo	
+GUILD_GRADE_WRITE	Escrever	
+GUILD_INFO	Informações da guilda	
+GUILD_INFO_CUR_EXP	Experiência	
+GUILD_INFO_DECALRE_WAR	Declarar guerra	
+GUILD_INFO_ENEMY_GUILD	Guilda inimiga	
+GUILD_INFO_ENEMY_GUILD_EMPTY	Nenhuma	
+GUILD_INFO_LEVEL	Nível da guilda	
+GUILD_INFO_MARK	Emblema da guilda	
+GUILD_INFO_MASTER	Líder	
+GUILD_INFO_MASTER_VALUE	Líder	
+GUILD_INFO_MEMBER_AVG_LEVEL	Nível médio	
+GUILD_INFO_MEMBER_NUM	Nº de membros	
+GUILD_INFO_NAME	Nome da guilda	
+GUILD_INFO_NAME_VALUE	Este é o nome da guilda	
+GUILD_INFO_OFFER_EXP	Investir	
+GUILD_INFO_REST_EXP	EXP necessária	
+GUILD_INFO_UPLOAD_MARK	Enviar emblema	
+GUILD_INFO_UPLOAD_SYMBOL	Enviar bandeira	
+GUILD_INFO_WITHDRAW_GOLD	Sacar	
+GUILD_MARK	Emblema da guilda	
+GUILD_MEMBER_JOB	Classe	
+GUILD_MEMBER_KNIGHT	Líder	
+GUILD_MEMBER_LEVEL	Nível	
+GUILD_MEMBER_NAME	Nome	
+GUILD_MEMBER_RANK	Cargo	
+GUILD_MEMBER_SPECIFIC_GRAVITY	Investido	
+GUILD_METIN_STONE	Pedra Espiritual	
+GUILD_MINENAL	Mineral	
+GUILD_MONEY	Yang	
+GUILD_NAME	Guilda	
+GUILD_RESOURCE_INFO	Informações de recursos	
+GUILD_SKILL_ACTIVE	Ativas	
+GUILD_SKILL_PASSIVE	Passivas	
+GUILD_SKILL_POWER	Energia	
+GUILD_SKILL_STATE	Habilidades da guilda	
+GUILD_SKIlL_HEAL_GSP	Recuperar energia	
+GUILD_SYMBOL	Bandeira da guilda	
+GUILD_WAR_ACCEPT	Aceitar declaração de guerra	
+GUILD_WAR_BATTLE_TYPE	Tipo de batalha	
+GUILD_WAR_CTF	Bandeira	
+GUILD_WAR_DECLARE	Declarar guerra de guildas	
+GUILD_WAR_ENEMY	Inimigo	
+GUILD_WAR_EXIT	Sair da guerra	
+GUILD_WAR_NORMAL	Campo	
+GUILD_WAR_WARP	Arena	
+GUILD_WATER	Água	
+GUILD_WATER_STONE	Pedra d'água	
+GUILD_WITHDRAW	Retirar	
+HELP_ATTACK_KEY	Atacar: botão esquerdo do mouse ou barra de espaço	
+HELP_CHANGE_PK_MODE	Mudar modo de ataque: muda a função do botão esquerdo	
+HELP_CHARACTER_BUTTON1	(Janela do personagem, inventário,	
+HELP_CHARACTER_BUTTON2	lista de amigos e opções)	
+HELP_CONTROL_CAMERA_BY_MIDDLEBUTTON	Câmera: botão do meio ou direito do mouse	
+HELP_CONTROL_CAMERA_BY_RIGHTBUTTON	Câmera: botão direito ou do meio do mouse	
+HELP_EXP	Experiência	
+HELP_FISHING_GAME1	Controle o peixe com a barra de espaço.	
+HELP_FISHING_GAME2	Mantenha o peixe dentro da área.	
+HELP_FURY	Loja de itens	
+HELP_GUILD_WINDOW	Abrir janela da guilda: Alt + G	
+HELP_HELP	Mostrar ajuda: H	
+HELP_HP	Pontos de Vida (HP)	
+HELP_MESSENGER_WINDOW	Abrir lista de amigos: Alt + M	
+HELP_MOUSE_LEFT	Função do botão esquerdo do mouse	
+HELP_MOUSE_RIGHT	Função do botão direito do mouse	
+HELP_MOVE_KEY	Movimento: W, A, S, D ou setas	
+HELP_OPEN_CHARACTER	Abrir janela do personagem: C	
+HELP_OPEN_CHAT	Abrir chat: Enter	
+HELP_OPEN_INVENTORY	Abrir inventário: I	
+HELP_OPEN_LOG	Abrir histórico do chat: L	
+HELP_OPEN_MINIMAP	Abrir minimapa: Shift + M	
+HELP_OPEN_QUEST	Abrir missões: N	
+HELP_OPEN_SKILL	Abrir habilidades: V	
+HELP_OPEN_WHISPER	Abrir mensagem privada: Shift + Enter	
+HELP_OPEN_ZONEMAP	Abrir mapa grande: M	
+HELP_PICK_ITEM	Pegar itens: ^ ou Y ou botão esquerdo do mouse	
+HELP_QUICKSLOT	Barra de acesso rápido	
+HELP_SCREEN_CAPTURE	Captura de tela: Print (salva na pasta "Metin2\screenshot")	
+HELP_SHOW_ALL_NAME	Mostrar nomes: Alt	
+HELP_SP	Pontos de Mana (MP)	
+HELP_STATS	Abrir estatísticas: Y	
+HELP_SYSTEM_BUTTON	Botões do sistema	
+HORSE_INVENTORY	Alforjes	
+INVENTORY_AUTOSTACK	Agrupar todos os itens	
+INVENTORY_PAGE_BUTTON_TOOLTIP_1	Página 1 do inventário	
+INVENTORY_PAGE_BUTTON_TOOLTIP_2	Página 2 do inventário	
+INVENTORY_PAGE_BUTTON_TOOLTIP_3	Página 3 do inventário	
+INVENTORY_PAGE_BUTTON_TOOLTIP_4	Página 4 do inventário	
+INVENTORY_SORT_STACK	Agrupar e organizar	
+INVENTORY_TITLE	Inventário	
+ITEMSHOP_ACCOUNT_STATE	Conta	
+ITEMSHOP_CATEGORIES	Categorias	
+ITEM_MALL	Loja de itens	
+LANGUAGE_OPTION_DEFAULT	Português	
+LANGUAGE_OPTION_ENGLISH	English	
+LOAD_ERROR	Arquivo danificado. Reinstale o jogo. Aperte ESC agora.	
+LOGIN_CONNECT	Conectar	
+LOGIN_CONNECTING	Conectando ao servidor	
+LOGIN_DEFAULT_SERVERADDR	Servidor, Canal 1	
+LOGIN_EXIT	Sair	
+LOGIN_REGION_TITLE	Escolha o local de cobrança.	
+LOGIN_SELECT_BUTTON	Escolher	
+LOGIN_SELECT_EXIT	Sair	
+LOGIN_SELECT_OK	OK	
+LOGIN_SELECT_TITLE	Escolha o servidor	
+MAINTENANCE_DIALOG_INFO1	Uma interrupção do serviço foi agendada.	
+MAINTENANCE_DIALOG_INFO2	Pedimos desculpas pelo transtorno.	
+MAINTENANCE_DIALOG_TITLE	Manutenção	
+MALL_PASSWORD_TITLE	Senha	
+MALL_TITLE	Armazém da Loja de Itens	
+MARKET_TITLE	Carregar	
+MARKLIST_REFRESH	Atualizar	
+MARKLIST_TITLE	Registrar emblema da guilda	
+MESSAGE	Esta é uma mensagem	
+MESSENGER_ADD_FRIEND	Adicionar amigo	
+MESSENGER_BLOCK	Bloquear jogador	
+MESSENGER_DELETE_FRIEND	Excluir amigo	
+MESSENGER_MOBILE	Enviar SMS	
+MESSENGER_OPEN_GUILD	Abrir janela da guilda	
+MESSENGER_TITLE	Amigos	
+MESSENGER_USE_GUILD_MOVE_SKILL	Usar habilidade de movimento da guilda	
+MESSENGER_WHISPER	Mensagem	
+MINIMIZE	Minimizar	
+MOUSEBUTTON_ATTACK	Atacar	
+MOUSEBUTTON_AUTO_ATTACK	Ataque automático	
+MOUSEBUTTON_CAMERA	Câmera	
+MOUSEBUTTON_SKILL	Habilidades	
+MUSICLIST_TITLE	Escolha de músicas	
+NO	Não	
+OK	OK	
+OPTION_ALWAYS_SHOW_NAME	Nomes	
+OPTION_ALWAYS_SHOW_NAME_GROUP	Grupo	
+OPTION_ALWAYS_SHOW_NAME_OFF	Limitado	
+OPTION_ALWAYS_SHOW_NAME_ON	Sempre	
+OPTION_BLOCK	Bloquear	
+OPTION_BLOCK_EXCHANGE	Negociação	
+OPTION_BLOCK_FRIEND	Amigos	
+OPTION_BLOCK_GUILD	Guilda	
+OPTION_BLOCK_PARTY	Grupo	
+OPTION_BLOCK_PARTY_REQUEST	Pedidos	
+OPTION_BLOCK_WHISPER	Mensagens	
+OPTION_CAMERA_DISTANCE	Câmera	
+OPTION_CAMERA_DISTANCE_LONG	Longe	
+OPTION_CAMERA_DISTANCE_SHORT	Perto	
+OPTION_DELETE_MOBILE_BUTTON	Excluir número de celular	
+OPTION_EFFECT	Info de golpes	
+OPTION_ENV_EFFECT	Ambiente	
+OPTION_ENV_EFFECT_OFF	Desligado	
+OPTION_ENV_EFFECT_ON	Ligado	
+OPTION_FOG	Névoa	
+OPTION_FOG_DENSE	Densa	
+OPTION_FOG_LIGHT	Leve	
+OPTION_FOG_MIDDLE	Média	
+OPTION_FOG_MODE	Névoa	
+OPTION_FOG_MODE_OFF	Desligada	
+OPTION_FOG_MODE_ON	Ligada	
+OPTION_INPUT_MOBILE_BUTTON	Digitar número de celular	
+OPTION_MOBILE	Celular	
+OPTION_MOB_INFO	Info de monstros	
+OPTION_MOB_INFO_AGGR	Agressivo	
+OPTION_MOB_INFO_LEVEL	Nível	
+OPTION_MUSIC	Música	
+OPTION_MUSIC_CHANGE	Mudar	
+OPTION_MUSIC_DEFAULT_THEMA	Música padrão do Metin2	
+OPTION_NAME_COLOR	Cor do nome	
+OPTION_NAME_COLOR_EMPIRE	Cor do reino	
+OPTION_NAME_COLOR_NORMAL	Normal	
+OPTION_NIGHT_MODE	Noite	
+OPTION_NIGHT_MODE_OFF	Desligado	
+OPTION_NIGHT_MODE_ON	Ligado	
+OPTION_PVPMODE	Modo PvP	
+OPTION_PVPMODE_FREE	Livre	
+OPTION_PVPMODE_FREE_TOOLTIP	Você pode atacar todos os jogadores.	
+OPTION_PVPMODE_GUILD	Guilda	
+OPTION_PVPMODE_GUILD_TOOLTIP	Você pode atacar jogadores de fora da sua guilda.	
+OPTION_PVPMODE_PEACE	Paz	
+OPTION_PVPMODE_PEACE_TOOLTIP	Você não pode atacar jogadores do seu reino.	
+OPTION_PVPMODE_REVENGE	Hostil	
+OPTION_PVPMODE_REVENGE_TOOLTIP	Você pode atacar jogadores com rank negativo.	
+OPTION_SALESTEXT	Nome das lojas	
+OPTION_SALESTEXT_RANGE	Alcance lojas	
+OPTION_SALESTEXT_VIEW_OFF	Ocultar	
+OPTION_SALESTEXT_VIEW_ON	Mostrar	
+OPTION_SHADOW	Qualidade da sombra	
+OPTION_SHOW_DAMAGE_TARGET	Alvo	
+OPTION_SNOW_MODE	Nevasca	
+OPTION_SNOW_MODE_OFF	Desligada	
+OPTION_SNOW_MODE_ON	Ligada	
+OPTION_SNOW_TEXTURE_MODE	Neve	
+OPTION_SNOW_TEXTURE_MODE_OFF	Desligada	
+OPTION_SNOW_TEXTURE_MODE_ON	Ligada	
+OPTION_SOUND	Efeitos sonoros	
+OPTION_TARGET_BOARD	Menu do alvo	
+OPTION_TARGET_BOARD_NO_VIEW	Fechar	
+OPTION_TARGET_BOARD_VIEW	Mostrar	
+OPTION_TILING	Gráficos	
+OPTION_TILING_APPLY	Aplicar	
+OPTION_TILING_CPU	CPU	
+OPTION_TILING_GPU	GPU	
+OPTION_TITLE	Opções	
+OPTION_VIEW_CHAT	Linha do chat	
+OPTION_VIEW_CHAT_OFF	Ocultar	
+OPTION_VIEW_CHAT_ON	Mostrar	
+OPTION_VIEW_DISTANCE	Distância de visão	
+OPTION_VIEW_SHOP	Exibir lojas	
+OPTION_VIEW_SHOP_FOUND	Só buscadas	
+OPTION_VIEW_SHOP_ON	Mostrar	
+PARTY_MEMBER_INFO_NAME	Nome do membro do grupo	
+PASSWORD_DESC_1	Digite sua senha	
+PASSWORD_DESC_2	para abrir o armazém.	
+PASSWORD_DESC_3	Já trocou sua senha?	
+PASSWORD_DESC_4	Se não, sua senha é '000000'.	
+PASSWORD_DESC_5	Troque sua senha no armazém.	
+PASSWORD_TITLE	Senha do armazém	
+PICK_MONEY_TITLE	Dividir	
+PLAYER_STATS_CURRENT_SESSION	Sessão atual	
+PLAYER_STATS_GENERAL	Geral	
+PLAYER_STATS_RESET_SESSION	Zerar	
+PLAYER_STATS_TITLE	Estatísticas	
+POCKET_DEPOSIT	Armazém da Loja de Itens	
+POTION_RECHARGE_BUTTON_TOOLTIP	Recarregar elixir	
+POTION_RECHARGE_TITLE	Recarregar elixir	
+PRIVATE_SHOP_CLOSE_BUTTON	Fechar loja	
+PRIVATE_SHOP_NAME	Nome da loja	
+PRIVATE_SHOP_TITLE	Abrir loja particular	
+REFINE_COST	Custo do aprimoramento: 0 Yang	
+REFINE_INFO	Chance de sucesso: 100%	
+REFINE_MONEY	Taxa de refino	
+REFINE_SELECT	Refino	
+REFINE_TTILE	Aprimorar	
+REFRESH	Atualizar	
+REPORT_PLAYER_REASON	Motivo:	
+REPORT_PLAYER_SUBMIT	Denunciar	
+REPORT_PLAYER_TITLE	Denunciar jogador	
+REPORT_VIOLENT_WHISPER		
+RESTART_HERE	Reviver aqui	
+RESTART_TOWN	Reviver na cidade	
+RULES_TITLE	Termos de uso	
+SAFE_CHANGE_PASSWORD	Trocar senha	
+SAFE_TITLE	Armazém	
+SEARCH_ITEM	Buscar um item	
+SELECT_ATT_GRADE	FOR	
+SELECT_CREATE	Criar	
+SELECT_DELETE	Excluir	
+SELECT_DEX_GRADE	DES	
+SELECT_EMPIRE_NAME	Nome do reino	
+SELECT_EXIT	Fechar	
+SELECT_HP	HP	
+SELECT_LEVEL	Nível	
+SELECT_METIN_STONE_TITLE	Escolher Pedra Espiritual	
+SELECT_NAME	Nome	
+SELECT_NO_GUILD	Sem guilda	
+SELECT_PLAYTIME	Tempo de jogo (min.)	
+SELECT_SELECT	Iniciar	
+SELECT_SP	MP	
+SELECT_TITLE	Escolher título	
+SHOP_BUY	Comprar	
+SHOP_CHANGE_NAME	Renomear	
+SHOP_CHANGE_PRICE	Mudar preço	
+SHOP_CLOSE	Fechar loja	
+SHOP_CLOSED	Fechada	
+SHOP_CLOSE_QUEST	Tem certeza de que deseja fechar a loja "%s"?	
+SHOP_COLUMN_FIRST	Ação	
+SHOP_COLUMN_SECOND	Data	
+SHOP_CREATE	Criar	
+SHOP_CREATE_DAY	dia	
+SHOP_CREATE_DAYS	dias	
+SHOP_CREATE_HOUR	hora	
+SHOP_CREATE_HOURS	horas	
+SHOP_CREATE_NORMAL	Loja normal	
+SHOP_CREATE_PRICE	Custo:	
+SHOP_CREATE_SELECT_DEFAULT	Escolha a duração	
+SHOP_CREATE_SELECT_NORMAL	Loja normal / %s	
+SHOP_CREATE_SELECT_OFFLINE	%d horas / %s	
+SHOP_CREATE_SELECT_OFFLINE_DAYS	%d dias / %s	
+SHOP_EARNED_YANG	Yang ganho:	
+SHOP_EDIT	Editar	
+SHOP_EDIT_SHOP_CANCEL	Cancelar edição	
+SHOP_EDIT_SHOP_WINDOW	Editar loja	
+SHOP_ENTER_NEW_NAME	Digite um novo nome	
+SHOP_GET_YANG	Recolher Yang	
+SHOP_HISTORY_CLEAR	Limpar histórico.	
+SHOP_HISTORY_TITLE	Histórico da loja	
+SHOP_INFORMATION	Informações da loja	
+SHOP_LOCKED_SLOT	Desbloqueie estes espaços com atividades no jogo.	
+SHOP_MANAGE	Loja	
+SHOP_MANAGE_TITLE	Gerenciar loja	
+SHOP_MANAGE_TOOLTIP_CLOSE_SHOP	Fechar loja	
+SHOP_MANAGE_TOOLTIP_EDIT_SHOP	Editar loja	
+SHOP_MANAGE_TOOLTIP_EDIT_SIGN	Renomear loja	
+SHOP_MANAGE_TOOLTIP_FIND_SHOP	Encontrar loja	
+SHOP_MANAGE_TOOLTIP_LOGS	Histórico da loja	
+SHOP_MANAGE_TOOLTIP_REOPEN	Reabrir loja	
+SHOP_MANAGE_TOOLTIP_WITHDRAW	Sacar Yang	
+SHOP_MANAGE_TOOLTIP_WITHDRAW_ITEMS	Recolher todos os itens	
+SHOP_NAME	Nome da loja	
+SHOP_NAME_EMPTY	Digite um nome para a loja.	
+SHOP_NEAR_CLOSED	menos de %d minutos	
+SHOP_NOT_EARNED_YANG	Esta loja ainda não ganhou Yang.	
+SHOP_OPEN	Abrir loja	
+SHOP_OWNER_OFFLINE	O dono está offline.	
+SHOP_OWNER_ONLINE	O dono está online. Envie uma mensagem.	
+SHOP_PREMIUM_SLOT	Desbloqueie estes espaços com uma Loja Premium.	
+SHOP_REMOVE_ITEM	Remover	
+SHOP_REMOVE_ITEM_QUEST	Tem certeza de que deseja remover este item?	
+SHOP_REST_ITEMS	Itens restantes:	
+SHOP_SEARCH	Buscar	
+SHOP_SEARCH_ATTR	Com bônus	
+SHOP_SEARCH_CLEAR	Limpar	
+SHOP_SEARCH_TITLE	Buscar itens	
+SHOP_SEARCH_TOOLTIP	Buscar itens [F5]	
+SHOP_SELECT	Escolher	
+SHOP_SELL	Vender	
+SHOP_SOLD_ITEMS	Itens vendidos:	
+SHOP_TIMEOUT	Duração da loja	
+SHOP_TIMEOUT_EMPTY	Escolha a duração da loja.	
+SHOP_TIME_TO_CLOSE	Fecha em:	
+SHOP_TITLE	Loja	
+SHOP_WINDOW_CREATE	Criar loja	
+SHOP_WINDOW_NAME	Suas lojas	
+SHOP_YANG_QUEST	Recolher %s da loja "%s"?	
+SKILL_SUPPORT_TITLE	Habilidades padrão	
+SOCKET_EXTRACT_BUTTON	Remover	
+SOCKET_EXTRACT_TITLE	Remover Pedra Espiritual	
+SPRINT_ONBOARDING	Experimente a habilidade Corrida!	
+STEP	Pureza	
+STEP_SELECT	Pureza	
+STRENGTH	Fortalecer	
+STRENGTH_SELECT	Nível	
+SYSTEMOPTION_TITLE	Opções do sistema	
+SYSTEM_CHANGE	Trocar personagem	
+SYSTEM_ESCAPE	Desprender	
+SYSTEM_EXIT	Sair do jogo	
+SYSTEM_HELP	Ajuda	
+SYSTEM_LOGOUT	Sair da conta	
+SYSTEM_MALL	Loja de itens	
+SYSTEM_MOVE_CHANNEL	Trocar canal	
+SYSTEM_OPTION	Opções do sistema	
+SYSTEM_VERSION	Versão: %d.%d.%d%s	
+TASKBAR_CHARACTER	Personagem [C/V/B/N]	
+TASKBAR_CHAT	Janela do chat [Enter]	
+TASKBAR_DISABLE	Desativado	
+TASKBAR_DRAGON_SOUL	Alquimia de Pedras do Dragão	
+TASKBAR_EXPAND	Expandir janela	
+TASKBAR_INVENTORY	Inventário [I]	
+TASKBAR_MESSENGER	Amigos [Alt+M]	
+TASKBAR_NEXT_QUICKSLOT	Próxima barra rápida [Shift+número, Alt]	
+TASKBAR_PREV_QUICKSLOT	Barra rápida anterior [Shift+número]	
+TASKBAR_SYSTEM	Opções [ESC]	
+WHISPER_BAN	Bloquear	
+WHISPER_NAME	Mensagem	
+WHISPER_REPORT		
+WHISPER_SEND	Enviar	
+YES	Sim	
+ZONE_MAP	Mapa grande	

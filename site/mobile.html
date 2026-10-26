@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Metin2 Mobile</title>
+<style>html,body{margin:0;height:100%;background:#000;color:#e8d9b8;font:14px system-ui,sans-serif;touch-action:none}</style>
+</head>
+<body>
+<p style="text-align:center;margin-top:40vh">Carregando a versão para celular...</p>
+<script>
+// Mobile entry point: the very same client.wasm / client.data / corpus as client.html,
+// started with ?mobile=1 (960x540 internal buffer, no shadows, thicker fog).
+var q = location.search ? "&" + location.search.slice(1) : "";
+if (!/deflang=/.test(q)) q += "&deflang=pt";
+location.replace("client.html?mobile=1" + q);
+</script>
+<noscript><a href="client.html?mobile=1&deflang=pt">Abrir o jogo</a></noscript>
+</body>
+</html>

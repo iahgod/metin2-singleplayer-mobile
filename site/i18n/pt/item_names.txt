@@ -1,0 +1,6189 @@
+1	Yang
+2	Mt2009
+10	Espada+0
+11	Espada+1
+12	Espada+2
+13	Espada+3
+14	Espada+4
+15	Espada+5
+16	Espada+6
+17	Espada+7
+18	Espada+8
+19	Espada+9
+20	Espada Longa+0
+21	Espada Longa+1
+22	Espada Longa+2
+23	Espada Longa+3
+24	Espada Longa+4
+25	Espada Longa+5
+26	Espada Longa+6
+27	Espada Longa+7
+28	Espada Longa+8
+29	Espada Longa+9
+30	Espada Crescente+0
+31	Espada Crescente+1
+32	Espada Crescente+2
+33	Espada Crescente+3
+34	Espada Crescente+4
+35	Espada Crescente+5
+36	Espada Crescente+6
+37	Espada Crescente+7
+38	Espada Crescente+8
+39	Espada Crescente+9
+40	Espada de Bambu+0
+41	Espada de Bambu+1
+42	Espada de Bambu+2
+43	Espada de Bambu+3
+44	Espada de Bambu+4
+45	Espada de Bambu+5
+46	Espada de Bambu+6
+47	Espada de Bambu+7
+48	Espada de Bambu+8
+49	Espada de Bambu+9
+50	Espada Larga+0
+51	Espada Larga+1
+52	Espada Larga+2
+53	Espada Larga+3
+54	Espada Larga+4
+55	Espada Larga+5
+56	Espada Larga+6
+57	Espada Larga+7
+58	Espada Larga+8
+59	Espada Larga+9
+60	Espada de Prata+0
+61	Espada de Prata+1
+62	Espada de Prata+2
+63	Espada de Prata+3
+64	Espada de Prata+4
+65	Espada de Prata+5
+66	Espada de Prata+6
+67	Espada de Prata+7
+68	Espada de Prata+8
+69	Espada de Prata+9
+70	Espada Orquídea+0
+71	Espada Orquídea+1
+72	Espada Orquídea+2
+73	Espada Orquídea+3
+74	Espada Orquídea+4
+75	Espada Orquídea+5
+76	Espada Orquídea+6
+77	Espada Orquídea+7
+78	Espada Orquídea+8
+79	Espada Orquídea+9
+80	Espada Bastarda+0
+81	Espada Bastarda+1
+82	Espada Bastarda+2
+83	Espada Bastarda+3
+84	Espada Bastarda+4
+85	Espada Bastarda+5
+86	Espada Bastarda+6
+87	Espada Bastarda+7
+88	Espada Bastarda+8
+89	Espada Bastarda+9
+90	Espada Bárbara+0
+91	Espada Bárbara+1
+92	Espada Bárbara+2
+93	Espada Bárbara+3
+94	Espada Bárbara+4
+95	Espada Bárbara+5
+96	Espada Bárbara+6
+97	Espada Bárbara+7
+98	Espada Bárbara+8
+99	Espada Bárbara+9
+100	Espada Sangrenta+0
+101	Espada Sangrenta+1
+102	Espada Sangrenta+2
+103	Espada Sangrenta+3
+104	Espada Sangrenta+4
+105	Espada Sangrenta+5
+106	Espada Sangrenta+6
+107	Espada Sangrenta+7
+108	Espada Sangrenta+8
+109	Espada Sangrenta+9
+110	Espada Grande+0
+111	Espada Grande+1
+112	Espada Grande+2
+113	Espada Grande+3
+114	Espada Grande+4
+115	Espada Grande+5
+116	Espada Grande+6
+117	Espada Grande+7
+118	Espada Grande+8
+119	Espada Grande+9
+120	Espada do Mago Voador+0
+121	Espada do Mago Voador+1
+122	Espada do Mago Voador+2
+123	Espada do Mago Voador+3
+124	Espada do Mago Voador+4
+125	Espada do Mago Voador+5
+126	Espada do Mago Voador+6
+127	Espada do Mago Voador+7
+128	Espada do Mago Voador+8
+129	Espada do Mago Voador+9
+130	Espada Meia-Lua+0
+131	Espada Meia-Lua+1
+132	Espada Meia-Lua+2
+133	Espada Meia-Lua+3
+134	Espada Meia-Lua+4
+135	Espada Meia-Lua+5
+136	Espada Meia-Lua+6
+137	Espada Meia-Lua+7
+138	Espada Meia-Lua+8
+139	Espada Meia-Lua+9
+140	Espada de Batalha+0
+141	Espada de Batalha+1
+142	Espada de Batalha+2
+143	Espada de Batalha+3
+144	Espada de Batalha+4
+145	Espada de Batalha+5
+146	Espada de Batalha+6
+147	Espada de Batalha+7
+148	Espada de Batalha+8
+149	Espada de Batalha+9
+150	Lâmina Presa Fantasma+0
+151	Lâmina Presa Fantasma+1
+152	Lâmina Presa Fantasma+2
+153	Lâmina Presa Fantasma+3
+154	Lâmina Presa Fantasma+4
+155	Lâmina Presa Fantasma+5
+156	Lâmina Presa Fantasma+6
+157	Lâmina Presa Fantasma+7
+158	Lâmina Presa Fantasma+8
+159	Lâmina Presa Fantasma+9
+160	Espada da Ninfa+0
+161	Espada da Ninfa+1
+162	Espada da Ninfa+2
+163	Espada da Ninfa+3
+164	Espada da Ninfa+4
+165	Espada da Ninfa+5
+166	Espada da Ninfa+6
+167	Espada da Ninfa+7
+168	Espada da Ninfa+8
+169	Espada da Ninfa+9
+170	Espada Ferrão+0
+171	Espada Ferrão+1
+172	Espada Ferrão+2
+173	Espada Ferrão+3
+174	Espada Ferrão+4
+175	Espada Ferrão+5
+176	Espada Ferrão+6
+177	Espada Ferrão+7
+178	Espada Ferrão+8
+179	Espada Ferrão+9
+180	Espada Venenosa+0
+181	Espada Venenosa+1
+182	Espada Venenosa+2
+183	Espada Venenosa+3
+184	Espada Venenosa+4
+185	Espada Venenosa+5
+186	Espada Venenosa+6
+187	Espada Venenosa+7
+188	Espada Venenosa+8
+189	Espada Venenosa+9
+190	Espada do Leão+0
+191	Espada do Leão+1
+192	Espada do Leão+2
+193	Espada do Leão+3
+194	Espada do Leão+4
+195	Espada do Leão+5
+196	Espada do Leão+6
+197	Espada do Leão+7
+198	Espada do Leão+8
+199	Espada do Leão+9
+200	Lâmina Afiada+0
+201	Lâmina Afiada+1
+202	Lâmina Afiada+2
+203	Lâmina Afiada+3
+204	Lâmina Afiada+4
+205	Lâmina Afiada+5
+206	Lâmina Afiada+6
+207	Lâmina Afiada+7
+208	Lâmina Afiada+8
+209	Lâmina Afiada+9
+210	Lâmina Mortal+0
+211	Lâmina Mortal+1
+212	Lâmina Mortal+2
+213	Lâmina Mortal+3
+214	Lâmina Mortal+4
+215	Lâmina Mortal+5
+216	Lâmina Mortal+6
+217	Lâmina Mortal+7
+218	Lâmina Mortal+8
+219	Lâmina Mortal+9
+220	Espada Lunar+0
+221	Espada Lunar+1
+222	Espada Lunar+2
+223	Espada Lunar+3
+224	Espada Lunar+4
+225	Espada Lunar+5
+226	Espada Lunar+6
+227	Espada Lunar+7
+228	Espada Lunar+8
+229	Espada Lunar+9
+230	Espada Celestial+0
+231	Espada Celestial+1
+232	Espada Celestial+2
+233	Espada Celestial+3
+234	Espada Celestial+4
+235	Espada Celestial+5
+236	Espada Celestial+6
+237	Espada Celestial+7
+238	Espada Celestial+8
+239	Espada Celestial+9
+240	Espada do Exorcismo+0
+241	Espada do Exorcismo+1
+242	Espada do Exorcismo+2
+243	Espada do Exorcismo+3
+244	Espada do Exorcismo+4
+245	Espada do Exorcismo+5
+246	Espada do Exorcismo+6
+247	Espada do Exorcismo+7
+248	Espada do Exorcismo+8
+249	Espada do Exorcismo+9
+250	Lâmina Demoníaca+0
+251	Lâmina Demoníaca+1
+252	Lâmina Demoníaca+2
+253	Lâmina Demoníaca+3
+254	Lâmina Demoníaca+4
+255	Lâmina Demoníaca+5
+256	Lâmina Demoníaca+6
+257	Lâmina Demoníaca+7
+258	Lâmina Demoníaca+8
+259	Lâmina Demoníaca+9
+260	Espada do Barão+0
+261	Espada do Barão+1
+262	Espada do Barão+2
+263	Espada do Barão+3
+264	Espada do Barão+4
+265	Espada do Barão+5
+266	Espada do Barão+6
+267	Espada do Barão+7
+268	Espada do Barão+8
+269	Espada do Barão+9
+270	Espada de Tritão+0
+271	Espada de Tritão+1
+272	Espada de Tritão+2
+273	Espada de Tritão+3
+274	Espada de Tritão+4
+275	Espada de Tritão+5
+276	Espada de Tritão+6
+277	Espada de Tritão+7
+278	Espada de Tritão+8
+279	Espada de Tritão+9
+280	Espada Sagrada+0
+281	Espada Sagrada+1
+282	Espada Sagrada+2
+283	Espada Sagrada+3
+284	Espada Sagrada+4
+285	Espada Sagrada+5
+286	Espada Sagrada+6
+287	Espada Sagrada+7
+288	Espada Sagrada+8
+289	Espada Sagrada+9
+290	Espada Lua Cheia+0
+291	Espada Lua Cheia+1
+292	Espada Lua Cheia+2
+293	Espada Lua Cheia+3
+294	Espada Lua Cheia+4
+295	Espada Lua Cheia+5
+296	Espada Lua Cheia+6
+297	Espada Lua Cheia+7
+298	Espada Lua Cheia+8
+299	Espada Lua Cheia+9
+460	Espada Rúnica+0
+461	Espada Rúnica+1
+462	Espada Rúnica+2
+463	Espada Rúnica+3
+464	Espada Rúnica+4
+465	Espada Rúnica+5
+466	Espada Rúnica+6
+467	Espada Rúnica+7
+468	Espada Rúnica+8
+469	Espada Rúnica+9
+470	Lâmina Dente de Dragão+0
+471	Lâmina Dente de Dragão+1
+472	Lâmina Dente de Dragão+2
+473	Lâmina Dente de Dragão+3
+474	Lâmina Dente de Dragão+4
+475	Lâmina Dente de Dragão+5
+476	Lâmina Dente de Dragão+6
+477	Lâmina Dente de Dragão+7
+478	Lâmina Dente de Dragão+8
+479	Lâmina Dente de Dragão+9
+1000	Adaga+0
+1001	Adaga+1
+1002	Adaga+2
+1003	Adaga+3
+1004	Adaga+4
+1005	Adaga+5
+1006	Adaga+6
+1007	Adaga+7
+1008	Adaga+8
+1009	Adaga+9
+1010	Adaga Cobra+0
+1011	Adaga Cobra+1
+1012	Adaga Cobra+2
+1013	Adaga Cobra+3
+1014	Adaga Cobra+4
+1015	Adaga Cobra+5
+1016	Adaga Cobra+6
+1017	Adaga Cobra+7
+1018	Adaga Cobra+8
+1019	Adaga Cobra+9
+1020	Adaga Tesoura+0
+1021	Adaga Tesoura+1
+1022	Adaga Tesoura+2
+1023	Adaga Tesoura+3
+1024	Adaga Tesoura+4
+1025	Adaga Tesoura+5
+1026	Adaga Tesoura+6
+1027	Adaga Tesoura+7
+1028	Adaga Tesoura+8
+1029	Adaga Tesoura+9
+1030	Faca da Sorte+0
+1031	Faca da Sorte+1
+1032	Faca da Sorte+2
+1033	Faca da Sorte+3
+1034	Faca da Sorte+4
+1035	Faca da Sorte+5
+1036	Faca da Sorte+6
+1037	Faca da Sorte+7
+1038	Faca da Sorte+8
+1039	Faca da Sorte+9
+1040	Faca Mordida de Gato+0
+1041	Faca Mordida de Gato+1
+1042	Faca Mordida de Gato+2
+1043	Faca Mordida de Gato+3
+1044	Faca Mordida de Gato+4
+1045	Faca Mordida de Gato+5
+1046	Faca Mordida de Gato+6
+1047	Faca Mordida de Gato+7
+1048	Faca Mordida de Gato+8
+1049	Faca Mordida de Gato+9
+1050	Adaga Máscara do Diabo+0
+1051	Adaga Máscara do Diabo+1
+1052	Adaga Máscara do Diabo+2
+1053	Adaga Máscara do Diabo+3
+1054	Adaga Máscara do Diabo+4
+1055	Adaga Máscara do Diabo+5
+1056	Adaga Máscara do Diabo+6
+1057	Adaga Máscara do Diabo+7
+1058	Adaga Máscara do Diabo+8
+1059	Adaga Máscara do Diabo+9
+1060	Adaga Punho do Diabo+0
+1061	Adaga Punho do Diabo+1
+1062	Adaga Punho do Diabo+2
+1063	Adaga Punho do Diabo+3
+1064	Adaga Punho do Diabo+4
+1065	Adaga Punho do Diabo+5
+1066	Adaga Punho do Diabo+6
+1067	Adaga Punho do Diabo+7
+1068	Adaga Punho do Diabo+8
+1069	Adaga Punho do Diabo+9
+1070	Adaga Sangrenta+0
+1071	Adaga Sangrenta+1
+1072	Adaga Sangrenta+2
+1073	Adaga Sangrenta+3
+1074	Adaga Sangrenta+4
+1075	Adaga Sangrenta+5
+1076	Adaga Sangrenta+6
+1077	Adaga Sangrenta+7
+1078	Adaga Sangrenta+8
+1079	Adaga Sangrenta+9
+1080	Faca Costela+0
+1081	Faca Costela+1
+1082	Faca Costela+2
+1083	Faca Costela+3
+1084	Faca Costela+4
+1085	Faca Costela+5
+1086	Faca Costela+6
+1087	Faca Costela+7
+1088	Faca Costela+8
+1089	Faca Costela+9
+1090	Chakram+0
+1091	Chakram+1
+1092	Chakram+2
+1093	Chakram+3
+1094	Chakram+4
+1095	Chakram+5
+1096	Chakram+6
+1097	Chakram+7
+1098	Chakram+8
+1099	Chakram+9
+1100	Faca do Dragão+0
+1101	Faca do Dragão+1
+1102	Faca do Dragão+2
+1103	Faca do Dragão+3
+1104	Faca do Dragão+4
+1105	Faca do Dragão+5
+1106	Faca do Dragão+6
+1107	Faca do Dragão+7
+1108	Faca do Dragão+8
+1109	Faca do Dragão+9
+1110	Faca Relâmpago+0
+1111	Faca Relâmpago+1
+1112	Faca Relâmpago+2
+1113	Faca Relâmpago+3
+1114	Faca Relâmpago+4
+1115	Faca Relâmpago+5
+1116	Faca Relâmpago+6
+1117	Faca Relâmpago+7
+1118	Faca Relâmpago+8
+1119	Faca Relâmpago+9
+1120	Faca Siamesa+0
+1121	Faca Siamesa+1
+1122	Faca Siamesa+2
+1123	Faca Siamesa+3
+1124	Faca Siamesa+4
+1125	Faca Siamesa+5
+1126	Faca Siamesa+6
+1127	Faca Siamesa+7
+1128	Faca Siamesa+8
+1129	Faca Siamesa+9
+1130	Chakram Asa do Diabo+0
+1131	Chakram Asa do Diabo+1
+1132	Chakram Asa do Diabo+2
+1133	Chakram Asa do Diabo+3
+1134	Chakram Asa do Diabo+4
+1135	Chakram Asa do Diabo+5
+1136	Chakram Asa do Diabo+6
+1137	Chakram Asa do Diabo+7
+1138	Chakram Asa do Diabo+8
+1139	Chakram Asa do Diabo+9
+1140	Faca Dente de Serra+0
+1141	Faca Dente de Serra+1
+1142	Faca Dente de Serra+2
+1143	Faca Dente de Serra+3
+1144	Faca Dente de Serra+4
+1145	Faca Dente de Serra+5
+1146	Faca Dente de Serra+6
+1147	Faca Dente de Serra+7
+1148	Faca Dente de Serra+8
+1149	Faca Dente de Serra+9
+1150	Faca Luz do Sol+0
+1151	Faca Luz do Sol+1
+1152	Faca Luz do Sol+2
+1153	Faca Luz do Sol+3
+1154	Faca Luz do Sol+4
+1155	Faca Luz do Sol+5
+1156	Faca Luz do Sol+6
+1157	Faca Luz do Sol+7
+1158	Faca Luz do Sol+8
+1159	Faca Luz do Sol+9
+1160	Faca Riacho+0
+1161	Faca Riacho+1
+1162	Faca Riacho+2
+1163	Faca Riacho+3
+1164	Faca Riacho+4
+1165	Faca Riacho+5
+1166	Faca Riacho+6
+1167	Faca Riacho+7
+1168	Faca Riacho+8
+1169	Faca Riacho+9
+1170	Punhal Folha Negra+0
+1171	Punhal Folha Negra+1
+1172	Punhal Folha Negra+2
+1173	Punhal Folha Negra+3
+1174	Punhal Folha Negra+4
+1175	Punhal Folha Negra+5
+1176	Punhal Folha Negra+6
+1177	Punhal Folha Negra+7
+1178	Punhal Folha Negra+8
+1179	Punhal Folha Negra+9
+1340	Lâmina dos Cinco Elementos+0
+1341	Lâmina dos Cinco Elementos+1
+1342	Lâmina dos Cinco Elementos+2
+1343	Lâmina dos Cinco Elementos+3
+1344	Lâmina dos Cinco Elementos+4
+1345	Lâmina dos Cinco Elementos+5
+1346	Lâmina dos Cinco Elementos+6
+1347	Lâmina dos Cinco Elementos+7
+1348	Lâmina dos Cinco Elementos+8
+1349	Lâmina dos Cinco Elementos+9
+2000	Arco+0
+2001	Arco+1
+2002	Arco+2
+2003	Arco+3
+2004	Arco+4
+2005	Arco+5
+2006	Arco+6
+2007	Arco+7
+2008	Arco+8
+2009	Arco+9
+2010	Arco Longo+0
+2011	Arco Longo+1
+2012	Arco Longo+2
+2013	Arco Longo+3
+2014	Arco Longo+4
+2015	Arco Longo+5
+2016	Arco Longo+6
+2017	Arco Longo+7
+2018	Arco Longo+8
+2019	Arco Longo+9
+2020	Arco Composto+0
+2021	Arco Composto+1
+2022	Arco Composto+2
+2023	Arco Composto+3
+2024	Arco Composto+4
+2025	Arco Composto+5
+2026	Arco Composto+6
+2027	Arco Composto+7
+2028	Arco Composto+8
+2029	Arco Composto+9
+2030	Arco de Batalha+0
+2031	Arco de Batalha+1
+2032	Arco de Batalha+2
+2033	Arco de Batalha+3
+2034	Arco de Batalha+4
+2035	Arco de Batalha+5
+2036	Arco de Batalha+6
+2037	Arco de Batalha+7
+2038	Arco de Batalha+8
+2039	Arco de Batalha+9
+2040	Arco Longo de Montaria+0
+2041	Arco Longo de Montaria+1
+2042	Arco Longo de Montaria+2
+2043	Arco Longo de Montaria+3
+2044	Arco Longo de Montaria+4
+2045	Arco Longo de Montaria+5
+2046	Arco Longo de Montaria+6
+2047	Arco Longo de Montaria+7
+2048	Arco Longo de Montaria+8
+2049	Arco Longo de Montaria+9
+2050	Arco de Batalha de Montaria+0
+2051	Arco de Batalha de Montaria+1
+2052	Arco de Batalha de Montaria+2
+2053	Arco de Batalha de Montaria+3
+2054	Arco de Batalha de Montaria+4
+2055	Arco de Batalha de Montaria+5
+2056	Arco de Batalha de Montaria+6
+2057	Arco de Batalha de Montaria+7
+2058	Arco de Batalha de Montaria+8
+2059	Arco de Batalha de Montaria+9
+2060	Arco de Cobre+0
+2061	Arco de Cobre+1
+2062	Arco de Cobre+2
+2063	Arco de Cobre+3
+2064	Arco de Cobre+4
+2065	Arco de Cobre+5
+2066	Arco de Cobre+6
+2067	Arco de Cobre+7
+2068	Arco de Cobre+8
+2069	Arco de Cobre+9
+2070	Arco Ruína Negra+0
+2071	Arco Ruína Negra+1
+2072	Arco Ruína Negra+2
+2073	Arco Ruína Negra+3
+2074	Arco Ruína Negra+4
+2075	Arco Ruína Negra+5
+2076	Arco Ruína Negra+6
+2077	Arco Ruína Negra+7
+2078	Arco Ruína Negra+8
+2079	Arco Ruína Negra+9
+2080	Arco Olho Vermelho+0
+2081	Arco Olho Vermelho+1
+2082	Arco Olho Vermelho+2
+2083	Arco Olho Vermelho+3
+2084	Arco Olho Vermelho+4
+2085	Arco Olho Vermelho+5
+2086	Arco Olho Vermelho+6
+2087	Arco Olho Vermelho+7
+2088	Arco Olho Vermelho+8
+2089	Arco Olho Vermelho+9
+2090	Arco Folha de Espinho+0
+2091	Arco Folha de Espinho+1
+2092	Arco Folha de Espinho+2
+2093	Arco Folha de Espinho+3
+2094	Arco Folha de Espinho+4
+2095	Arco Folha de Espinho+5
+2096	Arco Folha de Espinho+6
+2097	Arco Folha de Espinho+7
+2098	Arco Folha de Espinho+8
+2099	Arco Folha de Espinho+9
+2100	Arco Chifre de Touro+0
+2101	Arco Chifre de Touro+1
+2102	Arco Chifre de Touro+2
+2103	Arco Chifre de Touro+3
+2104	Arco Chifre de Touro+4
+2105	Arco Chifre de Touro+5
+2106	Arco Chifre de Touro+6
+2107	Arco Chifre de Touro+7
+2108	Arco Chifre de Touro+8
+2109	Arco Chifre de Touro+9
+2110	Arco do Unicórnio+0
+2111	Arco do Unicórnio+1
+2112	Arco do Unicórnio+2
+2113	Arco do Unicórnio+3
+2114	Arco do Unicórnio+4
+2115	Arco do Unicórnio+5
+2116	Arco do Unicórnio+6
+2117	Arco do Unicórnio+7
+2118	Arco do Unicórnio+8
+2119	Arco do Unicórnio+9
+2120	Arco Asa Gigante+0
+2121	Arco Asa Gigante+1
+2122	Arco Asa Gigante+2
+2123	Arco Asa Gigante+3
+2124	Arco Asa Gigante+4
+2125	Arco Asa Gigante+5
+2126	Arco Asa Gigante+6
+2127	Arco Asa Gigante+7
+2128	Arco Asa Gigante+8
+2129	Arco Asa Gigante+9
+2130	Arco Damasco Divino+0
+2131	Arco Damasco Divino+1
+2132	Arco Damasco Divino+2
+2133	Arco Damasco Divino+3
+2134	Arco Damasco Divino+4
+2135	Arco Damasco Divino+5
+2136	Arco Damasco Divino+6
+2137	Arco Damasco Divino+7
+2138	Arco Damasco Divino+8
+2139	Arco Damasco Divino+9
+2140	Arco Dragão Amarelo+0
+2141	Arco Dragão Amarelo+1
+2142	Arco Dragão Amarelo+2
+2143	Arco Dragão Amarelo+3
+2144	Arco Dragão Amarelo+4
+2145	Arco Dragão Amarelo+5
+2146	Arco Dragão Amarelo+6
+2147	Arco Dragão Amarelo+7
+2148	Arco Dragão Amarelo+8
+2149	Arco Dragão Amarelo+9
+2150	Arco de Chifre+0
+2151	Arco de Chifre+1
+2152	Arco de Chifre+2
+2153	Arco de Chifre+3
+2154	Arco de Chifre+4
+2155	Arco de Chifre+5
+2156	Arco de Chifre+6
+2157	Arco de Chifre+7
+2158	Arco de Chifre+8
+2159	Arco de Chifre+9
+2160	Arco do Diabo Gigante+0
+2161	Arco do Diabo Gigante+1
+2162	Arco do Diabo Gigante+2
+2163	Arco do Diabo Gigante+3
+2164	Arco do Diabo Gigante+4
+2165	Arco do Diabo Gigante+5
+2166	Arco do Diabo Gigante+6
+2167	Arco do Diabo Gigante+7
+2168	Arco do Diabo Gigante+8
+2169	Arco do Diabo Gigante+9
+2170	Arco Aço de Corvo+0
+2171	Arco Aço de Corvo+1
+2172	Arco Aço de Corvo+2
+2173	Arco Aço de Corvo+3
+2174	Arco Aço de Corvo+4
+2175	Arco Aço de Corvo+5
+2176	Arco Aço de Corvo+6
+2177	Arco Aço de Corvo+7
+2178	Arco Aço de Corvo+8
+2179	Arco Aço de Corvo+9
+2180	Arco Dragão Azul+0
+2181	Arco Dragão Azul+1
+2182	Arco Dragão Azul+2
+2183	Arco Dragão Azul+3
+2184	Arco Dragão Azul+4
+2185	Arco Dragão Azul+5
+2186	Arco Dragão Azul+6
+2187	Arco Dragão Azul+7
+2188	Arco Dragão Azul+8
+2189	Arco Dragão Azul+9
+2190	Besta Fantasma+0
+2191	Besta Fantasma+1
+2192	Besta Fantasma+2
+2193	Besta Fantasma+3
+2194	Besta Fantasma+4
+2195	Besta Fantasma+5
+2196	Besta Fantasma+6
+2197	Besta Fantasma+7
+2198	Besta Fantasma+8
+2199	Besta Fantasma+9
+2370	Arco da Fênix+0
+2371	Arco da Fênix+1
+2372	Arco da Fênix+2
+2373	Arco da Fênix+3
+2374	Arco da Fênix+4
+2375	Arco da Fênix+5
+2376	Arco da Fênix+6
+2377	Arco da Fênix+7
+2378	Arco da Fênix+8
+2379	Arco da Fênix+9
+3000	Glaive+0
+3001	Glaive+1
+3002	Glaive+2
+3003	Glaive+3
+3004	Glaive+4
+3005	Glaive+5
+3006	Glaive+6
+3007	Glaive+7
+3008	Glaive+8
+3009	Glaive+9
+3010	Lança+0
+3011	Lança+1
+3012	Lança+2
+3013	Lança+3
+3014	Lança+4
+3015	Lança+5
+3016	Lança+6
+3017	Lança+7
+3018	Lança+8
+3019	Lança+9
+3020	Lâmina Guilhotina+0
+3021	Lâmina Guilhotina+1
+3022	Lâmina Guilhotina+2
+3023	Lâmina Guilhotina+3
+3024	Lâmina Guilhotina+4
+3025	Lâmina Guilhotina+5
+3026	Lâmina Guilhotina+6
+3027	Lâmina Guilhotina+7
+3028	Lâmina Guilhotina+8
+3029	Lâmina Guilhotina+9
+3030	Lança Aranha+0
+3031	Lança Aranha+1
+3032	Lança Aranha+2
+3033	Lança Aranha+3
+3034	Lança Aranha+4
+3035	Lança Aranha+5
+3036	Lança Aranha+6
+3037	Lança Aranha+7
+3038	Lança Aranha+8
+3039	Lança Aranha+9
+3040	Gisarma+0
+3041	Gisarma+1
+3042	Gisarma+2
+3043	Gisarma+3
+3044	Gisarma+4
+3045	Gisarma+5
+3046	Gisarma+6
+3047	Gisarma+7
+3048	Gisarma+8
+3049	Gisarma+9
+3050	Foice de Guerra+0
+3051	Foice de Guerra+1
+3052	Foice de Guerra+2
+3053	Foice de Guerra+3
+3054	Foice de Guerra+4
+3055	Foice de Guerra+5
+3056	Foice de Guerra+6
+3057	Foice de Guerra+7
+3058	Foice de Guerra+8
+3059	Foice de Guerra+9
+3060	Forcado de Batalha+0
+3061	Forcado de Batalha+1
+3062	Forcado de Batalha+2
+3063	Forcado de Batalha+3
+3064	Forcado de Batalha+4
+3065	Forcado de Batalha+5
+3066	Forcado de Batalha+6
+3067	Forcado de Batalha+7
+3068	Forcado de Batalha+8
+3069	Forcado de Batalha+9
+3070	Alabarda+0
+3071	Alabarda+1
+3072	Alabarda+2
+3073	Alabarda+3
+3074	Alabarda+4
+3075	Alabarda+5
+3076	Alabarda+6
+3077	Alabarda+7
+3078	Alabarda+8
+3079	Alabarda+9
+3080	Machado Gigante+0
+3081	Machado Gigante+1
+3082	Machado Gigante+2
+3083	Machado Gigante+3
+3084	Machado Gigante+4
+3085	Machado Gigante+5
+3086	Machado Gigante+6
+3087	Machado Gigante+7
+3088	Machado Gigante+8
+3089	Machado Gigante+9
+3090	Picareta Glacial+0
+3091	Picareta Glacial+1
+3092	Picareta Glacial+2
+3093	Picareta Glacial+3
+3094	Picareta Glacial+4
+3095	Picareta Glacial+5
+3096	Picareta Glacial+6
+3097	Picareta Glacial+7
+3098	Picareta Glacial+8
+3099	Picareta Glacial+9
+3100	Espada dos Doze Espíritos+0
+3101	Espada dos Doze Espíritos+1
+3102	Espada dos Doze Espíritos+2
+3103	Espada dos Doze Espíritos+3
+3104	Espada dos Doze Espíritos+4
+3105	Espada dos Doze Espíritos+5
+3106	Espada dos Doze Espíritos+6
+3107	Espada dos Doze Espíritos+7
+3108	Espada dos Doze Espíritos+8
+3109	Espada dos Doze Espíritos+9
+3110	Lâmina da Salvação+0
+3111	Lâmina da Salvação+1
+3112	Lâmina da Salvação+2
+3113	Lâmina da Salvação+3
+3114	Lâmina da Salvação+4
+3115	Lâmina da Salvação+5
+3116	Lâmina da Salvação+6
+3117	Lâmina da Salvação+7
+3118	Lâmina da Salvação+8
+3119	Lâmina da Salvação+9
+3120	Mata-Leão+0
+3121	Mata-Leão+1
+3122	Mata-Leão+2
+3123	Mata-Leão+3
+3124	Mata-Leão+4
+3125	Mata-Leão+5
+3126	Mata-Leão+6
+3127	Mata-Leão+7
+3128	Mata-Leão+8
+3129	Mata-Leão+9
+3130	Partisana+0
+3131	Partisana+1
+3132	Partisana+2
+3133	Partisana+3
+3134	Partisana+4
+3135	Partisana+5
+3136	Partisana+6
+3137	Partisana+7
+3138	Partisana+8
+3139	Partisana+9
+3140	Lâmina Eletromagnética+0
+3141	Lâmina Eletromagnética+1
+3142	Lâmina Eletromagnética+2
+3143	Lâmina Eletromagnética+3
+3144	Lâmina Eletromagnética+4
+3145	Lâmina Eletromagnética+5
+3146	Lâmina Eletromagnética+6
+3147	Lâmina Eletromagnética+7
+3148	Lâmina Eletromagnética+8
+3149	Lâmina Eletromagnética+9
+3150	Lâmina Rouba-Almas+0
+3151	Lâmina Rouba-Almas+1
+3152	Lâmina Rouba-Almas+2
+3153	Lâmina Rouba-Almas+3
+3154	Lâmina Rouba-Almas+4
+3155	Lâmina Rouba-Almas+5
+3156	Lâmina Rouba-Almas+6
+3157	Lâmina Rouba-Almas+7
+3158	Lâmina Rouba-Almas+8
+3159	Lâmina Rouba-Almas+9
+3160	Espada do Rancor+0
+3161	Espada do Rancor+1
+3162	Espada do Rancor+2
+3163	Espada do Rancor+3
+3164	Espada do Rancor+4
+3165	Espada do Rancor+5
+3166	Espada do Rancor+6
+3167	Espada do Rancor+7
+3168	Espada do Rancor+8
+3169	Espada do Rancor+9
+3170	Mata-Dragão Amarelo+0
+3171	Mata-Dragão Amarelo+1
+3172	Mata-Dragão Amarelo+2
+3173	Mata-Dragão Amarelo+3
+3174	Mata-Dragão Amarelo+4
+3175	Mata-Dragão Amarelo+5
+3176	Mata-Dragão Amarelo+6
+3177	Mata-Dragão Amarelo+7
+3178	Mata-Dragão Amarelo+8
+3179	Mata-Dragão Amarelo+9
+3180	Mata-Dragão Azul+0
+3181	Mata-Dragão Azul+1
+3182	Mata-Dragão Azul+2
+3183	Mata-Dragão Azul+3
+3184	Mata-Dragão Azul+4
+3185	Mata-Dragão Azul+5
+3186	Mata-Dragão Azul+6
+3187	Mata-Dragão Azul+7
+3188	Mata-Dragão Azul+8
+3189	Mata-Dragão Azul+9
+3190	Lâmina Solar+0
+3191	Lâmina Solar+1
+3192	Lâmina Solar+2
+3193	Lâmina Solar+3
+3194	Lâmina Solar+4
+3195	Lâmina Solar+5
+3196	Lâmina Solar+6
+3197	Lâmina Solar+7
+3198	Lâmina Solar+8
+3199	Lâmina Solar+9
+3200	Lâmina do Deus Dragão+0
+3201	Lâmina do Deus Dragão+1
+3202	Lâmina do Deus Dragão+2
+3203	Lâmina do Deus Dragão+3
+3204	Lâmina do Deus Dragão+4
+3205	Lâmina do Deus Dragão+5
+3206	Lâmina do Deus Dragão+6
+3207	Lâmina do Deus Dragão+7
+3208	Lâmina do Deus Dragão+8
+3209	Lâmina do Deus Dragão+9
+3210	Lâmina de Ferro Vermelho+0
+3211	Lâmina de Ferro Vermelho+1
+3212	Lâmina de Ferro Vermelho+2
+3213	Lâmina de Ferro Vermelho+3
+3214	Lâmina de Ferro Vermelho+4
+3215	Lâmina de Ferro Vermelho+5
+3216	Lâmina de Ferro Vermelho+6
+3217	Lâmina de Ferro Vermelho+7
+3218	Lâmina de Ferro Vermelho+8
+3219	Lâmina de Ferro Vermelho+9
+4000	Amija+0
+4001	Amija+1
+4002	Amija+2
+4003	Amija+3
+4004	Amija+4
+4005	Amija+5
+4006	Amija+6
+4007	Amija+7
+4008	Amija+8
+4009	Amija+9
+4010	Nove Lâminas+0
+4011	Nove Lâminas+1
+4012	Nove Lâminas+2
+4013	Nove Lâminas+3
+4014	Nove Lâminas+4
+4015	Nove Lâminas+5
+4016	Nove Lâminas+6
+4017	Nove Lâminas+7
+4018	Nove Lâminas+8
+4019	Nove Lâminas+9
+4020	Faca Curta+0
+4021	Faca Curta+1
+4022	Faca Curta+2
+4023	Faca Curta+3
+4024	Faca Curta+4
+4025	Faca Curta+5
+4026	Faca Curta+6
+4027	Faca Curta+7
+4028	Faca Curta+8
+4029	Faca Curta+9
+4030	Adaga Gêmea Lunar+0
+4031	Adaga Gêmea Lunar+1
+4032	Adaga Gêmea Lunar+2
+4033	Adaga Gêmea Lunar+3
+4034	Adaga Gêmea Lunar+4
+4035	Adaga Gêmea Lunar+5
+4036	Adaga Gêmea Lunar+6
+4037	Adaga Gêmea Lunar+7
+4038	Adaga Gêmea Lunar+8
+4039	Adaga Gêmea Lunar+9
+4040	Faca sem Alma+0
+4041	Faca sem Alma+1
+4042	Faca sem Alma+2
+4043	Faca sem Alma+3
+4044	Faca sem Alma+4
+4045	Faca sem Alma+5
+4046	Faca sem Alma+6
+4047	Faca sem Alma+7
+4048	Faca sem Alma+8
+4049	Faca sem Alma+9
+5000	Sino de Cobre+0
+5001	Sino de Cobre+1
+5002	Sino de Cobre+2
+5003	Sino de Cobre+3
+5004	Sino de Cobre+4
+5005	Sino de Cobre+5
+5006	Sino de Cobre+6
+5007	Sino de Cobre+7
+5008	Sino de Cobre+8
+5009	Sino de Cobre+9
+5010	Sino de Prata+0
+5011	Sino de Prata+1
+5012	Sino de Prata+2
+5013	Sino de Prata+3
+5014	Sino de Prata+4
+5015	Sino de Prata+5
+5016	Sino de Prata+6
+5017	Sino de Prata+7
+5018	Sino de Prata+8
+5019	Sino de Prata+9
+5020	Sino de Ouro+0
+5021	Sino de Ouro+1
+5022	Sino de Ouro+2
+5023	Sino de Ouro+3
+5024	Sino de Ouro+4
+5025	Sino de Ouro+5
+5026	Sino de Ouro+6
+5027	Sino de Ouro+7
+5028	Sino de Ouro+8
+5029	Sino de Ouro+9
+5030	Sino de Jade+0
+5031	Sino de Jade+1
+5032	Sino de Jade+2
+5033	Sino de Jade+3
+5034	Sino de Jade+4
+5035	Sino de Jade+5
+5036	Sino de Jade+6
+5037	Sino de Jade+7
+5038	Sino de Jade+8
+5039	Sino de Jade+9
+5040	Sino da Fonte+0
+5041	Sino da Fonte+1
+5042	Sino da Fonte+2
+5043	Sino da Fonte+3
+5044	Sino da Fonte+4
+5045	Sino da Fonte+5
+5046	Sino da Fonte+6
+5047	Sino da Fonte+7
+5048	Sino da Fonte+8
+5049	Sino da Fonte+9
+5050	Sino Damasco+0
+5051	Sino Damasco+1
+5052	Sino Damasco+2
+5053	Sino Damasco+3
+5054	Sino Damasco+4
+5055	Sino Damasco+5
+5056	Sino Damasco+6
+5057	Sino Damasco+7
+5058	Sino Damasco+8
+5059	Sino Damasco+9
+5060	Sino Mágico+0
+5061	Sino Mágico+1
+5062	Sino Mágico+2
+5063	Sino Mágico+3
+5064	Sino Mágico+4
+5065	Sino Mágico+5
+5066	Sino Mágico+6
+5067	Sino Mágico+7
+5068	Sino Mágico+8
+5069	Sino Mágico+9
+5070	Sino Inseto de Ouro+0
+5071	Sino Inseto de Ouro+1
+5072	Sino Inseto de Ouro+2
+5073	Sino Inseto de Ouro+3
+5074	Sino Inseto de Ouro+4
+5075	Sino Inseto de Ouro+5
+5076	Sino Inseto de Ouro+6
+5077	Sino Inseto de Ouro+7
+5078	Sino Inseto de Ouro+8
+5079	Sino Inseto de Ouro+9
+5080	Sino Inseto de Aço+0
+5081	Sino Inseto de Aço+1
+5082	Sino Inseto de Aço+2
+5083	Sino Inseto de Aço+3
+5084	Sino Inseto de Aço+4
+5085	Sino Inseto de Aço+5
+5086	Sino Inseto de Aço+6
+5087	Sino Inseto de Aço+7
+5088	Sino Inseto de Aço+8
+5089	Sino Inseto de Aço+9
+5090	Sino Pássaro Trovão+0
+5091	Sino Pássaro Trovão+1
+5092	Sino Pássaro Trovão+2
+5093	Sino Pássaro Trovão+3
+5094	Sino Pássaro Trovão+4
+5095	Sino Pássaro Trovão+5
+5096	Sino Pássaro Trovão+6
+5097	Sino Pássaro Trovão+7
+5098	Sino Pássaro Trovão+8
+5099	Sino Pássaro Trovão+9
+5100	Sino Céu e Terra+0
+5101	Sino Céu e Terra+1
+5102	Sino Céu e Terra+2
+5103	Sino Céu e Terra+3
+5104	Sino Céu e Terra+4
+5105	Sino Céu e Terra+5
+5106	Sino Céu e Terra+6
+5107	Sino Céu e Terra+7
+5108	Sino Céu e Terra+8
+5109	Sino Céu e Terra+9
+5110	Sino Antigo+0
+5111	Sino Antigo+1
+5112	Sino Antigo+2
+5113	Sino Antigo+3
+5114	Sino Antigo+4
+5115	Sino Antigo+5
+5116	Sino Antigo+6
+5117	Sino Antigo+7
+5118	Sino Antigo+8
+5119	Sino Antigo+9
+5120	Sino de Bambu+0
+5121	Sino de Bambu+1
+5122	Sino de Bambu+2
+5123	Sino de Bambu+3
+5124	Sino de Bambu+4
+5125	Sino de Bambu+5
+5126	Sino de Bambu+6
+5127	Sino de Bambu+7
+5128	Sino de Bambu+8
+5129	Sino de Bambu+9
+5130	Sino do Ceifador+0
+5131	Sino do Ceifador+1
+5132	Sino do Ceifador+2
+5133	Sino do Ceifador+3
+5134	Sino do Ceifador+4
+5135	Sino do Ceifador+5
+5136	Sino do Ceifador+6
+5137	Sino do Ceifador+7
+5138	Sino do Ceifador+8
+5139	Sino do Ceifador+9
+5140	Sino do Dragão+0
+5141	Sino do Dragão+1
+5142	Sino do Dragão+2
+5143	Sino do Dragão+3
+5144	Sino do Dragão+4
+5145	Sino do Dragão+5
+5146	Sino do Dragão+6
+5147	Sino do Dragão+7
+5148	Sino do Dragão+8
+5149	Sino do Dragão+9
+5150	Sino Hibisco+0
+5151	Sino Hibisco+1
+5152	Sino Hibisco+2
+5153	Sino Hibisco+3
+5154	Sino Hibisco+4
+5155	Sino Hibisco+5
+5156	Sino Hibisco+6
+5157	Sino Hibisco+7
+5158	Sino Hibisco+8
+5159	Sino Hibisco+9
+5330	Sino Mandíbula de Dragão+0
+5331	Sino Mandíbula de Dragão+1
+5332	Sino Mandíbula de Dragão+2
+5333	Sino Mandíbula de Dragão+3
+5334	Sino Mandíbula de Dragão+4
+5335	Sino Mandíbula de Dragão+5
+5336	Sino Mandíbula de Dragão+6
+5337	Sino Mandíbula de Dragão+7
+5338	Sino Mandíbula de Dragão+8
+5339	Sino Mandíbula de Dragão+9
+5340	Sino Fantasma do Dragão+0
+5341	Sino Fantasma do Dragão+1
+5342	Sino Fantasma do Dragão+2
+5343	Sino Fantasma do Dragão+3
+5344	Sino Fantasma do Dragão+4
+5345	Sino Fantasma do Dragão+5
+5346	Sino Fantasma do Dragão+6
+5347	Sino Fantasma do Dragão+7
+5348	Sino Fantasma do Dragão+8
+5349	Sino Fantasma do Dragão+9
+7000	Leque+0
+7001	Leque+1
+7002	Leque+2
+7003	Leque+3
+7004	Leque+4
+7005	Leque+5
+7006	Leque+6
+7007	Leque+7
+7008	Leque+8
+7009	Leque+9
+7010	Leque de Ferro+0
+7011	Leque de Ferro+1
+7012	Leque de Ferro+2
+7013	Leque de Ferro+3
+7014	Leque de Ferro+4
+7015	Leque de Ferro+5
+7016	Leque de Ferro+6
+7017	Leque de Ferro+7
+7018	Leque de Ferro+8
+7019	Leque de Ferro+9
+7020	Leque Tigre Negro+0
+7021	Leque Tigre Negro+1
+7022	Leque Tigre Negro+2
+7023	Leque Tigre Negro+3
+7024	Leque Tigre Negro+4
+7025	Leque Tigre Negro+5
+7026	Leque Tigre Negro+6
+7027	Leque Tigre Negro+7
+7028	Leque Tigre Negro+8
+7029	Leque Tigre Negro+9
+7030	Leque Asa de Grou+0
+7031	Leque Asa de Grou+1
+7032	Leque Asa de Grou+2
+7033	Leque Asa de Grou+3
+7034	Leque Asa de Grou+4
+7035	Leque Asa de Grou+5
+7036	Leque Asa de Grou+6
+7037	Leque Asa de Grou+7
+7038	Leque Asa de Grou+8
+7039	Leque Asa de Grou+9
+7040	Leque de Pavão+0
+7041	Leque de Pavão+1
+7042	Leque de Pavão+2
+7043	Leque de Pavão+3
+7044	Leque de Pavão+4
+7045	Leque de Pavão+5
+7046	Leque de Pavão+6
+7047	Leque de Pavão+7
+7048	Leque de Pavão+8
+7049	Leque de Pavão+9
+7050	Leque Aquático+0
+7051	Leque Aquático+1
+7052	Leque Aquático+2
+7053	Leque Aquático+3
+7054	Leque Aquático+4
+7055	Leque Aquático+5
+7056	Leque Aquático+6
+7057	Leque Aquático+7
+7058	Leque Aquático+8
+7059	Leque Aquático+9
+7060	Leque de Pedra+0
+7061	Leque de Pedra+1
+7062	Leque de Pedra+2
+7063	Leque de Pedra+3
+7064	Leque de Pedra+4
+7065	Leque de Pedra+5
+7066	Leque de Pedra+6
+7067	Leque de Pedra+7
+7068	Leque de Pedra+8
+7069	Leque de Pedra+9
+7070	Leque do Oceano+0
+7071	Leque do Oceano+1
+7072	Leque do Oceano+2
+7073	Leque do Oceano+3
+7074	Leque do Oceano+4
+7075	Leque do Oceano+5
+7076	Leque do Oceano+6
+7077	Leque do Oceano+7
+7078	Leque do Oceano+8
+7079	Leque do Oceano+9
+7080	Leque Ferrão+0
+7081	Leque Ferrão+1
+7082	Leque Ferrão+2
+7083	Leque Ferrão+3
+7084	Leque Ferrão+4
+7085	Leque Ferrão+5
+7086	Leque Ferrão+6
+7087	Leque Ferrão+7
+7088	Leque Ferrão+8
+7089	Leque Ferrão+9
+7090	Leque da Fênix+0
+7091	Leque da Fênix+1
+7092	Leque da Fênix+2
+7093	Leque da Fênix+3
+7094	Leque da Fênix+4
+7095	Leque da Fênix+5
+7096	Leque da Fênix+6
+7097	Leque da Fênix+7
+7098	Leque da Fênix+8
+7099	Leque da Fênix+9
+7100	Leque Triplo+0
+7101	Leque Triplo+1
+7102	Leque Triplo+2
+7103	Leque Triplo+3
+7104	Leque Triplo+4
+7105	Leque Triplo+5
+7106	Leque Triplo+6
+7107	Leque Triplo+7
+7108	Leque Triplo+8
+7109	Leque Triplo+9
+7110	Leque Sobrancelha+0
+7111	Leque Sobrancelha+1
+7112	Leque Sobrancelha+2
+7113	Leque Sobrancelha+3
+7114	Leque Sobrancelha+4
+7115	Leque Sobrancelha+5
+7116	Leque Sobrancelha+6
+7117	Leque Sobrancelha+7
+7118	Leque Sobrancelha+8
+7119	Leque Sobrancelha+9
+7120	Leque do Sol+0
+7121	Leque do Sol+1
+7122	Leque do Sol+2
+7123	Leque do Sol+3
+7124	Leque do Sol+4
+7125	Leque do Sol+5
+7126	Leque do Sol+6
+7127	Leque do Sol+7
+7128	Leque do Sol+8
+7129	Leque do Sol+9
+7130	Leque Pássaro Celestial+0
+7131	Leque Pássaro Celestial+1
+7132	Leque Pássaro Celestial+2
+7133	Leque Pássaro Celestial+3
+7134	Leque Pássaro Celestial+4
+7135	Leque Pássaro Celestial+5
+7136	Leque Pássaro Celestial+6
+7137	Leque Pássaro Celestial+7
+7138	Leque Pássaro Celestial+8
+7139	Leque Pássaro Celestial+9
+7140	Leque da Salvação+0
+7141	Leque da Salvação+1
+7142	Leque da Salvação+2
+7143	Leque da Salvação+3
+7144	Leque da Salvação+4
+7145	Leque da Salvação+5
+7146	Leque da Salvação+6
+7147	Leque da Salvação+7
+7148	Leque da Salvação+8
+7149	Leque da Salvação+9
+7150	Leque do Êxtase+0
+7151	Leque do Êxtase+1
+7152	Leque do Êxtase+2
+7153	Leque do Êxtase+3
+7154	Leque do Êxtase+4
+7155	Leque do Êxtase+5
+7156	Leque do Êxtase+6
+7157	Leque do Êxtase+7
+7158	Leque do Êxtase+8
+7159	Leque do Êxtase+9
+7160	Leque Vento de Outono+0
+7161	Leque Vento de Outono+1
+7162	Leque Vento de Outono+2
+7163	Leque Vento de Outono+3
+7164	Leque Vento de Outono+4
+7165	Leque Vento de Outono+5
+7166	Leque Vento de Outono+6
+7167	Leque Vento de Outono+7
+7168	Leque Vento de Outono+8
+7169	Leque Vento de Outono+9
+7170	Leque Dragão Deitado+0
+7171	Leque Dragão Deitado+1
+7172	Leque Dragão Deitado+2
+7173	Leque Dragão Deitado+3
+7174	Leque Dragão Deitado+4
+7175	Leque Dragão Deitado+5
+7176	Leque Dragão Deitado+6
+7177	Leque Dragão Deitado+7
+7178	Leque Dragão Deitado+8
+7179	Leque Dragão Deitado+9
+7180	Leque dos Oito Trigramas+0
+7181	Leque dos Oito Trigramas+1
+7182	Leque dos Oito Trigramas+2
+7183	Leque dos Oito Trigramas+3
+7184	Leque dos Oito Trigramas+4
+7185	Leque dos Oito Trigramas+5
+7186	Leque dos Oito Trigramas+6
+7187	Leque dos Oito Trigramas+7
+7188	Leque dos Oito Trigramas+8
+7189	Leque dos Oito Trigramas+9
+7190	Leque Demoníaco+0
+7191	Leque Demoníaco+1
+7192	Leque Demoníaco+2
+7193	Leque Demoníaco+3
+7194	Leque Demoníaco+4
+7195	Leque Demoníaco+5
+7196	Leque Demoníaco+6
+7197	Leque Demoníaco+7
+7198	Leque Demoníaco+8
+7199	Leque Demoníaco+9
+7200	Lança+0
+7201	Lança+1
+7202	Lança+2
+7203	Lança+3
+7204	Lança+4
+7205	Lança+5
+7206	Lança+6
+7207	Lança+7
+7208	Lança+8
+7209	Lança+9
+7370	Leque Dragão Deitado+0
+7371	Leque Dragão Deitado+1
+7372	Leque Dragão Deitado+2
+7373	Leque Dragão Deitado+3
+7374	Leque Dragão Deitado+4
+7375	Leque Dragão Deitado+5
+7376	Leque Dragão Deitado+6
+7377	Leque Dragão Deitado+7
+7378	Leque Dragão Deitado+8
+7379	Leque Dragão Deitado+9
+8000	Flecha de Madeira
+8001	Flecha de Bambu
+8002	Flecha de Pedra
+8003	Flecha de Ferro
+8004	Flecha de Aço
+8005	Flecha de Prata
+8006	Flecha de Fogo
+8007	Flecha Venenosa
+8008	Flecha de Gelo
+8009	Flecha Amaldiçoada
+9001	Armadura Nahan+5
+9002	Armadura Tanma+5
+9003	Armadura Jinhon+5
+9004	Armadura Chung+5
+9501	Espada+5
+9502	Espada Curta+5
+9503	Flecha Curta+5
+9504	Espada Longa+5
+9505	Leque Grande+5
+11000	Armadura do Lobo
+11010	Armadura do Javali
+11020	Armadura do Urso
+11030	Armadura do Tigre
+11200	Armadura de Placas do Monge+0
+11201	Armadura de Placas do Monge+1
+11202	Armadura de Placas do Monge+2
+11203	Armadura de Placas do Monge+3
+11204	Armadura de Placas do Monge+4
+11205	Armadura de Placas do Monge+5
+11206	Armadura de Placas do Monge+6
+11207	Armadura de Placas do Monge+7
+11208	Armadura de Placas do Monge+8
+11209	Armadura de Placas do Monge+9
+11210	Armadura de Placas de Ferro+0
+11211	Armadura de Placas de Ferro+1
+11212	Armadura de Placas de Ferro+2
+11213	Armadura de Placas de Ferro+3
+11214	Armadura de Placas de Ferro+4
+11215	Armadura de Placas de Ferro+5
+11216	Armadura de Placas de Ferro+6
+11217	Armadura de Placas de Ferro+7
+11218	Armadura de Placas de Ferro+8
+11219	Armadura de Placas de Ferro+9
+11220	Armadura de Placas do Tigre+0
+11221	Armadura de Placas do Tigre+1
+11222	Armadura de Placas do Tigre+2
+11223	Armadura de Placas do Tigre+3
+11224	Armadura de Placas do Tigre+4
+11225	Armadura de Placas do Tigre+5
+11226	Armadura de Placas do Tigre+6
+11227	Armadura de Placas do Tigre+7
+11228	Armadura de Placas do Tigre+8
+11229	Armadura de Placas do Tigre+9
+11230	Armadura de Placas do Leão+0
+11231	Armadura de Placas do Leão+1
+11232	Armadura de Placas do Leão+2
+11233	Armadura de Placas do Leão+3
+11234	Armadura de Placas do Leão+4
+11235	Armadura de Placas do Leão+5
+11236	Armadura de Placas do Leão+6
+11237	Armadura de Placas do Leão+7
+11238	Armadura de Placas do Leão+8
+11239	Armadura de Placas do Leão+9
+11240	Armadura de Placas Letal+0
+11241	Armadura de Placas Letal+1
+11242	Armadura de Placas Letal+2
+11243	Armadura de Placas Letal+3
+11244	Armadura de Placas Letal+4
+11245	Armadura de Placas Letal+5
+11246	Armadura de Placas Letal+6
+11247	Armadura de Placas Letal+7
+11248	Armadura de Placas Letal+8
+11249	Armadura de Placas Letal+9
+11250	Armadura de Placas do Dragão+0
+11251	Armadura de Placas do Dragão+1
+11252	Armadura de Placas do Dragão+2
+11253	Armadura de Placas do Dragão+3
+11254	Armadura de Placas do Dragão+4
+11255	Armadura de Placas do Dragão+5
+11256	Armadura de Placas do Dragão+6
+11257	Armadura de Placas do Dragão+7
+11258	Armadura de Placas do Dragão+8
+11259	Armadura de Placas do Dragão+9
+11260	Armadura de Escamas+0
+11261	Armadura de Escamas+1
+11262	Armadura de Escamas+2
+11263	Armadura de Escamas+3
+11264	Armadura de Escamas+4
+11265	Armadura de Escamas+5
+11266	Armadura de Escamas+6
+11267	Armadura de Escamas+7
+11268	Armadura de Escamas+8
+11269	Armadura de Escamas+9
+11270	Armadura de Placas de Ouro+0
+11271	Armadura de Placas de Ouro+1
+11272	Armadura de Placas de Ouro+2
+11273	Armadura de Placas de Ouro+3
+11274	Armadura de Placas de Ouro+4
+11275	Armadura de Placas de Ouro+5
+11276	Armadura de Placas de Ouro+6
+11277	Armadura de Placas de Ouro+7
+11278	Armadura de Placas de Ouro+8
+11279	Armadura de Placas de Ouro+9
+11280	Armadura do Deus Dragão+0
+11281	Armadura do Deus Dragão+1
+11282	Armadura do Deus Dragão+2
+11283	Armadura do Deus Dragão+3
+11284	Armadura do Deus Dragão+4
+11285	Armadura do Deus Dragão+5
+11286	Armadura do Deus Dragão+6
+11287	Armadura do Deus Dragão+7
+11288	Armadura do Deus Dragão+8
+11289	Armadura do Deus Dragão+9
+11290	Armadura de Aço Negro+0
+11291	Armadura de Aço Negro+1
+11292	Armadura de Aço Negro+2
+11293	Armadura de Aço Negro+3
+11294	Armadura de Aço Negro+4
+11295	Armadura de Aço Negro+5
+11296	Armadura de Aço Negro+6
+11297	Armadura de Aço Negro+7
+11298	Armadura de Aço Negro+8
+11299	Armadura de Aço Negro+9
+11300	Maleabilidade
+11301	Maleabilidade
+11302	Boa Resistência
+11303	Armadura Fraca
+11304	Muralha Inimiga
+11305	Inteligência
+11306	Soldados
+11307	Sapatos Superiores
+11308	Resistência do Inimigo
+11309	Outra Resistência Inimiga
+11400	Traje Celeste+0
+11401	Traje Celeste+1
+11402	Traje Celeste+2
+11403	Traje Celeste+3
+11404	Traje Celeste+4
+11405	Traje Celeste+5
+11406	Traje Celeste+6
+11407	Traje Celeste+7
+11408	Traje Celeste+8
+11409	Traje Celeste+9
+11410	Traje Marfim+0
+11411	Traje Marfim+1
+11412	Traje Marfim+2
+11413	Traje Marfim+3
+11414	Traje Marfim+4
+11415	Traje Marfim+5
+11416	Traje Marfim+6
+11417	Traje Marfim+7
+11418	Traje Marfim+8
+11419	Traje Marfim+9
+11420	Traje Carmesim+0
+11421	Traje Carmesim+1
+11422	Traje Carmesim+2
+11423	Traje Carmesim+3
+11424	Traje Carmesim+4
+11425	Traje Carmesim+5
+11426	Traje Carmesim+6
+11427	Traje Carmesim+7
+11428	Traje Carmesim+8
+11429	Traje Carmesim+9
+11430	Traje Formiga Vermelha+0
+11431	Traje Formiga Vermelha+1
+11432	Traje Formiga Vermelha+2
+11433	Traje Formiga Vermelha+3
+11434	Traje Formiga Vermelha+4
+11435	Traje Formiga Vermelha+5
+11436	Traje Formiga Vermelha+6
+11437	Traje Formiga Vermelha+7
+11438	Traje Formiga Vermelha+8
+11439	Traje Formiga Vermelha+9
+11440	Traje Formiga-Leão+0
+11441	Traje Formiga-Leão+1
+11442	Traje Formiga-Leão+2
+11443	Traje Formiga-Leão+3
+11444	Traje Formiga-Leão+4
+11445	Traje Formiga-Leão+5
+11446	Traje Formiga-Leão+6
+11447	Traje Formiga-Leão+7
+11448	Traje Formiga-Leão+8
+11449	Traje Formiga-Leão+9
+11450	Traje Ninja+0
+11451	Traje Ninja+1
+11452	Traje Ninja+2
+11453	Traje Ninja+3
+11454	Traje Ninja+4
+11455	Traje Ninja+5
+11456	Traje Ninja+6
+11457	Traje Ninja+7
+11458	Traje Ninja+8
+11459	Traje Ninja+9
+11460	Traje Dragão Jovem+0
+11461	Traje Dragão Jovem+1
+11462	Traje Dragão Jovem+2
+11463	Traje Dragão Jovem+3
+11464	Traje Dragão Jovem+4
+11465	Traje Dragão Jovem+5
+11466	Traje Dragão Jovem+6
+11467	Traje Dragão Jovem+7
+11468	Traje Dragão Jovem+8
+11469	Traje Dragão Jovem+9
+11470	Traje Vento Assassino+0
+11471	Traje Vento Assassino+1
+11472	Traje Vento Assassino+2
+11473	Traje Vento Assassino+3
+11474	Traje Vento Assassino+4
+11475	Traje Vento Assassino+5
+11476	Traje Vento Assassino+6
+11477	Traje Vento Assassino+7
+11478	Traje Vento Assassino+8
+11479	Traje Vento Assassino+9
+11480	Traje Fúcsia+0
+11481	Traje Fúcsia+1
+11482	Traje Fúcsia+2
+11483	Traje Fúcsia+3
+11484	Traje Fúcsia+4
+11485	Traje Fúcsia+5
+11486	Traje Fúcsia+6
+11487	Traje Fúcsia+7
+11488	Traje Fúcsia+8
+11489	Traje Fúcsia+9
+11490	Traje Vento Negro+0
+11491	Traje Vento Negro+1
+11492	Traje Vento Negro+2
+11493	Traje Vento Negro+3
+11494	Traje Vento Negro+4
+11495	Traje Vento Negro+5
+11496	Traje Vento Negro+6
+11497	Traje Vento Negro+7
+11498	Traje Vento Negro+8
+11499	Traje Vento Negro+9
+11500	Gang-Ma
+11501	Zung-Seon
+11502	Chung-Zin
+11503	Ho-Young
+11504	Young-Seon
+11505	Su-Sin
+11506	O-Gyo
+11507	Bi-Pung
+11508	Zeok-Hyoun
+11509	Ho-Gu
+11600	Armadura de Placas Réquiem+0
+11601	Armadura de Placas Réquiem+1
+11602	Armadura de Placas Réquiem+2
+11603	Armadura de Placas Réquiem+3
+11604	Armadura de Placas Réquiem+4
+11605	Armadura de Placas Réquiem+5
+11606	Armadura de Placas Réquiem+6
+11607	Armadura de Placas Réquiem+7
+11608	Armadura de Placas Réquiem+8
+11609	Armadura de Placas Réquiem+9
+11610	Armadura de Placas da Tempestade+0
+11611	Armadura de Placas da Tempestade+1
+11612	Armadura de Placas da Tempestade+2
+11613	Armadura de Placas da Tempestade+3
+11614	Armadura de Placas da Tempestade+4
+11615	Armadura de Placas da Tempestade+5
+11616	Armadura de Placas da Tempestade+6
+11617	Armadura de Placas da Tempestade+7
+11618	Armadura de Placas da Tempestade+8
+11619	Armadura de Placas da Tempestade+9
+11620	Armadura do Infortúnio+0
+11621	Armadura do Infortúnio+1
+11622	Armadura do Infortúnio+2
+11623	Armadura do Infortúnio+3
+11624	Armadura do Infortúnio+4
+11625	Armadura do Infortúnio+5
+11626	Armadura do Infortúnio+6
+11627	Armadura do Infortúnio+7
+11628	Armadura do Infortúnio+8
+11629	Armadura do Infortúnio+9
+11630	Armadura de Placas Fantasma+0
+11631	Armadura de Placas Fantasma+1
+11632	Armadura de Placas Fantasma+2
+11633	Armadura de Placas Fantasma+3
+11634	Armadura de Placas Fantasma+4
+11635	Armadura de Placas Fantasma+5
+11636	Armadura de Placas Fantasma+6
+11637	Armadura de Placas Fantasma+7
+11638	Armadura de Placas Fantasma+8
+11639	Armadura de Placas Fantasma+9
+11640	Armadura Yin e Yang+0
+11641	Armadura Yin e Yang+1
+11642	Armadura Yin e Yang+2
+11643	Armadura Yin e Yang+3
+11644	Armadura Yin e Yang+4
+11645	Armadura Yin e Yang+5
+11646	Armadura Yin e Yang+6
+11647	Armadura Yin e Yang+7
+11648	Armadura Yin e Yang+8
+11649	Armadura Yin e Yang+9
+11650	Armadura de Placas Mística+0
+11651	Armadura de Placas Mística+1
+11652	Armadura de Placas Mística+2
+11653	Armadura de Placas Mística+3
+11654	Armadura de Placas Mística+4
+11655	Armadura de Placas Mística+5
+11656	Armadura de Placas Mística+6
+11657	Armadura de Placas Mística+7
+11658	Armadura de Placas Mística+8
+11659	Armadura de Placas Mística+9
+11660	Armadura de Placas da Névoa+0
+11661	Armadura de Placas da Névoa+1
+11662	Armadura de Placas da Névoa+2
+11663	Armadura de Placas da Névoa+3
+11664	Armadura de Placas da Névoa+4
+11665	Armadura de Placas da Névoa+5
+11666	Armadura de Placas da Névoa+6
+11667	Armadura de Placas da Névoa+7
+11668	Armadura de Placas da Névoa+8
+11669	Armadura de Placas da Névoa+9
+11670	Armadura Máscara Fantasma+0
+11671	Armadura Máscara Fantasma+1
+11672	Armadura Máscara Fantasma+2
+11673	Armadura Máscara Fantasma+3
+11674	Armadura Máscara Fantasma+4
+11675	Armadura Máscara Fantasma+5
+11676	Armadura Máscara Fantasma+6
+11677	Armadura Máscara Fantasma+7
+11678	Armadura Máscara Fantasma+8
+11679	Armadura Máscara Fantasma+9
+11680	Armadura de Placas Espiritual+0
+11681	Armadura de Placas Espiritual+1
+11682	Armadura de Placas Espiritual+2
+11683	Armadura de Placas Espiritual+3
+11684	Armadura de Placas Espiritual+4
+11685	Armadura de Placas Espiritual+5
+11686	Armadura de Placas Espiritual+6
+11687	Armadura de Placas Espiritual+7
+11688	Armadura de Placas Espiritual+8
+11689	Armadura de Placas Espiritual+9
+11690	Armadura de Placas Mágica+0
+11691	Armadura de Placas Mágica+1
+11692	Armadura de Placas Mágica+2
+11693	Armadura de Placas Mágica+3
+11694	Armadura de Placas Mágica+4
+11695	Armadura de Placas Mágica+5
+11696	Armadura de Placas Mágica+6
+11697	Armadura de Placas Mágica+7
+11698	Armadura de Placas Mágica+8
+11699	Armadura de Placas Mágica+9
+11700	Gang-Ryoung-Gab
+11701	Geuk-Hon-Gab
+11702	Ha-An-Gab
+11703	Bi-Sang-Gab
+11704	Ya-Sang-Gab
+11705	Noe-Un-Gab
+11706	Zeok-Sang-Gab
+11707	Heuk-Gui-Gab
+11708	Ma-Sin-Gab
+11709	Ma-Ryoung-Sin-Gab
+11800	Roupa Carmesim+0
+11801	Roupa Carmesim+1
+11802	Roupa Carmesim+2
+11803	Roupa Carmesim+3
+11804	Roupa Carmesim+4
+11805	Roupa Carmesim+5
+11806	Roupa Carmesim+6
+11807	Roupa Carmesim+7
+11808	Roupa Carmesim+8
+11809	Roupa Carmesim+9
+11810	Roupa Turquesa+0
+11811	Roupa Turquesa+1
+11812	Roupa Turquesa+2
+11813	Roupa Turquesa+3
+11814	Roupa Turquesa+4
+11815	Roupa Turquesa+5
+11816	Roupa Turquesa+6
+11817	Roupa Turquesa+7
+11818	Roupa Turquesa+8
+11819	Roupa Turquesa+9
+11820	Roupa Rosa+0
+11821	Roupa Rosa+1
+11822	Roupa Rosa+2
+11823	Roupa Rosa+3
+11824	Roupa Rosa+4
+11825	Roupa Rosa+5
+11826	Roupa Rosa+6
+11827	Roupa Rosa+7
+11828	Roupa Rosa+8
+11829	Roupa Rosa+9
+11830	Roupa Amorosa+0
+11831	Roupa Amorosa+1
+11832	Roupa Amorosa+2
+11833	Roupa Amorosa+3
+11834	Roupa Amorosa+4
+11835	Roupa Amorosa+5
+11836	Roupa Amorosa+6
+11837	Roupa Amorosa+7
+11838	Roupa Amorosa+8
+11839	Roupa Amorosa+9
+11840	Roupa Celestial+0
+11841	Roupa Celestial+1
+11842	Roupa Celestial+2
+11843	Roupa Celestial+3
+11844	Roupa Celestial+4
+11845	Roupa Celestial+5
+11846	Roupa Celestial+6
+11847	Roupa Celestial+7
+11848	Roupa Celestial+8
+11849	Roupa Celestial+9
+11850	Roupa do Sol+0
+11851	Roupa do Sol+1
+11852	Roupa do Sol+2
+11853	Roupa do Sol+3
+11854	Roupa do Sol+4
+11855	Roupa do Sol+5
+11856	Roupa do Sol+6
+11857	Roupa do Sol+7
+11858	Roupa do Sol+8
+11859	Roupa do Sol+9
+11860	Roupa da Moralidade+0
+11861	Roupa da Moralidade+1
+11862	Roupa da Moralidade+2
+11863	Roupa da Moralidade+3
+11864	Roupa da Moralidade+4
+11865	Roupa da Moralidade+5
+11866	Roupa da Moralidade+6
+11867	Roupa da Moralidade+7
+11868	Roupa da Moralidade+8
+11869	Roupa da Moralidade+9
+11870	Vestido Gato Laranja+0
+11871	Vestido Gato Laranja+1
+11872	Vestido Gato Laranja+2
+11873	Vestido Gato Laranja+3
+11874	Vestido Gato Laranja+4
+11875	Vestido Gato Laranja+5
+11876	Vestido Gato Laranja+6
+11877	Vestido Gato Laranja+7
+11878	Vestido Gato Laranja+8
+11879	Vestido Gato Laranja+9
+11880	Vestido da Baronesa+0
+11881	Vestido da Baronesa+1
+11882	Vestido da Baronesa+2
+11883	Vestido da Baronesa+3
+11884	Vestido da Baronesa+4
+11885	Vestido da Baronesa+5
+11886	Vestido da Baronesa+6
+11887	Vestido da Baronesa+7
+11888	Vestido da Baronesa+8
+11889	Vestido da Baronesa+9
+11890	Roupa Negra+0
+11891	Roupa Negra+1
+11892	Roupa Negra+2
+11893	Roupa Negra+3
+11894	Roupa Negra+4
+11895	Roupa Negra+5
+11896	Roupa Negra+6
+11897	Roupa Negra+7
+11898	Roupa Negra+8
+11899	Roupa Negra+9
+11901	Smoking
+11902	Smoking
+11903	Vestido de Noiva
+11904	Vestido de Noiva
+11911	Smoking
+11912	Smoking
+11913	Vestido de Noiva
+11914	Vestido de Noiva
+11951	Armadura de Placas do Monge
+11952	Traje Celeste
+11953	Armadura de Placas Réquiem
+11954	Roupa Carmesim
+11971	Armadura Hwang
+11972	Armadura Hwang Vermelha
+11973	Armadura Zin-Hwang
+11974	Armadura Sang-Hwang
+12000	Roupa Aqua+0
+12001	Roupa Aqua+1
+12002	Roupa Aqua+2
+12003	Roupa Aqua+3
+12004	Roupa Aqua+4
+12005	Roupa Aqua+5
+12006	Roupa Aqua+6
+12007	Roupa Aqua+7
+12008	Roupa Aqua+8
+12009	Roupa Aqua+9
+12010	Armadura de Aço Azul+0
+12011	Armadura de Aço Azul+1
+12012	Armadura de Aço Azul+2
+12013	Armadura de Aço Azul+3
+12014	Armadura de Aço Azul+4
+12015	Armadura de Aço Azul+5
+12016	Armadura de Aço Azul+6
+12017	Armadura de Aço Azul+7
+12018	Armadura de Aço Azul+8
+12019	Armadura de Aço Azul+9
+12020	Traje Dragão Azul+0
+12021	Traje Dragão Azul+1
+12022	Traje Dragão Azul+2
+12023	Traje Dragão Azul+3
+12024	Traje Dragão Azul+4
+12025	Traje Dragão Azul+5
+12026	Traje Dragão Azul+6
+12027	Traje Dragão Azul+7
+12028	Traje Dragão Azul+8
+12029	Traje Dragão Azul+9
+12030	Armadura de Placas da Aura+0
+12031	Armadura de Placas da Aura+1
+12032	Armadura de Placas da Aura+2
+12033	Armadura de Placas da Aura+3
+12034	Armadura de Placas da Aura+4
+12035	Armadura de Placas da Aura+5
+12036	Armadura de Placas da Aura+6
+12037	Armadura de Placas da Aura+7
+12038	Armadura de Placas da Aura+8
+12039	Armadura de Placas da Aura+9
+12040	Roupa do Dragão+0
+12041	Roupa do Dragão+1
+12042	Roupa do Dragão+2
+12043	Roupa do Dragão+3
+12044	Roupa do Dragão+4
+12045	Roupa do Dragão+5
+12046	Roupa do Dragão+6
+12047	Roupa do Dragão+7
+12048	Roupa do Dragão+8
+12049	Roupa do Dragão+9
+12200	Elmo Tradicional+0
+12201	Elmo Tradicional+1
+12202	Elmo Tradicional+2
+12203	Elmo Tradicional+3
+12204	Elmo Tradicional+4
+12205	Elmo Tradicional+5
+12206	Elmo Tradicional+6
+12207	Elmo Tradicional+7
+12208	Elmo Tradicional+8
+12209	Elmo Tradicional+9
+12220	Elmo de Ferro+0
+12221	Elmo de Ferro+1
+12222	Elmo de Ferro+2
+12223	Elmo de Ferro+3
+12224	Elmo de Ferro+4
+12225	Elmo de Ferro+5
+12226	Elmo de Ferro+6
+12227	Elmo de Ferro+7
+12228	Elmo de Ferro+8
+12229	Elmo de Ferro+9
+12240	Elmo Máscara Fantasma+0
+12241	Elmo Máscara Fantasma+1
+12242	Elmo Máscara Fantasma+2
+12243	Elmo Máscara Fantasma+3
+12244	Elmo Máscara Fantasma+4
+12245	Elmo Máscara Fantasma+5
+12246	Elmo Máscara Fantasma+6
+12247	Elmo Máscara Fantasma+7
+12248	Elmo Máscara Fantasma+8
+12249	Elmo Máscara Fantasma+9
+12260	Máscara do Medo+0
+12261	Máscara do Medo+1
+12262	Máscara do Medo+2
+12263	Máscara do Medo+3
+12264	Máscara do Medo+4
+12265	Máscara do Medo+5
+12266	Máscara do Medo+6
+12267	Máscara do Medo+7
+12268	Máscara do Medo+8
+12269	Máscara do Medo+9
+12280	Elmo do Mestre da Guerra+0
+12281	Elmo do Mestre da Guerra+1
+12282	Elmo do Mestre da Guerra+2
+12283	Elmo do Mestre da Guerra+3
+12284	Elmo do Mestre da Guerra+4
+12285	Elmo do Mestre da Guerra+5
+12286	Elmo do Mestre da Guerra+6
+12287	Elmo do Mestre da Guerra+7
+12288	Elmo do Mestre da Guerra+8
+12289	Elmo do Mestre da Guerra+9
+12340	Capuz de Couro+0
+12341	Capuz de Couro+1
+12342	Capuz de Couro+2
+12343	Capuz de Couro+3
+12344	Capuz de Couro+4
+12345	Capuz de Couro+5
+12346	Capuz de Couro+6
+12347	Capuz de Couro+7
+12348	Capuz de Couro+8
+12349	Capuz de Couro+9
+12360	Capuz de Malha+0
+12361	Capuz de Malha+1
+12362	Capuz de Malha+2
+12363	Capuz de Malha+3
+12364	Capuz de Malha+4
+12365	Capuz de Malha+5
+12366	Capuz de Malha+6
+12367	Capuz de Malha+7
+12368	Capuz de Malha+8
+12369	Capuz de Malha+9
+12380	Capuz de Aço+0
+12381	Capuz de Aço+1
+12382	Capuz de Aço+2
+12383	Capuz de Aço+3
+12384	Capuz de Aço+4
+12385	Capuz de Aço+5
+12386	Capuz de Aço+6
+12387	Capuz de Aço+7
+12388	Capuz de Aço+8
+12389	Capuz de Aço+9
+12390	Capuz Orc+0
+12391	Capuz Orc+1
+12392	Capuz Orc+2
+12393	Capuz Orc+3
+12394	Capuz Orc+4
+12395	Capuz Orc+5
+12396	Capuz Orc+6
+12397	Capuz Orc+7
+12398	Capuz Orc+8
+12399	Capuz Orc+9
+12400	Capuz Aranha+0
+12401	Capuz Aranha+1
+12402	Capuz Aranha+2
+12403	Capuz Aranha+3
+12404	Capuz Aranha+4
+12405	Capuz Aranha+5
+12406	Capuz Aranha+6
+12407	Capuz Aranha+7
+12408	Capuz Aranha+8
+12409	Capuz Aranha+9
+12480	Elmo Sangrento+0
+12481	Elmo Sangrento+1
+12482	Elmo Sangrento+2
+12483	Elmo Sangrento+3
+12484	Elmo Sangrento+4
+12485	Elmo Sangrento+5
+12486	Elmo Sangrento+6
+12487	Elmo Sangrento+7
+12488	Elmo Sangrento+8
+12489	Elmo Sangrento+9
+12500	Elmo Zombeteiro+0
+12501	Elmo Zombeteiro+1
+12502	Elmo Zombeteiro+2
+12503	Elmo Zombeteiro+3
+12504	Elmo Zombeteiro+4
+12505	Elmo Zombeteiro+5
+12506	Elmo Zombeteiro+6
+12507	Elmo Zombeteiro+7
+12508	Elmo Zombeteiro+8
+12509	Elmo Zombeteiro+9
+12520	Elmo do Castelo+0
+12521	Elmo do Castelo+1
+12522	Elmo do Castelo+2
+12523	Elmo do Castelo+3
+12524	Elmo do Castelo+4
+12525	Elmo do Castelo+5
+12526	Elmo do Castelo+6
+12527	Elmo do Castelo+7
+12528	Elmo do Castelo+8
+12529	Elmo do Castelo+9
+12530	Elmo com Chifres+0
+12531	Elmo com Chifres+1
+12532	Elmo com Chifres+2
+12533	Elmo com Chifres+3
+12534	Elmo com Chifres+4
+12535	Elmo com Chifres+5
+12536	Elmo com Chifres+6
+12537	Elmo com Chifres+7
+12538	Elmo com Chifres+8
+12539	Elmo com Chifres+9
+12540	Elmo Mágico+0
+12541	Elmo Mágico+1
+12542	Elmo Mágico+2
+12543	Elmo Mágico+3
+12544	Elmo Mágico+4
+12545	Elmo Mágico+5
+12546	Elmo Mágico+6
+12547	Elmo Mágico+7
+12548	Elmo Mágico+8
+12549	Elmo Mágico+9
+12620	Chapéu de Monge+0
+12621	Chapéu de Monge+1
+12622	Chapéu de Monge+2
+12623	Chapéu de Monge+3
+12624	Chapéu de Monge+4
+12625	Chapéu de Monge+5
+12626	Chapéu de Monge+6
+12627	Chapéu de Monge+7
+12628	Chapéu de Monge+8
+12629	Chapéu de Monge+9
+12640	Chapéu da Fênix+0
+12641	Chapéu da Fênix+1
+12642	Chapéu da Fênix+2
+12643	Chapéu da Fênix+3
+12644	Chapéu da Fênix+4
+12645	Chapéu da Fênix+5
+12646	Chapéu da Fênix+6
+12647	Chapéu da Fênix+7
+12648	Chapéu da Fênix+8
+12649	Chapéu da Fênix+9
+12660	Chapéu Luz do Sol+0
+12661	Chapéu Luz do Sol+1
+12662	Chapéu Luz do Sol+2
+12663	Chapéu Luz do Sol+3
+12664	Chapéu Luz do Sol+4
+12665	Chapéu Luz do Sol+5
+12666	Chapéu Luz do Sol+6
+12667	Chapéu Luz do Sol+7
+12668	Chapéu Luz do Sol+8
+12669	Chapéu Luz do Sol+9
+12670	Chapéu do Cardeal+0
+12671	Chapéu do Cardeal+1
+12672	Chapéu do Cardeal+2
+12673	Chapéu do Cardeal+3
+12674	Chapéu do Cardeal+4
+12675	Chapéu do Cardeal+5
+12676	Chapéu do Cardeal+6
+12677	Chapéu do Cardeal+7
+12678	Chapéu do Cardeal+8
+12679	Chapéu do Cardeal+9
+12680	Chapéu Fragmento de Alma+0
+12681	Chapéu Fragmento de Alma+1
+12682	Chapéu Fragmento de Alma+2
+12683	Chapéu Fragmento de Alma+3
+12684	Chapéu Fragmento de Alma+4
+12685	Chapéu Fragmento de Alma+5
+12686	Chapéu Fragmento de Alma+6
+12687	Chapéu Fragmento de Alma+7
+12688	Chapéu Fragmento de Alma+8
+12689	Chapéu Fragmento de Alma+9
+13000	Escudo de Batalha+0
+13001	Escudo de Batalha+1
+13002	Escudo de Batalha+2
+13003	Escudo de Batalha+3
+13004	Escudo de Batalha+4
+13005	Escudo de Batalha+5
+13006	Escudo de Batalha+6
+13007	Escudo de Batalha+7
+13008	Escudo de Batalha+8
+13009	Escudo de Batalha+9
+13020	Escudo Pentágono+0
+13021	Escudo Pentágono+1
+13022	Escudo Pentágono+2
+13023	Escudo Pentágono+3
+13024	Escudo Pentágono+4
+13025	Escudo Pentágono+5
+13026	Escudo Pentágono+6
+13027	Escudo Pentágono+7
+13028	Escudo Pentágono+8
+13029	Escudo Pentágono+9
+13040	Escudo Redondo Negro+0
+13041	Escudo Redondo Negro+1
+13042	Escudo Redondo Negro+2
+13043	Escudo Redondo Negro+3
+13044	Escudo Redondo Negro+4
+13045	Escudo Redondo Negro+5
+13046	Escudo Redondo Negro+6
+13047	Escudo Redondo Negro+7
+13048	Escudo Redondo Negro+8
+13049	Escudo Redondo Negro+9
+13060	Escudo do Falcão+0
+13061	Escudo do Falcão+1
+13062	Escudo do Falcão+2
+13063	Escudo do Falcão+3
+13064	Escudo do Falcão+4
+13065	Escudo do Falcão+5
+13066	Escudo do Falcão+6
+13067	Escudo do Falcão+7
+13068	Escudo do Falcão+8
+13069	Escudo do Falcão+9
+13080	Escudo do Tigre+0
+13081	Escudo do Tigre+1
+13082	Escudo do Tigre+2
+13083	Escudo do Tigre+3
+13084	Escudo do Tigre+4
+13085	Escudo do Tigre+5
+13086	Escudo do Tigre+6
+13087	Escudo do Tigre+7
+13088	Escudo do Tigre+8
+13089	Escudo do Tigre+9
+13100	Escudo Borda de Leão+0
+13101	Escudo Borda de Leão+1
+13102	Escudo Borda de Leão+2
+13103	Escudo Borda de Leão+3
+13104	Escudo Borda de Leão+4
+13105	Escudo Borda de Leão+5
+13106	Escudo Borda de Leão+6
+13107	Escudo Borda de Leão+7
+13108	Escudo Borda de Leão+8
+13109	Escudo Borda de Leão+9
+13120	Escudo Escama de Dragão+0
+13121	Escudo Escama de Dragão+1
+13122	Escudo Escama de Dragão+2
+13123	Escudo Escama de Dragão+3
+13124	Escudo Escama de Dragão+4
+13125	Escudo Escama de Dragão+5
+13126	Escudo Escama de Dragão+6
+13127	Escudo Escama de Dragão+7
+13128	Escudo Escama de Dragão+8
+13129	Escudo Escama de Dragão+9
+13140	Escudo do Titã+0
+13141	Escudo do Titã+1
+13142	Escudo do Titã+2
+13143	Escudo do Titã+3
+13144	Escudo do Titã+4
+13145	Escudo do Titã+5
+13146	Escudo do Titã+6
+13147	Escudo do Titã+7
+13148	Escudo do Titã+8
+13149	Escudo do Titã+9
+13160	Escudo dos Três Imperadores+0
+13161	Escudo dos Três Imperadores+1
+13162	Escudo dos Três Imperadores+2
+13163	Escudo dos Três Imperadores+3
+13164	Escudo dos Três Imperadores+4
+13165	Escudo dos Três Imperadores+5
+13166	Escudo dos Três Imperadores+6
+13167	Escudo dos Três Imperadores+7
+13168	Escudo dos Três Imperadores+8
+13169	Escudo dos Três Imperadores+9
+13180	Escudo Brilhante+0
+13181	Escudo Brilhante+1
+13182	Escudo Brilhante+2
+13183	Escudo Brilhante+3
+13184	Escudo Brilhante+4
+13185	Escudo Brilhante+5
+13186	Escudo Brilhante+6
+13187	Escudo Brilhante+7
+13188	Escudo Brilhante+8
+13189	Escudo Brilhante+9
+13190	Escudo Pentágono+0
+13191	Escudo Pentágono+1
+13192	Escudo Pentágono+2
+13193	Escudo Pentágono+3
+13194	Escudo Pentágono+4
+13195	Escudo Pentágono+5
+13196	Escudo Pentágono+6
+13197	Escudo Pentágono+7
+13198	Escudo Pentágono+8
+13199	Escudo Pentágono+9
+13200	Escudo Redondo Negro+0
+13201	Escudo Redondo Negro+1
+13202	Escudo Redondo Negro+2
+13203	Escudo Redondo Negro+3
+13204	Escudo Redondo Negro+4
+13205	Escudo Redondo Negro+5
+13206	Escudo Redondo Negro+6
+13207	Escudo Redondo Negro+7
+13208	Escudo Redondo Negro+8
+13209	Escudo Redondo Negro+9
+14000	Bracelete de Madeira+0
+14001	Bracelete de Madeira+1
+14002	Bracelete de Madeira+2
+14003	Bracelete de Madeira+3
+14004	Bracelete de Madeira+4
+14005	Bracelete de Madeira+5
+14006	Bracelete de Madeira+6
+14007	Bracelete de Madeira+7
+14008	Bracelete de Madeira+8
+14009	Bracelete de Madeira+9
+14020	Bracelete de Cobre+0
+14021	Bracelete de Cobre+1
+14022	Bracelete de Cobre+2
+14023	Bracelete de Cobre+3
+14024	Bracelete de Cobre+4
+14025	Bracelete de Cobre+5
+14026	Bracelete de Cobre+6
+14027	Bracelete de Cobre+7
+14028	Bracelete de Cobre+8
+14029	Bracelete de Cobre+9
+14040	Bracelete de Prata+0
+14041	Bracelete de Prata+1
+14042	Bracelete de Prata+2
+14043	Bracelete de Prata+3
+14044	Bracelete de Prata+4
+14045	Bracelete de Prata+5
+14046	Bracelete de Prata+6
+14047	Bracelete de Prata+7
+14048	Bracelete de Prata+8
+14049	Bracelete de Prata+9
+14060	Bracelete de Ouro+0
+14061	Bracelete de Ouro+1
+14062	Bracelete de Ouro+2
+14063	Bracelete de Ouro+3
+14064	Bracelete de Ouro+4
+14065	Bracelete de Ouro+5
+14066	Bracelete de Ouro+6
+14067	Bracelete de Ouro+7
+14068	Bracelete de Ouro+8
+14069	Bracelete de Ouro+9
+14080	Bracelete de Jade+0
+14081	Bracelete de Jade+1
+14082	Bracelete de Jade+2
+14083	Bracelete de Jade+3
+14084	Bracelete de Jade+4
+14085	Bracelete de Jade+5
+14086	Bracelete de Jade+6
+14087	Bracelete de Jade+7
+14088	Bracelete de Jade+8
+14089	Bracelete de Jade+9
+14100	Bracelete de Ébano+0
+14101	Bracelete de Ébano+1
+14102	Bracelete de Ébano+2
+14103	Bracelete de Ébano+3
+14104	Bracelete de Ébano+4
+14105	Bracelete de Ébano+5
+14106	Bracelete de Ébano+6
+14107	Bracelete de Ébano+7
+14108	Bracelete de Ébano+8
+14109	Bracelete de Ébano+9
+14120	Bracelete de Pérola+0
+14121	Bracelete de Pérola+1
+14122	Bracelete de Pérola+2
+14123	Bracelete de Pérola+3
+14124	Bracelete de Pérola+4
+14125	Bracelete de Pérola+5
+14126	Bracelete de Pérola+6
+14127	Bracelete de Pérola+7
+14128	Bracelete de Pérola+8
+14129	Bracelete de Pérola+9
+14140	Bracelete de Ouro Branco+0
+14141	Bracelete de Ouro Branco+1
+14142	Bracelete de Ouro Branco+2
+14143	Bracelete de Ouro Branco+3
+14144	Bracelete de Ouro Branco+4
+14145	Bracelete de Ouro Branco+5
+14146	Bracelete de Ouro Branco+6
+14147	Bracelete de Ouro Branco+7
+14148	Bracelete de Ouro Branco+8
+14149	Bracelete de Ouro Branco+9
+14160	Bracelete de Cristal+0
+14161	Bracelete de Cristal+1
+14162	Bracelete de Cristal+2
+14163	Bracelete de Cristal+3
+14164	Bracelete de Cristal+4
+14165	Bracelete de Cristal+5
+14166	Bracelete de Cristal+6
+14167	Bracelete de Cristal+7
+14168	Bracelete de Cristal+8
+14169	Bracelete de Cristal+9
+14180	Bracelete de Ametista+0
+14181	Bracelete de Ametista+1
+14182	Bracelete de Ametista+2
+14183	Bracelete de Ametista+3
+14184	Bracelete de Ametista+4
+14185	Bracelete de Ametista+5
+14186	Bracelete de Ametista+6
+14187	Bracelete de Ametista+7
+14188	Bracelete de Ametista+8
+14189	Bracelete de Ametista+9
+14200	Bracelete Lágrima do Céu+0
+14201	Bracelete Lágrima do Céu+1
+14202	Bracelete Lágrima do Céu+2
+14203	Bracelete Lágrima do Céu+3
+14204	Bracelete Lágrima do Céu+4
+14205	Bracelete Lágrima do Céu+5
+14206	Bracelete Lágrima do Céu+6
+14207	Bracelete Lágrima do Céu+7
+14208	Bracelete Lágrima do Céu+8
+14209	Bracelete Lágrima do Céu+9
+14220	Bracelete Cristal da Alma+0
+14221	Bracelete Cristal da Alma+1
+14222	Bracelete Cristal da Alma+2
+14223	Bracelete Cristal da Alma+3
+14224	Bracelete Cristal da Alma+4
+14225	Bracelete Cristal da Alma+5
+14226	Bracelete Cristal da Alma+6
+14227	Bracelete Cristal da Alma+7
+14228	Bracelete Cristal da Alma+8
+14229	Bracelete Cristal da Alma+9
+14500	Bracelete de Rubi+0
+14501	Bracelete de Rubi+1
+14502	Bracelete de Rubi+2
+14503	Bracelete de Rubi+3
+14504	Bracelete de Rubi+4
+14505	Bracelete de Rubi+5
+14506	Bracelete de Rubi+6
+14507	Bracelete de Rubi+7
+14508	Bracelete de Rubi+8
+14509	Bracelete de Rubi+9
+14520	Bracelete de Granada+0
+14521	Bracelete de Granada+1
+14522	Bracelete de Granada+2
+14523	Bracelete de Granada+3
+14524	Bracelete de Granada+4
+14525	Bracelete de Granada+5
+14526	Bracelete de Granada+6
+14527	Bracelete de Granada+7
+14528	Bracelete de Granada+8
+14529	Bracelete de Granada+9
+14540	Bracelete de Esmeralda+0
+14541	Bracelete de Esmeralda+1
+14542	Bracelete de Esmeralda+2
+14543	Bracelete de Esmeralda+3
+14544	Bracelete de Esmeralda+4
+14545	Bracelete de Esmeralda+5
+14546	Bracelete de Esmeralda+6
+14547	Bracelete de Esmeralda+7
+14548	Bracelete de Esmeralda+8
+14549	Bracelete de Esmeralda+9
+14560	Bracelete de Safira+0
+14561	Bracelete de Safira+1
+14562	Bracelete de Safira+2
+14563	Bracelete de Safira+3
+14564	Bracelete de Safira+4
+14565	Bracelete de Safira+5
+14566	Bracelete de Safira+6
+14567	Bracelete de Safira+7
+14568	Bracelete de Safira+8
+14569	Bracelete de Safira+9
+15000	Sapatos de Couro+0
+15001	Sapatos de Couro+1
+15002	Sapatos de Couro+2
+15003	Sapatos de Couro+3
+15004	Sapatos de Couro+4
+15005	Sapatos de Couro+5
+15006	Sapatos de Couro+6
+15007	Sapatos de Couro+7
+15008	Sapatos de Couro+8
+15009	Sapatos de Couro+9
+15020	Sapatos de Casca de Bambu+0
+15021	Sapatos de Casca de Bambu+1
+15022	Sapatos de Casca de Bambu+2
+15023	Sapatos de Casca de Bambu+3
+15024	Sapatos de Casca de Bambu+4
+15025	Sapatos de Casca de Bambu+5
+15026	Sapatos de Casca de Bambu+6
+15027	Sapatos de Casca de Bambu+7
+15028	Sapatos de Casca de Bambu+8
+15029	Sapatos de Casca de Bambu+9
+15040	Tamancos+0
+15041	Tamancos+1
+15042	Tamancos+2
+15043	Tamancos+3
+15044	Tamancos+4
+15045	Tamancos+5
+15046	Tamancos+6
+15047	Tamancos+7
+15048	Tamancos+8
+15049	Tamancos+9
+15060	Sapatos com Fios de Ouro+0
+15061	Sapatos com Fios de Ouro+1
+15062	Sapatos com Fios de Ouro+2
+15063	Sapatos com Fios de Ouro+3
+15064	Sapatos com Fios de Ouro+4
+15065	Sapatos com Fios de Ouro+5
+15066	Sapatos com Fios de Ouro+6
+15067	Sapatos com Fios de Ouro+7
+15068	Sapatos com Fios de Ouro+8
+15069	Sapatos com Fios de Ouro+9
+15080	Botas de Couro+0
+15081	Botas de Couro+1
+15082	Botas de Couro+2
+15083	Botas de Couro+3
+15084	Botas de Couro+4
+15085	Botas de Couro+5
+15086	Botas de Couro+6
+15087	Botas de Couro+7
+15088	Botas de Couro+8
+15089	Botas de Couro+9
+15100	Sapatos Dourados+0
+15101	Sapatos Dourados+1
+15102	Sapatos Dourados+2
+15103	Sapatos Dourados+3
+15104	Sapatos Dourados+4
+15105	Sapatos Dourados+5
+15106	Sapatos Dourados+6
+15107	Sapatos Dourados+7
+15108	Sapatos Dourados+8
+15109	Sapatos Dourados+9
+15120	Botas de Bronze+0
+15121	Botas de Bronze+1
+15122	Botas de Bronze+2
+15123	Botas de Bronze+3
+15124	Botas de Bronze+4
+15125	Botas de Bronze+5
+15126	Botas de Bronze+6
+15127	Botas de Bronze+7
+15128	Botas de Bronze+8
+15129	Botas de Bronze+9
+15140	Sapatos de Jade+0
+15141	Sapatos de Jade+1
+15142	Sapatos de Jade+2
+15143	Sapatos de Jade+3
+15144	Sapatos de Jade+4
+15145	Sapatos de Jade+5
+15146	Sapatos de Jade+6
+15147	Sapatos de Jade+7
+15148	Sapatos de Jade+8
+15149	Sapatos de Jade+9
+15160	Sapatos do Êxtase+0
+15161	Sapatos do Êxtase+1
+15162	Sapatos do Êxtase+2
+15163	Sapatos do Êxtase+3
+15164	Sapatos do Êxtase+4
+15165	Sapatos do Êxtase+5
+15166	Sapatos do Êxtase+6
+15167	Sapatos do Êxtase+7
+15168	Sapatos do Êxtase+8
+15169	Sapatos do Êxtase+9
+15180	Botas Nimbus+0
+15181	Botas Nimbus+1
+15182	Botas Nimbus+2
+15183	Botas Nimbus+3
+15184	Botas Nimbus+4
+15185	Botas Nimbus+5
+15186	Botas Nimbus+6
+15187	Botas Nimbus+7
+15188	Botas Nimbus+8
+15189	Botas Nimbus+9
+15200	Sapatos da Fênix+0
+15201	Sapatos da Fênix+1
+15202	Sapatos da Fênix+2
+15203	Sapatos da Fênix+3
+15204	Sapatos da Fênix+4
+15205	Sapatos da Fênix+5
+15206	Sapatos da Fênix+6
+15207	Sapatos da Fênix+7
+15208	Sapatos da Fênix+8
+15209	Sapatos da Fênix+9
+15220	Sapatos Pássaro de Fogo+0
+15221	Sapatos Pássaro de Fogo+1
+15222	Sapatos Pássaro de Fogo+2
+15223	Sapatos Pássaro de Fogo+3
+15224	Sapatos Pássaro de Fogo+4
+15225	Sapatos Pássaro de Fogo+5
+15226	Sapatos Pássaro de Fogo+6
+15227	Sapatos Pássaro de Fogo+7
+15228	Sapatos Pássaro de Fogo+8
+15229	Sapatos Pássaro de Fogo+9
+15240	Sapatos Pele de Dragão+0
+15241	Sapatos Pele de Dragão+1
+15242	Sapatos Pele de Dragão+2
+15243	Sapatos Pele de Dragão+3
+15244	Sapatos Pele de Dragão+4
+15245	Sapatos Pele de Dragão+5
+15246	Sapatos Pele de Dragão+6
+15247	Sapatos Pele de Dragão+7
+15248	Sapatos Pele de Dragão+8
+15249	Sapatos Pele de Dragão+9
+15370	Sapatos da Euforia+0
+15371	Sapatos da Euforia+1
+15372	Sapatos da Euforia+2
+15373	Sapatos da Euforia+3
+15374	Sapatos da Euforia+4
+15375	Sapatos da Euforia+5
+15376	Sapatos da Euforia+6
+15377	Sapatos da Euforia+7
+15378	Sapatos da Euforia+8
+15379	Sapatos da Euforia+9
+15390	Botas da Glória+0
+15391	Botas da Glória+1
+15392	Botas da Glória+2
+15393	Botas da Glória+3
+15394	Botas da Glória+4
+15395	Botas da Glória+5
+15396	Botas da Glória+6
+15397	Botas da Glória+7
+15398	Botas da Glória+8
+15399	Botas da Glória+9
+15410	Sapatos Qilin+0
+15411	Sapatos Qilin+1
+15412	Sapatos Qilin+2
+15413	Sapatos Qilin+3
+15414	Sapatos Qilin+4
+15415	Sapatos Qilin+5
+15416	Sapatos Qilin+6
+15417	Sapatos Qilin+7
+15418	Sapatos Qilin+8
+15419	Sapatos Qilin+9
+15430	Sapatos Martim-Pescador+0
+15431	Sapatos Martim-Pescador+1
+15432	Sapatos Martim-Pescador+2
+15433	Sapatos Martim-Pescador+3
+15434	Sapatos Martim-Pescador+4
+15435	Sapatos Martim-Pescador+5
+15436	Sapatos Martim-Pescador+6
+15437	Sapatos Martim-Pescador+7
+15438	Sapatos Martim-Pescador+8
+15439	Sapatos Martim-Pescador+9
+16000	Colar de Madeira+0
+16001	Colar de Madeira+1
+16002	Colar de Madeira+2
+16003	Colar de Madeira+3
+16004	Colar de Madeira+4
+16005	Colar de Madeira+5
+16006	Colar de Madeira+6
+16007	Colar de Madeira+7
+16008	Colar de Madeira+8
+16009	Colar de Madeira+9
+16020	Colar de Cobre+0
+16021	Colar de Cobre+1
+16022	Colar de Cobre+2
+16023	Colar de Cobre+3
+16024	Colar de Cobre+4
+16025	Colar de Cobre+5
+16026	Colar de Cobre+6
+16027	Colar de Cobre+7
+16028	Colar de Cobre+8
+16029	Colar de Cobre+9
+16040	Colar de Prata+0
+16041	Colar de Prata+1
+16042	Colar de Prata+2
+16043	Colar de Prata+3
+16044	Colar de Prata+4
+16045	Colar de Prata+5
+16046	Colar de Prata+6
+16047	Colar de Prata+7
+16048	Colar de Prata+8
+16049	Colar de Prata+9
+16060	Colar de Ouro+0
+16061	Colar de Ouro+1
+16062	Colar de Ouro+2
+16063	Colar de Ouro+3
+16064	Colar de Ouro+4
+16065	Colar de Ouro+5
+16066	Colar de Ouro+6
+16067	Colar de Ouro+7
+16068	Colar de Ouro+8
+16069	Colar de Ouro+9
+16080	Colar de Jade+0
+16081	Colar de Jade+1
+16082	Colar de Jade+2
+16083	Colar de Jade+3
+16084	Colar de Jade+4
+16085	Colar de Jade+5
+16086	Colar de Jade+6
+16087	Colar de Jade+7
+16088	Colar de Jade+8
+16089	Colar de Jade+9
+16100	Colar de Ébano+0
+16101	Colar de Ébano+1
+16102	Colar de Ébano+2
+16103	Colar de Ébano+3
+16104	Colar de Ébano+4
+16105	Colar de Ébano+5
+16106	Colar de Ébano+6
+16107	Colar de Ébano+7
+16108	Colar de Ébano+8
+16109	Colar de Ébano+9
+16120	Colar de Pérola+0
+16121	Colar de Pérola+1
+16122	Colar de Pérola+2
+16123	Colar de Pérola+3
+16124	Colar de Pérola+4
+16125	Colar de Pérola+5
+16126	Colar de Pérola+6
+16127	Colar de Pérola+7
+16128	Colar de Pérola+8
+16129	Colar de Pérola+9
+16140	Colar de Ouro Branco+0
+16141	Colar de Ouro Branco+1
+16142	Colar de Ouro Branco+2
+16143	Colar de Ouro Branco+3
+16144	Colar de Ouro Branco+4
+16145	Colar de Ouro Branco+5
+16146	Colar de Ouro Branco+6
+16147	Colar de Ouro Branco+7
+16148	Colar de Ouro Branco+8
+16149	Colar de Ouro Branco+9
+16160	Colar de Cristal+0
+16161	Colar de Cristal+1
+16162	Colar de Cristal+2
+16163	Colar de Cristal+3
+16164	Colar de Cristal+4
+16165	Colar de Cristal+5
+16166	Colar de Cristal+6
+16167	Colar de Cristal+7
+16168	Colar de Cristal+8
+16169	Colar de Cristal+9
+16180	Colar de Ametista+0
+16181	Colar de Ametista+1
+16182	Colar de Ametista+2
+16183	Colar de Ametista+3
+16184	Colar de Ametista+4
+16185	Colar de Ametista+5
+16186	Colar de Ametista+6
+16187	Colar de Ametista+7
+16188	Colar de Ametista+8
+16189	Colar de Ametista+9
+16200	Colar Lágrima do Céu+0
+16201	Colar Lágrima do Céu+1
+16202	Colar Lágrima do Céu+2
+16203	Colar Lágrima do Céu+3
+16204	Colar Lágrima do Céu+4
+16205	Colar Lágrima do Céu+5
+16206	Colar Lágrima do Céu+6
+16207	Colar Lágrima do Céu+7
+16208	Colar Lágrima do Céu+8
+16209	Colar Lágrima do Céu+9
+16220	Colar Cristal da Alma+0
+16221	Colar Cristal da Alma+1
+16222	Colar Cristal da Alma+2
+16223	Colar Cristal da Alma+3
+16224	Colar Cristal da Alma+4
+16225	Colar Cristal da Alma+5
+16226	Colar Cristal da Alma+6
+16227	Colar Cristal da Alma+7
+16228	Colar Cristal da Alma+8
+16229	Colar Cristal da Alma+9
+16500	Colar de Rubi+0
+16501	Colar de Rubi+1
+16502	Colar de Rubi+2
+16503	Colar de Rubi+3
+16504	Colar de Rubi+4
+16505	Colar de Rubi+5
+16506	Colar de Rubi+6
+16507	Colar de Rubi+7
+16508	Colar de Rubi+8
+16509	Colar de Rubi+9
+16520	Colar de Granada+0
+16521	Colar de Granada+1
+16522	Colar de Granada+2
+16523	Colar de Granada+3
+16524	Colar de Granada+4
+16525	Colar de Granada+5
+16526	Colar de Granada+6
+16527	Colar de Granada+7
+16528	Colar de Granada+8
+16529	Colar de Granada+9
+16540	Colar de Esmeralda+0
+16541	Colar de Esmeralda+1
+16542	Colar de Esmeralda+2
+16543	Colar de Esmeralda+3
+16544	Colar de Esmeralda+4
+16545	Colar de Esmeralda+5
+16546	Colar de Esmeralda+6
+16547	Colar de Esmeralda+7
+16548	Colar de Esmeralda+8
+16549	Colar de Esmeralda+9
+16560	Colar de Safira+0
+16561	Colar de Safira+1
+16562	Colar de Safira+2
+16563	Colar de Safira+3
+16564	Colar de Safira+4
+16565	Colar de Safira+5
+16566	Colar de Safira+6
+16567	Colar de Safira+7
+16568	Colar de Safira+8
+16569	Colar de Safira+9
+17000	Brincos de Madeira+0
+17001	Brincos de Madeira+1
+17002	Brincos de Madeira+2
+17003	Brincos de Madeira+3
+17004	Brincos de Madeira+4
+17005	Brincos de Madeira+5
+17006	Brincos de Madeira+6
+17007	Brincos de Madeira+7
+17008	Brincos de Madeira+8
+17009	Brincos de Madeira+9
+17020	Brincos de Cobre+0
+17021	Brincos de Cobre+1
+17022	Brincos de Cobre+2
+17023	Brincos de Cobre+3
+17024	Brincos de Cobre+4
+17025	Brincos de Cobre+5
+17026	Brincos de Cobre+6
+17027	Brincos de Cobre+7
+17028	Brincos de Cobre+8
+17029	Brincos de Cobre+9
+17040	Brincos de Prata+0
+17041	Brincos de Prata+1
+17042	Brincos de Prata+2
+17043	Brincos de Prata+3
+17044	Brincos de Prata+4
+17045	Brincos de Prata+5
+17046	Brincos de Prata+6
+17047	Brincos de Prata+7
+17048	Brincos de Prata+8
+17049	Brincos de Prata+9
+17060	Brincos de Ouro+0
+17061	Brincos de Ouro+1
+17062	Brincos de Ouro+2
+17063	Brincos de Ouro+3
+17064	Brincos de Ouro+4
+17065	Brincos de Ouro+5
+17066	Brincos de Ouro+6
+17067	Brincos de Ouro+7
+17068	Brincos de Ouro+8
+17069	Brincos de Ouro+9
+17080	Brincos de Jade+0
+17081	Brincos de Jade+1
+17082	Brincos de Jade+2
+17083	Brincos de Jade+3
+17084	Brincos de Jade+4
+17085	Brincos de Jade+5
+17086	Brincos de Jade+6
+17087	Brincos de Jade+7
+17088	Brincos de Jade+8
+17089	Brincos de Jade+9
+17100	Brincos de Ébano+0
+17101	Brincos de Ébano+1
+17102	Brincos de Ébano+2
+17103	Brincos de Ébano+3
+17104	Brincos de Ébano+4
+17105	Brincos de Ébano+5
+17106	Brincos de Ébano+6
+17107	Brincos de Ébano+7
+17108	Brincos de Ébano+8
+17109	Brincos de Ébano+9
+17120	Brincos de Pérola+0
+17121	Brincos de Pérola+1
+17122	Brincos de Pérola+2
+17123	Brincos de Pérola+3
+17124	Brincos de Pérola+4
+17125	Brincos de Pérola+5
+17126	Brincos de Pérola+6
+17127	Brincos de Pérola+7
+17128	Brincos de Pérola+8
+17129	Brincos de Pérola+9
+17140	Brincos de Ouro Branco+0
+17141	Brincos de Ouro Branco+1
+17142	Brincos de Ouro Branco+2
+17143	Brincos de Ouro Branco+3
+17144	Brincos de Ouro Branco+4
+17145	Brincos de Ouro Branco+5
+17146	Brincos de Ouro Branco+6
+17147	Brincos de Ouro Branco+7
+17148	Brincos de Ouro Branco+8
+17149	Brincos de Ouro Branco+9
+17160	Brincos de Cristal+0
+17161	Brincos de Cristal+1
+17162	Brincos de Cristal+2
+17163	Brincos de Cristal+3
+17164	Brincos de Cristal+4
+17165	Brincos de Cristal+5
+17166	Brincos de Cristal+6
+17167	Brincos de Cristal+7
+17168	Brincos de Cristal+8
+17169	Brincos de Cristal+9
+17180	Brincos de Ametista+0
+17181	Brincos de Ametista+1
+17182	Brincos de Ametista+2
+17183	Brincos de Ametista+3
+17184	Brincos de Ametista+4
+17185	Brincos de Ametista+5
+17186	Brincos de Ametista+6
+17187	Brincos de Ametista+7
+17188	Brincos de Ametista+8
+17189	Brincos de Ametista+9
+17200	Brincos Lágrima do Céu+0
+17201	Brincos Lágrima do Céu+1
+17202	Brincos Lágrima do Céu+2
+17203	Brincos Lágrima do Céu+3
+17204	Brincos Lágrima do Céu+4
+17205	Brincos Lágrima do Céu+5
+17206	Brincos Lágrima do Céu+6
+17207	Brincos Lágrima do Céu+7
+17208	Brincos Lágrima do Céu+8
+17209	Brincos Lágrima do Céu+9
+17220	Brincos Cristal da Alma+0
+17221	Brincos Cristal da Alma+1
+17222	Brincos Cristal da Alma+2
+17223	Brincos Cristal da Alma+3
+17224	Brincos Cristal da Alma+4
+17225	Brincos Cristal da Alma+5
+17226	Brincos Cristal da Alma+6
+17227	Brincos Cristal da Alma+7
+17228	Brincos Cristal da Alma+8
+17229	Brincos Cristal da Alma+9
+17500	Brincos de Rubi+0
+17501	Brincos de Rubi+1
+17502	Brincos de Rubi+2
+17503	Brincos de Rubi+3
+17504	Brincos de Rubi+4
+17505	Brincos de Rubi+5
+17506	Brincos de Rubi+6
+17507	Brincos de Rubi+7
+17508	Brincos de Rubi+8
+17509	Brincos de Rubi+9
+17520	Brincos de Granada+0
+17521	Brincos de Granada+1
+17522	Brincos de Granada+2
+17523	Brincos de Granada+3
+17524	Brincos de Granada+4
+17525	Brincos de Granada+5
+17526	Brincos de Granada+6
+17527	Brincos de Granada+7
+17528	Brincos de Granada+8
+17529	Brincos de Granada+9
+17540	Brincos de Esmeralda+0
+17541	Brincos de Esmeralda+1
+17542	Brincos de Esmeralda+2
+17543	Brincos de Esmeralda+3
+17544	Brincos de Esmeralda+4
+17545	Brincos de Esmeralda+5
+17546	Brincos de Esmeralda+6
+17547	Brincos de Esmeralda+7
+17548	Brincos de Esmeralda+8
+17549	Brincos de Esmeralda+9
+17560	Brincos de Safira+0
+17561	Brincos de Safira+1
+17562	Brincos de Safira+2
+17563	Brincos de Safira+3
+17564	Brincos de Safira+4
+17565	Brincos de Safira+5
+17566	Brincos de Safira+6
+17567	Brincos de Safira+7
+17568	Brincos de Safira+8
+17569	Brincos de Safira+9
+18000	Cinto de Linho+0
+18001	Cinto de Linho+1
+18002	Cinto de Linho+2
+18003	Cinto de Linho+3
+18004	Cinto de Linho+4
+18005	Cinto de Linho+5
+18006	Cinto de Linho+6
+18007	Cinto de Linho+7
+18008	Cinto de Linho+8
+18009	Cinto de Linho+9
+18010	Cinto de Couro+0
+18011	Cinto de Couro+1
+18012	Cinto de Couro+2
+18013	Cinto de Couro+3
+18014	Cinto de Couro+4
+18015	Cinto de Couro+5
+18016	Cinto de Couro+6
+18017	Cinto de Couro+7
+18018	Cinto de Couro+8
+18019	Cinto de Couro+9
+18020	Cinto Magnífico+0
+18021	Cinto Magnífico+1
+18022	Cinto Magnífico+2
+18023	Cinto Magnífico+3
+18024	Cinto Magnífico+4
+18025	Cinto Magnífico+5
+18026	Cinto Magnífico+6
+18027	Cinto Magnífico+7
+18028	Cinto Magnífico+8
+18029	Cinto Magnífico+9
+18030	Cinto da Sabedoria+0
+18031	Cinto da Sabedoria+1
+18032	Cinto da Sabedoria+2
+18033	Cinto da Sabedoria+3
+18034	Cinto da Sabedoria+4
+18035	Cinto da Sabedoria+5
+18036	Cinto da Sabedoria+6
+18037	Cinto da Sabedoria+7
+18038	Cinto da Sabedoria+8
+18039	Cinto da Sabedoria+9
+18040	Cinto do Rei+0
+18041	Cinto do Rei+1
+18042	Cinto do Rei+2
+18043	Cinto do Rei+3
+18044	Cinto do Rei+4
+18045	Cinto do Rei+5
+18046	Cinto do Rei+6
+18047	Cinto do Rei+7
+18048	Cinto do Rei+8
+18049	Cinto do Rei+9
+18050	Cinto das Sombras+0
+18051	Cinto das Sombras+1
+18052	Cinto das Sombras+2
+18053	Cinto das Sombras+3
+18054	Cinto das Sombras+4
+18055	Cinto das Sombras+5
+18056	Cinto das Sombras+6
+18057	Cinto das Sombras+7
+18058	Cinto das Sombras+8
+18059	Cinto das Sombras+9
+18060	Cinto Rúnico+0
+18061	Cinto Rúnico+1
+18062	Cinto Rúnico+2
+18063	Cinto Rúnico+3
+18064	Cinto Rúnico+4
+18065	Cinto Rúnico+5
+18066	Cinto Rúnico+6
+18067	Cinto Rúnico+7
+18068	Cinto Rúnico+8
+18069	Cinto Rúnico+9
+18070	Cinto do Grande Urso+0
+18071	Cinto do Grande Urso+1
+18072	Cinto do Grande Urso+2
+18073	Cinto do Grande Urso+3
+18074	Cinto do Grande Urso+4
+18075	Cinto do Grande Urso+5
+18076	Cinto do Grande Urso+6
+18077	Cinto do Grande Urso+7
+18078	Cinto do Grande Urso+8
+18079	Cinto do Grande Urso+9
+18080	Cinto das Almas+0
+18081	Cinto das Almas+1
+18082	Cinto das Almas+2
+18083	Cinto das Almas+3
+18084	Cinto das Almas+4
+18085	Cinto das Almas+5
+18086	Cinto das Almas+6
+18087	Cinto das Almas+7
+18088	Cinto das Almas+8
+18089	Cinto das Almas+9
+18900	Pedra Chama Vermelha
+20000	Armadura Chifre do Diabo+0
+20001	Armadura Chifre do Diabo+1
+20002	Armadura Chifre do Diabo+2
+20003	Armadura Chifre do Diabo+3
+20004	Armadura Chifre do Diabo+4
+20005	Armadura Chifre do Diabo+5
+20006	Armadura Chifre do Diabo+6
+20007	Armadura Chifre do Diabo+7
+20008	Armadura Chifre do Diabo+8
+20009	Armadura Chifre do Diabo+9
+20250	Traje Cavaleiro do Dragão+0
+20251	Traje Cavaleiro do Dragão+1
+20252	Traje Cavaleiro do Dragão+2
+20253	Traje Cavaleiro do Dragão+3
+20254	Traje Cavaleiro do Dragão+4
+20255	Traje Cavaleiro do Dragão+5
+20256	Traje Cavaleiro do Dragão+6
+20257	Traje Cavaleiro do Dragão+7
+20258	Traje Cavaleiro do Dragão+8
+20259	Traje Cavaleiro do Dragão+9
+20500	Armadura de Placas de Osso+0
+20501	Armadura de Placas de Osso+1
+20502	Armadura de Placas de Osso+2
+20503	Armadura de Placas de Osso+3
+20504	Armadura de Placas de Osso+4
+20505	Armadura de Placas de Osso+5
+20506	Armadura de Placas de Osso+6
+20507	Armadura de Placas de Osso+7
+20508	Armadura de Placas de Osso+8
+20509	Armadura de Placas de Osso+9
+20750	Roupa Dourada+0
+20751	Roupa Dourada+1
+20752	Roupa Dourada+2
+20753	Roupa Dourada+3
+20754	Roupa Dourada+4
+20755	Roupa Dourada+5
+20756	Roupa Dourada+6
+20757	Roupa Dourada+7
+20758	Roupa Dourada+8
+20759	Roupa Dourada+9
+22000	Pergaminho da Cidade
+22001	Voltar à cidade
+22010	Pergaminho da Localização
+22011	Pergaminho da Localização
+22020	Papel
+22030	Pergaminho de Teleporte
+22040	Pergaminho da Vida
+22050	Pergaminho da Encarnação
+25040	Pergaminho da Bênção
+25041	Pergaminho da Bênção
+25100	Pergaminho da Pedra Espiritual
+27001	Poção Vermelha (P)
+27002	Poção Vermelha (M)
+27003	Poção Vermelha (G)
+27004	Poção Azul (P)
+27005	Poção Azul (M)
+27006	Poção Azul (G)
+27051	Poção Vermelha (P)
+27052	Poção Azul (P)
+27053	Poção Verde (P)
+27054	Poção Roxa (P)
+27100	Poção Verde (P)
+27101	Poção Verde (M)
+27102	Poção Verde (G)
+27103	Poção Roxa (P)
+27104	Poção Roxa (M)
+27105	Poção Roxa (G)
+27110	Poção Verde (P)
+27111	Poção Verde (M)
+27112	Poção Verde (G)
+27113	Poção Roxa (P)
+27114	Poção Roxa (M)
+27115	Poção Roxa (G)
+27116	Poção Rosa (P)
+27117	Poção Rosa (M)
+27118	Poção Rosa (G)
+27119	Poção Azul-Celeste (P)
+27120	Poção Azul-Celeste (M)
+27121	Poção Azul-Celeste (G)
+27400	Vara de Pesca+0
+27410	Vara de Pesca+1
+27420	Vara de Pesca+2
+27430	Vara de Pesca+3
+27440	Vara de Pesca+4
+27450	Vara de Pesca+5
+27460	Vara de Pesca+6
+27470	Vara de Pesca+7
+27480	Vara de Pesca+8
+27490	Vara de Pesca+9
+27500	Vara de Pesca+10
+27510	Vara de Pesca+11
+27520	Vara de Pesca+12
+27530	Vara de Pesca+13
+27540	Vara de Pesca+14
+27550	Vara de Pesca+15
+27560	Vara de Pesca+16
+27570	Vara de Pesca+17
+27580	Vara de Pesca+18
+27590	Vara de Pesca+19
+27600	Fogueira
+27610	Bola de Pesca
+27620	Licença de Pesca
+27799	Espinhas de Peixe
+27800	Massa
+27801	Minhoca
+27802	Lambari
+27803	Zander
+27804	Peixe-Mandarim
+27805	Zander Grande
+27806	Carpa
+27807	Salmão
+27808	Carpa-Capim
+27809	Truta de Riacho
+27810	Enguia
+27811	Truta Arco-Íris
+27812	Truta de Rio
+27813	Escardínio
+27814	Perca
+27815	Tenca
+27816	Bagre
+27817	Cadoz
+27818	Peixe-Lótus
+27819	Ayu
+27820	Eperlano
+27821	Shiri
+27822	Carpa-Espelho
+27823	Peixe-Dourado
+27833	Zander Morto
+27834	Peixe-Mandarim Morto
+27835	Zander Grande Morto
+27836	Carpa Morta
+27837	Salmão Morto
+27838	Carpa-Capim Morta
+27839	Truta de Riacho Morta
+27840	Enguia Morta
+27841	Truta Arco-Íris Morta
+27842	Truta de Rio Morta
+27843	Escardínio Morto
+27844	Perca Morta
+27845	Tenca Morta
+27846	Bagre Morto
+27847	Cadoz Morto
+27848	Peixe-Lótus Morto
+27849	Ayu Morto
+27850	Eperlano Morto
+27851	Shiri Morto
+27852	Carpa-Espelho Morta
+27853	Peixe-Dourado Morto
+27863	Zander Assado
+27864	Peixe-Mandarim Assado
+27865	Zander Grande Assado
+27866	Carpa Assada
+27867	Salmão Assado
+27868	Carpa-Capim Assada
+27869	Truta de Riacho Assada
+27870	Enguia Assada
+27871	Truta Arco-Íris Assada
+27872	Truta de Rio Assada
+27873	Escardínio Assado
+27874	Perca Assada
+27875	Tenca Assada
+27876	Bagre Assado
+27877	Cadoz Assado
+27878	Peixe-Lótus Assado
+27879	Ayu Assado
+27880	Eperlano Assado
+27881	Shiri Assado
+27882	Carpa-Espelho Assada
+27883	Peixe-Dourado Assado
+27987	Marisco
+27988	Mapa do Tesouro
+27989	Bússola de Pedras Metin
+27990	Pedaço de Pedra
+27991	Pedra d'Água
+27992	Pérola Branca
+27993	Pérola Azul
+27994	Pérola Vermelho-Sangue
+27995	Garrafa Vazia
+27996	Garrafa de Veneno
+27997	Bola da Vitalidade
+27998	Bolsa de Alquimia
+27999	Bolsa de Pedras Espirituais
+28000	Pedra do Massacre+0
+28004	Pedra da Paranoia+0
+28008	Pedra do Trauma+0
+28012	Pedra contra Licantropos+0
+28030	Pedra da Perfuração+0
+28031	Pedra do Golpe Mortal+0
+28032	Pedra da Recarga+0
+28033	Pedra contra Guerreiros+0
+28034	Pedra contra Ninjas+0
+28035	Pedra contra Suras+0
+28036	Pedra contra Xamãs+0
+28037	Pedra dos Monstros+0
+28038	Pedra da Evasão+0
+28039	Pedra da Esquiva+0
+28040	Pedra da Magia+0
+28041	Pedra da Vitalidade+0
+28042	Pedra da Defesa+0
+28043	Pedra da Pressa+0
+28100	Pedra do Massacre+1
+28104	Pedra da Paranoia+1
+28108	Pedra do Trauma+1
+28112	Pedra contra Licantropos+1
+28130	Pedra da Perfuração+1
+28131	Pedra do Golpe Mortal+1
+28132	Pedra da Recarga+1
+28133	Pedra contra Guerreiros+1
+28134	Pedra contra Ninjas+1
+28135	Pedra contra Suras+1
+28136	Pedra contra Xamãs+1
+28137	Pedra dos Monstros+1
+28138	Pedra da Evasão+1
+28139	Pedra da Esquiva+1
+28140	Pedra da Magia+1
+28141	Pedra da Vitalidade+1
+28142	Pedra da Defesa+1
+28143	Pedra da Pressa+1
+28200	Pedra do Massacre+2
+28204	Pedra da Paranoia+2
+28208	Pedra do Trauma+2
+28212	Pedra contra Licantropos+2
+28230	Pedra da Perfuração+2
+28231	Pedra do Golpe Mortal+2
+28232	Pedra da Recarga+2
+28233	Pedra contra Guerreiros+2
+28234	Pedra contra Ninjas+2
+28235	Pedra contra Suras+2
+28236	Pedra contra Xamãs+2
+28237	Pedra dos Monstros+2
+28238	Pedra da Evasão+2
+28239	Pedra da Esquiva+2
+28240	Pedra da Magia+2
+28241	Pedra da Vitalidade+2
+28242	Pedra da Defesa+2
+28243	Pedra da Pressa+2
+28300	Pedra do Massacre+3
+28304	Pedra da Paranoia+3
+28308	Pedra do Trauma+3
+28312	Pedra contra Licantropos+3
+28330	Pedra da Perfuração+3
+28331	Pedra do Golpe Mortal+3
+28332	Pedra da Recarga+3
+28333	Pedra contra Guerreiros+3
+28334	Pedra contra Ninjas+3
+28335	Pedra contra Suras+3
+28336	Pedra contra Xamãs+3
+28337	Pedra dos Monstros+3
+28338	Pedra da Evasão+3
+28339	Pedra da Esquiva+3
+28340	Pedra da Magia+3
+28341	Pedra da Vitalidade+3
+28342	Pedra da Defesa+3
+28343	Pedra da Pressa+3
+28400	Pedra do Massacre+4
+28404	Pedra da Paranoia+4
+28408	Pedra do Trauma+4
+28412	Pedra contra Licantropos+4
+28430	Pedra da Perfuração+4
+28431	Pedra do Golpe Mortal+4
+28432	Pedra da Recarga+4
+28433	Pedra contra Guerreiros+4
+28434	Pedra contra Ninjas+4
+28435	Pedra contra Suras+4
+28436	Pedra contra Xamãs+4
+28437	Pedra dos Monstros+4
+28438	Pedra da Evasão+4
+28439	Pedra da Esquiva+4
+28440	Pedra da Magia+4
+28441	Pedra da Vitalidade+4
+28442	Pedra da Defesa+4
+28443	Pedra da Pressa+4
+28500	Pedra do Massacre+5
+28504	Pedra da Paranoia+5
+28508	Pedra do Trauma+5
+28512	Pedra da Estupidez+5
+28530	Pedra da Perfuração+5
+28531	Pedra do Golpe Mortal+5
+28532	Pedra da Recarga+5
+28533	Pedra contra Guerreiros+5
+28534	Pedra contra Ninjas+5
+28535	Pedra contra Suras+5
+28536	Pedra contra Xamãs+5
+28537	Pedra dos Monstros+5
+28538	Pedra da Evasão+5
+28539	Pedra da Esquiva+5
+28540	Pedra da Magia+5
+28541	Pedra da Vitalidade+5
+28542	Pedra da Defesa+5
+28543	Pedra da Pressa+5
+28600	Pedra da Perfuração+6
+28601	Pedra do Golpe Mortal+6
+28602	Pedra da Recarga+6
+28603	Pedra contra Guerreiros+6
+28604	Pedra contra Ninjas+6
+28605	Pedra contra Suras+6
+28606	Pedra contra Xamãs+6
+28607	Pedra dos Monstros+6
+28608	Pedra da Evasão+6
+28609	Pedra da Esquiva+6
+28610	Pedra da Magia+6
+28611	Pedra da Vitalidade+6
+28612	Pedra da Defesa+6
+28613	Pedra da Pressa+6
+28630	Pedra Aqua Perfuração+5
+28631	Pedra Aqua Golpe Mortal+5
+28632	Pedra Aqua Recarga+5
+28633	Pedra Aqua Guerreiros+5
+28634	Pedra Aqua Ninjas+5
+28635	Pedra Aqua Suras+5
+28636	Pedra Aqua Xamãs+5
+28637	Pedra Aqua Monstros+5
+28638	Pedra Aqua Evasão+5
+28639	Pedra Aqua Esquiva+5
+28640	Pedra Aqua Magia+5
+28641	Pedra Aqua Vitalidade+5
+28642	Pedra Aqua Defesa+5
+28643	Pedra Aqua Pressa+5
+28700	Pedra da Perfuração+7
+28701	Pedra do Golpe Mortal+7
+28702	Pedra da Recarga+7
+28703	Pedra contra Guerreiros+7
+28704	Pedra contra Ninjas+7
+28705	Pedra contra Suras+7
+28706	Pedra contra Xamãs+7
+28707	Pedra dos Monstros+7
+28708	Pedra da Evasão+7
+28709	Pedra da Esquiva+7
+28710	Pedra da Magia+7
+28711	Pedra da Vitalidade+7
+28712	Pedra da Defesa+7
+28713	Pedra da Pressa+7
+28730	Pedra Aqua Perfuração+7
+28731	Pedra Aqua Golpe Mortal+7
+28732	Pedra Aqua Recarga+7
+28733	Pedra Aqua Guerreiros+7
+28734	Pedra Aqua Ninjas+7
+28735	Pedra Aqua Suras+7
+28736	Pedra Aqua Xamãs+7
+28737	Pedra Aqua Monstros+7
+28738	Pedra Aqua Evasão+7
+28739	Pedra Aqua Esquiva+7
+28740	Pedra Aqua Magia+7
+28741	Pedra Aqua Vitalidade+7
+28742	Pedra Aqua Defesa+7
+28743	Pedra Aqua Pressa+7
+28800	Pedra da Perfuração+8
+28801	Pedra do Golpe Mortal+8
+28802	Pedra da Recarga+8
+28803	Pedra contra Guerreiros+8
+28804	Pedra contra Ninjas+8
+28805	Pedra contra Suras+8
+28806	Pedra contra Xamãs+8
+28807	Pedra dos Monstros+8
+28808	Pedra da Evasão+8
+28809	Pedra da Esquiva+8
+28810	Pedra da Magia+8
+28811	Pedra da Vitalidade+8
+28812	Pedra da Defesa+8
+28813	Pedra da Pressa+8
+28830	Pedra Aqua Perfuração+8
+28831	Pedra Aqua Golpe Mortal+8
+28832	Pedra Aqua Recarga+8
+28833	Pedra Aqua Guerreiros+8
+28834	Pedra Aqua Ninjas+8
+28835	Pedra Aqua Suras+8
+28836	Pedra Aqua Xamãs+8
+28837	Pedra Aqua Monstros+8
+28838	Pedra Aqua Evasão+8
+28839	Pedra Aqua Esquiva+8
+28840	Pedra Aqua Magia+8
+28841	Pedra Aqua Vitalidade+8
+28842	Pedra Aqua Defesa+8
+28843	Pedra Aqua Pressa+8
+28900	Pedra da Perfuração+9
+28901	Pedra do Golpe Mortal+9
+28902	Pedra da Recarga+9
+28903	Pedra contra Guerreiros+9
+28904	Pedra contra Ninjas+9
+28905	Pedra contra Suras+9
+28906	Pedra contra Xamãs+9
+28907	Pedra dos Monstros+9
+28908	Pedra da Evasão+9
+28909	Pedra da Esquiva+9
+28910	Pedra da Magia+9
+28911	Pedra da Vitalidade+9
+28912	Pedra da Defesa+9
+28913	Pedra da Pressa+9
+28930	Pedra Aqua Perfuração+9
+28931	Pedra Aqua Golpe Mortal+9
+28932	Pedra Aqua Recarga+9
+28933	Pedra Aqua Guerreiros+9
+28934	Pedra Aqua Ninjas+9
+28935	Pedra Aqua Suras+9
+28936	Pedra Aqua Xamãs+9
+28937	Pedra Aqua Monstros+9
+28938	Pedra Aqua Evasão+9
+28939	Pedra Aqua Esquiva+9
+28940	Pedra Aqua Magia+9
+28941	Pedra Aqua Vitalidade+9
+28942	Pedra Aqua Defesa+9
+28943	Pedra Aqua Pressa+9
+28960	Pedaço de Pedra Quebrada
+29001	Vieira
+29002	Vieira Azul
+29003	Vieira Amarela
+29004	Vieira Vermelha
+29005	Vieira Verde
+29006	Tártaro Amarelo
+29007	Tártaro Azul
+29008	Água Benta Azul
+29009	Água Benta Amarela
+29010	Água Benta Vermelha
+29011	Água Benta Verde
+29012	Mão de Deus Azul-Escura
+29013	Mão de Deus Amarelo-Escura
+29014	Mão de Deus Magenta
+29015	Mão de Deus Verde-Escura
+29101	Picareta+0
+29102	Picareta+1
+29103	Picareta+2
+29104	Picareta+3
+29105	Picareta+4
+29106	Picareta+5
+29107	Picareta+6
+29108	Picareta+7
+29109	Picareta+8
+29110	Picareta+9
+30000	Cevada
+30001	Carta
+30002	Linguiça Frita
+30003	Focinho de Porco
+30004	Dente de Javali
+30005	Pedaço de Armadura Quebrada
+30006	Dente de Orc
+30007	Amuleto Orc
+30008	Cartilha Esotérica
+30009	Remédio Desconhecido
+30010	Bílis de Urso
+30011	Bola
+30012	Garrafa de Vinho
+30013	Jarro de Licor
+30014	Pelo de Yeti
+30015	Lembrança do Demônio
+30016	Gema do Demônio
+30017	Grampo Ornamental
+30018	Faixa de Cabelo Vermelha
+30019	Crina Flamejante
+30020	Caroço de Pêssego
+30021	Pedaço de Gema
+30022	Cauda de Serpente
+30023	Pele de Tigre Branco
+30024	Rabo de Cavalo
+30025	Bolsa de Veneno de Aranha
+30026	Intestino de Lobo
+30027	Pelo de Lobo
+30028	Garra de Lobo
+30029	Fígado de Lobo
+30030	Lâmina Enferrujada
+30031	Ornamento
+30032	Uniforme Negro
+30033	Porcelana Quebrada
+30034	Faixa de Cabelo Branca
+30035	Creme Facial
+30036	Erva Mística
+30037	Garra de Tigre
+30038	Pele de Tigre
+30039	Pedaço de Tecido
+30040	Folha
+30041	Shuriken
+30042	Presa de Tigre
+30043	Feijão
+30044	Argila
+30045	Ferrão de Escorpião
+30046	Cauda de Escorpião
+30047	Livro de Maldições
+30048	Pedaço de Gelo
+30049	Chifre de Orca de Gelo
+30050	Bola de Gelo
+30051	Talismã Desconhecido
+30052	Bandeira
+30053	Pele de Pata de Urso
+30054	Aliança de Casamento
+30055	Garra de Escorpião
+30056	Teia de Aranha
+30057	Olhos de Aranha
+30058	Bolsa de Ovos de Aranha
+30059	Pernas de Aranha
+30060	Língua de Sapo
+30061	Pernas de Sapo
+30062	Tigela de Remédio
+30063	Remédio para Pele
+30064	Pedra Afiada
+30065	Sino
+30066	Pimenta
+30067	Pele de Cobra
+30068	Bife de Tofu
+30069	Garra de Lobo+
+30070	Pelo de Lobo+
+30071	Bílis de Urso+
+30072	Pele de Pata de Urso+
+30073	Faixa de Cabelo Branca+
+30074	Uniforme Negro+
+30075	Shuriken+
+30076	Amuleto Orc+
+30077	Dente de Orc+
+30078	Cartilha Esotérica+
+30079	Talismã Desconhecido+
+30080	Livro de Maldições+
+30081	Cauda de Escorpião+
+30082	Cauda de Serpente+
+30083	Remédio Desconhecido+
+30084	Talismã Desconhecido+
+30085	Pedaço de Tecido+
+30086	Lembrança do Demônio+
+30087	Gema do Demônio+
+30088	Pedaço de Gelo+
+30089	Pelo de Yeti+
+30090	Bola de Gelo+
+30091	Símbolo do Guerreiro
+30092	Butim do Selvagem
+30093	Bolsinha da Sorte
+30094	Bolsinha da Sorte
+30095	Bolsinha da Sorte
+30096	Bolsinha da Sorte
+30097	Carteira da Sorte
+30098	Bolsinha da Sorte
+30099	Bolsinha da Sorte
+30100	Bolsinha da Sorte
+30101	Aliança de Ariyoung
+30102	Machado de Ouro
+30103	Dente de Orc Dourado
+30104	Teia de Aranha do Deserto
+30105	Cauda de Escorpião
+30106	Remédio para Yu-Rang
+30107	Presa de Orc
+30108	Esmalte Cerâmico
+30109	Teia de Aranha do Deserto
+30110	Carta de Huahn-So
+30111	Cauda de Escorpião com Ferrão
+30112	Enguia
+30113	Escritura Esotérica
+30114	Peste
+30115	Cura da Peste
+30116	Pernas de Sapo
+30117	Carta
+30118	Porta-Joias do Demônio
+30119	Sino
+30120	Pedaço de Mapa
+30121	Pedaço de Mapa
+30122	Pedaço de Mapa
+30123	Pedaço de Mapa
+30124	Pedaço de Mapa
+30125	Pedaço de Mapa
+30126	Pedaço de Mapa
+30127	Pedaço de Mapa
+30128	Pedaço de Mapa
+30129	Ordem do Cavaleiro
+30130	Garrafa Vazia
+30131	Carta do Ferreiro
+30132	Livro de Uriel
+30133	Sapatos de Flores
+30134	Pacote de Uriel
+30135	Carta de Ariyoung
+30136	Arco Ricamente Decorado
+30137	Sangue de Macaco
+30138	Areia do Deserto
+30139	Molar de Orc
+30140	Linha
+30141	Pedaço de Joia
+30142	Carta
+30143	Ervas Medicinais
+30144	Fígado de Tigre
+30145	Remédio de Balso
+30146	Bloco de Gelo
+30147	Doutrina do Templo
+30148	Lenço do Templo
+30149	Sorvete com Calda
+30150	Página de Diário
+30151	Pele de Lobo
+30152	Remédio
+30153	Flores
+30154	Livro Secreto do Templo
+30155	Pingente de Mirine
+30156	Livro Secreto do Templo
+30157	Ponta de Flecha
+30158	Bolo de Arroz
+30159	Roupas
+30160	Aviso
+30161	Lança do Marido
+30162	Olho de Aranha
+30163	Algodão
+30164	Tradução do Livro de Maldições
+30165	Galho de Zelkova
+30166	Tábua de Tugyi
+30167	Galho de Árvore Fantasma Vermelha
+30168	Anotações dos Líderes
+30169	Flor Vermelho-Sangue
+30170	Flor Laranja
+30171	Flor Amarela Perfumada
+30172	Buquê Nobre de Flores
+30173	Pelo de Mu-Rang
+30174	Pata de Urso
+30175	Arpão com Núcleo de Diamante
+30176	Pelo de Tigre Cintilante
+30177	Óleo de Almíscar
+30178	Pedra de Glifo
+30179	Chave Torcida
+30180	Amuleto do Deus Dragão
+30181	Página
+30182	Diário Lendário
+30183	Máscara de Madeira Sombria
+30184	Cinzas Enfeitiçadas
+30185	Gelo Negro
+30186	Lágrima Fossilizada
+30187	Gota de Sangue
+30188	Obsidiana
+30189	Lágrimas de Baljit-Elvedin
+30190	Pedra de Sangue
+30191	Pedra de Sangue
+30192	Seiva
+30193	Ossos de Dedo
+30194	Clava Orc
+30195	Areia de Quartzo
+30196	Cinzas do Demônio
+30197	Sementes Mágicas
+30198	Cristal d'Água
+30199	Cristal Azul
+30201	Anel da Vingança
+30202	Orelha de Tanaka
+30203	Cristal
+30204	Pedaço de Cristal
+30205	Material de Fabricação
+30210	Pedaço de Pedra Preciosa
+30211	Pedaço de Pedra Preciosa
+30212	Pedaço de Pedra Preciosa
+30213	Pedaço de Pedra Preciosa
+30214	Pedaço de Pedra Preciosa
+30215	Pedaço de Pedra Preciosa
+30216	Pedaço de Pedra Preciosa
+30217	Pedaço de Pedra Preciosa
+30218	Pedaço de Pedra Preciosa
+30219	Pedaço de Pedra Preciosa
+30220	Pedra da Alma de Jinunggyi
+30221	Pedra da Alma do Templo
+30222	Pedra da Alma de Sagyi
+30223	Pedra da Alma de Aurtumryu
+30224	Pedra da Alma de Gyimok
+30225	Pedra da Alma de Tugyi
+30226	Pedra da Alma do Espírito da Floresta
+30227	Pedra da Alma dos Líderes
+30228	Pedra da Alma de Beran-Setaou
+30251	Joia da Malevolência
+30252	Joia da Sabedoria
+30253	Joia da Lealdade
+30254	NoNAme
+30265	Pedaço de Medalha (1)
+30266	Pedaço de Medalha (2)
+30267	Pedaço de Medalha (3)
+30268	Pedaço de Medalha (4)
+30269	Pedaço de Medalha (5)
+30270	Fragmento de Pedra do Dragão
+30300	Baú Antigo Desconhecido
+30301	Mapa da Torre Sa-Gui
+30302	Mapa da Torre Zin-Sa-Gui
+30303	Chave Bong-In
+30304	Chave Zin-Bong-In
+30311	Chave Cristal da Alma
+30312	Totem da Careta
+30315	Pão
+30316	Prato de Doações
+30317	Doação de Comida
+30318	Fruta da Bênção
+30319	Cabeça Encolhida
+30320	Cabeça Encolhida
+30321	Abóbora de Halloween
+30322	Varinha Mágica
+30323	Cartão Máscara de Abóbora
+30324	Chave dos Aracnídeos
+30325	Chave dos Aracnídeos
+30326	Veneno da Rainha Aranha
+30327	Apito dos Aracnídeos
+30329	Engrenagem Dourada
+30330	Pedra de Maat
+30500	Faca de Gravar de Rubi
+30501	Fecho de Ouro
+30502	Decoração de Rubi
+30503	Faca de Gravar de Ametista
+30504	Fecho de Prata
+30505	Decoração de Esmeralda
+30506	Faca de Gravar de Safira
+30507	Fecho de Bronze
+30508	Decoração de Safira
+30509	Aço do Dragão Azul
+30510	Dragona Grandiosa
+30511	Tecido Vermelho
+30512	Aço do Dragão Vermelho
+30513	Dragona Nobre
+30514	Tecido Violeta
+30515	Aço do Dragão Roxo
+30516	Dragona Antiga
+30517	Tecido Dourado
+30518	Fio de Ouro
+30519	Gancho Dourado
+30520	Fivela de Ouro
+30521	Elemento de Anel
+30522	Elo de Corrente
+30523	Elemento de Joia
+30524	Pedra da Chama
+30525	Pedra da Chama de Gelo
+30526	Lembrança do Irmão
+30527	Espada Ornamental de Mirine
+30528	NoNAme
+30529	NoNAme
+30530	NoNAme
+30531	NoNAme
+30532	NoNAme
+30533	NoNAme
+30534	NoNAme
+30535	NoNAme
+30536	NoNAme
+30537	NoNAme
+30538	NoNAme
+30539	NoNAme
+30540	NoNAme
+30541	NoNAme
+30542	NoNAme
+30543	NoNAme
+30544	NoNAme
+30545	NoNAme
+30546	NoNAme
+30547	NoNAme
+30548	NoNAme
+30549	NoNAme
+30550	Cinto Azul
+30551	NoNAme
+30552	NoNAme
+30553	NoNAme
+30554	NoNAme
+30555	NoNAme
+30556	NoNAme
+30557	NoNAme
+30558	NoNAme
+30559	NoNAme
+30560	NoNAme
+30561	NoNAme
+30562	NoNAme
+30563	NoNAme
+30564	NoNAme
+30565	NoNAme
+30566	NoNAme
+30567	NoNAme
+30568	NoNAme
+30569	NoNAme
+30570	NoNAme
+30571	NoNAme
+30572	NoNAme
+30573	NoNAme
+30574	NoNAme
+30575	NoNAme
+30576	NoNAme
+30577	NoNAme
+30578	NoNAme
+30579	NoNAme
+30580	NoNAme
+30581	NoNAme
+30582	NoNAme
+30583	NoNAme
+30584	NoNAme
+30585	NoNAme
+30586	NoNAme
+31001	Cópia da Inscrição
+31002	Documento Antigo
+31003	Antídoto
+31004	Resina da Árvore Sagrada
+31005	Essência de Cristal Azul
+31006	Quartzo Infernal Vermelho
+31007	Terra Vulcânica
+31008	Lágrima do Céu
+31009	Carta Gnoll
+31010	Carta do Ladrão Vermelho
+31011	NoNAme
+31012	NoNAme
+31013	Pedaço de Papel
+31014	NoNAme
+31015	Carta do Capitão Gancho
+31016	Carta de Lee Chung
+31017	Carta Selada
+31018	Escrito de Carapaça
+31019	Pó de Carapaça
+31020	Raiz da Flor da Rocha
+31021	NoNAme
+31022	Escama de Oin
+31023	NoNAme
+31024	Couro de Mantícora
+31025	NoNAme
+31026	Armadura de Crustáceo
+31027	Areia Fina
+31028	Tijolo de Argila
+31029	Luz Interior
+31030	Luz Interior
+31031	Essência do Milênio
+31032	Pérolas do Leviatã
+31033	Capa do Chefe
+31034	Totem dos Gigantes
+31035	Pedra Negra
+31036	Ouro Negro
+31037	Bolsa de Couro
+31038	Solo Sagrado
+31039	Saco de Moedas
+31040	Medalha de Ouro
+31041	Terra Fóssil
+31042	Lança de Tritão
+31043	Tábua dos Lêmures
+31044	NoNAme
+31045	NoNAme
+31046	NoNAme
+31047	NoNAme
+31048	NoNAme
+31049	NoNAme
+31050	NoNAme
+31051	Ferro
+31052	NoNAme
+31053	NoNAme
+31054	NoNAme
+31055	NoNAme
+31056	NoNAme
+31057	NoNAme
+31058	NoNAme
+31059	NoNAme
+31060	NoNAme
+31061	NoNAme
+31062	NoNAme
+31063	NoNAme
+31064	NoNAme
+31065	NoNAme
+31066	NoNAme
+31067	NoNAme
+31068	NoNAme
+31069	NoNAme
+31070	NoNAme
+31071	NoNAme
+31072	NoNAme
+31073	Caça Automática (8h)
+31074	Colar Rebitado
+31075	Colar Farpado
+31076	Ervas do Sol
+31077	Pó da Pedra Fundamental
+31078	Lúmen Puro
+31079	Carta para Yak-Hwan
+31080	Sangue do Rei da Chama
+31081	Matéria Negra
+31082	Anel de Magma
+31083	Anel de Samael
+31084	Tintura Nimbus
+31085	NoNAme
+31086	NoNAme
+31087	NoNAme
+31088	NoNAme
+31089	NoNAme
+31090	NoNAme
+31091	Sangue do Rei da Chama
+31092	NoNAme
+35000	Ervas Medicinais+
+35001	Fígado de Tigre+
+38001	Recurso VIP
+38002	Bilhete de Tômbola (hoje)
+38003	Bilhete de Tômbola (amanhã)
+38004	Tômbola - sortear de novo
+38005	TombolaPP_spin
+38006	Momo-Reroll
+38010	Pacote de Yang
+38050	Baú do Poder
+38051	Cristal do Tigre Real
+38052	O Baú dos Reis
+38053	Baú do Inverno Eterno
+38054	Baú da Tempestade do Deserto
+38055	Caixa do Filhote
+38056	Baú de Feriado
+38057	Baú do Norte
+38100	Lanche do Poder (7 dias)
+38101	Lanche do Poder (15 dias)
+38102	Lanche do Poder (30 dias)
+38200	Selo de Rufus
+38201	Selo de Rufus
+39001	Pedra Mágica
+39002	Anel da Experiência
+39003	Vinho de Flor de Pêssego
+39004	Bola da Bênção
+39005	Minério de Cobre Mágico
+39006	Capa da Bravura
+39007	Manual do Ferreiro
+39008	Pergaminho do Exorcismo
+39009	Documento de Reset de Habilidades
+39010	Poção de Ataque+10
+39011	Bênção da Vida
+39012	Bênção da Magia
+39013	Bênção do Dragão
+39014	Pergaminho da Guerra
+39015	Pedra do Ferreiro
+39016	Minério de Ferro Mágico
+39017	Vida do Deus Dragão
+39018	Ataque do Deus Dragão
+39019	Inteligência do Deus Dragão
+39020	Defesa do Deus Dragão
+39021	Apoio do Deus Dragão
+39022	Pergaminho do Dragão
+39023	Elixir do Pesquisador
+39024	Golpe Crítico
+39025	Golpe Perfurante
+39026	Poção de Velocidade
+39027	Manual das Pedras
+39028	Encantar Item
+39029	Reforçar Item
+39030	Leitura Concentrada
+39031	Poção da Pressa
+39032	Fruta da Vida
+39033	Pergaminho da Correção
+39034	Açúcar para Cavalo
+39035	Copo da Percepção
+39036	Sapatos do Vento
+39037	Elixir do Sol (P)
+39038	Elixir do Sol (M)
+39039	Elixir do Sol (G)
+39040	Elixir da Lua (P)
+39041	Elixir da Lua (M)
+39042	Elixir da Lua (G)
+39043	Pergaminho da Localização
+40001	Anel de Ouro Desconhecido
+40002	Anel Anti-EXP
+40003	Anel de Thor
+40004	Anel de Eek
+40005	Sino Ressonante
+40006	Recibo de Entrega do Selvagem
+40007	Carta do Chefe Selvagem
+41001	Fantasia de Coelho (marrom)
+41002	Fantasia de Coelhinha (marrom)
+41003	Guerreiro do Deserto (M)
+41004	Guerreira do Deserto (F)
+41005	Traje de Esgrima Olímp. (M)
+41006	Traje de Esgrima Olímp. (F)
+41007	Traje de Esgrima ALE (M)
+41008	Traje de Esgrima ALE (F)
+41009	Traje de Esgrima TUR (M)
+41010	Traje de Esgrima TUR (F)
+41011	Traje de Esgrima BRA (M)
+41012	Traje de Esgrima BRA (F)
+41013	Traje de Futebol Olímp. (M)
+41014	Traje de Futebol Olímp. (F)
+41015	Traje de Futebol ALE (M)
+41016	Traje de Futebol ALE (F)
+41017	Traje de Futebol TUR (M)
+41018	Traje de Futebol TUR (F)
+41019	Traje de Futebol BRA (M)
+41020	Traje de Futebol BRA (F)
+41021	Traje de Boxe Olímp. (M)
+41022	Traje de Boxe Olímp. (F)
+41023	Traje de Boxe ALE (M)
+41024	Traje de Boxe ALE (F)
+41025	Traje de Boxe TUR (M)
+41026	Traje de Boxe TUR (F)
+41027	Traje de Boxe BRA (M)
+41028	Traje de Boxe BRA (F)
+41029	Guerreiro do Deserto (M, bônus)
+41030	Guerreira do Deserto (F, bônus)
+41031	Traje de Esgrima Olímp. (M)
+41032	Traje de Esgrima Olímp. (F)
+41033	Traje de Esgrima ALE (M)
+41034	Traje de Esgrima ALE (F)
+41035	Traje de Esgrima TUR (M)
+41036	Traje de Esgrima TUR (F)
+41037	Traje de Esgrima BRA (M)
+41038	Traje de Esgrima BRA (F)
+41039	Traje de Futebol Olímp. (M)
+41040	Traje de Futebol Olímp. (F)
+41041	Traje de Futebol ALE (M)
+41042	Traje de Futebol ALE (F)
+41043	Traje de Futebol TUR (M)
+41044	Traje de Futebol TUR (F)
+41045	Traje de Futebol BRA (M)
+41046	Traje de Futebol BRA (F)
+41047	Traje de Boxe Olímp. (M)
+41048	Traje de Boxe Olímp. (F)
+41049	Traje de Boxe ALE (M)
+41050	Traje de Boxe ALE (F)
+41051	Traje de Boxe TUR (M)
+41052	Traje de Boxe TUR (F)
+41053	Traje de Boxe BRA (M)
+41054	Traje de Boxe BRA (F)
+41055	Traje de Esgrima FRA (M)
+41056	Traje de Esgrima FRA (F)
+41057	Traje de Esgrima ITA (M)
+41058	Traje de Esgrima ITA (F)
+41059	Traje de Esgrima POL (M)
+41060	Traje de Esgrima POL (F)
+41061	Traje de Esgrima ROM (M)
+41062	Traje de Esgrima ROM (F)
+41063	Traje de Esgrima ESP (M)
+41064	Traje de Esgrima ESP (F)
+41065	Traje de Futebol FRA (M)
+41066	Traje de Futebol FRA (F)
+41067	Traje de Futebol ITA (M)
+41068	Traje de Futebol ITA (F)
+41069	Traje de Futebol POL (M)
+41070	Traje de Futebol POL (F)
+41071	Traje de Futebol ROM (M)
+41072	Traje de Futebol ROM (F)
+41073	Traje de Futebol ESP (M)
+41074	Traje de Futebol ESP (F)
+41075	Traje de Boxe FRA (M)
+41076	Traje de Boxe FRA (F)
+41077	Traje de Boxe ITA (M)
+41078	Traje de Boxe ITA (F)
+41079	Traje de Boxe POL (M)
+41080	Traje de Boxe POL (F)
+41081	Traje de Boxe ROM (M)
+41082	Traje de Boxe ROM (F)
+41083	Traje de Boxe ESP (M)
+41084	Traje de Boxe ESP (F)
+41085	Traje de Esgrima FRA (M)
+41086	Traje de Esgrima FRA (F)
+41087	Traje de Esgrima ITA (M)
+41088	Traje de Esgrima ITA (F)
+41089	Traje de Esgrima POL (M)
+41090	Traje de Esgrima POL (F)
+41091	Traje de Esgrima ROM (M)
+41092	Traje de Esgrima ROM (F)
+41093	Traje de Esgrima ESP (M)
+41094	Traje de Esgrima ESP (F)
+41095	Traje de Futebol FRA (M)
+41096	Traje de Futebol FRA (F)
+41097	Traje de Futebol ITA (M)
+41098	Traje de Futebol ITA (F)
+41099	Traje de Futebol POL (M)
+41100	Traje de Futebol POL (F)
+41101	Traje de Futebol ROM (M)
+41102	Traje de Futebol ROM (F)
+41103	Traje de Futebol ESP (M)
+41104	Traje de Futebol ESP (F)
+41105	Traje de Boxe FRA (M)
+41106	Traje de Boxe FRA (F)
+41107	Traje de Boxe ITA (M)
+41108	Traje de Boxe ITA (F)
+41109	Traje de Boxe POL (M)
+41110	Traje de Boxe POL (F)
+41111	Traje de Boxe ROM (M)
+41112	Traje de Boxe ROM (F)
+41113	Traje de Boxe ESP (M)
+41114	Traje de Boxe ESP (F)
+41117	Traje de Mosqueteiro
+41118	Uniforme de Empregada
+41119	Terno de Salsa
+41120	Vestido de Salsa
+41121	Terno de Cavalheiro
+41122	Vestido de Coquetel
+41125	Smoking de Abóbora
+41126	Vestido de Abóbora
+41129	Traje de Mosqueteiro +
+41130	Uniforme de Empregada +
+41131	Terno de Salsa +
+41132	Vestido de Salsa +
+41133	Terno de Cavalheiro +
+41134	Vestido de Coquetel +
+41135	Smoking de Abóbora (bônus)
+41136	Vestido de Abóbora (bônus)
+41137	Traje de Natal (vermelho)
+41138	Vestido de Natal (vermelho)
+41139	Traje de Natal (verde)
+41140	Vestido de Natal (verde)
+41141	Traje de Natal (preto)
+41142	Vestido de Natal (preto)
+41143	Fantasia de Rena (M)
+41144	Fantasia de Rena (F)
+41145	Traje de Natal+ (vermelho)
+41146	Vestido de Natal+ (vermelho)
+41147	Traje de Natal+ (verde)
+41148	Vestido de Natal+ (verde)
+41149	Traje de Natal+ (preto)
+41150	Vestido de Natal+ (preto)
+41151	Fantasia de Rena+ (M)
+41152	Fantasia de Rena+ (F)
+41153	AC Miryang (M)
+41154	AC Miryang (F)
+41155	AFC Yayang (M)
+41156	AFC Yayang (F)
+41157	RSC Snakefield (M)
+41158	RSC Snakefield (F)
+41159	Yongan FC (M)
+41160	Yongan FC (F)
+41161	FC Bakra (M)
+41162	FC Bakra (F)
+41163	FC Bokjung (M)
+41164	FC Bokjung (F)
+41165	FC Bavaria Hwang (M)
+41166	FC Bavaria Hwang (F)
+41167	Borussia Chunjo (M)
+41168	Borussia Chunjo (F)
+41169	SC Doyyum (M)
+41170	SC Doyyum (F)
+41171	Hasun Dong FC (M)
+41172	Hasun Dong FC (F)
+41173	CFR Dragon Fire 07 (M)
+41174	CFR Dragon Fire 07 (F)
+41175	Daeyami FC (M)
+41176	Daeyami FC (F)
+41177	GNK Kuahlo Dong (M)
+41178	GNK Kuahlo Dong (F)
+41179	1927 Imha (M)
+41180	1927 Imha (F)
+41181	FC Ice Land (M)
+41182	FC Ice Land (F)
+41183	FC Gumsan (M)
+41184	FC Gumsan (F)
+41185	Galawaryong (M)
+41186	Galawaryong (F)
+41187	Juventus Yongbi (M)
+41188	Juventus Yongbi (F)
+41189	OSC Lungsam (M)
+41190	OSC Lungsam (F)
+41191	Doyyumhwan CF (M)
+41192	Doyyumhwan CF (F)
+41193	Nephrite City FC (M)
+41194	Nephrite City FC (F)
+41195	Shinsoo United (M)
+41196	Shinsoo United (F)
+41197	Dragon Valley SC (M)
+41198	Dragon Valley SC (F)
+41199	Thunder Mountains FC (M)
+41200	Thunder Mountains FC (F)
+41201	Pyungmoo Saint Hwang (M)
+41202	Pyungmoo Saint Hwang (F)
+41203	Real Sohan (M)
+41204	Real Sohan (F)
+41205	FC Jinno 04 (M)
+41206	FC Jinno 04 (F)
+41207	FC Sangsun Dong (M)
+41208	FC Sangsun Dong (F)
+41209	SL Jungsun Dong (M)
+41210	SL Jungsun Dong (F)
+41211	Spartak Jungrang (M)
+41212	Spartak Jungrang (F)
+41213	Fireland CF (M)
+41214	Fireland CF (F)
+41215	FC St. Seungryong (M)
+41216	FC St. Seungryong (F)
+41217	AC Miryang+ (M)
+41218	AC Miryang+ (F)
+41219	AFC Yayang+ (M)
+41220	AFC Yayang+ (F)
+41221	RSC Snakefield+ (M)
+41222	RSC Snakefield+ (F)
+41223	Yongan FC+ (M)
+41224	Yongan FC+ (F)
+41225	FC Bakra+ (M)
+41226	FC Bakra+ (F)
+41227	FC Bokjung+ (M)
+41228	FC Bokjung+ (F)
+41229	FC Bavaria Hwang+ (M)
+41230	FC Bavaria Hwang+ (F)
+41231	Borussia Chunjo+ (M)
+41232	Borussia Chunjo+ (F)
+41233	SC Doyyum+ (M)
+41234	SC Doyyum+ (F)
+41235	Hasun Dong FC+ (M)
+41236	Hasun Dong FC+ (F)
+41237	CFR Dragon Fire 07+ (M)
+41238	CFR Dragon Fire 07+ (F)
+41239	Daeyami FC+ (M)
+41240	Daeyami FC+ (F)
+41241	GNK Kuahlo Dong+ (M)
+41242	GNK Kuahlo Dong+ (F)
+41243	1927 Imha+ (M)
+41244	1927 Imha+ (F)
+41245	FC Ice Land+ (M)
+41246	FC Ice Land+ (F)
+41247	FC Gumsan+ (M)
+41248	FC Gumsan+ (F)
+41249	Galawaryong+ (M)
+41250	Galawaryong+ (F)
+41251	Juventus Yongbi+ (M)
+41252	Juventus Yongbi+ (F)
+41253	OSC Lungsam+ (M)
+41254	OSC Lungsam+ (F)
+41255	Doyyumhwan CF+ (M)
+41256	Doyyumhwan CF+ (F)
+41257	Nephrite City FC+ (M)
+41258	Nephrite City FC+ (F)
+41259	Shinsoo United+ (M)
+41260	Shinsoo United+ (F)
+41261	Dragon Valley SC+ (M)
+41262	Dragon Valley SC+ (F)
+41263	Thunder Mountains FC+ (M)
+41264	Thunder Mountains FC+ (F)
+41265	Pyungmoo Saint Hwang+ (M)
+41266	Pyungmoo Saint Hwang+ (F)
+41267	Real Sohan+ (M)
+41268	Real Sohan+ (F)
+41269	FC Jinno 04+ (M)
+41270	FC Jinno 04+ (F)
+41271	FC Sangsun Dong+ (M)
+41272	FC Sangsun Dong+ (F)
+41273	SL Jungsun Dong+ (M)
+41274	SL Jungsun Dong+ (F)
+41275	Spartak Jungrang+ (M)
+41276	Spartak Jungrang+ (F)
+41277	Fireland CF+ (M)
+41278	Fireland CF+ (F)
+41279	FC St. Seungryong+ (M)
+41280	FC St. Seungryong+ (F)
+41291	Fantasia de Coelho (preta)
+41292	Fantasia de Coelho (azul)
+41293	Fantasia de Coelho (verde)
+41294	Fantasia de Coelho (rosa)
+41295	Fantasia de Coelhinha (preta)
+41296	Fantasia de Coelhinha (azul)
+41297	Fantasia de Coelhinha (verde)
+41298	Fantasia de Coelhinha (rosa)
+41299	Fantasia de Coelho+ (preta)
+41300	Fantasia de Coelho+ (azul)
+41301	Fantasia de Coelho+ (verde)
+41302	Fantasia de Coelho+ (rosa)
+41303	Fantasia de Coelhinha+ (preta)
+41304	Fantasia de Coelhinha+ (azul)
+41305	Fantasia de Coelhinha+ (verde)
+41306	Fantasia de Coelhinha+ (rosa)
+41307	Traje Cobra (m)
+41308	Traje Cobra (f)
+41309	Traje Cobra+ (m)
+41310	Traje Cobra+ (f)
+41311	Guerreiro do Deserto (M, preto)
+41312	Guerreira do Deserto (F, preto)
+41313	Guerreiro do Deserto+ (M, preto)
+41314	Guerreira do Deserto+ (F, preto)
+41315	Armadura de Azrael (m)
+41316	Armadura de Azrael (f)
+41317	Armadura de Azrael+ (m)
+41318	Armadura de Azrael+ (f)
+41319	  ç°©
+41320	Terno João Abóbora (m)
+41321	Vestido João Abóbora (f)
+41322	Terno João Abóbora+ (m)
+41323	Vestido João Abóbora+ (f)
+45001	Orelhas de Coelhinha (castanho)
+45002	Orelhas de Coelho (castanho)
+45003	Cocar (M)
+45004	Cocar (F)
+45005	LotoShosi (M)
+45006	Penteado de Esgrima (F)
+45007	Moicano (M)
+45008	Cabelo de Futebol ALE (F)
+45009	Dreadlocks (M)
+45010	Cabelo de Boxe ALE (F)
+45011	Cocar (M)
+45012	Cocar (F)
+45013	LotoShosi (M)
+45014	Penteado de Esgrima (F)
+45015	Moicano (M)
+45016	Cabelo de Futebol ALE (F)
+45017	Dreadlocks (M)
+45018	Cabelo de Boxe ALE (F)
+45019	Cabelo de Boxe TUR (F)
+45020	Cabelo de Boxe BRA (F)
+45021	Cabelo de Boxe Olímpico (F)
+45022	Cabelo de Boxe FRA (F)
+45023	Cabelo de Boxe ITA (F)
+45024	Cabelo de Boxe POL (F)
+45025	Cabelo de Boxe ROM (F)
+45026	Cabelo de Boxe ESP (F)
+45027	Cabelo de Futebol TUR (F)
+45028	Cabelo de Futebol BRA (F)
+45029	Cabelo de Futebol Olímp. (F)
+45030	Cabelo de Futebol FRA (F)
+45031	Cabelo de Futebol ITA (F)
+45032	Cabelo de Futebol POL (F)
+45033	Cabelo de Futebol ROM (F)
+45034	Cabelo de Futebol ESP (F)
+45035	Cabelo de Boxe TUR (F)
+45036	Cabelo de Boxe BRA (F)
+45037	Cabelo de Boxe Olímp. (F)
+45038	Cabelo de Boxe FRA (F)
+45039	Cabelo de Boxe ITA (F)
+45040	Cabelo de Boxe POL (F)
+45041	Cabelo de Boxe ROM (F)
+45042	Cabelo de Boxe ESP (F)
+45043	Cabelo de Futebol TUR (F)
+45044	Cabelo de Futebol BRA (F)
+45045	Cabelo de Futebol Olímp. (F)
+45046	Cabelo de Futebol FRA (F)
+45047	Cabelo de Futebol ITA (F)
+45048	Cabelo de Futebol POL (F)
+45049	Cabelo de Futebol ROM (F)
+45050	Cabelo de Futebol ESP (F)
+45053	Penteado de Mosqueteiro
+45054	Touca de Empregada
+45055	Mini Moicano
+45056	Coque de Salsa
+45057	Chapéu Bogart
+45058	Penteado de Flores
+45061	Máscara de Abóbora
+45062	Máscara de Abóbora
+45065	Penteado de Mosqueteiro +
+45066	Touca de Empregada +
+45067	Mini Moicano +
+45068	Coque de Salsa +
+45069	Chapéu Bogart +
+45070	Penteado de Flores +
+45073	Máscara de Abóbora (bônus)
+45074	Máscara de Abóbora (bônus)
+45075	Gorro de Natal (vermelho)
+45076	Gorro de Natal (verde)
+45077	Gorro de Natal (preto)
+45078	Gorro de Elfo
+45079	Cabeça de Rena (M)
+45080	Cabeça de Rena (F)
+45081	Gorro de Natal+ (vermelho)
+45082	Gorro de Natal+ (verde)
+45083	Gorro de Natal+ (preto)
+45084	Gorro de Elfo+
+45085	Cabeça de Rena+ (M)
+45086	Cabeça de Rena+ (F)
+45087	Bandana (branco)
+45088	Bandana (branco)
+45089	Bandana (preto)
+45090	Bandana (preto)
+45091	Bandana (amarelo)
+45092	Bandana (amarelo)
+45093	Bandana (laranja)
+45094	Bandana (laranja)
+45095	Bandana (azul)
+45096	Bandana (azul)
+45097	Bandana+ (branco)
+45098	Bandana+ (branco)
+45099	Bandana+ (preto)
+45100	Bandana+ (preto)
+45101	Bandana+ (amarelo)
+45102	Bandana+ (amarelo)
+45103	Bandana+ (laranja)
+45104	Bandana+ (laranja)
+45105	Bandana+ (azul)
+45106	Bandana+ (azul)
+45119	Orelhas de Coelho (preto)
+45120	Orelhas de Coelho (azul)
+45121	Orelhas de Coelho (verde)
+45122	Orelhas de Coelho (rosa)
+45123	Orelhas de Coelhinha (preto)
+45124	Orelhas de Coelhinha (azul)
+45125	Orelhas de Coelhinha (verde)
+45126	Orelhas de Coelhinha (rosa)
+45127	Orelhas de Coelho+ (preto)
+45128	Orelhas de Coelho+ (azul)
+45129	Orelhas de Coelho+ (verde)
+45130	Orelhas de Coelho+ (rosa)
+45131	Orelhas de Coelhinha+ (preto)
+45132	Orelhas de Coelhinha+ (azul)
+45133	Orelhas de Coelhinha+ (verde)
+45134	Orelhas de Coelhinha+ (rosa)
+45135	Penteado Cobra (m)
+45136	Penteado Cobra (f)
+45137	Penteado Cobra+ (m)
+45138	Penteado Cobra+ (f)
+45139	Máscara Tengu
+45140	Máscara Veneziana
+45141	Máscara Kifwebe
+45142	Máscara Maia
+45143	Máscara Tengu+
+45144	Máscara Veneziana+
+45145	Máscara Kifwebe+
+45146	Máscara Maia+
+45147	Turbante Negro (M)
+45148	Turbante Negro (F)
+45149	Turbante Negro+ (M)
+45150	Turbante Negro+ (F)
+45151	Elmo de Azrael (m)
+45152	Elmo de Azrael (f)
+45153	Elmo de Azrael+ (m)
+45154	Elmo de Azrael+ (f)
+45155	       
+45156	Cabeça de João Abóbora (m)
+45157	Cabeça de João Abóbora (f)
+45158	Cabeça de João Abóbora+ (m)
+45159	Cabeça de João Abóbora+ (f)
+50001	Livro da Sorte
+50002	Anel de Ouro
+50003	Documento de Reset de Habilidades
+50004	Detector de Eventos
+50005	Bilhete de Equitação
+50006	Baú do Tesouro de Ouro
+50007	Baú do Tesouro de Prata
+50008	Chave de Ouro
+50009	Chave de Prata
+50010	Meia de Natal
+50011	Baú do Tesouro do Luar
+50012	Baú do Tesouro de Ouro+
+50013	Baú do Tesouro de Prata+
+50014	Chave de Ouro+
+50015	Chave de Prata+
+50016	Pasta de Feijão
+50017	Pasta de Açúcar
+50018	Pasta de Frutas
+50019	Arroz Doce
+50020	Bolo de Feijão
+50021	Bolo de Açúcar
+50022	Bolo de Frutas
+50023	Bolsa de Dinheiro
+50024	Rosa
+50025	Chocolate
+50026	Moedas
+50027	Bilhete de Loteria
+50028	Anel de Ouro 24k
+50029	Anel de Ouro 18k
+50030	Anel de Ouro 14k
+50031	Rosa
+50032	Doce
+50033	Baú Misterioso
+50034	Caixa-Quebra-Cabeça
+50035	Presente (amarelo)
+50036	Presente (violeta)
+50037	Baú do Tesouro Hexagonal
+50038	Certificado de Bronze
+50039	Certificado de Prata
+50040	Certificado de Ouro
+50041	Pacote de Presente
+50042	Medalha de Ouro dos Heróis
+50050	Medalha de Cavalo
+50051	Retrato de Cavalo
+50052	Livro do Cavalo Armado
+50053	Livro do Cavalo Militar
+50054	Feno
+50055	Cenoura
+50056	Ginseng Vermelho
+50057	Erva dos Macacos Fáceis
+50058	Erva dos Macacos Normais
+50059	Erva dos Macacos Difíceis
+50060	Manual de Equitação
+50061	Manual de Domar Cavalos
+50062	Manual de Combate Montado
+50067	Pergaminho da Evolução
+50068	Pergaminho da Mutação
+50070	Caixa do Chefe Orc
+50071	Caixa do Líder Esotérico
+50072	Caixa do Líder Fantasma
+50073	Caixa da Rainha Aranha
+50074	Caixa da Aranha Gigante
+50075	Caixa do Portador da Peste Gigante
+50076	Baú da Tartaruga do Deserto
+50077	Baú do Nove Caudas
+50078	Baú do Tigre Amarelo
+50079	Baú do Rei da Chama
+50080	Baú do Dragão Vermelho
+50081	Baú do Rei Demônio
+50082	Baú do Ceifador
+50083	Bilhete de Equitação
+50084	Pedra-Chave
+50085	Semente
+50086	Bolo Lunar
+50087	Bolo de Arroz com Feijão-Mungo
+50088	Bolo de Arroz com Artemísia
+50089	Pedra-Chave
+50090	Caixa da Raposa de Nove Caudas
+50091	Sushi de Peixe-Dourado
+50092	Sushi de Carpa
+50093	Sushi de Salmão
+50094	Sushi de Bagre
+50095	Abóbora
+50096	Bola de Futebol
+50100	Bombinhas
+50101	Bombinhas
+50102	Bombinhas
+50103	Bombinhas
+50104	Bombinhas
+50105	Bombinhas
+50106	Bombinha de Natal
+50107	Bombinha Chinesa
+50108	Pião de Fogos
+50109	Caixa de Ébano Vermelha
+50110	Caixa de Ébano Pomposa
+50111	Caixa de Ébano Amarela
+50112	Caixa de Ébano Verde-Clara
+50113	Caixa de Ébano Verde
+50114	Caixa de Ébano Azul
+50115	Caixa de Ébano Carmesim
+50116	Ficha de Troca de Arma
+50117	Porta-Joias
+50118	NoNAme
+50119	NoNAme
+50120	Cofre de Ferro
+50121	Caixa de Ferro
+50122	Baú de Ferro
+50123	Casquinha de Sorvete
+50124	Caixa de Madeira Podre
+50125	Baú Misterioso
+50126	Baú Misterioso
+50127	Caixa Misteriosa de Esmeralda
+50128	Caixa Misteriosa de Safira
+50129	Caixa Misteriosa de Ametista
+50130	Baú Olímpico
+50131	Caixa Misteriosa de Citrino
+50132	Caixa Misteriosa de Rubi
+50133	Caixa Misteriosa de Esmeralda
+50134	Caixa Misteriosa de Safira
+50135	Caixa Misteriosa de Ametista
+50136	Caixa Misteriosa de Topázio
+50137	Caixa Misteriosa de Citrino
+50150	Chave de Rubi
+50151	Chave de Esmeralda
+50152	Chave de Safira
+50153	Chave de Ametista
+50154	Chave de Topázio
+50155	Chave de Citrino
+50156	Chave de Diamante
+50160	Ovo de Páscoa
+50161	Ovo de Páscoa
+50162	Ovo de Páscoa
+50163	Ovo de Páscoa
+50164	Ovo de Páscoa
+50165	Ovo de Páscoa
+50166	Ovo de Páscoa
+50167	Ovo de Páscoa
+50168	Ovo de Páscoa
+50169	Ovo de Páscoa
+50170	Ovo de Páscoa
+50171	Ovo de Páscoa
+50172	Ovo de Páscoa
+50173	Ovo de Páscoa
+50174	Ovo de Páscoa
+50175	Ovo de Páscoa
+50176	Ovo de Páscoa
+50177	Ovo de Páscoa
+50178	Ovo de Páscoa
+50179	Ovo de Páscoa
+50180	Cesta Vazia
+50181	Cesta com Ovos de Páscoa
+50182	Baú da Bênção
+50183	Doces
+50184	NoNAme
+50185	NoNAme
+50186	Baú de Azrael
+50187	Baú do Aprendiz I
+50188	Baú do Aprendiz II
+50189	Baú do Aprendiz III
+50190	Baú do Especialista I
+50191	Baú do Especialista II
+50192	Baú do Especialista III
+50193	Baú do Mestre I
+50194	Baú do Mestre II
+50195	Baú do Mestre III
+50196	Baú do Grão-Mestre
+50197	NoNAme
+50198	NoNAme
+50199	NoNAme
+50200	Embrulho
+50201	Buquê
+50202	Buquê
+50212	Baú do Aprendiz I
+50213	Baú do Aprendiz I
+50215	Baú de Halloween
+50216	Vinho Quente
+50249	Baú do Triunfo
+50252	Cor Draconis
+50253	NoNAme
+50254	Baú da Escuridão
+50255	Cor Draconis (Bruta)
+50256	Cor Draconis (Lapidada)
+50257	Cor Draconis (Rara)
+50258	Cor Draconis (Antiga)
+50259	Cor Draconis (Lendária)
+50260	Cor Draconis (Bruta)
+50300	Livro de Habilidade
+50301	A Arte da Guerra de Sun Tzu
+50302	A Arte da Guerra de Wu Zi
+50303	A Arte da Guerra de Wei Liao Zi
+50304	Domínio de Combo
+50305	Livro do Mestre de Combo
+50306	Arte do Combo
+50307	Livro de Missão (Fácil)
+50308	Livro de Missão (Normal)
+50309	Livro de Missão (Difícil)
+50310	Livro de Missão (Especialista)
+50311	Linguística Shinsoo
+50312	Linguística Chunjo
+50313	Linguística Jinno
+50314	Livro de Polimorfia
+50315	Livro de Polimorfia Avançada
+50316	Livro de Polimorfia do Mestre
+50317	Livro de Missão (Teste)
+50318	Livro de Missão (Fácil)
+50319	Livro de Missão (Normal)
+50320	Livro de Missão (Difícil)
+50321	Livro de Missão (Especialista)
+50322	Pergaminho de Transformação
+50401	Manual: Corte Triplo
+50402	Manual: Giro da Espada
+50403	Manual: Fúria
+50404	Manual: Aura da Espada
+50405	Manual: Investida
+50416	Manual: Golpe
+50417	Manual: Pancada
+50418	Manual: Martelada
+50419	Manual: Corpo Forte
+50420	Manual: Golpe de Espada
+50431	Manual: Emboscada
+50432	Manual: Ataque Rápido
+50433	Manual: Adaga Giratória
+50434	Manual: Disfarce
+50435	Manual: Nuvem Venenosa
+50446	Manual: Tiro Repetido
+50447	Manual: Faísca
+50448	Manual: Flecha de Fogo
+50449	Manual: Passo de Pluma
+50450	Manual: Flecha Venenosa
+50461	Manual: Golpe do Dedo
+50462	Manual: Redemoinho do Dragão
+50463	Manual: Lâmina Encantada
+50464	Manual: Medo
+50465	Manual: Armadura Encantada
+50466	Manual: Dissipar
+50476	Manual: Golpe Sombrio
+50477	Manual: Golpe Flamejante
+50478	Manual: Espírito da Chama
+50479	Manual: Proteção Sombria
+50480	Manual: Golpe Espiritual
+50481	Manual: Orbe Sombrio
+50491	Manual: Talismã Voador
+50492	Manual: Dragão Atirador
+50493	Manual: Rugido do Dragão
+50494	Manual: Bênção
+50495	Manual: Refletir
+50496	Manual: Ajuda do Dragão
+50506	Manual: Arremesso de Relâmpago
+50507	Manual: Invocar Relâmpago
+50508	Manual: Garra de Relâmpago
+50509	Manual: Cura
+50510	Manual: Rapidez
+50511	Manual: Ataque
+50512	Pedra Arco-Íris
+50513	Pedra da Alma
+50600	Guia de Coleta
+50601	Pedra de Diamante
+50602	Pedra de Âmbar
+50603	Tronco Fóssil
+50604	Minério de Cobre
+50605	Minério de Prata
+50606	Minério de Ouro
+50607	Minério de Jade
+50608	Minério de Ébano
+50609	Pedaço de Pérola
+50610	Minério de Ouro Branco
+50611	Minério de Cristal
+50612	Minério de Ametista
+50613	Minério Lágrima do Céu
+50614	Minério Cristal da Alma
+50615	Minério de Rubi
+50616	Minério de Granada
+50617	Minério de Esmeralda
+50618	Minério de Safira
+50621	Diamante
+50622	Âmbar
+50623	Madeira Fóssil
+50624	Cobre
+50625	Prata
+50626	Ouro
+50627	Jade
+50628	Ébano
+50629	Pérola
+50630	Ouro Branco
+50631	Cristal
+50632	Ametista
+50633	Lágrima do Céu
+50634	Cristal da Alma
+50635	Rubi
+50636	Granada
+50637	Esmeralda
+50638	Safira
+50701	Flor de Pêssego
+50702	Campânula
+50703	Flor de Caqui
+50704	Raiz de Gango
+50705	Lilás
+50706	Fungo Tue
+50707	Rosa Alpina
+50708	Amora
+50709	Dente-de-leão
+50710	Cardo
+50711	Tâmara
+50712	Planta Sam-Zi
+50721	Flor de Pêssego
+50722	Campânula
+50723	Flor de Caqui
+50724	Raiz de Gango
+50725	Lilás
+50726	Fungo Tue
+50727	Rosa Alpina
+50728	Amora
+50729	Dente-de-leão
+50730	Cardo
+50731	Estrela da Noite
+50732	Flor da Neve
+50801	Suco de Flor de Pêssego
+50802	Suco de Campânula
+50803	Suco de Flor de Caqui
+50804	Suco de Raiz de Gango
+50805	Suco de Lilás
+50806	Resina de Fungo Tue
+50807	Suco de Rosa Alpina
+50808	Suco de Amora
+50809	Suco de Dente-de-leão
+50810	Suco de Cardo
+50811	Extrato de Tâmara
+50812	Suco da Planta Sam-Zi
+50813	Água Sim
+50814	Água Dok
+50815	Água Bo
+50816	Água Young
+50817	Água Zin
+50818	Água SamBo
+50819	Água Mong
+50820	Água Hwal
+50821	Orvalho Vermelho
+50822	Orvalho Rosa
+50823	Orvalho Amarelo
+50824	Orvalho Verde
+50825	Orvalho Azul
+50826	Orvalho Branco
+50901	Garrafa Vazia (P)
+50902	Garrafa Vazia (M)
+50903	Garrafa Vazia (G)
+50904	Receita do Especialista
+50905	Receita de Água Sim
+50906	Receita de Água Dok
+50907	Receita de Água Bo
+50908	Bola do Herbalista
+50909	Receita: Poção Roxa
+50910	Receita Aleatória
+51001	Fragmento de Energia
+51002	Cristal de Energia
+51501	Cor Draconis (Bruta)
+51502	Cor Draconis (Bruta)
+51503	Cor Draconis (Normal)
+51504	Cor Draconis (Nobre)
+51505	Cor Draconis (Preciosa)
+51506	Cor Draconis (Mística)
+51507	Cor Draconis (Lapidada)
+51508	Cor Draconis (Rara)
+51509	Cor Draconis (Antiga)
+51510	Cor Draconis (Lendária)
+51511	Cor Diamas
+51512	Cor Rubinum
+51513	Cor Jadeit
+51514	Cor Saphirum
+51515	Cor Granatum
+51516	Cor Atrum
+51517	Cor Diamas (Normal)
+51518	Cor Rubinum (Normal)
+51519	Cor Jadeit (Normal)
+51520	Cor Saphirum (Normal)
+51521	Cor Granatum (Normal)
+51522	Cor Atrum (Normal)
+51523	Cor Diamas (Nobre)
+51524	Cor Rubinum (Nobre)
+51525	Cor Jadeit (Nobre)
+51526	Cor Saphirum (Nobre)
+51527	Cor Granatum (Nobre)
+51528	Cor Atrum (Nobre)
+51529	Cor Diamas (Preciosa)
+51530	Cor Rubinum (Preciosa)
+51531	Cor Jadeit (Preciosa)
+51532	Cor Saphirum (Preciosa)
+51533	Cor Granatum (Preciosa)
+51534	Cor Atrum (Preciosa)
+51535	Cor Diamas (Perfeita)
+51536	Cor Rubinum (Perfeita)
+51537	Cor Jadeit (Perfeita)
+51538	Cor Saphirum (Perfeita)
+51539	Cor Granatum (Perfeita)
+51540	Cor Atrum (Perfeita)
+51541	Cor Draconis (Brilhante)
+51542	Cor Diamas (Brilhante)
+51543	Cor Rubinum (Brilhante)
+51544	Cor Jadeit (Brilhante)
+51545	Cor Saphirum (Brilhante)
+51546	Cor Granatum (Brilhante)
+51547	Cor Atrum (Brilhante)
+51548	Cor Draconis (Perfeita)
+51549	Cor Draconis (Eterna)
+51550	Cor Diamas (Eterna)
+51551	Cor Rubinum (Eterna)
+51552	Cor Jadeit (Eterna)
+51553	Cor Saphirum (Eterna)
+51554	Cor Granatum (Eterna)
+51555	Cor Atrum (Eterna)
+51556	Cor Diamas (Mística)
+51557	Cor Rubinum (Mística)
+51558	Cor Jadeit (Mística)
+51559	Cor Saphirum (Mística)
+51560	Cor Granatum (Mística)
+51561	Cor Atrum (Mística)
+51562	Cor Draconis (Épica)
+51563	Cor Diamas (Épica)
+51564	Cor Rubinum (Épica)
+51565	Cor Jadeit (Épica)
+51566	Cor Saphirum (Épica)
+51567	Cor Granatum (Épica)
+51568	Cor Atrum (Épica)
+51569	Cor Draconis (Divina)
+51570	Cor Diamas (Divina)
+51571	Cor Rubinum (Divina)
+51572	Cor Jadeit (Divina)
+51573	Cor Saphirum (Divina)
+51574	Cor Granatum (Divina)
+51575	Cor Atrum (Divina)
+51576	Cor Draconis+ (Normal)
+51577	Cor Diamas+ (Normal)
+51578	Cor Rubinum+ (Normal)
+51579	Cor Jadeit+ (Normal)
+51580	Cor Saphirum+ (Normal)
+51581	Cor Granatum+ (Normal)
+51582	Cor Atrum+ (Normal)
+51583	Cor Draconis+ (Nobre)
+51584	Cor Diamas+ (Nobre)
+51585	Cor Rubinum+ (Nobre)
+51586	Cor Jadeit+ (Nobre)
+51587	Cor Saphirum+ (Nobre)
+51588	Cor Granatum+ (Nobre)
+51589	Cor Atrum+ (Nobre)
+51590	Cor Draconis+ (Preciosa)
+51591	Cor Diamas+ (Preciosa)
+51592	Cor Rubinum+ (Preciosa)
+51593	Cor Jadeit+ (Preciosa)
+51594	Cor Saphirum+ (Preciosa)
+51595	Cor Granatum+ (Preciosa)
+51596	Cor Atrum+ (Preciosa)
+51597	Cor Draconis+ (Perfeita)
+51598	Cor Diamas+ (Perfeita)
+51599	Cor Rubinum+ (Perfeita)
+51600	Cor Jadeit+ (Perfeita)
+51601	Cor Saphirum+ (Perfeita)
+51602	Cor Granatum+ (Perfeita)
+51603	Cor Atrum+ (Perfeita)
+51604	Cor Draconis+ (Brilhante)
+51605	Cor Diamas+ (Brilhante)
+51606	Cor Rubinum+ (Brilhante)
+51607	Cor Jadeit+ (Brilhante)
+51608	Cor Saphirum+ (Brilhante)
+51609	Cor Granatum+ (Brilhante)
+51610	Cor Atrum+ (Brilhante)
+51611	Cor Draconis+ (Eterna)
+51612	Cor Diamas+ (Eterna)
+51613	Cor Rubinum+ (Eterna)
+51614	Cor Jadeit+ (Eterna)
+51615	Cor Saphirum+ (Eterna)
+51616	Cor Granatum+ (Eterna)
+51617	Cor Atrum+ (Eterna)
+51618	Cor Draconis+ (Mística)
+51619	Cor Diamas+ (Mística)
+51620	Cor Rubinum+ (Mística)
+51621	Cor Jadeit+ (Mística)
+51622	Cor Saphirum+ (Mística)
+51623	Cor Granatum+ (Mística)
+51624	Cor Atrum+ (Mística)
+51625	Cor Draconis+ (Épica)
+51626	Cor Diamas+ (Épica)
+51627	Cor Rubinum+ (Épica)
+51628	Cor Jadeit+ (Épica)
+51629	Cor Saphirum+ (Épica)
+51630	Cor Granatum+ (Épica)
+51631	Cor Atrum+ (Épica)
+51632	Cor Draconis+ (Divina)
+51633	Cor Diamas+ (Divina)
+51634	Cor Rubinum+ (Divina)
+51635	Cor Jadeit+ (Divina)
+51636	Cor Saphirum+ (Divina)
+51637	Cor Granatum+ (Divina)
+51638	Cor Atrum+ (Divina)
+51639	Baú do Dragão
+51640	Baú do Dragão+
+51641	Baú do Dragão+ (colorido)
+51642	Baú do Dragão (colorido)
+51643	Baú do Dragão Nobre
+51644	Baú do Dragão Nobre+
+51645	Baú Dragão Nobre+ (colorido)
+51646	Baú Dragão Nobre (colorido)
+52001	Javali Jovem (Selo)
+52002	Javali Jovem (Selo)
+52003	Javali Jovem (Selo)
+52004	Javali Jovem (Selo)
+52005	Javali Jovem (Selo)
+52006	Javali Selvagem (Selo)
+52007	Javali Selvagem (Selo)
+52008	Javali Selvagem (Selo)
+52009	Javali Selvagem (Selo)
+52010	Javali Selvagem (Selo)
+52011	Javali Valente (Selo)
+52012	Javali Valente (Selo)
+52013	Javali Valente (Selo)
+52014	Javali Valente (Selo)
+52015	Javali Valente (Selo)
+52016	Lobo Jovem (Selo)
+52017	Lobo Jovem (Selo)
+52018	Lobo Jovem (Selo)
+52019	Lobo Jovem (Selo)
+52020	Lobo Jovem (Selo)
+52021	Lobo Selvagem (Selo)
+52022	Lobo Selvagem (Selo)
+52023	Lobo Selvagem (Selo)
+52024	Lobo Selvagem (Selo)
+52025	Lobo Selvagem (Selo)
+52026	Lobo Valente (Selo)
+52027	Lobo Valente (Selo)
+52028	Lobo Valente (Selo)
+52029	Lobo Valente (Selo)
+52030	Lobo Valente (Selo)
+52031	Leão Jovem (Selo)
+52032	Leão Jovem (Selo)
+52033	Leão Jovem (Selo)
+52034	Leão Jovem (Selo)
+52035	Leão Jovem (Selo)
+52036	Leão Selvagem (Selo)
+52037	Leão Selvagem (Selo)
+52038	Leão Selvagem (Selo)
+52039	Leão Selvagem (Selo)
+52040	Leão Selvagem (Selo)
+52041	Leão Valente (Selo)
+52042	Leão Valente (Selo)
+52043	Leão Valente (Selo)
+52044	Leão Valente (Selo)
+52045	Leão Valente (Selo)
+52046	Tigre Jovem (Selo)
+52047	Tigre Jovem (Selo)
+52048	Tigre Jovem (Selo)
+52049	Tigre Jovem (Selo)
+52050	Tigre Jovem (Selo)
+52051	Tigre Selvagem (Selo)
+52052	Tigre Selvagem (Selo)
+52053	Tigre Selvagem (Selo)
+52054	Tigre Selvagem (Selo)
+52055	Tigre Selvagem (Selo)
+52056	Tigre Valente (Selo)
+52057	Tigre Valente (Selo)
+52058	Tigre Valente (Selo)
+52059	Tigre Valente (Selo)
+52060	Tigre Valente (Selo)
+52061	Rena Jovem (Selo)
+52062	Rena Jovem (Selo)
+52063	Rena Jovem (Selo)
+52064	Rena Jovem (Selo)
+52065	Rena Jovem (Selo)
+52066	Rena Selvagem (Selo)
+52067	Rena Selvagem (Selo)
+52068	Rena Selvagem (Selo)
+52069	Rena Selvagem (Selo)
+52070	Rena Selvagem (Selo)
+52071	Rena Valente (Selo)
+52072	Rena Valente (Selo)
+52073	Rena Valente (Selo)
+52074	Rena Valente (Selo)
+52075	Rena Valente (Selo)
+52076	Rena Jovem (Selo)
+52077	Rena Jovem (Selo)
+52078	Rena Jovem (Selo)
+52079	Rena Jovem (Selo)
+52080	Rena Jovem (Selo)
+52081	Rena Selvagem (Selo)
+52082	Rena Selvagem (Selo)
+52083	Rena Selvagem (Selo)
+52084	Rena Selvagem (Selo)
+52085	Rena Selvagem (Selo)
+52086	Rena Valente (Selo)
+52087	Rena Valente (Selo)
+52088	Rena Valente (Selo)
+52089	Rena Valente (Selo)
+52090	Rena Valente (Selo)
+52091	Selo do Dragor Jovem
+52092	Selo do Dragor Jovem
+52093	Selo do Dragor Jovem
+52094	Selo do Dragor Jovem
+52095	Selo do Dragor Jovem
+52096	Selo do Dragor Selvagem
+52097	Selo do Dragor Selvagem
+52098	Selo do Dragor Selvagem
+52099	Selo do Dragor Selvagem
+52100	Selo do Dragor Selvagem
+52101	Selo do Dragor Valente
+52102	Selo do Dragor Valente
+52103	Selo do Dragor Valente
+52104	Selo do Dragor Valente
+52105	Selo do Dragor Valente
+52701	Certificado do Leão
+52702	Certificado do Tigre
+52703	Certificado do Javali
+52704	Certificado do Lobo
+52705	Certificado da Rena (m)
+52706	Certificado da Rena (f)
+52707	Certificado do Dragor
+53001	Selo da Fênix de Fogo
+53002	Selo da Rena Jovem
+53003	Selo da Fênix de Gelo
+53005	Bebê Azrael
+53006	Bebê Azrael (ouro)
+53007	Selo do Bambi
+53008	Selo do Knuud
+53009	Selo do Bao Bao
+53010	Selo do Leonidas
+53011	Selo do Khan
+53012	Selo do Porky
+53013	Selo de Rufus
+53014	Selo do Mini-Executor
+53015	Selo do Mini-Executor (ouro)
+53016	Selo do Ossudo
+53017	Selo da Fênix de Jade
+53501	NoNAme
+53502	Baú da Rena Jovem
+53503	Gaiola da Fênix de Gelo
+53504	NoNAme
+53505	Baú do Bebê Azrael
+53506	Baú do Bebê Azrael (ouro)
+53507	Baú do Bambi
+53508	Baú do Knuud
+53509	Baú do Bao Bao
+53510	Baú do Leonidas
+53511	Baú do Khan
+53512	Baú do Porky
+53513	Baú do Rufus
+53514	Baú do Executor
+53515	Baú do Executor (ouro)
+53516	Baú de Ossos
+53517	Gaiola de Jade
+60001	Bílis
+60002	Bilhete do Guarda do Armazém
+60003	Símbolo Heroico
+69000	Segredo: Pancada
+69010	Segredo: Chi
+69020	Segredo: Golpe Fantasma
+69030	Segredo: Golpe de Ataque
+69040	Segredo: Emboscada
+69050	Segredo: Flecha
+69060	Segredo: Passo de Pluma
+69070	Segredo: Ataque Rápido
+69080	Segredo: Golpe Sombrio
+69090	Segredo: Redemoinho do Dragão
+69100	Segredo: Céu e Terra
+69110	Segredo: Lâmina Encantada
+69120	Segredo: Talismã Voador
+69130	Segredo: Cura
+69140	Segredo: Ajuda do Dragão
+69150	Segredo: Bênção
+70001	Boneca da Deusa
+70002	Terceira Mão
+70003	Livro do Líder
+70004	Medalha da Diligência
+70005	Anel da Experiência
+70006	Anel dos Idiomas
+70007	Anel da Ocultação
+70008	Bandeira Branca
+70009	Baú do Tesouro
+70010	Bilhete do Armazém
+70011	Garrafa de Aprimoramento
+70012	Lágrima da Deusa
+70013	Lágrima da Deusa Gigante
+70014	Pílula de Sangue
+70015	Pincel Barato
+70016	Bracelete Indiano
+70017	Bracelete Precioso
+70018	Brincos da Fênix
+70019	Colar do Milionário
+70020	Vinho de Flor de Pêssego
+70021	Bênção do Anjo
+70022	Coração de Bera
+70023	Bengala do Sábio
+70024	Bola da Bênção
+70025	Anel da Dignidade
+70026	Espelho do Desaparecimento
+70027	Anotação do Ferreiro
+70028	Anotação do Sábio
+70029	Pena Vermelha
+70030	Monóculo Vermelho
+70031	Folheto de Esgrima
+70032	Manual da Espada de Duas Mãos
+70033	Manual da Espada de Uma Mão
+70034	Manual da Adaga
+70035	Minério de Cobre Mágico
+70036	Anotação do Estudante
+70037	Livro do Esquecimento
+70038	Capa da Bravura
+70039	Manual do Ferreiro
+70040	Teimosia Orc
+70041	Punho do Discípulo
+70042	Luva Encantada
+70043	Luva do Ladrão
+70044	Chifre do Senhor Sombrio
+70045	Presa do Senhor Sombrio
+70046	Graal do Deus Dragão
+70047	Anel dos Idiomas (amostra)
+70048	Capa do Fugitivo
+70049	Anel de Lucy
+70050	Símbolo do Rei Sábio
+70051	Luva do Rei Sábio
+70052	Amuleto do Carma 1
+70053	Amuleto do Carma 2
+70054	Amuleto do Carma 3
+70056	Suco de Romã+
+70057	Capa da Bravura
+70058	Anel de Teletransporte
+70101	Livro da Providência
+70102	Feijão Zen
+70103	Sutra
+70104	Bola de Polimorfia
+70105	Bola de Polimorfia
+70106	Bola de Polimorfia
+70107	Bola de Polimorfia
+70201	Descolorante
+70202	Tintura Branca para Cabelo
+70203	Tintura Loira para Cabelo
+70204	Tintura Vermelha para Cabelo
+70205	Tintura Castanha para Cabelo
+70206	Tintura Preta para Cabelo
+70207	Descolorante
+70208	Tintura Castanha
+70251	Erva Vermelha
+70252	Erva Azul
+70253	Erva Verde
+70254	Erva Roxa
+70301	Anel de Noivado
+70302	Aliança de Casamento
+71001	Pergaminho do Exorcismo
+71002	Documento de Reset de Status
+71003	Documento de Reset de Habilidades
+71004	Medalha do Dragão
+71005	Anel dos Idiomas
+71006	Anel dos Idiomas
+71007	Anel dos Idiomas
+71008	Livro de Pesca
+71009	Baú de Armazenamento
+71010	Terceira Mão
+71011	Máscara de Emoções
+71012	Livro do Líder
+71013	Fogos de Artifício
+71014	Poção de Ataque+10
+71015	Anel da Experiência
+71016	Luvas do Ladrão
+71017	Medalha da Sorte
+71018	Bênção da Vida
+71019	Bênção da Magia
+71020	Bênção do Dragão
+71021	Pergaminho da Guerra
+71022	Retorno da Inteligência
+71023	Retorno da Vitalidade
+71024	Retorno da Força
+71025	Pedra do Ferreiro
+71026	Minério de Ferro Mágico
+71027	Vida do Deus Dragão
+71028	Ataque do Deus Dragão
+71029	Inteligência do Deus Dragão
+71030	Defesa do Deus Dragão
+71031	Apoio do Deus Dragão
+71032	Pergaminho do Dragão
+71033	Máscara de Emoções
+71034	Poção de Ataque+15
+71035	Elixir do Pesquisador
+71036	Pergaminho - Chefe Orc
+71037	Pergaminho - Líder
+71038	Pergaminho - Rainha Aranha
+71039	Pergaminho - Tartaruga
+71040	Pergaminho - Rei da Chama
+71041	Pergaminho - Nove Caudas
+71042	Pergaminho - Rei Demônio
+71043	Pergaminho - Fantasma do Tigre
+71044	Golpe Crítico
+71045	Golpe Perfurante
+71047	Tintura da Pedra Espiritual
+71048	Amuleto de Modificação
+71049	Rolo de Seda
+71050	Poção de Velocidade
+71054	Tintura dos Reinos
+71055	Tintura do Nome
+71056	Tintura do Céu
+71057	Pedra de Tronco Fóssil
+71058	Pedra de Veio de Cobre
+71059	Pedra de Veio de Prata
+71060	Pedra de Veio de Ouro
+71061	Pedra de Veio de Jade
+71062	Pedra de Veio de Ébano
+71063	Pedra de Mariscos
+71064	Pedra de Veio de Ouro Branco
+71065	Pedra de Veio de Cristal
+71066	Pedra de Veio de Ametista
+71067	Pedra da Lágrima do Céu
+71068	Pena dos Amantes
+71069	Brincos da Harmonia
+71070	Bracelete do Amor
+71071	Brincos do Amor
+71072	Bracelete da Harmonia
+71073	Colar do Amor
+71074	Colar da Harmonia
+71075	Tintura para Cabelo (Branca)
+71076	Tintura para Cabelo (Loira)
+71077	Tintura para Cabelo (Vermelha)
+71078	Tintura para Cabelo (Castanha)
+71079	Tintura para Cabelo (Preta)
+71080	Pedra Metin (F)
+71081	Pedra Metin (N)
+71082	Pedra Metin (D)
+71083	Manual das Pedras
+71084	Encantar Item
+71085	Reforçar Item
+71086	Missão de Nível (20~29)
+71087	Missão de Nível (30~39)
+71088	Livro de Missão (Fácil)
+71089	Livro de Missão (Normal)
+71090	Livro de Missão (Difícil)
+71091	Tintura do Comércio
+71092	Livro de Polimorfia
+71093	Bola de Polimorfia
+71094	Leitura Concentrada
+71095	Bilhete de Passagem
+71096	Tábua de Passagem
+71099	Anel do Sucessor
+71100	Pergaminho de Troca de Doutrina
+71101	Poção da Pressa
+71102	NoNAme
+71103	Redistribuição (VIT)
+71104	Redistribuição (INT)
+71105	Redistribuição (FOR)
+71106	Redistribuição (DES)
+71107	Fruta da Vida
+71108	Suco de Romã
+71109	Pergaminho da Correção
+71110	Açúcar para Cavalo
+71113	Copo da Percepção
+71114	Selo do Javali (amarelo)
+71115	Selo do Javali (azul)
+71116	Selo do Lobo (amarelo)
+71117	Selo do Lobo (azul)
+71118	Selo do Tigre (amarelo)
+71119	Selo do Tigre (azul)
+71120	Selo do Leão (amarelo)
+71121	Selo do Leão (azul)
+71122	NoNAme
+71123	Escamas de Dragão
+71124	Leão Branco
+71125	Selo do Javali de Batalha
+71126	Selo do Lobo de Combate
+71127	Selo do Tigre da Tempestade
+71128	Selo do Leão de Batalha
+71129	Garra de Dragão
+71130	Bilhete de Passagem
+71131	Selo do Cavalo Negro
+71132	Selo do Cavalo Negro
+71133	Selo do Cavalo Negro
+71134	Selo do Cavalo Negro
+71135	Anel da Lua Crescente
+71136	Pirulito
+71137	Selo do Tigre Real (azul)
+71138	Selo do Tigre Real (vermelho)
+71139	Selo do Tigre Real (dourado)
+71140	Selo do Tigre Real (verde)
+71141	Selo do Tigre Real (cinza)
+71142	Selo do Tigre Real (branco)
+71143	Anel da Alegria
+71144	Baú de Natal
+71145	Amuleto do Amor Eterno
+71146	Baú do Cupido (rosa)
+71147	Baú do Cupido (azul)
+71148	Anel da Força de Vontade
+71149	Anel do Poder Mortal
+71150	Ovo Mágico
+71151	Magia Verde
+71152	Força Verde
+71153	Poção da Sabedoria
+71154	Poção da Ascensão (3h)
+71155	Poção da Sabedoria (3h)
+71156	Poção do Espírito (3h)
+71157	Taça de Cristal
+71158	Medalha do Herói
+71159	Baú de Milon
+71160	Baú de Atena
+71161	Equus Porphyreus
+71164	Selo do Cometa
+71165	Selo do Predador Polar
+71166	Selo do Panda Blindado
+71171	Selo do Unicórnio
+71172	Selo do Pesadelo
+72001	Anel da Experiência
+72002	Anel da Experiência
+72003	Anel da Experiência
+72004	Luvas do Ladrão
+72005	Luvas do Ladrão
+72006	Luvas do Ladrão
+72007	Rolo de Seda
+72008	Rolo de Seda
+72009	Rolo de Seda
+72010	Pena de Inseparável
+72011	Pena de Inseparável
+72012	Pena de Inseparável
+72013	Livro de Pesca
+72014	Livro de Pesca
+72015	Livro de Pesca
+72016	Terceira Mão
+72017	Terceira Mão
+72018	Terceira Mão
+72019	Baú de Armazenamento
+72020	Baú de Armazenamento
+72021	Baú de Armazenamento
+72022	Moeda de Ouro da Sorte
+72023	Moeda de Ouro da Sorte
+72024	Moeda de Ouro da Sorte
+72025	Golpe Crítico
+72026	Golpe Crítico
+72027	Golpe Crítico
+72028	Máscara de Emoções
+72029	Máscara de Emoções
+72030	Máscara de Emoções
+72031	Ataque do Deus Dragão
+72032	Ataque do Deus Dragão
+72033	Ataque do Deus Dragão
+72034	Defesa do Deus Dragão
+72035	Defesa do Deus Dragão
+72036	Defesa do Deus Dragão
+72037	Vida do Deus Dragão
+72038	Vida do Deus Dragão
+72039	Vida do Deus Dragão
+72040	Inteligência do Deus Dragão
+72041	Inteligência do Deus Dragão
+72042	Inteligência do Deus Dragão
+72043	Livro do Líder
+72044	Livro do Líder
+72045	Livro do Líder
+72046	Chance Crítica
+72047	Chance Crítica
+72048	Chance Crítica
+72049	Anel da Experiência
+72050	Anel da Experiência
+72301	Pergaminho da Bênção
+72302	NoNAme
+72303	NoNAme
+72304	NoNAme
+72305	NoNAme
+72306	NoNAme
+72307	NoNAme
+72308	Minério de Cobre Mágico
+72309	NoNAme
+72310	NoNAme
+72311	NoNAme
+72312	NoNAme
+72313	NoNAme
+72314	NoNAme
+72501	Anel da Experiência (iCafe)
+72502	Luva do Ladrão (iCafe)
+72701	Sapatos do Vento
+72702	Sapatos do Vento
+72703	Brinco de Osso de Tigre
+72704	Brinco de Osso de Dragão
+72705	Bracelete de Osso de Tigre
+72706	Bracelete de Osso de Dragão
+72709	Brinco de Osso de Tigre
+72710	Brinco de Osso de Dragão
+72711	Bracelete de Osso de Tigre
+72712	Bracelete de Osso de Dragão
+72723	Elixir do Sol (P)
+72724	Elixir do Sol (M)
+72725	Elixir do Sol (G)
+72726	Elixir do Sol (E)
+72727	Elixir da Lua (P)
+72728	Elixir da Lua (M)
+72729	Elixir da Lua (G)
+72730	Elixir da Lua (E)
+73001	Penteado da Moda (vermelho)
+73002	Penteado da Moda (claro)
+73003	Penteado da Moda (azul)
+73004	Penteado da Moda (castanho)
+73005	Bandana
+73006	Bandana
+73007	Bandana
+73008	Bandana
+73009	Cabelo Longo (preto)
+73010	Cabelo Longo (vermelho)
+73011	Cabelo Longo (castanho)
+73012	Cabelo Longo (verde)
+73251	Rabo de Cavalo (castanho)
+73252	Rabo de Cavalo (verde)
+73253	Rabo de Cavalo (azul)
+73254	Rabo de Cavalo (claro)
+73255	Cabelo na Altura dos Ombros (vermelho)
+73256	Cabelo na Altura dos Ombros (castanho)
+73257	Cabelo na Altura dos Ombros (claro)
+73258	Cabelo na Altura dos Ombros (roxo)
+73259	Cabelo Curto (vermelho)
+73260	Cabelo Curto (azul)
+73261	Cabelo Curto (preto)
+73262	Cabelo Curto (loiro)
+73501	Corte Esportivo (claro)
+73502	Corte Esportivo (castanho)
+73503	Corte Esportivo (loiro)
+73504	Corte Esportivo (verde)
+73505	Cabelo Carisma (branco)
+73506	Cabelo Carisma (vermelho)
+73507	Cabelo Carisma (preto)
+73508	Cabelo Carisma (roxo)
+73509	Trança Longa (branco)
+73510	Trança Longa (azul)
+73511	Trança Longa (preto)
+73512	Trança Longa (castanho)
+73751	Penteado Elegante (castanho)
+73752	Penteado Elegante (preto)
+73753	Penteado Elegante (azul)
+73754	Penteado Elegante (claro)
+73755	Cabelo Médio (castanho)
+73756	Cabelo Médio (preto)
+73757	Cabelo Médio (loiro)
+73758	Cabelo Médio (roxo)
+73759	Penteado Antigo (castanho)
+73760	Penteado Antigo (claro)
+73761	Penteado Antigo (roxo)
+73762	Penteado Antigo (vermelho)
+74001	Penteado da Moda (vermelho)
+74002	Penteado da Moda (claro)
+74003	Penteado da Moda (azul)
+74004	Penteado da Moda (castanho)
+74005	Faixa de Cabeça (vermelho)
+74006	Faixa de Cabeça (xadrez castanho)
+74007	Faixa de Cabeça (azul)
+74008	Faixa de Cabeça (xadrez verde)
+74009	Cabelo Longo (preto)
+74010	Cabelo Longo (vermelho)
+74011	Cabelo Longo (castanho)
+74012	Cabelo Longo (verde)
+74013	Afro Guerreiro (M)
+74014	Afro Guerreiro (M)
+74015	Elmo Samurai Guerreiro (M)
+74016	Elmo Samurai Guerreiro (M)
+74017	Fez Guerreiro (M)
+74018	Keffiyeh Guerreiro (M)
+74019	Turbante Guerreiro (M)
+74020	Abóbora Guerreiro (m)
+74251	Rabo de Cavalo (castanho)
+74252	Rabo de Cavalo (verde)
+74253	Rabo de Cavalo (azul)
+74254	Rabo de Cavalo (claro)
+74255	Cabelo na Altura dos Ombros (vermelho)
+74256	Cabelo na Altura dos Ombros (castanho)
+74257	Cabelo na Altura dos Ombros (claro)
+74258	Cabelo na Altura dos Ombros (roxo)
+74259	Cabelo Curto (vermelho)
+74260	Cabelo Curto (azul)
+74261	Cabelo Curto (preto)
+74262	Cabelo Curto (loiro)
+74263	Afro Ninja (F)
+74264	Afro Ninja (F)
+74265	Chapéu de Flores Ninja (F)
+74266	Chapéu de Flores Ninja (F)
+74267	Lenço de Cabeça Ninja (F)
+74268	Lenço do Deserto Ninja (F)
+74269	Turbante Ninja (F)
+74270	Abóbora Ninja (f)
+74501	Penteado Esportivo (branco)
+74502	Penteado Esportivo (castanho)
+74503	Penteado Esportivo (loiro)
+74504	Penteado Esportivo (verde)
+74505	Cabelo Carisma (branco)
+74506	Cabelo Carisma (vermelho)
+74507	Cabelo Carisma (preto)
+74508	Cabelo Carisma (roxo)
+74509	Trança Longa (branco)
+74510	Trança Longa (azul)
+74511	Trança Longa (preto)
+74512	Trança Longa (castanho)
+74513	Afro Sura (M)
+74514	Afro Sura (M)
+74515	Elmo Samurai Sura (M)
+74516	Elmo Samurai Sura (M)
+74517	Fez Sura (M)
+74518	Keffiyeh Sura (M)
+74519	Turbante Sura (M)
+74520	Abóbora Sura (m)
+74751	Penteado Elegante (castanho)
+74752	Penteado Elegante (preto)
+74753	Penteado Elegante (azul)
+74754	Penteado Elegante (claro)
+74755	Cabelo Médio (castanho)
+74756	Cabelo Médio (preto)
+74757	Cabelo Médio (loiro)
+74758	Cabelo Médio (roxo)
+74759	Penteado Antigo (castanho)
+74760	Penteado Antigo (loiro)
+74761	Penteado Antigo (roxo)
+74762	Penteado Antigo (vermelho)
+74763	Afro Xamã (F)
+74764	Afro Xamã (F)
+74765	Chapéu de Flores Xamã (F)
+74766	Chapéu de Flores Xamã (F)
+74767	Lenço de Cabeça Xamã (F)
+74768	Lenço do Deserto Xamã (F)
+74769	Turbante Xamã (F)
+74770	Abóbora Xamã (f)
+75001	Penteado da Moda (vermelho)
+75002	Penteado da Moda (claro)
+75003	Penteado da Moda (azul)
+75004	Penteado da Moda (castanho)
+75005	Faixa de Cabeça (castanho)
+75006	Faixa de Cabeça (loiro)
+75007	Faixa de Cabeça (azul)
+75008	Faixa de Cabeça (verde)
+75009	Cabelo Longo (preto)
+75010	Cabelo Longo (vermelho)
+75011	Cabelo Longo (castanho)
+75012	Cabelo Longo (verde)
+75013	Afro Guerreiro (F)
+75014	Afro Guerreiro (F)
+75015	Chapéu de Flores Guerreiro (F)
+75016	Chapéu de Flores Guerreiro (F)
+75017	Lenço de Cabeça Guerreiro (F)
+75018	Lenço do Deserto Guerreiro (F)
+75019	Turbante Guerreiro (F)
+75020	Abóbora Guerreiro (f)
+75201	Rabo de Cavalo (castanho)
+75202	Rabo de Cavalo (verde)
+75203	Rabo de Cavalo (azul)
+75204	Rabo de Cavalo (claro)
+75205	Cabelo na Altura dos Ombros (vermelho)
+75206	Cabelo na Altura dos Ombros (castanho)
+75207	Cabelo na Altura dos Ombros (claro)
+75208	Cabelo na Altura dos Ombros (roxo)
+75209	Cabelo Curto (vermelho)
+75210	Cabelo Curto (azul)
+75211	Cabelo Curto (preto)
+75212	Cabelo Curto (loiro)
+75213	Afro Ninja (M)
+75214	Afro Ninja (M)
+75215	Elmo Samurai Ninja (M)
+75216	Elmo Samurai Ninja (M)
+75217	Fez Ninja (M)
+75218	Keffiyeh Ninja (M)
+75219	Turbante Ninja (M)
+75220	Abóbora Ninja (m)
+75401	Penteado Esportivo (claro)
+75402	Penteado Esportivo (castanho)
+75403	Penteado Esportivo (loiro)
+75404	Penteado Esportivo (verde)
+75405	Estilo Carisma (branco)
+75406	Estilo Carisma (vermelho)
+75407	Estilo Carisma (preto)
+75408	Estilo Carisma (roxo)
+75409	Trança Longa (branco)
+75410	Trança Longa (azul)
+75411	Trança Longa (preto)
+75412	Trança Longa (castanho)
+75413	Afro Sura (F)
+75414	Afro Sura (F)
+75415	Chapéu de Flores Sura (F)
+75416	Chapéu de Flores Sura (F)
+75417	Lenço de Cabeça Sura (F)
+75418	Lenço do Deserto Sura (F)
+75419	Turbante Sura (F)
+75420	Abóbora Sura (f)
+75601	Penteado Elegante (castanho)
+75602	Penteado Elegante (preto)
+75603	Penteado Elegante (azul)
+75604	Penteado Elegante (claro)
+75605	Cabelo Médio (castanho)
+75606	Cabelo Médio (preto)
+75607	Cabelo Médio (loiro)
+75608	Cabelo Médio (roxo)
+75609	Penteado Antigo (castanho)
+75610	Penteado Antigo (claro)
+75611	Penteado Antigo (roxo)
+75612	Penteado Antigo (vermelho)
+75613	Afro Xamã (M)
+75614	Afro Xamã (M)
+75615	Elmo Samurai Xamã (M)
+75616	Elmo Samurai Xamã (M)
+75617	Fez Xamã (M)
+75618	Keffiyeh Xamã (M)
+75619	Turbante Xamã (M)
+75620	Abóbora Xamã (m)
+76000	Vinho de Flor de Pêssego
+76001	Documento de Reset de Status
+76002	Cabeça Encolhida
+76003	Poção da Pressa
+76004	Elixir da Lua (P)
+76005	Elixir da Lua (M)
+76006	Bússola de Pedras Metin
+76007	Capa da Bravura
+76008	Medalha do Dragão
+76009	Pergaminho do Dragão
+76010	Pedra de Sangue
+76011	Livro do Líder
+76012	Poção de Velocidade
+76013	Reforçar Item (b)
+76014	Encantar Item (b)
+76015	Bola da Bênção
+76016	Pergaminho da Bênção
+76017	Poção de Ataque+10
+76018	Poção de Ataque+15
+76019	Bilhete de Passagem
+76020	Elixir do Pesquisador
+76021	Elixir do Sol (P)
+76022	Elixir do Sol (M)
+76023	Magia Verde
+76024	Força Verde
+80001	Bolsa de Dinheiro
+80002	Papel em Branco
+80003	Barra de Prata (50.000 Yang)
+80004	Barra de Prata (100.000 Yang)
+80005	Barra de Ouro (500.000 Yang)
+80006	Barra de Ouro (1 milhão de Yang)
+80007	Barra de Ouro (2 milhões de Yang)
+80008	Pepita de Ouro
+80014	Vale DR (100)
+80015	Vale DR (500)
+80016	Vale DR (1000)
+80017	Vale DR (50)
+90001	Garrafa d'Água Vazia
+90002	Garrafa d'Água
+90003	Cristal
+90004	Gema
+90005	Pedra d'Água
+90006	Pedra Espiritual
+90007	Mineral
+90010	Pedra Fundamental
+90011	Tronco
+90012	Compensado
+90013	NoNAme
+100000	Elixir do Tempo (P)
+100001	Elixir do Tempo (M)
+100002	Elixir do Tempo (G)
+100100	Tenaz do Dragão
+100200	Tenaz do Tempo
+100300	Feijão do Dragão Verde
+100400	Feijão do Dragão Azul
+100500	Feijão do Dragão Rosa
+110000~110099	Diamante do Dragão Bruto
+110100~110199	Diamante do Dragão Bruto
+110200~110299	Diamante do Dragão Bruto
+110300~110399	Diamante do Dragão Bruto
+110400~110499	Diamante do Dragão Bruto
+111000~111099	Diamante do Dragão Lapidado
+111100~111199	Diamante do Dragão Lapidado
+111200~111299	Diamante do Dragão Lapidado
+111300~111399	Diamante do Dragão Lapidado
+111400~111499	Diamante do Dragão Lapidado
+112000~112099	Diamante do Dragão Raro
+112100~112199	Diamante do Dragão Raro
+112200~112299	Diamante do Dragão Raro
+112300~112399	Diamante do Dragão Raro
+112400~112499	Diamante do Dragão Raro
+113000~113099	Diamante do Dragão Antigo
+113100~113199	Diamante do Dragão Antigo
+113200~113299	Diamante do Dragão Antigo
+113300~113399	Diamante do Dragão Antigo
+113400~113499	Diamante do Dragão Antigo
+114000~114099	Diamante do Dragão Lendário
+114100~114199	Diamante do Dragão Lendário
+114200~114299	Diamante do Dragão Lendário
+114300~114399	Diamante do Dragão Lendário
+114400~114499	Diamante do Dragão Lendário
+120000~120099	Rubi do Dragão Bruto
+120100~120199	Rubi do Dragão Bruto
+120200~120299	Rubi do Dragão Bruto
+120300~120399	Rubi do Dragão Bruto
+120400~120499	Rubi do Dragão Bruto
+121000~121099	Rubi do Dragão Lapidado
+121100~121199	Rubi do Dragão Lapidado
+121200~121299	Rubi do Dragão Lapidado
+121300~121399	Rubi do Dragão Lapidado
+121400~121499	Rubi do Dragão Lapidado
+122000~122099	Rubi do Dragão Raro
+122100~122199	Rubi do Dragão Raro
+122200~122299	Rubi do Dragão Raro
+122300~122399	Rubi do Dragão Raro
+122400~122499	Rubi do Dragão Raro
+123000~123099	Rubi do Dragão Antigo
+123100~123199	Rubi do Dragão Antigo
+123200~123299	Rubi do Dragão Antigo
+123300~123399	Rubi do Dragão Antigo
+123400~123499	Rubi do Dragão Antigo
+124000~124099	Rubi do Dragão Lendário
+124100~124199	Rubi do Dragão Lendário
+124200~124299	Rubi do Dragão Lendário
+124300~124399	Rubi do Dragão Lendário
+124400~124499	Rubi do Dragão Lendário
+130000~130099	Jade do Dragão Bruto
+130100~130199	Jade do Dragão Bruto
+130200~130299	Jade do Dragão Bruto
+130300~130399	Jade do Dragão Bruto
+130400~130499	Jade do Dragão Bruto
+131000~131099	Jade do Dragão Lapidado
+131100~131199	Jade do Dragão Lapidado
+131200~131299	Jade do Dragão Lapidado
+131300~131399	Jade do Dragão Lapidado
+131400~131499	Jade do Dragão Lapidado
+132000~132099	Jade do Dragão Raro
+132100~132199	Jade do Dragão Raro
+132200~132299	Jade do Dragão Raro
+132300~132399	Jade do Dragão Raro
+132400~132499	Jade do Dragão Raro
+133000~133099	Jade do Dragão Antigo
+133100~133199	Jade do Dragão Antigo
+133200~133299	Jade do Dragão Antigo
+133300~133399	Jade do Dragão Antigo
+133400~133499	Jade do Dragão Antigo
+134000~134099	Jade do Dragão Lendário
+134100~134199	Jade do Dragão Lendário
+134200~134299	Jade do Dragão Lendário
+134300~134399	Jade do Dragão Lendário
+134400~134499	Jade do Dragão Lendário
+140000~140099	Safira do Dragão Bruta
+140100~140199	Safira do Dragão Bruta
+140200~140299	Safira do Dragão Bruta
+140300~140399	Safira do Dragão Bruta
+140400~140499	Safira do Dragão Bruta
+141000~141099	Safira do Dragão Lapidada
+141100~141199	Safira do Dragão Lapidada
+141200~141299	Safira do Dragão Lapidada
+141300~141399	Safira do Dragão Lapidada
+141400~141499	Safira do Dragão Lapidada
+142000~142099	Safira do Dragão Rara
+142100~142199	Safira do Dragão Rara
+142200~142299	Safira do Dragão Rara
+142300~142399	Safira do Dragão Rara
+142400~142499	Safira do Dragão Rara
+143000~143099	Safira do Dragão Antiga
+143100~143199	Safira do Dragão Antiga
+143200~143299	Safira do Dragão Antiga
+143300~143399	Safira do Dragão Antiga
+143400~143499	Safira do Dragão Antiga
+144000~144099	Safira do Dragão Lendária
+144100~144199	Safira do Dragão Lendária
+144200~144299	Safira do Dragão Lendária
+144300~144399	Safira do Dragão Lendária
+144400~144499	Safira do Dragão Lendária
+150000~150099	Granada do Dragão Bruta
+150100~150199	Granada do Dragão Bruta
+150200~150299	Granada do Dragão Bruta
+150300~150399	Granada do Dragão Bruta
+150400~150499	Granada do Dragão Bruta
+151000~151099	Granada do Dragão Lapidada
+151100~151199	Granada do Dragão Lapidada
+151200~151299	Granada do Dragão Lapidada
+151300~151399	Granada do Dragão Lapidada
+151400~151499	Granada do Dragão Lapidada
+152000~152099	Granada do Dragão Rara
+152100~152199	Granada do Dragão Rara
+152200~152299	Granada do Dragão Rara
+152300~152399	Granada do Dragão Rara
+152400~152499	Granada do Dragão Rara
+153000~153099	Granada do Dragão Antiga
+153100~153199	Granada do Dragão Antiga
+153200~153299	Granada do Dragão Antiga
+153300~153399	Granada do Dragão Antiga
+153400~153499	Granada do Dragão Antiga
+154000~154099	Granada do Dragão Lendária
+154100~154199	Granada do Dragão Lendária
+154200~154299	Granada do Dragão Lendária
+154300~154399	Granada do Dragão Lendária
+154400~154499	Granada do Dragão Lendária
+160000~160099	Ônix do Dragão Bruto
+160100~160199	Ônix do Dragão Bruto
+160200~160299	Ônix do Dragão Bruto
+160300~160399	Ônix do Dragão Bruto
+160400~160499	Ônix do Dragão Bruto
+161000~161099	Ônix do Dragão Lapidado
+161100~161199	Ônix do Dragão Lapidado
+161200~161299	Ônix do Dragão Lapidado
+161300~161399	Ônix do Dragão Lapidado
+161400~161499	Ônix do Dragão Lapidado
+162000~162099	Ônix do Dragão Raro
+162100~162199	Ônix do Dragão Raro
+162200~162299	Ônix do Dragão Raro
+162300~162399	Ônix do Dragão Raro
+162400~162499	Ônix do Dragão Raro
+163000~163099	Ônix do Dragão Antigo
+163100~163199	Ônix do Dragão Antigo
+163200~163299	Ônix do Dragão Antigo
+163300~163399	Ônix do Dragão Antigo
+163400~163499	Ônix do Dragão Antigo
+164000~164099	Ônix do Dragão Lendário
+164100~164199	Ônix do Dragão Lendário
+164200~164299	Ônix do Dragão Lendário
+164300~164399	Ônix do Dragão Lendário
+164400~164499	Ônix do Dragão Lendário
+71051	Enfeitiçar Item
+71052	Abençoar Item
+25042	Pedra Mágica
+25043	Manual do Ferreiro
+25044	Pergaminho da Guerra
+25045	Pergaminho do Dragão
+30271	Grampo Ornamental
+35002	Remédio Desconhecido
+50451	Manual: Chuva de Flechas
+51707	Orvalho Amarelo
+51717	Orvalho Azul
+51722	Orvalho Verde
+51732	Orvalho Rosa
+51737	Orvalho Vermelho
+51752	Orvalho Branco
+70124	Bola da Bênção
+70138	Capa da Bravura
+71201	Pergaminho do Exorcismo
+71284	Encantar Item
+71285	Reforçar Item
+71294	Leitura Concentrada
+72131	Terceira Mão
+72132	Terceira Mão
+72141	Livro de Pesca
+72142	Livro de Pesca
+72161	Copo da Percepção
+72732	Rabo de Cavalo
+73051	Penteado da Moda (vermelho)
+73052	Penteado da Moda (claro)
+73053	Penteado da Moda (azul)
+73054	Penteado da Moda (castanho)
+73055	Faixa de Cabeça (castanho)
+73056	Faixa de Cabeça (loiro)
+73057	Faixa de Cabeça (azul)
+73058	Faixa de Cabeça (verde)
+73059	Cabelo Longo (preto)
+73060	Cabelo Longo (vermelho)
+73061	Cabelo Longo (castanho)
+73062	Cabelo Longo (verde)
+73301	Rabo de Cavalo (castanho)
+73302	Rabo de Cavalo (verde)
+73303	Rabo de Cavalo (azul)
+73304	Rabo de Cavalo (claro)
+73306	Cabelo na Altura dos Ombros (castanho)
+73307	Cabelo na Altura dos Ombros (claro)
+73308	Cabelo na Altura dos Ombros (roxo)
+73309	Cabelo Curto (vermelho)
+73310	Cabelo Curto (azul)
+73311	Cabelo Curto (preto)
+73312	Cabelo Curto (loiro)
+73605	Estilo Carisma (branco)
+73609	Trança Longa (branco)
+73610	Trança Longa (azul)
+73611	Trança Longa (preto)
+73612	Trança Longa (castanho)
+73801	Penteado Elegante (castanho)
+73802	Penteado Elegante (preto)
+73803	Penteado Elegante (azul)
+73804	Penteado Elegante (claro)
+73807	Cabelo Médio (loiro)
+73809	Penteado Antigo (castanho)
+73810	Penteado Antigo (claro)
+73811	Penteado Antigo (roxo)
+73812	Penteado Antigo (vermelho)
+8101	Ponta de Flecha de Bambu
+8102	Ponta de Flecha de Pedra
+8103	Ponta de Flecha de Ferro
+8104	Ponta de Flecha de Aço
+8105	Ponta de Flecha de Prata
+25051	Garantia do Artesão (Armadura)
+25052	Garantia do Artesão (Arma)
+25053	Garantia do Artesão (Joia)
+25054	Garantia do Artesão (Arma)
+27007	Poção Vermelha (GG)
+27008	Poção Azul (GG)
+27798	Camarão Petrificado
+29201	Faca do Herbalista+0
+29202	Faca do Herbalista+1
+29203	Faca do Herbalista+2
+29204	Faca do Herbalista+3
+29205	Faca do Herbalista+4
+29206	Faca do Herbalista+5
+29207	Faca do Herbalista+6
+29208	Faca do Herbalista+7
+29209	Faca do Herbalista+8
+29210	Faca do Herbalista+9
+30331	Pelo de Lobo Amaldiçoado
+30332	Pele de Urso Amaldiçoada
+30333	Pele de Tigre Amaldiçoada
+30341	Sopa de Cogumelos
+30342	Infusão de Ervas Forte
+30343	Carne de Demônio
+30344	Olhos Secos
+30345	Madeira Esotérica
+30346	Carne de Urso
+30347	Gourou
+30348	Gosma Gelada
+30349	Madeira Viva
+30350	Garras de Macaco
+30351	Cauda de Macaco
+30352	Testículos de Orc
+30353	Carne de Porco
+30354	Semente Vermelha
+30355	Carne Podre
+30356	Alma Valente
+30357	Amuleto do Guerreiro
+30358	Coração do Guerreiro
+30359	Areia do Deserto
+30360	Pó Mágico
+30361	Essência da Natureza
+30362	Essência da Água
+30363	Amuleto Purificador de Água
+30364	Gema Encantada
+30365	Bola de Esmeralda
+30366	Pergaminho
+30367	Escamas de Dragão
+30368	Permissão para Reforçar Item
+30369	Permissão para Reforçar Item
+30370	Permissão para Encantar Item
+30371	Chifres do Diabo
+30372	Aço Negro
+30373	Tomo do Erudito
+30374	Pena do Sábio
+30375	Minério Mágico
+30376	Chave de Madeira
+30377	Chave Demoníaca
+30378	Materiais de Fabricação
+30379	Minério Fundido
+30380	Gazua
+35003	Pedra do Tigre
+35004	Cartaz de Procurado
+35005	Crônica dos Artesãos
+35006	Raiz da Floresta Vermelha
+35007	Chama dos Condenados
+50097	Baú da Árvore Gigante
+50098	Baú de Chegal
+50217	Baú das Areias
+50218	Baú do Soldado
+50733	Pétala de Âmbar
+50734	Panículas de Pérola
+50735	Raiz de Serpente
+50736	Cogumelo da Caverna
+50911	Receita: Poção Roxa
+50912	Receita: Poção Verde
+50913	Receita: Infusão Laranja
+50914	Receita: Infusão Amarela
+50915	Receita: Infusão Ciano
+50916	Receita: Infusão Azul
+50917	Receita: Infusão Verde
+50918	Receita: Infusão Platina
+50919	Receita: Infusão Rosa
+50920	Receita: Infusão Vermelha
+50921	Receita: Infusão Roxa
+50922	Receita: Infusão Carmesim
+50923	Receita: Infusão Cinza
+50924	Receita: Poção do Encantamento
+50925	Receita: Poção da Durabilidade
+50926	Receita: Poção de Regeneração de HP
+50927	Receita: Poção de Regeneração de MP
+50928	Receita: Poção do Matador
+50929	Receita: Poção do Corredor
+50930	Receita: Poção da Sabedoria
+50931	Receita: Poção da Invulnerabilidade
+50932	Receita: Poção do Gênio
+50933	Receita: Poção da Determinação
+50934	Receita: Poção da Estagnação
+50935	Receita: Poção da Análise Rápida
+50936	Receita: Poção do Poder
+50937	Receita: Poção Escama de Dragão
+50938	Receita: Poção Vermelha (GG)
+50939	Receita: Poção Azul (GG)
+50940	Receita: Elixir do Sol (P)
+50941	Receita: Elixir da Lua (P)
+50942	Receita: Infusão Marrom
+50943	Receita: Infusão Bege
+50944	Receita: Elixir do Sol (M)
+50945	Receita: Elixir da Lua (M)
+50946	Receita: Elixir do Sol (G)
+50947	Receita: Elixir da Lua (G)
+51700	Suco Laranja
+51701	Água Laranja
+51702	Orvalho Laranja
+51705	Suco Amarelo
+51706	Água Amarela
+51710	Suco Ciano
+51711	Água Ciano
+51712	Orvalho Ciano
+51715	Suco Azul
+51716	Água Azul
+51720	Suco Verde
+51721	Água Verde
+51725	Suco Platina
+51726	Água Platina
+51727	Orvalho Platina
+51730	Suco Rosa
+51731	Água Rosa
+51735	Suco Vermelho
+51736	Água Vermelha
+51740	Suco Roxo
+51741	Água Roxa
+51742	Orvalho Roxo
+51745	Suco Carmesim
+51746	Água Carmesim
+51747	Orvalho Carmesim
+51748	Poção Carmesim
+51750	Suco Cinza
+51751	Água Cinza
+51753	Poção Cinza
+51755	Poção do Encantamento (M)
+51756	Poção do Encantamento (G)
+51760	Poção da Durabilidade (M)
+51761	Poção da Durabilidade (G)
+51765	Poção de Regeneração de HP
+51766	Poção de Regeneração de MP
+51770	Poção do Matador (P)
+51771	Poção do Matador (M)
+51772	Poção do Matador (G)
+51775	Poção do Corredor (M)
+51776	Poção do Corredor (G)
+51780	Poção da Imunidade
+51781	Poção da Invulnerabilidade
+51782	Poção do Gênio
+51783	Poção da Determinação
+51784	Poção da Estagnação
+51785	Poção da Análise Rápida
+51790	Poção do Poder (P)
+51791	Poção do Poder (M)
+51792	Poção do Poder (G)
+51795	Poção Escama de Dragão (P)
+51796	Poção Escama de Dragão (M)
+51797	Poção Escama de Dragão (G)
+51798	Infusão de Seungryong
+51800	Suco Marrom
+51801	Água Marrom
+51802	Orvalho Marrom
+51805	Suco Bege
+51806	Água Bege
+51807	Orvalho Bege
+71282	Extrator de Falhas
+72101	Anel da Experiência
+72102	Anel da Experiência
+72111	Luva do Ladrão
+72112	Luva do Ladrão
+72121	Moeda da Sorte
+72122	Moeda da Sorte
+72151	Loja Premium
+72199	Passe do Triunfo
+72731	Máscara de Sabah
+72733	Luva do Vendaval
+72734	Veneno de Tartaruga
+72735	Máscara de Sabah
+73305	Cabelo na Altura dos Ombros (vermelho)
+73601	Corte Esportivo (claro)
+73602	Corte Esportivo (castanho)
+73603	Corte Esportivo (loiro)
+73604	Corte Esportivo (verde)
+73606	Estilo Carisma (vermelho)
+73607	Estilo Carisma (preto)
+73608	Estilo Carisma (roxo)
+73805	Cabelo Médio (castanho)
+73806	Cabelo Médio (preto)
+73808	Cabelo Médio (roxo)
+80018	Vale DR (250)
+55000	Baú do Tesouro Hexagonal (M2)
+55001	Baú do Tesouro Hexagonal (Terras da Guilda)
+55002	Baú do Tesouro Hexagonal (Monte Sohan)
+55003	Baú do Tesouro Hexagonal (Doyyumhwaji)
+55004	Baú do Tesouro Hexagonal (Deserto)
+55005	Baú do Tesouro Hexagonal (Vale dos Orcs)
+55006	Baú do Tesouro Hexagonal (Templo)
+55007	Baú do Tesouro Hexagonal (Torre Demoníaca)
+55008	Baú do Tesouro Hexagonal (Floresta Fantasma)
+55009	Baú do Tesouro Hexagonal (Floresta Vermelha)
+55010	Baú do Tesouro Hexagonal (Masmorra das Aranhas 2)
+55011	Baú do Tesouro Hexagonal (Gruta 1)
+55012	Baú do Tesouro Hexagonal (Gruta 2)
+55013	Baú do Tesouro Hexagonal (Masmorra dos Macacos 2)
+55014	Baú do Tesouro Hexagonal (Masmorra dos Macacos 3)
+55015	Baú do Tesouro Hexagonal (Sala do Dragão)
+55016	Baú do Tesouro Hexagonal (Cabo)
+55017	Baú do Tesouro Hexagonal (Baía de Nefrita)
+55018	Baú do Tesouro Hexagonal (Penhasco de Gautama)
+55019	Baú do Tesouro Hexagonal (Montanhas do Trovão)
+55020	Baú do Tesouro Hexagonal (Fortaleza)
+50290	Livro de habilidade
+50291	Livro de habilidade
+50292	Livro de habilidade
+50293	Livro de habilidade
+50294	Livro de habilidade
+50295	Livro de habilidade
+50296	Livro de habilidade
+50297	Livro de habilidade
+51998	Chave da Loja Particular
+51999	Busca de Lojas Premium
+52000	Decoração de Loja
+90991	BETA: Buff M1
+90992	BETA: Buff G1
+90993	BETA: Buff P
+110000	Diamante do Dragão Bruto
+110100	Diamante do Dragão Bruto
+110200	Diamante do Dragão Bruto
+110300	Diamante do Dragão Bruto
+110400	Diamante do Dragão Bruto
+111000	Diamante do Dragão Lapidado
+111100	Diamante do Dragão Lapidado
+111200	Diamante do Dragão Lapidado
+111300	Diamante do Dragão Lapidado
+111400	Diamante do Dragão Lapidado
+112000	Diamante do Dragão Raro
+112100	Diamante do Dragão Raro
+112200	Diamante do Dragão Raro
+112300	Diamante do Dragão Raro
+112400	Diamante do Dragão Raro
+113000	Diamante do Dragão Antigo
+113100	Diamante do Dragão Antigo
+113200	Diamante do Dragão Antigo
+113300	Diamante do Dragão Antigo
+113400	Diamante do Dragão Antigo
+114000	Diamante do Dragão Lendário
+114100	Diamante do Dragão Lendário
+114200	Diamante do Dragão Lendário
+114300	Diamante do Dragão Lendário
+114400	Diamante do Dragão Lendário
+120000	Rubi do Dragão Bruto
+120100	Rubi do Dragão Bruto
+120200	Rubi do Dragão Bruto
+120300	Rubi do Dragão Bruto
+120400	Rubi do Dragão Bruto
+121000	Rubi do Dragão Lapidado
+121100	Rubi do Dragão Lapidado
+121200	Rubi do Dragão Lapidado
+121300	Rubi do Dragão Lapidado
+121400	Rubi do Dragão Lapidado
+122000	Rubi do Dragão Raro
+122100	Rubi do Dragão Raro
+122200	Rubi do Dragão Raro
+122300	Rubi do Dragão Raro
+122400	Rubi do Dragão Raro
+123000	Rubi do Dragão Antigo
+123100	Rubi do Dragão Antigo
+123200	Rubi do Dragão Antigo
+123300	Rubi do Dragão Antigo
+123400	Rubi do Dragão Antigo
+124000	Rubi do Dragão Lendário
+124100	Rubi do Dragão Lendário
+124200	Rubi do Dragão Lendário
+124300	Rubi do Dragão Lendário
+124400	Rubi do Dragão Lendário
+130000	Jade do Dragão Bruto
+130100	Jade do Dragão Bruto
+130200	Jade do Dragão Bruto
+130300	Jade do Dragão Bruto
+130400	Jade do Dragão Bruto
+131000	Jade do Dragão Lapidado
+131100	Jade do Dragão Lapidado
+131200	Jade do Dragão Lapidado
+131300	Jade do Dragão Lapidado
+131400	Jade do Dragão Lapidado
+132000	Jade do Dragão Raro
+132100	Jade do Dragão Raro
+132200	Jade do Dragão Raro
+132300	Jade do Dragão Raro
+132400	Jade do Dragão Raro
+133000	Jade do Dragão Antigo
+133100	Jade do Dragão Antigo
+133200	Jade do Dragão Antigo
+133300	Jade do Dragão Antigo
+133400	Jade do Dragão Antigo
+134000	Jade do Dragão Lendário
+134100	Jade do Dragão Lendário
+134200	Jade do Dragão Lendário
+134300	Jade do Dragão Lendário
+134400	Jade do Dragão Lendário
+140000	Safira do Dragão Bruta
+140100	Safira do Dragão Bruta
+140200	Safira do Dragão Bruta
+140300	Safira do Dragão Bruta
+140400	Safira do Dragão Bruta
+141000	Safira do Dragão Lapidada
+141100	Safira do Dragão Lapidada
+141200	Safira do Dragão Lapidada
+141300	Safira do Dragão Lapidada
+141400	Safira do Dragão Lapidada
+142000	Safira do Dragão Rara
+142100	Safira do Dragão Rara
+142200	Safira do Dragão Rara
+142300	Safira do Dragão Rara
+142400	Safira do Dragão Rara
+143000	Safira do Dragão Antiga
+143100	Safira do Dragão Antiga
+143200	Safira do Dragão Antiga
+143300	Safira do Dragão Antiga
+143400	Safira do Dragão Antiga
+144000	Safira do Dragão Lendária
+144100	Safira do Dragão Lendária
+144200	Safira do Dragão Lendária
+144300	Safira do Dragão Lendária
+144400	Safira do Dragão Lendária
+150000	Granada do Dragão Bruta
+150100	Granada do Dragão Bruta
+150200	Granada do Dragão Bruta
+150300	Granada do Dragão Bruta
+150400	Granada do Dragão Bruta
+151000	Granada do Dragão Lapidada
+151100	Granada do Dragão Lapidada
+151200	Granada do Dragão Lapidada
+151300	Granada do Dragão Lapidada
+151400	Granada do Dragão Lapidada
+152000	Granada do Dragão Rara
+152100	Granada do Dragão Rara
+152200	Granada do Dragão Rara
+152300	Granada do Dragão Rara
+152400	Granada do Dragão Rara
+153000	Granada do Dragão Antiga
+153100	Granada do Dragão Antiga
+153200	Granada do Dragão Antiga
+153300	Granada do Dragão Antiga
+153400	Granada do Dragão Antiga
+154000	Granada do Dragão Lendária
+154100	Granada do Dragão Lendária
+154200	Granada do Dragão Lendária
+154300	Granada do Dragão Lendária
+154400	Granada do Dragão Lendária
+160000	Ônix do Dragão Bruto
+160100	Ônix do Dragão Bruto
+160200	Ônix do Dragão Bruto
+160300	Ônix do Dragão Bruto
+160400	Ônix do Dragão Bruto
+161000	Ônix do Dragão Lapidado
+161100	Ônix do Dragão Lapidado
+161200	Ônix do Dragão Lapidado
+161300	Ônix do Dragão Lapidado
+161400	Ônix do Dragão Lapidado
+162000	Ônix do Dragão Raro
+162100	Ônix do Dragão Raro
+162200	Ônix do Dragão Raro
+162300	Ônix do Dragão Raro
+162400	Ônix do Dragão Raro
+163000	Ônix do Dragão Antigo
+163100	Ônix do Dragão Antigo
+163200	Ônix do Dragão Antigo
+163300	Ônix do Dragão Antigo
+163400	Ônix do Dragão Antigo
+164000	Ônix do Dragão Lendário
+164100	Ônix do Dragão Lendário
+164200	Ônix do Dragão Lendário
+164300	Ônix do Dragão Lendário
+164400	Ônix do Dragão Lendário

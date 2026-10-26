@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Metin2 — Centrum Aktualizacji VPS & WebClient</title>
+<style>
+  :root {
+    --bg: #0b0d13;
+    --card: #131722;
+    --border: #2a3142;
+    --gold: #e0b354;
+    --gold-hover: #f3c86b;
+    --text: #e6e9f0;
+    --muted: #9aa3b5;
+    --ok: #2ecc71;
+    --warn: #f39c12;
+    --err: #e74c3c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 32px 16px;
+    background: radial-gradient(circle at top, #1a2030 0%, var(--bg) 70%);
+    color: var(--text);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    min-height: 100vh;
+  }
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  h1 {
+    margin: 0 0 8px;
+    color: var(--gold);
+    font-size: 26px;
+    letter-spacing: 0.5px;
+  }
+  .sub {
+    color: var(--muted);
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  }
+  .card-title {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .badge {
+    padding: 3px 9px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .badge.ok { background: rgba(46,204,113,0.18); color: var(--ok); border: 1px solid rgba(46,204,113,0.4); }
+  .badge.warn { background: rgba(243,156,18,0.18); color: var(--warn); border: 1px solid rgba(243,156,18,0.4); }
+  .ver-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 6px 0;
+    font-size: 15px;
+  }
+  .ver-val { font-weight: 700; font-family: ui-monospace, Consolas, monospace; }
+  .info-box {
+    background: rgba(224,179,84,0.08);
+    border: 1px solid rgba(224,179,84,0.3);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.15s ease;
+  }
+  button.primary {
+    background: linear-gradient(180deg, var(--gold-hover), var(--gold));
+    color: #111;
+  }
+  button.primary:hover:not(:disabled) { filter: brightness(1.08); transform: translateY(-1px); }
+  button.secondary {
+    background: #1f2637;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  button.secondary:hover:not(:disabled) { background: #283147; }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .console {
+    background: #07090d;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 12.5px;
+    line-height: 1.5;
+    height: 360px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    color: #cfd6e6;
+  }
+  .links {
+    margin-top: 18px;
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+  }
+  .links a { color: var(--gold); text-decoration: none; }
+  .links a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Centrum Aktualizacji VPS &amp; WebClient</h1>
+  <div class="sub">Sprawdzanie oficjalnego repozytorium mt2009 oraz jednoklikowa aktualizacja serwera gry i klienta przeglądarkowego</div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-title">
+        <span>Serwer Gry (VPS Docker)</span>
+        <span id="srv_badge" class="badge">Sprawdzanie...</span>
+      </div>
+      <div class="ver-row"><span>Zainstalowana wersja:</span> <span id="srv_inst" class="ver-val">...</span></div>
+      <div class="ver-row"><span>Najnowsza wersja:</span> <span id="srv_lat" class="ver-val">...</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span>Klient Web (Przeglądarka)</span>
+        <span id="cli_badge" class="badge">Sprawdzanie...</span>
+      </div>
+      <div class="ver-row"><span>Zainstalowana wersja:</span> <span id="cli_inst" class="ver-val">...</span></div>
+      <div class="ver-row"><span>Najnowsza wersja:</span> <span id="cli_lat" class="ver-val">...</span></div>
+    </div>
+  </div>
+
+  <div class="info-box" id="status_msg">Pobieranie opisu najnowszej aktualizacji...</div>
+
+  <div class="actions">
+    <button class="primary" id="btn_all" onclick="startUpdate('all')">Aktualizuj Wszystko (Serwer + Klient Web)</button>
+    <button class="secondary" id="btn_web" onclick="startUpdate('web')">Przebuduj tylko Klienta Web</button>
+    <button class="secondary" onclick="refreshStatus()">Odśwież status</button>
+  </div>
+
+  <div class="console" id="log_box">Ładowanie logów...</div>
+
+  <div class="links">
+    <a href="/client.html?deflang=pl" target="_blank">▶ Uruchom Grę (WebClient)</a>
+    <a href="/rejestracja.html" target="_blank">➕ Rejestracja Konta</a>
+    <a href="http://YOUR_VPS_IP:7788" target="_blank">⚙ Panel Gracza / Admina (:7788)</a>
+    <a href="http://YOUR_VPS_IP:7790" target="_blank">🛡 Panel AntyCheat (:7790)</a>
+  </div>
+</div>
+
+<script>
+var autoScroll = true;
+var logBox = document.getElementById('log_box');
+
+async function refreshStatus() {
+  try {
+    var r = await fetch('/api/updater/status?t=' + Date.now());
+    var d = await r.json();
+
+    document.getElementById('srv_inst').textContent = d.installed_server;
+    document.getElementById('srv_lat').textContent = d.latest_server;
+    var sb = document.getElementById('srv_badge');
+    if (d.server_up_to_date) {
+      sb.textContent = 'AKTUALNY';
+      sb.className = 'badge ok';
+    } else {
+      sb.textContent = 'DOSTĘPNA AKTUALIZACJA';
+      sb.className = 'badge warn';
+    }
+
+    document.getElementById('cli_inst').textContent = d.installed_client;
+    document.getElementById('cli_lat').textContent = d.latest_client;
+    var cb = document.getElementById('cli_badge');
+    if (d.client_up_to_date) {
+      cb.textContent = 'AKTUALNY';
+      cb.className = 'badge ok';
+    } else {
+      cb.textContent = 'DOSTĘPNA AKTUALIZACJA';
+      cb.className = 'badge warn';
+    }
+
+    document.getElementById('status_msg').textContent = d.status_message || 'Brak komunikatu.';
+    document.getElementById('btn_all').disabled = !!d.running;
+    document.getElementById('btn_web').disabled = !!d.running;
+
+    if (d.logs && d.logs.length) {
+      var prevLen = logBox.textContent.length;
+      logBox.textContent = d.logs.join('\n');
+      if (d.logs.join('\n').length !== prevLen) {
+        logBox.scrollTop = logBox.scrollHeight;
+      }
+    }
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+async function startUpdate(mode) {
+  if (!confirm(mode === 'all'
+    ? 'Czy na pewno chcesz uruchomić aktualizację serwera VPS oraz klienta Web?'
+    : 'Czy na pewno chcesz pobrać najnowszą paczkę klienta i przebudować klienta Web?')) return;
+  document.getElementById('btn_all').disabled = true;
+  document.getElementById('btn_web').disabled = true;
+  await fetch('/api/updater/run', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({mode: mode})
+  });
+  refreshStatus();
+}
+
+refreshStatus();
+setInterval(refreshStatus, 2000);
+</script>
+</body>
+</html>

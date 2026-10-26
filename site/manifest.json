@@ -1,0 +1,27 @@
+{
+  "id": "./client.html?mobile=1",
+  "name": "Metin2 Mobile",
+  "short_name": "Metin2",
+  "description": "Metin2 Mobile - cliente web",
+  "lang": "pt-BR",
+  "start_url": "./client.html?mobile=1&deflang=pt",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#080604",
+  "theme_color": "#080604",
+  "icons": [
+    {
+      "src": "icons/ui/pwa_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/ui/pwa_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
