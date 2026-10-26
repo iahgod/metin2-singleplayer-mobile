@@ -150,21 +150,14 @@
                     hide(4000);
                     return;
                 }
-                if (globalThis._m2oInputActiveUntil && performance.now() < globalThis._m2oInputActiveUntil) {
-                    setTimeout(next, 350);
+                if ((globalThis._m2oInputActiveUntil && performance.now() < globalThis._m2oInputActiveUntil) ||
+                    (globalThis._m2wSyncBusyUntil && performance.now() < globalThis._m2wSyncBusyUntil)) {
+                    setTimeout(next, 400);
                     return;
                 }
                 var name = list[i++] + '.bin';
                 var sUrl = base + name;
                 var wasNet = false;
-                var hydrateRam = function (b) {
-                    var st = m2w.chunks;
-                    if (st && st.map && !st.map.has(name) && (st.bytes + b.byteLength <= st.budget)) {
-                        var arr = new Uint8Array(b);
-                        st.map.set(name, arr);
-                        st.bytes += arr.length;
-                    }
-                };
                 if (m2w.chunks && m2w.chunks.map && m2w.chunks.map.has(name)) {
                     ++download.fromCache;
                     setTimeout(next, 2);
@@ -173,9 +166,10 @@
                 c.match(sUrl).then(function (cached) {
                     if (cached) {
                         ++download.fromCache;
-                        if (m2w.chunks && m2w.chunks.map && !m2w.chunks.map.has(name) && (m2w.chunks.bytes + 4194304 <= m2w.chunks.budget)) {
-                            return cached.arrayBuffer().then(hydrateRam);
-                        }
+                        return;
+                    }
+                    if (globalThis._m2wSyncBusyUntil && performance.now() < globalThis._m2wSyncBusyUntil) {
+                        --i;
                         return;
                     }
                     wasNet = true;
@@ -183,7 +177,6 @@
                         if (!o || !o.ok) throw new Error('HTTP ' + (o && o.status));
                         return o.arrayBuffer().then(function (b) {
                             download.bytes += b.byteLength;
-                            hydrateRam(b);
                             return c.put(sUrl, new Response(b, { headers: { 'Content-Type': 'application/octet-stream' } }));
                         });
                     }).then(function () { ++download.done; });

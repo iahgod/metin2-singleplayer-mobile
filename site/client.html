@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Metin2">
-<link rel="manifest" href="manifest.json?v=bf228476c144">
+<link rel="manifest" href="manifest.json?v=2.0.129-pl216">
 <link rel="apple-touch-icon" href="icons/ui/pwa_192.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/ui/pwa_192.png">
 <title>Metin2</title>
@@ -237,19 +237,27 @@ window.m2w = { config: { bridge: "", mobile: MOBILE } };
           var learnedHashes = learnedRaw ? learnedRaw.split(",").filter(function (x) { return /^[0-9a-f]{32}$/.test(x); }) : [];
           var seen = new Set();
           var hashes = [];
-          // Priority 1: first 45 login/select chunks from order.txt, then user's learned world chunks, then rest of order.txt
-          var head = serverHashes.slice(0, 45);
-          var combined = head.concat(learnedHashes).concat(serverHashes);
+          // Priority: full serverHashes (order.txt: metadata chunks 0..4 + login + M1 + classes) first, then learnedHashes
+          var combined = serverHashes.concat(learnedHashes);
           for (var idx = 0; idx < combined.length; idx++) {
             var h = combined[idx];
             if (h && !seen.has(h)) { seen.add(h); hashes.push(h); }
           }
           w.total = hashes.length;
+          var waitIfSyncBusy = function (chunkIdx) {
+            if (chunkIdx <= 5) return Promise.resolve();
+            if (window._m2wSyncBusyUntil && performance.now() < window._m2wSyncBusyUntil) {
+              var delay = Math.min(400, Math.max(60, Math.round(window._m2wSyncBusyUntil - performance.now())));
+              return new Promise(function (r) { setTimeout(r, delay); }).then(function () { return waitIfSyncBusy(chunkIdx); });
+            }
+            return Promise.resolve();
+          };
           return state.storage.then(function (storage) {
             var i = 0;
             var one = function () {
               if (i >= hashes.length) return Promise.resolve();
-              var name = hashes[i++] + ".bin";
+              var curIdx = i++;
+              var name = hashes[curIdx] + ".bin";
               var url = base + name;
               if (state.map.has(name) || state.inFlight.has(name)) {
                 ++w.done; report(); return one();
@@ -266,12 +274,15 @@ window.m2w = { config: { bridge: "", mobile: MOBILE } };
                     ++w.fromStorage;
                     return response.arrayBuffer().then(function (b) { put(name, b); });
                   }
-                  return fetch(url).then(function (response2) {
-                    if (!response2 || !response2.ok) throw new Error("HTTP " + (response2 && response2.status));
-                    if (storage) { try { storage.put(url, response2.clone()); } catch (e) { } }
-                    return response2.arrayBuffer().then(function (b) { put(name, b); });
-                  }).then(function () {
-                    return new Promise(function (r) { setTimeout(r, 15); });
+                  return waitIfSyncBusy(curIdx).then(function () {
+                    if (state.map.has(name)) { state.bytes -= CHUNK; return; }
+                    return fetch(url).then(function (response2) {
+                      if (!response2 || !response2.ok) throw new Error("HTTP " + (response2 && response2.status));
+                      if (storage) { try { storage.put(url, response2.clone()); } catch (e) { } }
+                      return response2.arrayBuffer().then(function (b) { put(name, b); });
+                    }).then(function () {
+                      return new Promise(function (r) { setTimeout(r, 25); });
+                    });
                   });
                 }).catch(function () {
                   ++w.errors;
@@ -282,7 +293,7 @@ window.m2w = { config: { bridge: "", mobile: MOBILE } };
                 return one();
               });
             };
-            var lanes = 5, jobs = [];
+            var lanes = 2, jobs = [];
             for (var lane = 0; lane < lanes; ++lane) jobs.push(one());
             return Promise.all(jobs);
           });
@@ -296,7 +307,7 @@ if (MOBILE) document.body.className += " mobile";
 var statusEl = document.getElementById("status");
 var Module = {
   /// Engine files get `?v=<build time>`, so a new build is never served from cache.
-  locateFile: function (p) { return p + "?v=bf228476c144"; },
+  locateFile: function (p) { return p + "?v=2.0.129-pl216"; },
   canvas: document.getElementById("canvas"),
   preRun: [
     /// Mobile: /mobile.flag in the VFS makes game.py drop shadows and thicken fog.
@@ -311,7 +322,7 @@ var Module = {
       var pending = files.length;
       var done = function () { if (--pending === 0) Module.removeRunDependency("m2w_ptbr"); };
       files.forEach(function (f) {
-        fetch("i18n/pt/" + f + "?v=bf228476c144", { cache: "no-cache" }).then(function (r) {
+        fetch("i18n/pt/" + f + "?v=2.0.129-pl216", { cache: "no-cache" }).then(function (r) {
           return r.ok ? r.arrayBuffer() : null;
         }).then(function (buf) {
           if (buf && buf.byteLength) Module.FS.writeFile("/m2w_pt/" + f, new Uint8Array(buf));
@@ -353,7 +364,7 @@ window.addEventListener("error", function (ev) {
 // or F5 refresh they load from local disk in ~100 ms instead of re-downloading 32 MB.
 (function () {
   if (typeof indexedDB === "undefined" || typeof fetch !== "function") return;
-  var BUILD_VER = "2.0.129-pl215";
+  var BUILD_VER = "2.0.129-pl216";
   var origFetch = window.fetch.bind(window);
   var dbPromise = new Promise(function (resolve) {
     try {
@@ -416,9 +427,9 @@ window.addEventListener("error", function (ev) {
   };
 })();
 </script>
-<script src="client.js?v=2.0.129-pl215" async></script>
-<script src="preload.js?v=2.0.129-pl215"></script>
-<script src="mobile_overlay.js?v=2.0.129-pl215"></script>
-<script src="replay_hud.js?v=bf228476c144"></script>
+<script src="client.js?v=2.0.129-pl216" async></script>
+<script src="preload.js?v=2.0.129-pl216"></script>
+<script src="mobile_overlay.js?v=2.0.129-pl216"></script>
+<script src="replay_hud.js?v=2.0.129-pl216"></script>
 </body>
 </html>
