@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Metin2">
-<link rel="manifest" href="manifest.json?v=2.0.129-pl221-br2">
+<link rel="manifest" href="manifest.json?v=2.0.129-pl221-br5">
 <link rel="apple-touch-icon" href="icons/ui/pwa_192.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/ui/pwa_192.png">
 <title>Metin2</title>
@@ -16,7 +16,7 @@
 // Versão desta página. Se o navegador abrir uma cópia ANTIGA guardada no cache
 // (acontecia: "às vezes volta uma atualização"), pergunta ao servidor qual é a
 // versão atual e, se for outra, recarrega uma vez já com a nova.
-var M2W_PAGE_VER = "2.0.129-pl221-br2";
+var M2W_PAGE_VER = "2.0.129-pl221-br5";
 (function () {
   try {
     if (sessionStorage.getItem("m2w.verReload") === M2W_PAGE_VER) return;
@@ -307,7 +307,7 @@ if (MOBILE) document.body.className += " mobile";
 var statusEl = document.getElementById("status");
 var Module = {
   /// Engine files get `?v=<build time>`, so a new build is never served from cache.
-  locateFile: function (p) { return p + "?v=2.0.129-pl221-br2"; },
+  locateFile: function (p) { return p + "?v=2.0.129-pl221-br5"; },
   canvas: document.getElementById("canvas"),
   preRun: [
     /// Mobile: /mobile.flag in the VFS makes game.py drop shadows and thicken fog.
@@ -322,7 +322,7 @@ var Module = {
       var pending = files.length;
       var done = function () { if (--pending === 0) Module.removeRunDependency("m2w_ptbr"); };
       files.forEach(function (f) {
-        fetch("i18n/pt/" + f + "?v=2.0.129-pl221-br2", { cache: "no-cache" }).then(function (r) {
+        fetch("i18n/pt/" + f + "?v=2.0.129-pl221-br5", { cache: "no-cache" }).then(function (r) {
           return r.ok ? r.arrayBuffer() : null;
         }).then(function (buf) {
           if (buf && buf.byteLength) Module.FS.writeFile("/m2w_pt/" + f, new Uint8Array(buf));
@@ -364,7 +364,7 @@ window.addEventListener("error", function (ev) {
 // or F5 refresh they load from local disk in ~100 ms instead of re-downloading 32 MB.
 (function () {
   if (typeof indexedDB === "undefined" || typeof fetch !== "function") return;
-  var BUILD_VER = "2.0.129-pl221-br2";
+  var BUILD_VER = "2.0.129-pl221-br5";
   var origFetch = window.fetch.bind(window);
   var dbPromise = new Promise(function (resolve) {
     try {
@@ -427,9 +427,9 @@ window.addEventListener("error", function (ev) {
   };
 })();
 </script>
-<script src="client.js?v=2.0.129-pl221-br2" async></script>
-<script src="preload.js?v=2.0.129-pl221-br2"></script>
-<script src="mobile_overlay.js?v=2.0.129-pl221-br2"></script>
-<script src="replay_hud.js?v=2.0.129-pl221-br2"></script>
+<script src="client.js?v=2.0.129-pl221-br5" async></script>
+<script src="preload.js?v=2.0.129-pl221-br5"></script>
+<script src="mobile_overlay.js?v=2.0.129-pl221-br5"></script>
+<script src="replay_hud.js?v=2.0.129-pl221-br5"></script>
 </body>
 </html>
