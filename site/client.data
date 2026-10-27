@@ -201676,7 +201676,7 @@ STATE_DICT = {
 
 SERVER_PRODUCTION = {
 	"name":TextColor("Metin2 SinglePlayer", "ffd500"), 
-	"host":"127.0.0.1   ",
+	"host":"127.0.0.1"   ,
 	"auth_base_port": 11000,
 	"auth_port_increment": 0,
 	"auth_port_channel_increment": 0,
