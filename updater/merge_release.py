@@ -13,17 +13,24 @@ base and lays the *upstream-owned* files of the live site over it:
 and keeps the repository's version of everything else (KEEP_REPO_FILES: their patched scripts and the
 server address). Any other file that differs is only REPORTED, never taken silently.
 
+With the optional third argument - a copy of the live site as it was BEFORE its last update (the updater
+leaves *.bak_pre_<version> files) - every other file the update changed is merged three-way
+(`git merge-file`: base = live before, ours = repository, theirs = live now). A clean merge is taken, a
+conflict is reported and the repository's file is kept.
+
 The tables in client.js are rebuilt (offsets, remote_package_size, FS_createPath for new folders); the
 .gz files are regenerated. The production address is never copied: the tool refuses to write an image
 that contains the address from updater/server_ip.txt or $M2W_FORBID.
 
-usage: merge_release.py <repo_site_dir> <live_site_dir> <out_dir>
+usage: merge_release.py <repo_site_dir> <live_site_dir> <out_dir> [<live_before_site_dir>]
 """
 import gzip
 import json
 import os
 import re
+import subprocess
 import sys
+import tempfile
 
 TAKE_LIVE_PREFIXES = ('/gamedata/', '/maps/', '/icon/', '/ymir work/ui/atlas/')
 TAKE_LIVE_RE = re.compile(r'^/locale/[a-z]{2}/skilldesc\.txt$')
@@ -31,8 +38,8 @@ TAKE_LIVE_FILES = {'/playerbot_client_version.py', '/uiToolTip.py'}
 KEEP_REPO_FILES = {'/introLogin.py', '/uiChat.py', '/serverInfo.py'}
 
 
-def read_image(site_dir):
-    js = open(os.path.join(site_dir, 'client.js'), encoding='latin1').read()
+def read_image(site_dir, suffix=''):
+    js = open(os.path.join(site_dir, 'client.js' + suffix), encoding='latin1').read()
     i = re.search(r'loadPackage\(\{', js).end() - 1
     depth, k = 0, i
     while True:
@@ -45,7 +52,7 @@ def read_image(site_dir):
                 break
         k += 1
     meta = json.loads(js[i:k + 1])
-    data = open(os.path.join(site_dir, 'client.data'), 'rb').read()
+    data = open(os.path.join(site_dir, 'client.data' + suffix), 'rb').read()
     assert meta['files'][-1]['end'] == len(data) == meta['remote_package_size'], 'client.js does not match client.data in ' + site_dir
     files = {e['filename']: data[e['start']:e['end']] for e in meta['files']}
     return js, (i, k + 1), meta, files
@@ -55,9 +62,25 @@ def same_text(a, b):
     return a.replace(b'\r\n', b'\n') == b.replace(b'\r\n', b'\n')
 
 
-def main(repo_dir, live_dir, out_dir):
+def three_way(base, ours, theirs):
+    """git merge-file -p: returns merged bytes, or None on conflict / failure."""
+    with tempfile.TemporaryDirectory() as d:
+        paths = []
+        for n, b in (('ours', ours), ('base', base), ('theirs', theirs)):
+            q = os.path.join(d, n)
+            open(q, 'wb').write(b)
+            paths.append(q)
+        r = subprocess.run(['git', 'merge-file', '-p'] + paths, capture_output=True)
+        return r.stdout if r.returncode == 0 else None
+
+
+def main(repo_dir, live_dir, out_dir, before_dir=None):
     rjs, (ri, rk), rmeta, repo = read_image(repo_dir)
     _, _, _, live = read_image(live_dir)
+    before = None
+    if before_dir:
+        before = read_image(before_dir[0], before_dir[1])[3]
+    merged3 = []
     order = [e['filename'] for e in rmeta['files']]
     result = dict(repo)
     taken, new_files, unresolved = [], [], []
@@ -79,6 +102,13 @@ def main(repo_dir, live_dir, out_dir):
             taken.append(name)
         elif name in KEEP_REPO_FILES or same_text(repo[name], body):
             pass
+        elif before is not None and name in before and not same_text(before[name], body):
+            m = three_way(before[name], repo[name], body)
+            if m is None:
+                unresolved.append(('conflict', name))
+            else:
+                result[name] = m
+                merged3.append(name)
         else:
             unresolved.append(('differs', name))
 
@@ -130,11 +160,17 @@ def main(repo_dir, live_dir, out_dir):
     print('taken from live (changed):', len(taken), taken)
     print('new from live            :', len(new_files))
     print('kept from repo (differ)  :', sorted(n for n in KEEP_REPO_FILES if n in live and n in repo and repo[n] != live[n]))
+    print('merged three-way (clean)  :', len(merged3), merged3)
     print('UNRESOLVED differences   :', len(unresolved), unresolved[:20])
     print('result: %d files, %d bytes' % (len(table), len(out)))
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 4:
+    if len(sys.argv) not in (4, 5):
         sys.exit(__doc__)
-    main(*sys.argv[1:])
+    before = None
+    if len(sys.argv) == 5:
+        # <dir>[:suffix] - the backups the updater leaves are client.data.bak_pre_<version>
+        arg = sys.argv[4]
+        before = tuple(arg.split(':', 1)) if ':' in arg else (arg, '')
+    main(sys.argv[1], sys.argv[2], sys.argv[3], before)
