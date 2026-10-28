@@ -843,7 +843,9 @@
     "#m2o.win-open .zoom-bar{visibility:hidden;pointer-events:none}" +
     "#m2o .shop-btn{position:absolute;top:4px;width:30px;height:30px;border-radius:50%;padding:0;display:flex;align-items:center;justify-content:center;border:2px solid #b48a3c;outline:1px solid #1c1a17;background:radial-gradient(circle,#3a2a12 0%,#120c05 100%);box-shadow:inset 0 0 6px #000,0 0 7px rgba(255,190,70,0.55),0 2px 5px rgba(0,0,0,0.9);pointer-events:auto;z-index:21}" +
     "#m2o .shop-btn:active{transform:scale(0.93)}" +
-    "#m2o.win-open .shop-btn:not(.esc-btn):not(.kb-btn){display:none}" +
+    "#m2o.win-open .shop-btn:not(.esc-btn):not(.kb-btn):not(.ui-toggle){display:none}" +
+    "#m2o.ui-hidden > *:not(.ui-toggle):not(.esc-btn):not(#m2o-kb){visibility:hidden !important;pointer-events:none !important}" +
+    "#m2o .ui-toggle.on{border-color:#ffd75e !important;box-shadow:0 0 8px rgba(255,215,94,0.75)}" +
     "#m2o .rcol button{position:relative;overflow:visible}" +
     "#m2o .rc-badge{position:absolute;top:-4px;right:-4px;min-width:15px;height:15px;padding:0 3px;border-radius:8px;background:#b3261e;border:1px solid #f3dfb0;color:#fff;font:700 9px/13px Tahoma,sans-serif;text-align:center;pointer-events:none}" +
     "#m2o .rc-badge:empty{display:none}" +
@@ -2184,6 +2186,21 @@
       "open('/m2w_vip.json', 'w').write('{\"a\": %d}' % _a)"
     ]));
   }, 5000);
+  // Botão "mostrar/ocultar controles": com o inventário (ou outra janela grande) aberto,
+  // esconde o joystick, os botões e a barra de chat para poder mexer na janela.
+  // Ficam só este botão e o ESC. Tocar de novo traz tudo de volta.
+  var UI_EYE_SVG = '<svg viewBox="0 0 24 24" width="18" height="18" style="display:block;pointer-events:none"><g fill="none" stroke="#ffe9a8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></g></svg>';
+  var UI_EYE_OFF_SVG = '<svg viewBox="0 0 24 24" width="18" height="18" style="display:block;pointer-events:none"><g fill="none" stroke="#ffd75e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7c2 0 3.8.7 5.2 1.6M22 12s-3.6 7-10 7c-2 0-3.8-.7-5.2-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/><path d="M3 3l18 18"/></g></svg>';
+  var uiHidden = false;
+  function setUiHidden(h) {
+    uiHidden = !!h;
+    root.classList.toggle("ui-hidden", uiHidden);
+    uiToggleBtn.classList.toggle("on", uiHidden);
+    uiToggleBtn.innerHTML = uiHidden ? UI_EYE_OFF_SVG : UI_EYE_SVG;
+    uiToggleBtn.title = uiHidden ? trS("Mostrar controles") : trS("Ocultar controles");
+  }
+  var uiToggleBtn = btn(UI_EYE_SVG, function () { setUiHidden(!uiHidden); }, "shop-btn ui-toggle", "Ocultar controles", true);
+  root.appendChild(uiToggleBtn);
   var kbBtn = btn('<span style="font:700 15px/1 Tahoma,sans-serif;color:#ffe9a8;text-shadow:0 1px 2px #000;pointer-events:none">\u2328</span>',
     function () { if (gameKbOpen()) hideGameKb(); else openGameKbManual(); }, "shop-btn kb-btn", "Teclado", true);
   if (!isTouchDevice) kbBtn.style.display = "none";
@@ -2246,7 +2263,9 @@
       escBtn.style.top = shopBtn.style.top;
       kbBtn.style.right = (shopRight + 72) + "px";
       kbBtn.style.top = shopBtn.style.top;
-      vipBtn.style.right = (shopRight + 108) + "px";
+      uiToggleBtn.style.right = (shopRight + 108) + "px";
+      uiToggleBtn.style.top = shopBtn.style.top;
+      vipBtn.style.right = (shopRight + 144) + "px";
       vipBtn.style.top = shopBtn.style.top;
     } catch (e) { }
   }
@@ -4293,7 +4312,7 @@
     } catch (e) { }
   }, 1500);
 
-  var worldEls = [hudTl, tlSide, rCol, atkBtn, joy, pickupBtn, chatBar, zoomBar, shopBtn, escBtn, kbBtn].concat(slotEls);
+  var worldEls = [hudTl, tlSide, rCol, atkBtn, joy, pickupBtn, chatBar, zoomBar, shopBtn, escBtn, kbBtn, uiToggleBtn].concat(slotEls);
 
   function setWorldMode(active) {
     inWorld = !!active;
@@ -4306,6 +4325,7 @@
     vipBtn.style.display = (inWorld && vipActive) ? "" : "none";
     if (!inWorld && vipPanel) { vipPanel.remove(); vipPanel = null; }
     if (!inWorld && whisperPanel) { whisperPanel.remove(); whisperPanel = null; }
+    if (!inWorld && uiHidden) setUiHidden(false);
     if (inWorld) {
       positionShopBtn();
       setTimeout(applyGfx, 2600);

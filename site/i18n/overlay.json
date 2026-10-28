@@ -684,6 +684,14 @@
   "Nenhuma conversa no momento.": {
    "en": "No conversations right now.",
    "pl": "Brak rozmów."
+  },
+  "Mostrar controles": {
+   "en": "Show controls",
+   "pl": "Pokaż sterowanie"
+  },
+  "Ocultar controles": {
+   "en": "Hide controls",
+   "pl": "Ukryj sterowanie"
   }
  }
 }
