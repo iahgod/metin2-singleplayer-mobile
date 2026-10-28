@@ -23,3 +23,17 @@ and merges their files into the extracted image before it is repacked. Rules:
 
 The server address is **not** in the source. It is read from `updater/server_ip.txt` (one line,
 never committed), else from the `M2W_SERVER_IP` environment variable, else `127.0.0.1`.
+
+## `merge_release.py` - a complete, repo-ready `client.data`
+
+A live site is rebuilt by the updater from the newest upstream packs; the repository's `site/client.data`
+carries the maintainers' own script patches and a neutral server address. To publish a release that has
+both, run on the VPS:
+
+    python3 updater/merge_release.py <repo>/site /opt/metin2-web/site /tmp/out
+
+It takes the repository image as the base, lays the upstream-owned files of the live site over it
+(`gamedata`, `maps`, `icon`, atlas, `skilldesc`, the version marker, stock-script fixes), keeps the
+repository's own `introLogin.py`, `uiChat.py` and `serverInfo.py`, reports every other difference instead
+of taking it, rebuilds the table in `client.js` (offsets, size, `FS_createPath` of new folders), writes
+the `.gz` files and refuses to write an image that contains the production address.
