@@ -845,6 +845,7 @@
     "#m2o .shop-btn:active{transform:scale(0.93)}" +
     "#m2o.win-open .shop-btn:not(.esc-btn):not(.kb-btn):not(.ui-toggle){display:none}" +
     "#m2o.ui-hidden > *:not(.ui-toggle):not(.esc-btn):not(#m2o-kb){visibility:hidden !important;pointer-events:none !important}" +
+    "#m2o .under-win{visibility:hidden !important;pointer-events:none !important}" +
     "#m2o .ui-toggle.on{border-color:#ffd75e !important;box-shadow:0 0 8px rgba(255,215,94,0.75)}" +
     "#m2o .rcol button{position:relative;overflow:visible}" +
     "#m2o .rc-badge{position:absolute;top:-4px;right:-4px;min-width:15px;height:15px;padding:0 3px;border-radius:8px;background:#b3261e;border:1px solid #f3dfb0;color:#fff;font:700 9px/13px Tahoma,sans-serif;text-align:center;pointer-events:none}" +
@@ -4720,14 +4721,85 @@
     "        _o = 1",
     "except Exception:",
     "    pass",
-    "open('/m2w_xwin', 'w').write('%d,%d,%d' % (_o, _s, _c))"
+    "_r = []",
+    "def _m2oR(w):",
+    "    try:",
+    "        if w is not None and w.IsShow():",
+    "            _x, _y = w.GetGlobalPosition()",
+    "            _r.append('%d %d %d %d' % (_x, _y, w.GetWidth(), w.GetHeight()))",
+    "    except Exception:",
+    "        pass",
+    "try:",
+    "    _itf = getattr(self, 'interface', None)",
+    "    if _itf is not None:",
+    "        for _wn in ('wndInventory', 'wndCharacter', 'dlgShop', 'dlgRestart', 'dlgWhisperWithoutTarget', 'offlineShopGuest', 'offlineShopManage', 'offlineShopBuilder', 'fleaMarket', 'offlineShopSearch', 'wndSafebox', 'wndMall', 'wndCube', 'wndDragonSoul', 'wndGuild', 'wndMessenger', 'dlgExchange', 'dlgRefineNew', 'wndGMPanel', 'wndHorseInventory', 'gameMasterTargetDialog', 'wndItemShop'):",
+    "            _m2oR(getattr(_itf, _wn, None))",
+    "        for _wd in getattr(_itf, '_whisperFocusOrder', ()):",
+    "            _m2oR(_wd)",
+    "        _m2oR(getattr(getattr(_itf, 'wndMiniMap', None), 'AtlasWindow', None))",
+    "    _m = sys.modules.get('uisidekick')",
+    "    if _m is not None:",
+    "        _m2oR(_m._window.get('window'))",
+    "    _i = sys.modules.get('uisidekickinventory')",
+    "    if _i is not None:",
+    "        _m2oR(_i._state.get('eqWindow'))",
+    "except Exception:",
+    "    pass",
+    "open('/m2w_xwin', 'w').write('%d,%d,%d|%s' % (_o, _s, _c, ';'.join(_r)))"
   ].join("\n");
+  // Janelas do jogo "na frente" dos controles: o jogo desenha as janelas no canvas, que
+  // fica por baixo do overlay. Então, onde uma janela aberta está, os controles do overlay
+  // que caem em cima dela somem (e não pegam o toque) até a janela fechar ou sair dali.
+  var winRects = [];   // retângulos das janelas abertas, em px CSS
+  function logicalRectToCss(x, y, w, h) {
+    var c = canvasEl();
+    if (!c) return null;
+    var r = c.getBoundingClientRect();
+    var lw = 0, lh = 0;
+    try { var L = m2w.mobileLogical(); lw = L.w; lh = L.h; } catch (e) { }
+    if (!lw) lw = c.width || r.width;
+    if (!lh) lh = c.height || r.height;
+    var kx = r.width / lw, ky = r.height / lh;
+    return { left: r.left + x * kx, top: r.top + y * ky, right: r.left + (x + w) * kx, bottom: r.top + (y + h) * ky };
+  }
+  function underWinCandidates() {
+    var list = [hudTl, tlSide, atkBtn, joy, pickupBtn, chatBar, zoomBar, shopBtn, kbBtn, vipBtn].concat(slotEls);
+    for (var i = 0; i < rCol.children.length; i++) list.push(rCol.children[i]);
+    return list;
+  }
+  function updateUnderWin() {
+    var els = underWinCandidates();
+    els.forEach(function (el) {
+      if (!el) return;
+      var hit = false;
+      if (winRects.length) {
+        var b = el.getBoundingClientRect();
+        if (b.width > 0 && b.height > 0) {
+          for (var i = 0; i < winRects.length && !hit; i++) {
+            var w = winRects[i];
+            hit = b.left < w.right - 2 && b.right > w.left + 2 && b.top < w.bottom - 2 && b.bottom > w.top + 2;
+          }
+        }
+      }
+      el.classList.toggle("under-win", hit);
+    });
+  }
   setInterval(function () {
     try {
       if (!window.Module || !Module.FS) return;
       if (fsExists("/m2w_xwin")) {
-        var xr = String(Module.FS.readFile("/m2w_xwin", { encoding: "utf8" }) || "").trim().split(",");
+        var xraw = String(Module.FS.readFile("/m2w_xwin", { encoding: "utf8" }) || "").trim().split("|");
+        var xr = xraw[0].split(",");
         fsRm("/m2w_xwin");
+        winRects = [];
+        String(xraw[1] || "").split(";").forEach(function (t) {
+          var n = t.trim().split(/\s+/).map(Number);
+          if (n.length === 4 && n[2] > 0 && n[3] > 0) {
+            var cr = logicalRectToCss(n[0], n[1], n[2], n[3]);
+            if (cr) winRects.push(cr);
+          }
+        });
+        updateUnderWin();
         var v = xr[0] === "1";
         var shopNow = xr[1] === "1";
         root.classList.toggle("chatlog-open", xr[2] === "1");
@@ -4735,7 +4807,11 @@
         if (shopNow && !shopOpen) placeItemShop();
         shopOpen = shopNow;
       }
-      if (!inWorld) { if (xWinOpen) { xWinOpen = false; applyOpenWin(); } return; }
+      if (!inWorld) {
+        if (xWinOpen) { xWinOpen = false; applyOpenWin(); }
+        if (winRects.length) { winRects = []; updateUnderWin(); }
+        return;
+      }
       if (!fsExists("/m2w_cmd.py")) runPy(XWIN_PY);
     } catch (e) { }
   }, 700);
