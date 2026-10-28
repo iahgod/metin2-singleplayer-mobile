@@ -37,3 +37,16 @@ It takes the repository image as the base, lays the upstream-owned files of the 
 repository's own `introLogin.py`, `uiChat.py` and `serverInfo.py`, reports every other difference instead
 of taking it, rebuilds the table in `client.js` (offsets, size, `FS_createPath` of new folders), writes
 the `.gz` files and refuses to write an image that contains the production address.
+
+### Three-way merge of the files an update changed
+
+Give the tool a copy of the live site from BEFORE its last update (the updater leaves
+`client.data.bak_pre_<version>` and `client.js.bak_pre_<version>`) as a fourth argument,
+`<dir>:<suffix>`:
+
+    python3 updater/merge_release.py <repo>/site /opt/metin2-web/site /tmp/out /opt/metin2-web/site:.bak_pre_2.0.132
+
+Every other file the update changed is then merged with `git merge-file` (base = live before, ours =
+repository, theirs = live now). A clean merge is taken; a conflict is reported and the repository's file
+is kept. Example (2.0.132): five data files taken from live, `offlineShopSearch.py` and
+`playerSettingModule.py` merged cleanly, no conflicts.
