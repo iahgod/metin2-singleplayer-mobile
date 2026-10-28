@@ -855,6 +855,18 @@
     "#m2o .q-item img{width:24px;height:24px;flex:none;pointer-events:none}" +
     "#m2o .q-item span{flex:1;white-space:normal}" +
     "#m2o .q-empty{color:#c8bba0;font-size:11px;padding:6px}" +
+    "#m2o .chat-histbtn.wb-btn{position:relative;overflow:visible}" +
+    "#m2o .chat-histbtn.wb-new{animation:m2wbBlink 0.9s ease-in-out infinite}" +
+    "@keyframes m2wbBlink{50%{background:rgba(200,150,40,0.95);border-color:#ffd75e;box-shadow:0 0 8px rgba(255,215,94,0.9)}}" +
+    "#m2o .wb-badge{position:absolute;top:-6px;right:-6px;min-width:13px;height:13px;padding:0 3px;border-radius:7px;background:#c62828;border:1px solid #ffb3b3;color:#fff;font:700 8.5px/12px Tahoma,sans-serif;text-align:center;pointer-events:none;display:none}" +
+    "#m2o .wb-badge.on{display:block}" +
+    "#m2o .wb-panel{top:auto;bottom:40px;transform:translateX(-50%);width:min(300px,78vw);max-height:62vh}" +
+    "#m2o .wb-item{flex-direction:column;align-items:stretch;gap:1px}" +
+    "#m2o .wb-item .wb-top{display:flex;align-items:center;gap:6px}" +
+    "#m2o .wb-item .wb-name{flex:1;color:#f3dfb0;font-weight:700}" +
+    "#m2o .wb-item .wb-cnt{background:#c62828;color:#fff;border-radius:7px;padding:0 5px;font-size:9.5px;line-height:14px}" +
+    "#m2o .wb-item .wb-prev{color:#cfc6b4;font-weight:400;font-size:10.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}" +
+    "#m2o .wb-item.unread{border-color:#ffd75e}" +
     "#m2o .chat-send{width:26px;height:19px;border:none;font-size:10.5px;color:#e6e2d8;background:url(icons/ui/btn_steel_small.png) center/100% 100% no-repeat}";
   document.head.appendChild(css);
 
@@ -3056,21 +3068,176 @@
     toggleChatHistory();
   });
   chatBar.appendChild(chatLogBtn);
+  // Mensagens privadas (sussurros): em vez dos envelopes que o jogo espalha pela tela
+  // (um por pessoa, na coluna da direita), um botão só no chat. Pisca e mostra a
+  // contagem quando chega mensagem nova; tocando abre a lista de conversas.
   var chatWhisperBtn = document.createElement("button");
   chatWhisperBtn.type = "button";
-  chatWhisperBtn.className = "chat-histbtn";
-  chatWhisperBtn.title = "Sussurro (MP)";
-  chatWhisperBtn.innerHTML = '<svg viewBox="0 0 24 24" width="15" height="15" style="display:block;pointer-events:none"><g fill="none" stroke="#e6d5a8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></g></svg>';
-  // styled via #m2o .chat-histbtn
+  chatWhisperBtn.className = "chat-histbtn wb-btn";
+  chatWhisperBtn.title = "Mensagens";
+  chatWhisperBtn.innerHTML = '<svg viewBox="0 0 24 24" width="15" height="15" style="display:block;pointer-events:none"><g fill="none" stroke="#e6d5a8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></g></svg><span class="wb-badge"></span>';
   chatWhisperBtn.addEventListener("touchstart", function (e) { e.stopPropagation(); }, { passive: true });
   chatWhisperBtn.addEventListener("click", function (e) {
     e.preventDefault(); e.stopPropagation();
-    runPy(safePy([
-      "if hasattr(self, 'interface') and self.interface and hasattr(self.interface, 'OpenWhisperDialogWithoutTarget'):",
-      "    self.interface.OpenWhisperDialogWithoutTarget()"
-    ]));
+    toggleWhisperPanel();
   });
   chatBar.appendChild(chatWhisperBtn);
+
+  var whisperList = [];      // [{n: nome, u: não lidas, t: última mensagem}]
+  var whisperPanel = null;
+  var WB_PY = [
+    "import json, constInfo, chat",
+    "_itf = getattr(self, 'interface', None)",
+    "if _itf is not None and not getattr(_itf, '_m2oWbPatched', False):",
+    "    _itf._m2oWbPatched = True",
+    "    _itf._m2oUnread = {}",
+    "    def _m2oWbDump(_i=_itf):",
+    "        _l = []",
+    "        for _b in list(getattr(_i, 'whisperButtonList', [])):",
+    "            _n = str(getattr(_b, 'name', '') or '')",
+    "            _t = ''",
+    "            try:",
+    "                _w = _i._Interface__GetWhisper(_n)",
+    "                if _w and _w.get('history'):",
+    "                    _t = str(_w['history'][-1][1])",
+    "            except Exception:",
+    "                pass",
+    "            _l.append({'n': _n, 'u': int(_i._m2oUnread.get(_n, 0)), 't': _t[-160:]})",
+    "        try:",
+    "            _f = open('/m2w_whisper.json', 'w')",
+    "            _f.write(json.dumps(_l))",
+    "            _f.close()",
+    "        except Exception:",
+    "            pass",
+    "    _itf._m2oWbDump = _m2oWbDump",
+    "    def _m2oWbHide(_i=_itf):",
+    "        for _b in list(getattr(_i, 'whisperButtonList', [])):",
+    "            try:",
+    "                _b.Hide()",
+    "            except Exception:",
+    "                pass",
+    "    _oArr = _itf._Interface__ArrangeWhisperButton",
+    "    def _arr(_o=_oArr, _i=_itf):",
+    "        _o()",
+    "        _m2oWbHide(_i)",
+    "        _i._m2oWbDump()",
+    "    _itf._Interface__ArrangeWhisperButton = _arr",
+    "    _itf.ShowAllWhisperButton = lambda _i=_itf: _m2oWbHide(_i)",
+    "    _oRecv = _itf.RecvWhisper",
+    "    def _recv(name, mode=chat.WHISPER_TYPE_NORMAL, _o=_oRecv, _i=_itf):",
+    "        _r = _o(name, mode)",
+    "        try:",
+    "            _w = _i._Interface__GetWhisper(name)",
+    "            _d = _w.get('dialog') if _w else None",
+    "            if not (_d and _d.IsShow()):",
+    "                _i._m2oUnread[name] = _i._m2oUnread.get(name, 0) + 1",
+    "        except Exception:",
+    "            pass",
+    "        _m2oWbHide(_i)",
+    "        return _r",
+    "    _itf.RecvWhisper = _recv",
+    "    _oPush = _itf.PushWhisperMessageStack",
+    "    def _push(name, mode, text, _o=_oPush, _i=_itf):",
+    "        _r = _o(name, mode, text)",
+    "        _i._m2oWbDump()",
+    "        return _r",
+    "    _itf.PushWhisperMessageStack = _push",
+    "    _oOpen = _itf.OpenWhisperDialog",
+    "    def _open(name, targetEmpire=0, _o=_oOpen, _i=_itf):",
+    "        _i._m2oUnread.pop(name, None)",
+    "        _r = _o(name, targetEmpire)",
+    "        _i._m2oWbDump()",
+    "        return _r",
+    "    _itf.OpenWhisperDialog = _open",
+    "    _oClose = _itf.CloseWhisperDialog",
+    "    def _close(name, destroy_data=True, _o=_oClose, _i=_itf):",
+    "        _r = _o(name, destroy_data)",
+    "        if destroy_data:",
+    "            _i._m2oUnread.pop(name, None)",
+    "        _i._m2oWbDump()",
+    "        return _r",
+    "    _itf.CloseWhisperDialog = _close",
+    "    _m2oWbHide(_itf)",
+    "    _itf._m2oWbDump()"
+  ];
+  function installWhisperPatch() { if (inWorld) runPy(safePy(WB_PY)); }
+  function whisperUnread() {
+    var n = 0;
+    whisperList.forEach(function (w) { n += (Number(w.u) || 0); });
+    return n;
+  }
+  function renderWhisperBadge() {
+    var n = whisperUnread();
+    var b = chatWhisperBtn.querySelector(".wb-badge");
+    if (b) { b.textContent = n > 99 ? "99+" : String(n); b.classList.toggle("on", n > 0); }
+    chatWhisperBtn.classList.toggle("wb-new", n > 0);
+  }
+  function openWhisperWith(name) {
+    runPy(safePy([
+      "_itf = getattr(self, 'interface', None)",
+      "if _itf is not None:",
+      "    _itf.OpenWhisperDialog(" + JSON.stringify(String(name)) + ")"
+    ]));
+    if (whisperPanel) { whisperPanel.remove(); whisperPanel = null; }
+  }
+  function renderWhisperPanel() {
+    renderWhisperBadge();
+    if (!whisperPanel) return;
+    var listEl = whisperPanel.querySelector(".q-list");
+    listEl.innerHTML = "";
+    var nb = btn("", function () {
+      if (whisperPanel) { whisperPanel.remove(); whisperPanel = null; }
+      runPy(safePy([
+        "if hasattr(self, 'interface') and self.interface and hasattr(self.interface, 'OpenWhisperDialogWithoutTarget'):",
+        "    self.interface.OpenWhisperDialogWithoutTarget()"
+      ]));
+    });
+    nb.className = "q-item";
+    nb.innerHTML = '<span>✎ ' + trS("Nova mensagem") + '</span>';
+    listEl.appendChild(nb);
+    if (!whisperList.length) {
+      var em = document.createElement("div");
+      em.className = "q-empty";
+      em.textContent = trS("Nenhuma conversa no momento.");
+      listEl.appendChild(em);
+      return;
+    }
+    whisperList.forEach(function (w) {
+      var b = btn("", function () { openWhisperWith(w.n); });
+      b.className = "q-item wb-item" + (w.u ? " unread" : "");
+      b.innerHTML = '<div class="wb-top"><span class="wb-name"></span>' + (w.u ? '<span class="wb-cnt">' + w.u + '</span>' : '') + '</div><div class="wb-prev"></div>';
+      b.querySelector(".wb-name").textContent = questText(w.n);
+      b.querySelector(".wb-prev").textContent = questText(w.t);
+      listEl.appendChild(b);
+    });
+  }
+  function toggleWhisperPanel() {
+    if (whisperPanel) { whisperPanel.remove(); whisperPanel = null; return; }
+    whisperPanel = document.createElement("div");
+    whisperPanel.className = "q-panel wb-panel gold-box";
+    whisperPanel.innerHTML = '<div class="q-head"><span></span></div><div class="q-list"></div>';
+    whisperPanel.querySelector(".q-head span").textContent = trS("Mensagens");
+    var x = btn("X", function () { toggleWhisperPanel(); });
+    x.className = "q-close";
+    whisperPanel.querySelector(".q-head").appendChild(x);
+    root.appendChild(whisperPanel);
+    renderWhisperPanel();
+    installWhisperPatch();
+  }
+  setInterval(function () {
+    try {
+      if (!window.Module || !Module.FS) return;
+      if (fsExists("/m2w_whisper.json")) {
+        var wl = JSON.parse(Module.FS.readFile("/m2w_whisper.json", { encoding: "utf8" }));
+        fsRm("/m2w_whisper.json");
+        if (Array.isArray(wl)) { whisperList = wl; renderWhisperPanel(); }
+      }
+    } catch (e) { }
+  }, 300);
+  // Instala (uma vez por entrada no mapa) e confere de tempos em tempos.
+  setInterval(function () {
+    try { if (inWorld && !fsExists("/m2w_cmd.py")) installWhisperPatch(); } catch (e) { }
+  }, 10000);
   // Painel do histórico: largura da barra de chat (mín. 450 do jogo), do topo da tela
   // até logo acima da barra. Fecha no botão, no X da janela ou tocando fora dela.
   var chatHistRect = null;   // retângulo em px CSS, para fechar ao tocar fora
@@ -4110,12 +4277,15 @@
     updateChatLogVisibility();
     vipBtn.style.display = (inWorld && vipActive) ? "" : "none";
     if (!inWorld && vipPanel) { vipPanel.remove(); vipPanel = null; }
+    if (!inWorld && whisperPanel) { whisperPanel.remove(); whisperPanel = null; }
     if (inWorld) {
       positionShopBtn();
       setTimeout(applyGfx, 2600);
       setTimeout(applyNativeChat, 350); setTimeout(applyNativeChat, 1200); setTimeout(applyNativeChat, 2900);
       setTimeout(shiftMiniMap, 1200);
       setTimeout(shiftMiniMap, 4500);
+      whisperList = []; renderWhisperBadge();
+      setTimeout(installWhisperPatch, 2200);
       setTimeout(function () { runPy(SHOP_PEEK_PY); }, 3200);
       refreshJoyRect();
       lastLayoutSig = "";

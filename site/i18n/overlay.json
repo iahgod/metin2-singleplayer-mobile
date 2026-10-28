@@ -672,6 +672,18 @@
   "Dica: arraste o dedo no lado direito da tela para girar a câmera; use dois dedos para dar zoom.": {
    "en": "Tip: drag your finger on the right side of the screen to rotate the camera; use the top bar to zoom.",
    "pl": "Wskazówka: przesuń palcem po prawej stronie ekranu, aby obracać kamerę; pasek u góry to zoom."
+  },
+  "Mensagens": {
+   "en": "Messages",
+   "pl": "Wiadomości"
+  },
+  "Nova mensagem": {
+   "en": "New message",
+   "pl": "Nowa wiadomość"
+  },
+  "Nenhuma conversa no momento.": {
+   "en": "No conversations right now.",
+   "pl": "Brak rozmów."
   }
  }
 }
