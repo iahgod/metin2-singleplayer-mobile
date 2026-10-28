@@ -3160,6 +3160,34 @@
     "    _m2oWbHide(_itf)",
     "    _itf._m2oWbDump()"
   ];
+  // Inventário do companheiro no celular: o jogo abre a versão de PC (alta, 590 px,
+  // equipamento em cima e bolsa embaixo) e ela corta na tela. Igual ao inventário do
+  // personagem no celular: equipamento à esquerda, bolsa à direita (380 x 388).
+  var SIDEKICK_MOBILE_BUILD = "def _m2oMobileBuild(self):\n    LEFT = 8\n    COLW = DS_SLOTS * CELL\n    y = 32\n    self.equipmentBase = self._Image(self, LEFT + (COLW - EQUIPMENT_BASE_WIDTH) // 2, y, EQUIPMENT_BASE_IMAGE)\n    equip = ui.SlotWindow()\n    equip.SetParent(self.equipmentBase)\n    equip.SetPosition(3, 3)\n    equip.SetSize(150, 182)\n    for wear, x, slotY, width, height in EQUIPMENT_LAYOUT:\n        equip.AppendSlot(WearPos(wear), x, slotY, width, height)\n    equip.SetSelectEmptySlotEvent(ui.__mem_func__(self.OnSelectEmptyEquip))\n    equip.SetSelectItemSlotEvent(ui.__mem_func__(self.OnSelectItemEquip))\n    equip.SetUnselectItemSlotEvent(ui.__mem_func__(self.OnRightClickEquip))\n    equip.SetUseSlotEvent(ui.__mem_func__(self.OnUseEquip))\n    equip.SetOverInItemEvent(ui.__mem_func__(self.OnOverInEquip))\n    equip.SetOverOutItemEvent(ui.__mem_func__(self.OnOverOut))\n    equip.Show()\n    self.widgets.append(equip)\n    self.equipSlots = equip\n    by = y + EQUIPMENT_BASE_HEIGHT + 4\n    bx = LEFT + (COLW - 182) // 2\n    self.bagMode = self._Btn(self, 'small', bx, by, TEXT_BAG, self.ShowBag)\n    self.dsMode = self._Btn(self, 'small', bx + 46, by, TEXT_ALCHEMY, self.ShowAlchemy)\n    self.dsBoard = ui.Window()\n    self.dsBoard.SetParent(self)\n    self.dsBoard.SetPosition(LEFT, 32)\n    self.dsBoard.SetSize(COLW, DS_BOARD_HEIGHT)\n    self.widgets.append(self.dsBoard)\n    self.dsSlots = ui.SlotWindow()\n    self.dsSlots.SetParent(self.dsBoard)\n    self.dsSlots.SetPosition(0, 0)\n    self.dsSlots.SetSize(DS_SLOTS * CELL, DS_BOARD_HEIGHT)\n    for deck in range(DS_DECKS):\n        self._Label(self.dsBoard, 4, 2 + deck * 78, TEXT_DS_DECK % (deck + 1))\n        for kind in range(DS_SLOTS):\n            self.dsSlots.AppendSlot(WearPos(WEAR_MAX + deck * DS_SLOTS + kind), kind * CELL, 22 + deck * 78, CELL, CELL)\n    self.dsSlots.SetSlotBaseImage(SLOT_BASE_IMAGE, 1.0, 1.0, 1.0, 1.0)\n    self.dsSlots.SetSelectEmptySlotEvent(ui.__mem_func__(self.OnSelectEmptyEquip))\n    self.dsSlots.SetSelectItemSlotEvent(ui.__mem_func__(self.OnSelectItemEquip))\n    self.dsSlots.SetUnselectItemSlotEvent(ui.__mem_func__(self.OnRightClickEquip))\n    self.dsSlots.SetUseSlotEvent(ui.__mem_func__(self.OnUseEquip))\n    self.dsSlots.SetOverInItemEvent(ui.__mem_func__(self.OnOverInEquip))\n    self.dsSlots.SetOverOutItemEvent(ui.__mem_func__(self.OnOverOut))\n    self.dsSlots.Show()\n    self.widgets.append(self.dsSlots)\n    self.dsBoard.Hide()\n    self.unpinButton = self._Btn(self, 'small', bx + 92, by, TEXT_UNPIN, self.OnUnpinButton)\n    self.destroyButton = self._Btn(self, 'small', bx + 138, by, TEXT_DESTROY, self.OnDestroyButton)\n    gridX = LEFT + COLW + 10\n    ty = 34\n    self.tabs = []\n    for i in range(MAX_PAGES):\n        tab = ui.RadioButton()\n        tab.SetParent(self)\n        tab.SetPosition(gridX + 4 + i * TAB_STEP, ty)\n        tab.SetUpVisual(TAB_IMAGE % 1)\n        tab.SetOverVisual(TAB_IMAGE % 2)\n        tab.SetDownVisual(TAB_IMAGE % 3)\n        tab.SetText(PAGE_NAMES[i])\n        tab.SAFE_SetEvent(self.SetPage, i)\n        tab.Show()\n        self.widgets.append(tab)\n        self.tabs.append(tab)\n    self.dsPrev = self._Btn(self, 'small', gridX, ty, '<', self.PreviousDsPage)\n    self.dsNext = self._Btn(self, 'small', gridX + 116, ty, '>', self.NextDsPage)\n    self.dsPageLine = self._Label(self, gridX + 56, ty + 2, '')\n    gy = ty + TAB_HEIGHT + 3\n    grid = ui.GridSlotWindow()\n    grid.SetParent(self)\n    grid.SetPosition(gridX, gy)\n    grid.ArrangeSlot(0, GRID_COLUMNS, GRID_ROWS, CELL, CELL, 0, 0)\n    grid.SetSlotBaseImage(SLOT_BASE_IMAGE, 1.0, 1.0, 1.0, 1.0)\n    grid.SetSelectEmptySlotEvent(ui.__mem_func__(self.OnSelectEmptyBag))\n    grid.SetSelectItemSlotEvent(ui.__mem_func__(self.OnSelectItemBag))\n    grid.SetUnselectItemSlotEvent(ui.__mem_func__(self.OnRightClickBag))\n    grid.SetUseSlotEvent(ui.__mem_func__(self.OnUseBag))\n    grid.SetOverInItemEvent(ui.__mem_func__(self.OnOverInBag))\n    grid.SetOverOutItemEvent(ui.__mem_func__(self.OnOverOut))\n    grid.Show()\n    self.widgets.append(grid)\n    self.bagSlots = grid\n    my = by + 30\n    self._Image(self, LEFT + 4, my + 1, MONEY_ICON_IMAGE)\n    self.goldLine = self._Label(self, LEFT + 24, my, '')\n    self.giveYangButton = self._Btn(self, 'small', bx + 92, my + 20, TEXT_GIVE_YANG, self.OnGiveYang)\n    self.takeYangButton = self._Btn(self, 'small', bx + 138, my + 20, TEXT_TAKE_YANG, self.OnTakeYang)\n    self._StatusLines(gy + GRID_ROWS * CELL + 6)\n    tooltip = uiToolTip.ItemToolTip()\n    if hasattr(tooltip, 'SetCannotUseItemForceSetDisableColor'):\n        tooltip.SetCannotUseItemForceSetDisableColor(False)\n    tooltip.HideToolTip()\n    self.tooltip = tooltip\n";
+  function installSidekickLayout() {
+    if (!inWorld || !isMobile) return;
+    runPy(safePy([
+      "import os, sys",
+      "if os.path.exists('/mobile.flag'):",
+      "    try:",
+      "        import uisidekickinventory as _sk",
+      "    except Exception:",
+      "        _sk = None",
+      "    if _sk is not None and not getattr(_sk, '_m2oMobileLayout', False):",
+      "        exec(" + JSON.stringify(SIDEKICK_MOBILE_BUILD) + ", _sk.__dict__)",
+      "        _sk.EquipmentWindow.WIDTH = 380",
+      "        _sk.EquipmentWindow.HEIGHT = 388",
+      "        _sk.EquipmentWindow.Build = _sk._m2oMobileBuild",
+      "        _sk._m2oMobileLayout = True",
+      "        _w = _sk._state.get('eqWindow')",
+      "        if _w is not None and not _w.IsShow():",
+      "            try:",
+      "                _w.Destroy()",
+      "            except Exception:",
+      "                pass",
+      "            _sk._state['eqWindow'] = None"
+    ]));
+  }
   function installWhisperPatch() { if (inWorld) runPy(safePy(WB_PY)); }
   function whisperUnread() {
     var n = 0;
@@ -3236,7 +3264,7 @@
   }, 300);
   // Instala (uma vez por entrada no mapa) e confere de tempos em tempos.
   setInterval(function () {
-    try { if (inWorld && !fsExists("/m2w_cmd.py")) installWhisperPatch(); } catch (e) { }
+    try { if (inWorld && !fsExists("/m2w_cmd.py")) { installWhisperPatch(); installSidekickLayout(); } } catch (e) { }
   }, 10000);
   // Painel do histórico: largura da barra de chat (mín. 450 do jogo), do topo da tela
   // até logo acima da barra. Fecha no botão, no X da janela ou tocando fora dela.
@@ -4286,6 +4314,7 @@
       setTimeout(shiftMiniMap, 4500);
       whisperList = []; renderWhisperBadge();
       setTimeout(installWhisperPatch, 2200);
+      setTimeout(installSidekickLayout, 3600);
       setTimeout(function () { runPy(SHOP_PEEK_PY); }, 3200);
       refreshJoyRect();
       lastLayoutSig = "";

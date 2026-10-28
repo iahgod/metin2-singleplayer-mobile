@@ -1,0 +1,1893 @@
+# playerbot_lang.T(): English text -> pt (Portugues do Brasil). Tab-separated, \n = new line.
+Nothing drops from the drop tables	Nada cai das tabelas de drop
+List of all bonuses	Lista de todos os bônus
+Update the server to destroy your companion's items.	Atualize o servidor para destruir os itens do seu companheiro.
+into the Red Wood	para a Floresta Vermelha
+Right click: reset	Clique direito: redefinir
+You cannot sort the inventory while dead.	Você não pode organizar o inventário enquanto está morto.
+Close the trade or the other window and put down the item on your cursor.	Feche a troca ou a outra janela e solte o item do cursor.
+Collector's warehouse	Depósito do colecionador
+Seller: %s	Vendedor: %s
+There is nothing there.	Não há nada aí.
+Slot %d cleared here and in BS.	Espaço %d limpo aqui e no BS.
+%sCollecting for the Biologist: %s	%sColetando para o Biólogo: %s
+Casts its buffs on you.	Lança os buffs em você.
+Automatic pricing stopped: the shop window was closed or the mode changed.	Precificação automática parada: a janela da loja foi fechada ou o modo mudou.
+Get materials	Buscar materiais
+Guild bot orders	Ordens aos bots da guilda
+to get back to town quickly	para voltar rápido à cidade
+Horse inventory	Inventário do cavalo
+The storage cannot be sorted now - close the trade, the shop or the other window.	O armazém não pode ser organizado agora - feche a troca, a loja ou a outra janela.
+%sSetting a spirit stone	%sColocando uma pedra espiritual
+could not save the advanced filter.	não foi possível salvar o filtro avançado.
+The Blacksmith's mission	A missão do Ferreiro
+No confirmation. Retrying...	Sem confirmação. Tentando de novo...
+Loading ranking...	Carregando ranking...
+This account's storage is open already.	O armazém desta conta já está aberto.
+Update the client and the server.	Atualize o cliente e o servidor.
+Max. stamina	Vigor máx.
+bonuses	bônus
+The gift for Chaegirab	O presente para Chaegirab
+Preset %s loaded into slot %d. Click Start in BS.	Predefinição %s carregada no espaço %d. Clique em Iniciar no BS.
+Min. number of bonuses:	Nº mín. de bônus:
+Drag a chest from your inventory.	Arraste um baú do seu inventário.
+[BS] Slot %d: the item moved; not resumed	[BS] Espaço %d: o item mudou; não retomado
+[BS] Preset %s loaded into slot %d	[BS] Predefinição %s carregada no espaço %d
+Bonuses changed.	Bônus alterados.
+Buy %s for %s?	Comprar %s por %s?
+What to open	O que abrir
+No confirmation from the server	Sem confirmação do servidor
+Inactive	Inativo
+Putting books into storage	Guardando livros no armazém
+Drop	Drop
+Reflect arrows	Refletir flechas
+Main bonuses	Bônus principais
+Packages	Pacotes
+%sHunt: %s (%d left)	%sCaçada: %s (faltam %d)
+Chest opener	Abridor de baús
+in the Orc Valley	no Vale dos Orcs
+%sResting in town	%sDescansando na cidade
+The item changed. Choose it again.	O item mudou. Escolha de novo.
+Used: %d / %d	Usados: %d / %d
+Your companion will use a Book of Forgetfulness or a Skill Reset Document.	Seu companheiro vai usar um Livro do Esquecimento ou um Documento de Reset de Habilidade.
+Strong against humans	Forte contra humanos
+to read my books without the wait	para ler meus livros sem esperar
+The saved bonuses and values will be replaced.	Os bônus e valores salvos serão substituídos.
+Gambler	Apostador
+You are already on CH%d.	Você já está no CH%d.
+The entire stack is deleted without a prompt.	A pilha inteira é apagada sem confirmação.
+Possess	Possuir
+Arrows	Flechas
+Invalid range (min <= max, refine 0..9).	Faixa inválida (mín <= máx, refino 0..9).
+into the general store	para a loja geral
+Fisher	Pescador
+The sixth page	A sexta página
+Ranges	Faixas
+A medicine for Balso	Um remédio para Balso
+Attack speed	Velocidade de ataque
+into the Ghost Forest	para a Floresta Fantasma
+Bonus minimum: 1..32767 (empty = 1).	Mínimo do bônus: 1..32767 (vazio = 1).
+Buy goods	Comprar itens
+You are too far from the storekeeper.	Você está longe demais do guardião do armazém.
+Bonuses: %d	Bônus: %d
+Takes every stat point back - once, for free.	Devolve todos os pontos de status - uma vez, de graça.
+Wait for this slot change to be confirmed	Aguarde a confirmação desta troca de espaço
+Opens the opener and selects the chest.	Abre o abridor e seleciona o baú.
+%sDefending the guild against %s	%sDefendendo a guilda contra %s
+Trash unavailable - log in again.	Lixeira indisponível - entre de novo.
+Your companion has moved it already.	Seu companheiro já moveu.
+into the Grotto of Exile 2	para a Gruta do Exílio 2
+%d stat points wait for you: "+" on the Status tab.	%d pontos de status esperando por você: "+" na aba Status.
+to Yongan	para Yongan
+Trading with the weapon dealer	Negociando com o vendedor de armas
+%sLooking for a target for the group	%sProcurando um alvo para o grupo
+Pick it up and click Unpin.	Pegue-o e clique em Soltar.
+Item chosen for slot %d. Click Load into slot to apply the preset in BS.	Item escolhido para o espaço %d. Clique em Carregar no espaço para aplicar a predefinição no BS.
+%sPlanning: %s	%sPlanejando: %s
+No refining, bonus changes or gear swaps. Your manual commands still work.	Sem refino, troca de bônus ou troca de equipamento. Seus comandos manuais continuam funcionando.
+You confirm every attempt yourself.	Você confirma cada tentativa.
+The server did not confirm the split. The remaining units were not moved.	O servidor não confirmou a divisão. As unidades restantes não foram movidas.
+Fame and diagnostics	Fama e diagnóstico
+A channel change is already on its way, wait a moment.	Uma troca de canal já está a caminho, aguarde um momento.
+Buy reroll scrolls in the ItemShop when you have fewer than 200?	Comprar pergaminhos de troca na ItemShop quando tiver menos de 200?
+Preset loaded. Click Start	Predefinição carregada. Clique em Iniciar
+Chests	Baús
+in Bakra	em Bakra
+%sTaking to the Biologist: %s	%sLevando ao Biólogo: %s
+Ranking unavailable. Try again.	Ranking indisponível. Tente de novo.
+Equipment Master	Mestre dos Equipamentos
+Strong against orcs	Forte contra orcs
+The scrolls went to the ItemShop storage. Collect them; the automatic purchase is off.	Os pergaminhos foram para o armazém da ItemShop. Recolha-os; a compra automática está desligada.
+Change bonuses	Trocar bônus
+to Jungrang	para Jungrang
+Your rank: %d of %d  |  Points: %d	Sua posição: %d de %d  |  Pontos: %d
+Your companion's AI spends the stat points.	A IA do seu companheiro gasta os pontos de status.
+Group	Grupo
+Behaviour	Comportamento
+Popup + PM	Aviso + MP
+Auto Hunt's settings cannot be read.	Não foi possível ler as configurações da Caça Automática.
+Opened: %d / %d	Abertos: %d / %d
+Dragon Stone Alchemy - Heaven deck	Alquimia das Pedras do Dragão - deck Céu
+The Stolen Rice Cake	O Bolo de Arroz Roubado
+HP regeneration	Regeneração de HP
+Could not load the favorites star. Sorting protection still works.	Não foi possível carregar a estrela de favoritos. A proteção ao organizar continua funcionando.
+Channels	Canais
+The item is back. Click Start	O item voltou. Clique em Iniciar
+Metin stones	Pedras Metin
+Splitting into packages stopped.	Divisão em pacotes parada.
+Fame	Fama
+to Monkey Dungeon III	para a Masmorra dos Macacos III
+to the Demon Tower	para a Torre do Demônio
+GM characters are excluded from ranking.	Personagens GM ficam fora do ranking.
+From the IS: %d for %d DC	Da IS: %d por %d DC
+%sReading a skill book	%sLendo um livro de habilidade
+Shift + right-click a chest in inventory	Shift + clique direito num baú do inventário
+Your companion takes whole stacks only.	Seu companheiro só pega pilhas inteiras.
+Auto Hunt (K)	Caça Automática (K)
+Set %d (%s)	Conjunto %d (%s)
+Off into the Yongbi Desert	Rumo ao Deserto de Yongbi
+in the west	no oeste
+Gifts and needed items stay.	Presentes e itens necessários ficam.
+Poison chance	Chance de veneno
+to Jayang	para Jayang
+[BS] Add an item and set bonuses in the chosen slot	[BS] Adicione um item e defina os bônus no espaço escolhido
+Search shop offers and buy without walking to a stall. Choose the quantity when buying a stack.	Procure ofertas nas lojas e compre sem ir até a banca. Escolha a quantidade ao comprar uma pilha.
+%sRecovering HP	%sRecuperando HP
+Rice Cake	Bolo de Arroz
+%sGoing to the Biologist	%sIndo ao Biólogo
+%sHanding in a horse medal (%u/21)	%sEntregando uma medalha de cavalo (%u/21)
+Splitting into packages works in the normal inventory.	A divisão em pacotes funciona no inventário normal.
+Select an automatic pricing mode.	Selecione um modo de precificação automática.
+The chat says who is coming.	O chat diz quem está vindo.
+Pick an item up from the bag and click Destroy.	Pegue um item da bolsa e clique em Destruir.
+%sHaggling over a price at a stall	%sPechinchando numa banca
+Manual change queued...	Troca manual na fila...
+Enter units for at least one package.	Informe as unidades de pelo menos um pacote.
+The saved password cannot be read on this computer.[ENTER]Type the password and click this account again - it is saved anew.	A senha salva não pode ser lida neste computador.[ENTER]Digite a senha e clique nesta conta de novo - ela é salva outra vez.
+Buy (%d)	Comprar (%d)
+subquest_47	subquest_47
+Ctrl + click: unpin	Ctrl + clique: soltar
+FPS counter	Contador de FPS
+The chest has to be in your inventory.	O baú tem que estar no seu inventário.
+Item trash	Lixeira de itens
+The stack changed. Stopped.	A pilha mudou. Parado.
+Orders to your guild's bots	Ordens aos bots da sua guilda
+The market for such a stack: %s - %s	O mercado para essa pilha: %s - %s
+to the Red Wood	para a Floresta Vermelha
+into the Spider Dungeon 2	para a Masmorra das Aranhas 2
+You found the Decorated Bow!	Você encontrou o Arco Decorado!
+Resistance: daggers	Resistência: adagas
+in the Red Forest	na Floresta Vermelha
+Set 2	Conjunto 2
+Selected: %d	Selecionados: %d
+Green (L)	Verde (L)
+Any / skip	Qualquer / pular
+The price of %d lines could not be changed - try again.	O preço de %d linhas não pôde ser alterado - tente de novo.
+No saved presets	Nenhuma predefinição salva
+Set %d: no alternative bonus fits this item[ENTER]%s[ENTER]Change or remove these targets in BS.	Conjunto %d: nenhum bônus alternativo serve neste item[ENTER]%s[ENTER]Altere ou remova esses alvos no BS.
+Strength	Força
+A worn piece cannot be destroyed - take it off into the bag first.	Uma peça vestida não pode ser destruída - tire-a para a bolsa primeiro.
+Go to Aranyo	Ir para Aranyo
+Name A-Z	Nome A-Z
+Price: low to high	Preço: menor para maior
+Another compatible item detected. Click Start	Outro item compatível detectado. Clique em Iniciar
+Choose a bonus	Escolha um bônus
+%sGuild war with %s (%s)	%sGuerra de guilda contra %s (%s)
+Preset name: %s	Nome da predefinição: %s
+The storage cannot be sorted while a shop is being opened.	O armazém não pode ser organizado enquanto uma loja é aberta.
+Lock equipment	Travar equipamento
+Skill %d	Habilidade %d
+Add an item to the slot first	Adicione um item ao espaço primeiro
+Turn on	Ligar
+into the Orc Valley	para o Vale dos Orcs
+in Bokjung	em Bokjung
+at a merchant	num comerciante
+Open storage at the Storekeeper with your storage password. Categories and stack transfers save bag space.	Abra o armazém no Guardião com a senha do armazém. Categorias e transferência de pilhas economizam espaço na bolsa.
+You spend the stat points	Você gasta os pontos de status
+to the Yongbi Desert	para o Deserto de Yongbi
+[BS] Preset load error: %s	[BS] Erro ao carregar predefinição: %s
+Amount: 	Quantidade: 
+%d packages of %d | rest: %d	%d pacotes de %d | resto: %d
+levelling	upando
+%sGoing through the portal to M2 for a Horse Medal	%sIndo pelo portal ao M2 por uma Medalha de Cavalo
+Call	Chamar
+Asking the server what it holds...	Perguntando ao servidor o que ele tem...
+Animations (on/off)	Animações (lig/desl)
+Team Player	Jogador de Equipe
+%sBack for revenge on %s	%sVoltando para se vingar de %s
+Weapon: average / skill	Arma: média / habilidade
+Preset loaded. Add an item to the slot	Predefinição carregada. Adicione um item ao espaço
+active	ativo
+Info - bonus switcher guide	Info - guia do trocador de bônus
+F11 shows your fame and ranking. Ctrl+F11 shows or hides the diagnostics at the top right: position, FPS and camera (by Lostek).	F11 mostra sua fama e ranking. Ctrl+F11 mostra ou esconde o diagnóstico no canto superior direito: posição, FPS e câmera (por Lostek).
+This character has no storage.	Este personagem não tem armazém.
+to Joan	para Joan
+Checking the storage: page %d / %d...	Verificando o armazém: página %d / %d...
+No drop data	Sem dados de drop
+Ore for a new weapon	Minério para uma arma nova
+Select offers to buy	Selecione ofertas para comprar
+Buying refine materials at the market	Comprando materiais de refino no mercado
+Buy all selected offers	Comprar todas as ofertas selecionadas
+in Mount Sohan	no Monte Sohan
+The server does not support this storage feature.	O servidor não suporta esta função do armazém.
+Add an item to slot %d[ENTER]to load the selected preset.	Adicione um item ao espaço %d[ENTER]para carregar a predefinição escolhida.
+Raises attack.	Aumenta o ataque.
+in the armour dealer	no vendedor de armaduras
+The Dragon Stone Alchemy has been switched on.	A Alquimia das Pedras do Dragão foi ativada.
+Eun-Jung from the White Oath	Eun-Jung do Juramento Branco
+Mad Angler	Pescador Louco
+Unpin	Soltar
+Waiting for the server...	Aguardando o servidor...
+Destroy the Metin Stones	Destrua as Pedras Metin
+%sWaiting for a route to the merchant; then %s	%sAguardando uma rota até o comerciante; depois %s
+Now: %s entries. After the expansion: %s.	Agora: %s entradas. Depois da expansão: %s.
+More room in the storage	Mais espaço no armazém
+Your companion refused.	Seu companheiro recusou.
+Current change speed: %.2fs	Velocidade atual de troca: %.2fs
+Paused - sending the BS notification.	Pausado - enviando o aviso do BS.
+Mode: %s	Modo: %s
+You cannot do that while dead.	Você não pode fazer isso morto.
+%sBaiting the rod	%sIscando a vara
+Puts in everything from your bag whose kind the storage already holds	Coloca tudo da sua bolsa cujo tipo o armazém já tem
+This item does not support the bonuses in this preset	Este item não aceita os bônus desta predefinição
+Inventory	Inventário
+into the Grotto	para a Gruta
+A preset with this name exists in this category. Choose another name or use Overwrite.	Já existe uma predefinição com esse nome nesta categoria. Escolha outro nome ou use Sobrescrever.
+Storage sorted: %d moved, %d stacks merged.	Armazém organizado: %d movidos, %d pilhas juntadas.
+Go to the Captain	Vá até o Capitão
+Bleed	Sangramento
+%sDefending %s against %s	%sDefendendo %s contra %s
+Bonus Master	Mestre dos Bônus
+Depositing matching items: %d / %d	Depositando itens correspondentes: %d / %d
+Talk to the Captain	Fale com o Capitão
+Nothing to unpin there.	Não há nada para soltar aí.
+Excluded (GM)	Excluído (GM)
+Deposit matching	Depositar iguais
+Last sale by the bots: %s	Última venda dos bots: %s
+Targets changed. Click Start	Alvos alterados. Clique em Iniciar
+Choose a chest first.	Escolha um baú primeiro.
+The ItemShop sells the scrolls from level %d. BS stopped.	A ItemShop vende os pergaminhos a partir do nível %d. BS parado.
+in the Monkey Dungeon	na Masmorra dos Macacos
+to the armour dealer	para o vendedor de armaduras
+Slow	Lento
+The bots suggest: 	Os bots sugerem: 
+Going into town	Indo para a cidade
+Stop the bonus switcher, the chest opener and the splitting first.	Pare o trocador de bônus, o abridor de baús e a divisão primeiro.
+%s (%d, %d) - right click: remove	%s (%d, %d) - clique direito: remover
+Wait for the previous bonus change to finish.	Aguarde a troca de bônus anterior terminar.
+Waiting for the reroll scroll purchase...	Aguardando a compra dos pergaminhos de troca...
+to the general store	para a loja geral
+Dragon Stone Alchemy - Earth deck	Alquimia das Pedras do Dragão - deck Terra
+Possession: waiting for the bot to leave the world (about %d s)...	Possessão: aguardando o bot sair do mundo (cerca de %d s)...
+Help: they fight what attacks you.	Ajuda: eles lutam contra o que te ataca.
+A wrong order.	Uma ordem errada.
+This item is already in another BS slot	Este item já está em outro espaço do BS
+Hover over Load to see the bonuses	Passe o mouse sobre Carregar para ver os bônus
+Part of it moved - there was no room for the rest.	Uma parte foi movida - não havia espaço para o resto.
+Loading keeps the saved values	Carregar mantém os valores salvos
+Enter a bonus value in set %d	Informe um valor de bônus no conjunto %d
+%sComing back from the Biologist	%sVoltando do Biólogo
+Preview possible monster or chest items. These are drop chances, not a guaranteed reward.	Veja os itens possíveis de monstros ou baús. São chances de drop, não uma recompensa garantida.
+Reset %s?	Redefinir %s?
+Mercenary	Mercenário
+%sResting after death	%sDescansando depois de morrer
+Delete preset: %s?	Apagar predefinição: %s?
+The dinner	O jantar
+Item on cursor - paused.	Item no cursor - pausado.
+Kill Mi-Jung from the White Oath	Mate Mi-Jung do Juramento Branco
+into the Spider Dungeon	para a Masmorra das Aranhas
+into Hwang Temple	para o Templo Hwang
+Right click on minimap / M	Clique direito no minimapa / M
+to town	para a cidade
+Ranking is not available yet.	O ranking ainda não está disponível.
+skill training	treino de habilidade
+This client does not know this server's storage - update the game.	Este cliente não conhece o armazém deste servidor - atualize o jogo.
+Page %d/%d	Página %d/%d
+Guild bots	Bots da guilda
+Showing %d offers (the limit) - narrow the search to see the rest.	Mostrando %d ofertas (o limite) - refine a busca para ver o resto.
+Load into slot %d	Carregar no espaço %d
+into the Yongbi Desert	para o Deserto de Yongbi
+Skill duration	Duração da habilidade
+That did not work.	Isso não funcionou.
+ESC > System options	ESC > Opções do sistema
+in the south	no sul
+Stop the opening first.	Pare a abertura primeiro.
+%sGoing to the blacksmith to upgrade	%sIndo ao ferreiro para melhorar
+Done: %d opened.	Pronto: %d abertos.
+Conqueror	Conquistador
+Duel with %s	Duelo com %s
+Price	Preço
+Alternatives: one	Alternativas: uma
+Male	Masculino
+Set 2 is now inactive. Choose bonuses and click Start	O conjunto 2 agora está inativo. Escolha os bônus e clique em Iniciar
+Prices	Preços
+News from the City Guard	Notícias da Guarda da Cidade
+Change the item bonuses in BS slot %d?	Trocar os bônus do item no espaço %d do BS?
+Right-click in inventory (opener open)	Clique direito no inventário (abridor aberto)
+Yang amount exceeds available funds.	A quantia de Yang é maior que o disponível.
+Deleted: %d	Apagados: %d
+On: Z / ` use item choices and minimum bonuses. Off: pick up everything.	Ligado: Z / ` usam a escolha de itens e o mínimo de bônus. Desligado: pega tudo.
+%sLooking at a stall	%sOlhando uma banca
+Gear: min.	Equip.: mín.
+in the south-west	no sudoeste
+Changing bonuses...	Trocando bônus...
+Clear filters	Limpar filtros
+Wait a moment before refreshing.	Aguarde um pouco antes de atualizar.
+Deposited %d of %d, %d skipped.	Depositados %d de %d, %d pulados.
+Bargain Hunter	Caçador de Pechinchas
+From the gear: %+d	Do equipamento: %+d
+Class	Classe
+Only an item of your companion's bag can be destroyed.	Só um item da bolsa do seu companheiro pode ser destruído.
+Render: %d FPS | Render time: %.2f (%d) ms | Triangles: %d	Render: %d FPS | Tempo de render: %.2f (%d) ms | Triângulos: %d
+Poison resistance	Resistência a veneno
+|cffbc893aavailable [|r%d|cffbc893a]|r	|cffbc893adisponível [|r%d|cffbc893a]|r
+for the same item, while it is still in its cell.	para o mesmo item, enquanto ele ainda estiver no seu espaço.
+Temple of Darkness	Templo da Escuridão
+Miner	Minerador
+Purple (S)	Roxo (P)
+Reset	Redefinir
+Wearing	Vestindo
+Quantity	Quantidade
+in the blacksmith	no ferreiro
+Kill 10 Alpha Grey Wolves	Mate 10 Lobos Cinzentos Alfa
+ for the party	 para o grupo
+The inventory cannot be sorted now - close the trade, the shop or the other window.	O inventário não pode ser organizado agora - feche a troca, a loja ou a outra janela.
+Ctrl + click: several points at once	Ctrl + clique: vários pontos de uma vez
+[BS] Type a preset name	[BS] Digite um nome para a predefinição
+Going to the general store	Indo para a loja geral
+Purple (M)	Roxo (M)
+Paused - close the question window.	Pausado - feche a janela de pergunta.
+Find my brother.	Encontre meu irmão.
+Shop prices changed (%d).	Preços da loja alterados (%d).
+The storage could not be laid out - nothing was changed.	O armazém não pôde ser arrumado - nada foi alterado.
+The Spider with the Bell	A Aranha com o Sino
+%s%s - potions %u/%u	%s%s - poções %u/%u
+Y: character statistics. F9: GM panel, F10: GM bot inspection. The GM panels require GM rights.	Y: estatísticas do personagem. F9: painel GM, F10: inspeção de bots GM. Os painéis GM exigem direitos de GM.
+Character Fame	Fama do Personagem
+Now: %s	Agora: %s
+Set %d already matches	O conjunto %d já confere
+First page	Primeira página
+Target quantity in bag (1-10000)	Quantidade desejada na bolsa (1-10000)
+Points	Pontos
+Info	Info
+Put down the item on your cursor first.	Solte o item do cursor primeiro.
+Median of the bots' prices: %s (samples: %d)	Mediana dos preços dos bots: %s (amostras: %d)
+Resistance: fans	Resistência: leques
+Next page	Próxima página
+Rank points:	Pontos de rank:
+Update the server to spend stats.	Atualize o servidor para gastar status.
+Bin	Lixo
+Several BS slots match this item.[ENTER]Drag it from EQ onto its BS slot.	Vários espaços do BS servem para este item.[ENTER]Arraste-o do EQ para o espaço certo do BS.
+Bots	Bots
+Stun chance	Chance de atordoar
+Main: all	Principal: todos
+Potions: %d red / %d blue	Poções: %d vermelhas / %d azuis
+Putting it in...	Colocando...
+%sGoing to town for supplies	%sIndo à cidade buscar suprimentos
+The stack changed. Splitting stopped.	A pilha mudou. Divisão parada.
+to the Grotto of Exile	para a Gruta do Exílio
+Drain	Dreno
+Hit [Set %d] after %d changes!	Use [Conjunto %d] depois de %d trocas!
+Reflect melee attacks	Refletir ataques corpo a corpo
+The server does not know this chest.	O servidor não conhece este baú.
+The storage changed - the page was refreshed.	O armazém mudou - a página foi atualizada.
+upgrading	melhorando
+ (active)	 (ativo)
+%s: how many points?	%s: quantos pontos?
+H / Esc: close. Basics: original game help.	H / Esc: fechar. Básico: ajuda original do jogo.
+Auto-price	Preço automático
+Shop: %s	Loja: %s
+Previous	Anterior
+Talk to the City Guard	Fale com a Guarda da Cidade
+Mark your position on the minimap. On the M map choose a location; click an existing marker to remove it.	Marque sua posição no minimapa. No mapa M escolha um lugar; clique num marcador existente para removê-lo.
+Select items...	Selecionar itens...
+to Bakra	para Bakra
+Stopped	Parado
+into Monkey Dungeon III	para a Masmorra dos Macacos III
+Rumble rumble	Rom rom
+Hunting	Caçando
+%sChasing %s	%sPerseguindo %s
+Loading offers... %d received	Carregando ofertas... %d recebidas
+%sDefending the party against %s	%sDefendendo o grupo contra %s
+Yes	Sim
+to Pyungmoo	para Pyungmoo
+Fame: %d/10	Fama: %d/10
+%sBreaking %s	%sQuebrando %s
+Free hand	Livre
+Split the item into packages?	Dividir o item em pacotes?
+Look for Yu-Hwan	Procure por Yu-Hwan
+X opens channel selection, X+1-4 moves to CH1-CH4. You can also click a CH button beside the minimap.	X abre a escolha de canal, X+1-4 vai para CH1-CH4. Você também pode clicar num botão CH ao lado do minimapa.
+The item changed - transfer skipped.	O item mudou - transferência pulada.
+Shop	Loja
+to the Grotto	para a Gruta
+Bonus / possible values	Bônus / valores possíveis
+No standard bonus-change scrolls available	Nenhum pergaminho padrão de troca de bônus disponível
+Take	Pegar
+Page %d / %d	Página %d / %d
+Refresh	Atualizar
+Take yang from your companion	Pegar Yang do seu companheiro
+Destroy	Destruir
+in Waryong	em Waryong
+to the Spider Dungeon	para a Masmorra das Aranhas
+Dexterity	Destreza
+Keepsake of Mirine's Brother.	Lembrança do irmão de Mirine.
+Offline shop	Loja offline
+Capture the spy	Capture o espião
+No inventory space for the bought scrolls. BS stopped.	Sem espaço no inventário para os pergaminhos comprados. BS parado.
+Metin Slayer	Matador de Metins
+Call the free bots of your guild near you.	Chame os bots livres da sua guilda para perto de você.
+Green (M)	Verde (M)
+Right click - remove the effect	Clique direito - remover o efeito
+Search shop	Buscar na loja
+Experience	Experiência
+Redirected Damage Reduction %d%%	Redução de dano redirecionado %d%%
+Item included in sorting again.	Item incluído na organização de novo.
+A Letter from the Blacksmith	Uma carta do Ferreiro
+Movement speed	Velocidade de movimento
+Refine (+0..+9)	Refino (+0..+9)
+Minimum	Mínimo
+Stop BS slot %d before changing its bonuses manually.	Pare o espaço %d do BS antes de trocar os bônus dele à mão.
+Resistance: bells	Resistência: sinos
+Talk to a bot	Falar com um bot
+General Store in M1 and M2	Loja geral em M1 e M2
+in the Grotto of Exile 2	na Gruta do Exílio 2
+in the north-east	no nordeste
+Dodge	Esquiva
+The original: metin2singleplayer.com	O original: metin2singleplayer.com
+Log in to the GM account - the return finishes by itself.	Entre na conta GM - o retorno termina sozinho.
+Saving failed - nothing was moved.	Falha ao salvar - nada foi movido.
+Basics	Básico
+No free space. The rest of the stack stays in its slot.	Sem espaço livre. O resto da pilha fica no espaço.
+Help and horse	Ajuda e cavalo
+%sCollecting a battle horse from the Stable Boy	%sPegando um cavalo de batalha com o Cavalariço
+%sWaiting for a route to the merchant	%sAguardando uma rota até o comerciante
+SP absorption	Absorção de SP
+in the Monkey Dungeon III	na Masmorra dos Macacos III
+Loading price data...	Carregando dados de preço...
+Strength (STR)	Força (FOR)
+Guild window, Guild bots button: Help me!, Hunt with me, Go back. Or type /gildia_boty help, exp or return.	Janela da guilda, botão Bots da guilda: Me ajudem!, Cacem comigo, Voltem. Ou digite /gildia_boty help, exp ou return.
+Party	Grupo
+%s (max. %d)	%s (máx. %d)
+Load bonuses onto an item	Carregar bônus num item
+%sPreparing a lure%s	%sPreparando uma isca%s
+F11: open / close	F11: abrir / fechar
+Visiting Wonda-Rim	Visitando Wonda-Rim
+Choose an item from your inventory	Escolha um item do seu inventário
+Deleting items...	Apagando itens...
+Open BS window	Abrir janela do BS
+black_steel_crafting	black_steel_crafting
+Going to the blacksmith	Indo ao ferreiro
+No item can be put there.	Nenhum item pode ser colocado aí.
+Snapshot age: %d min; ranking updates periodically.	Idade do registro: %d min; o ranking atualiza periodicamente.
+Vitality (VIT)	Vitalidade (VIT)
+Skipped %d items without a price or with a changed shop listing.	%d itens pulados sem preço ou com anúncio da loja alterado.
+- none -	- nenhum -
+The storage is as large as it gets already.	O armazém já está no tamanho máximo.
+Luring	Atraindo
+Close the windows that use your items.	Feche as janelas que usam seus itens.
+The server did not confirm the bonus change - stopped.	O servidor não confirmou a troca de bônus - parado.
+%sDoing a quest	%sFazendo uma missão
+The sick brother	O irmão doente
+A moment - close the trade, the shop or the other window.	Um momento - feche a troca, a loja ou a outra janela.
+Wikipedia	Wikipédia
+%sLooking for a foe	%sProcurando um inimigo
+That item cannot be put there.	Esse item não pode ser colocado aí.
+%sSaving yang for the Teleporter %s (%lld/%d)	%sJuntando Yang para o Teleportador %s (%lld/%d)
+%sLooking for a level 30 weapon on M3	%sProcurando uma arma de nível 30 em M3
+Click: the companion's bag	Clique: a bolsa do companheiro
+in the Grotto of Exile	na Gruta do Exílio
+Quest: %s (%u/%u)	Missão: %s (%u/%u)
+Celadon Porcelain	Porcelana Celadon
+200 for %d DC (10 x 20 at %d DC).	200 por %d DC (10 x 20 a %d DC).
+Guardian	Guardião
+%d skill points wait for you: "+" on the Skills tab.	%d pontos de habilidade esperando por você: "+" na aba Habilidades.
+%s's companion - waiting	Companheiro de %s - aguardando
+Set 2 is inactive. |cff70ff70Set 1 already matches|r	O conjunto 2 está inativo. |cff70ff70O conjunto 1 já confere|r
+leads	lidera
+In the game in a moment.	No jogo em um momento.
+to Waryong	para Waryong
+Yang stays in your purse.	O Yang fica na sua bolsa.
+Item moved	Item movido
+All	Todos
+Strong against undead	Forte contra mortos-vivos
+Server rejected sort exclusions. A server update is required.	O servidor recusou as exclusões da organização. É preciso atualizar o servidor.
+Kill the Black Wind generals	Mate os generais do Vento Negro
+Paused - splitting or opening is in progress.	Pausado - divisão ou abertura em andamento.
+profession	profissão
+into the Guild Land	para a Terra da Guilda
+%sTrading	%sNegociando
+Depositing stopped: %s	Depósito parado: %s
+Presets: %s	Predefinições: %s
+Next target	Próximo alvo
+Choose an item first	Escolha um item primeiro
+Options	Opções
+You cannot change an equipped item	Você não pode alterar um item equipado
+Paused - close your shop.	Pausado - feche sua loja.
+%s (another map)	%s (outro mapa)
+The storage is not open.	O armazém não está aberto.
+to Doyyumhwan	para Doyyumhwan
+Choose an item from your bag.	Escolha um item da sua bolsa.
+Back to GM	Voltar ao GM
+Clear item name	Limpar nome do item
+into the Demon Tower	para a Torre do Demônio
+Poison	Veneno
+Most famous characters	Personagens mais famosos
+Set field of view, FPS counter, snow and map name. Change font size in the login screen settings.	Ajuste o campo de visão, o contador de FPS, a neve e o nome do mapa. Mude o tamanho da fonte nas configurações da tela de login.
+The storage closed - you walked away from the storekeeper.	O armazém fechou - você se afastou do guardião.
+Average: %s / pc.	Média: %s / un.
+Purple (L)	Roxo (G)
+Guard	Guarda
+to the weapon dealer	para o vendedor de armas
+Raises attack and evasion.	Aumenta o ataque e a esquiva.
+Taking it out...	Retirando...
+Shaman	Shaman
+Up to 5 bonuses at once, each with a minimum value:	Até 5 bônus de uma vez, cada um com um valor mínimo:
+Spider Eyes Special	Especial Olhos de Aranha
+Town maintenance	Manutenção na cidade
+Dismiss	Dispensar
+%sGoing to the Stable Boy for a battle horse	%sIndo ao Cavalariço por um cavalo de batalha
+The item is gone or has moved	O item sumiu ou foi movido
+Tyrion's options	Opções do Tyrion
+Whisper a bot about gear, skills or prices. You can also call your own companion.	Mande sussurro a um bot sobre equipamento, habilidades ou preços. Você também pode chamar seu companheiro.
+First to %d kills - tied	Primeiro a %d abates - empatado
+The item or its bonuses changed. Confirm the change again.	O item ou os bônus dele mudaram. Confirme a troca de novo.
+Deleting... Remaining: %d	Apagando... Restam: %d
+Metinologist	Metinólogo
+Add an item and choose bonuses in this slot first.	Adicione um item e escolha os bônus neste espaço primeiro.
+The broken porcelain	A porcelana quebrada
+Clear	Limpar
+in Doyyumhwaji	em Doyyumhwaji
+Name:	Nome:
+supplies	suprimentos
+Invalid Yang amount. Use k, kk or kkk.	Quantia de Yang inválida. Use k, kk ou kkk.
+Cheapest offers: %d / 20	Ofertas mais baratas: %d / 20
+Choose a pricing mode when listing. Prices in shop editing can price the whole shop; you can still type a price.	Escolha um modo de preço ao anunciar. Preços na edição da loja podem precificar a loja toda; você ainda pode digitar um preço.
+Strong against devils	Forte contra demônios
+%sChoosing a profession	%sEscolhendo uma profissão
+to Doyyumhwaji	para Doyyumhwaji
+The storage could not be opened.	O armazém não pôde ser aberto.
+%d x %d | rest: %d	%d x %d | resto: %d
+Slow immunity	Imunidade a lentidão
+[Set %d]	[Conjunto %d]
+All bots are already stopped.	Todos os bots já estão parados.
+This preset cannot be read	Esta predefinição não pode ser lida
+%sWaiting to lure%s	%sEsperando para atrair%s
+Addict	Viciado
+Bonus count: 0..7 (empty = 0).	Quantidade de bônus: 0..7 (vazio = 0).
+Stun immunity	Imunidade a atordoamento
+in the Grotto	na Gruta
+Plays on when you leave the game - up to your level +30.	Continua jogando quando você sai do jogo - até o seu nível +30.
+The points wait for you ("+"). "no" above: the AI spends them.	Os pontos esperam por você ("+"). "não" acima: a IA gasta.
+Attack value	Valor de ataque
+Closing	Fechando
+to the Red Forest	para a Floresta Vermelha
+Statistics and administration	Estatísticas e administração
+Cancel	Cancelar
+next to you	ao seu lado
+in the weapon dealer	no vendedor de armas
+Your client %s is older[ENTER]than the server requires (%s).[ENTER]To update, close the game and run[ENTER]Aktualizuj.bat in the client folder[ENTER](or your launcher, if you have it).	Seu cliente %s é mais antigo[ENTER]do que o servidor exige (%s).[ENTER]Para atualizar, feche o jogo e rode[ENTER]Aktualizuj.bat na pasta do cliente[ENTER](ou seu launcher, se tiver).
+Get the Peach Seeds	Pegue as Sementes de Pêssego
+Scrolls used: %d	Pergaminhos usados: %d
+With bow	Com arco
+in the north	no norte
+Resistance: swords	Resistência: espadas
+That entry is locked.	Essa entrada está travada.
+M2 Farmer	Fazendeiro M2
+Autologin: again in %d s (try %d)	Login automático: de novo em %d s (tentativa %d)
+%sMustering for the guild war with %s (%s)	%sReunindo-se para a guerra de guilda contra %s (%s)
+Level	Nível
+Level: %s	Nível: %s
+DC icon by the minimap	Ícone DC no minimapa
+Buy	Comprar
+The inventory is in an unexpected state - nothing was changed. Please report it on Discord.	O inventário está num estado inesperado - nada foi alterado. Por favor, avise no Discord.
+in the east	no leste
+%sBrowsing the stalls	%sOlhando as bancas
+Scrolls: %d | used: %d	Pergaminhos: %d | usados: %d
+Flea Market	Mercado de Pulgas
+Find Soon	Encontre Soon
+The storage closed after 15 minutes without a move.	O armazém fechou depois de 15 minutos sem movimento.
+Min	Mín
+The bookworm's Treasure Map	O Mapa do Tesouro do rato de biblioteca
+%s's companion - recovering	Companheiro de %s - recuperando
+Resistance: arrows	Resistência: flechas
+No offers match the filters	Nenhuma oferta corresponde aos filtros
+Suggested	Sugerido
+Hunt: they hunt around you.	Caça: eles caçam ao seu redor.
+Filters (%d)	Filtros (%d)
+Skill damage	Dano de habilidade
+strong monsters in a party	monstros fortes em grupo
+%sMining ore	%sMinerando
+%sGoing to the river to fish	%sIndo ao rio pescar
+Bonus filters	Filtros de bônus
+in Imha	em Imha
+Blue (S)	Azul (P)
+Opens the chests in its bag. Off: it leaves them to you.	Abre os baús da bolsa dele. Desligado: deixa para você.
+The item was moved.[ENTER]Drag it from EQ onto its BS slot[ENTER]or return it to its previous EQ slot.	O item foi movido.[ENTER]Arraste-o do EQ para o espaço do BS[ENTER]ou devolva-o ao espaço anterior do EQ.
+Raises SP and magic attack.	Aumenta o SP e o ataque mágico.
+Previous page	Página anterior
+Going to a duel with %s	Indo a um duelo com %s
+Save preset	Salvar predefinição
+in the Hwang Temple	no Templo Hwang
+Block	Bloqueio
+Bonus catalog - choose a category	Catálogo de bônus - escolha uma categoria
+Joins your party, also one somebody else leads.	Entra no seu grupo, mesmo num liderado por outro.
+The storage is already sorted.	O armazém já está organizado.
+Set 2 activated. Choose bonuses and click Start	Conjunto 2 ativado. Escolha os bônus e clique em Iniciar
+Stack	Pilha
+Keep refining	Continuar refinando
+at the blacksmith	no ferreiro
+Seller A-Z	Vendedor A-Z
+Delete selected	Apagar selecionados
+Chief Gambler	Apostador-Chefe
+Letter from the Captain	Carta do Capitão
+%s's companion - at the blacksmith	Companheiro de %s - no ferreiro
+Companion has a matching marble.	O companheiro tem uma bola de gude compatível.
+No opening confirmation from the server. Stopped.	Sem confirmação de abertura do servidor. Parado.
+to Imha	para Imha
+No room in the Dragon Soul Alchemy window (or it is not unlocked yet).	Sem espaço na janela da Alquimia da Alma do Dragão (ou ela ainda não foi liberada).
+The first "+" on the Skills tab gives them to you too.	O primeiro "+" na aba Habilidades também os dá a você.
+Stopped: %d / %d	Parado: %d / %d
+Grinder	Farmador
+The best cookbook	O melhor livro de receitas
+Item category: %s	Categoria do item: %s
+This chest gives nothing.	Este baú não dá nada.
+Wait a moment before sorting again.	Aguarde um pouco antes de organizar de novo.
+The secret book	O livro secreto
+This item type does not support the selected bonuses. Clear the settings	Este tipo de item não aceita os bônus escolhidos. Limpe as configurações
+Ctrl+Alt+Right click	Ctrl+Alt+Clique direito
+ + %d purchases without a price	 + %d compras sem preço
+Gender	Gênero
+The server cannot sort the inventory.	O servidor não consegue organizar o inventário.
+another map	outro mapa
+Get a Wolf Pelt	Consiga uma Pele de Lobo
+[BS] Bought 200 reroll scrolls for %d DC.	[BS] Comprados 200 pergaminhos de troca por %d DC.
+That stack is full.	Essa pilha está cheia.
+recovery	recuperação
+Last sale by the bots: no data.	Última venda dos bots: sem dados.
+%sHelping the party: %s	%sAjudando o grupo: %s
+Back to Soon	Volte para Soon
+Choose a pricing mode above first (e.g. Median), then click "Reprice all items". No prices were changed.	Escolha primeiro um modo de preço acima (ex.: Mediana) e clique em "Reprecificar todos os itens". Nenhum preço foi alterado.
+Buy selected	Comprar selecionados
+Max. SP	SP máx.
+%sLevelling on M3 (Tier 2)	%sUpando em M3 (Nível 2)
+When you are low on health it takes on what hits you.	Quando sua vida está baixa, ele assume o que te ataca.
+in town	na cidade
+Hunt with me	Cacem comigo
+Your level is too low for this expansion.	Seu nível é baixo demais para esta expansão.
+Dexterity (DEX)	Destreza (DES)
+Possession is not available (no quest on the server).	Possessão indisponível (sem a missão no servidor).
+%sFighting %s	%sLutando contra %s
+Limit: %d FPS | Logic: %d Hz | Work: %.2f ms | Present: %.2f ms | Wait: %.2f ms	Limite: %d FPS | Lógica: %d Hz | Trabalho: %.2f ms | Exibir: %.2f ms | Espera: %.2f ms
+SP drain chance	Chance de drenar SP
+Wait here	Esperar aqui
+Chest preview	Prévia de baú
+into the Ghost Wood	para a Mata Fantasma
+Storekeeper	Guardião do armazém
+Remove the marker "%s"?	Remover o marcador "%s"?
+Quantity: high to low	Quantidade: maior para menor
+The storage was expanded: %s entries.	O armazém foi expandido: %s entradas.
+Your companion gets a path at level 5.	Seu companheiro ganha um caminho no nível 5.
+in the Demon Tower	na Torre do Demônio
+Brings you packs of monsters from around.	Traz grupos de monstros dos arredores.
+Prices: %d of %d fetched.	Preços: %d de %d obtidos.
+into the armour dealer	para o vendedor de armaduras
+into the Red Forest	para a Floresta Vermelha
+The database did not confirm the save - the storage closed, open it again.	O banco de dados não confirmou o salvamento - o armazém fechou, abra de novo.
+%sDefending myself against %s	%sMe defendendo de %s
+Use it to switch the experience block on or off. No time limit.	Use para ligar ou desligar o bloqueio de experiência. Sem limite de tempo.
+Cancel orders	Cancelar ordens
+Return to Baek-Go	Volte para Baek-Go
+The server's storage is older than this client - update the server.	O armazém do servidor é mais antigo que este cliente - atualize o servidor.
+That cannot be done.	Isso não pode ser feito.
+Load preset: %s?	Carregar predefinição: %s?
+back to work	de volta ao trabalho
+Into packages (units):	Em pacotes (unidades):
+The storage is open already.	O armazém já está aberto.
+Invalid package size, or the stack changed.	Tamanho de pacote inválido, ou a pilha mudou.
+to Mount Sohan	para o Monte Sohan
+A right click on an item clears this slot in BS too. The item stays in your inventory.	Um clique direito num item também limpa este espaço no BS. O item fica no seu inventário.
+Junior Gambler	Apostador Júnior
+Your companion is not in the game.	Seu companheiro não está no jogo.
+Warrior	Guerreiro
+Meet the spy	Encontre o espião
+Mad Gambler	Apostador Louco
+%sGoing to the Fisherman for bait	%sIndo ao Pescador buscar isca
+into the Hwang Temple	para o Templo Hwang
+Go to Ariyoung	Vá até Ariyoung
+Sorting out the inventory	Organizando o inventário
+in Jayang	em Jayang
+%s%s (goal: %s)	%s%s (meta: %s)
+into the blacksmith	para o ferreiro
+Price: %s Yang.	Preço: %s Yang.
+No bonuses chosen	Nenhum bônus escolhido
+%sLuring%s: %u/%u groups, %d chasing me	%sAtraindo%s: %u/%u grupos, %d me perseguindo
+Peddler's Request	O Pedido do Mascate
+Summon your companion and set combat and pickup. Its window holds inventory, skills and Alchemy.	Chame seu companheiro e ajuste combate e coleta. A janela dele tem inventário, habilidades e Alquimia.
+Units / package size	Unidades / tamanho do pacote
+Dismiss your companion for good? This cannot be undone.	Dispensar seu companheiro para sempre? Isso não pode ser desfeito.
+Retrying the transfer...	Tentando a transferência de novo...
+to the Ghost Wood	para a Mata Fantasma
+Expand	Expandir
+%sVendetta against %s	%sVingança contra %s
+Enter: refine, and it confirms the question.	Enter: refina, e confirma a pergunta.
+is built into the item and cannot be rolled again	faz parte do item e não pode ser trocado
+to Yayang	para Yayang
+in Monkey Dungeon III	na Masmorra dos Macacos III
+in the south-east	no sudeste
+The expansion is for the whole account, for good.	A expansão vale para a conta toda, para sempre.
+Median of the bots' prices: %s (1 sample)	Mediana dos preços dos bots: %s (1 amostra)
+Pick-up	Coleta
+Item %d	Item %d
+You cannot move items while dead.	Você não pode mover itens morto.
+Buy %d selected offers for %s?	Comprar %d ofertas selecionadas por %s?
+Snow	Neve
+out of the game	fora do jogo
+Active items: %d/%d	Itens ativos: %d/%d
+Blue (L)	Azul (G)
+[BS] The scroll purchase was not confirmed. Retrying in 5 s.	[BS] A compra dos pergaminhos não foi confirmada. Tentando de novo em 5 s.
+ for %s	 por %s
+Deletion stopped. Check your inventory.	Exclusão parada. Confira seu inventário.
+Casting speed	Velocidade de magia
+in Jungrang	em Jungrang
+Going for a profession	Indo atrás de uma profissão
+%sLure on hold: %s still fighting	%sIsca em espera: %s ainda lutando
+The item cannot be moved now - close the trade, the shop or the other window.	O item não pode ser movido agora - feche a troca, a loja ou a outra janela.
+to the Hwang Temple	para o Templo Hwang
+[BS] Preset save error: %s	[BS] Erro ao salvar predefinição: %s
+the party is	o grupo está
+Choosing a profession	Escolhendo uma profissão
+A moment, the last move is still going...	Um momento, o último movimento ainda está em andamento...
+to Bokjung	para Bokjung
+Buy part of a stack	Comprar parte de uma pilha
+The item or the settings changed. Choose the item again.	O item ou as configurações mudaram. Escolha o item de novo.
+in the Ghost Wood	na Mata Fantasma
+%sGathering materials from %s	%sJuntando materiais de %s
+damaged advanced filter save; selection is empty. Configure the filter again.	filtro avançado salvo está danificado; a seleção está vazia. Configure o filtro de novo.
+%sFishing - waiting for a bite	%sPescando - esperando uma fisgada
+No presets in this category	Nenhuma predefinição nesta categoria
+%sHelping %s: %s	%sAjudando %s: %s
+Critical hit chance	Chance de acerto crítico
+Stack: %d | In inventory: %d	Pilha: %d | No inventário: %d
+Trading with the armour dealer	Negociando com o vendedor de armaduras
+Filter: %s	Filtro: %s
+%sDemon Tower: floor %d	%sTorre do Demônio: andar %d
+The daughter's wedding	O casamento da filha
+Stop all	Parar tudo
+in the general store	na loja geral
+Bonus switcher	Trocador de bônus
+Enter a valid amount	Informe uma quantia válida
+Pickup filters	Filtros de coleta
+%sUpgrading equipment	%sMelhorando equipamento
+Set up	Configurar
+%sFinding my way through the Monkey Dungeon	%sAchando o caminho na Masmorra dos Macacos
+All BS slots are taken.[ENTER]Clear a slot or drag the item[ENTER]onto a chosen BS slot to replace it.	Todos os espaços do BS estão ocupados.[ENTER]Limpe um espaço ou arraste o item[ENTER]para um espaço do BS para substituí-lo.
+[BS] Could not save the scroll purchase setting	[BS] Não foi possível salvar a opção de compra de pergaminhos
+All bonuses	Todos os bônus
+Yang drop bonus	Bônus de drop de Yang
+Server busy. Check your inventory and log in again.	Servidor ocupado. Confira seu inventário e entre de novo.
+Preset categories	Categorias de predefinições
+The inventory could not be laid out - nothing was changed.	O inventário não pôde ser arrumado - nada foi alterado.
+to the Orc Valley	para o Vale dos Orcs
+%sTaking a short break	%sFazendo uma pausa curta
+The Dragon Stone Alchemy has been switched off in this world.	A Alquimia das Pedras do Dragão foi desligada neste mundo.
+Could not save favorites. Check permissions on the client cache folder.	Não foi possível salvar os favoritos. Confira as permissões da pasta de cache do cliente.
+Choose a chest, e.g. a Moonlight chest.	Escolha um baú, ex.: um baú do Luar.
+Intelligence (INT)	Inteligência (INT)
+Active	Ativo
+Replace	Substituir
+This map already has %d markers - remove one to add another.	Este mapa já tem %d marcadores - remova um para adicionar outro.
+%sTaking soul stones to the Alchemist for dust	%sLevando pedras da alma ao Alquimista por pó
+Maximum	Máximo
+Always	Sempre
+Give yang to your companion	Dar Yang ao seu companheiro
+Selects or replaces the chest.	Seleciona ou troca o baú.
+into the weapon dealer	para o vendedor de armas
+Max	Máx
+The storage closed: a save failed. Your items are safe in the database.	O armazém fechou: um salvamento falhou. Seus itens estão seguros no banco de dados.
+[BS] Preset saved: %s (%s)	[BS] Predefinição salva: %s (%s)
+Put on by you - your companion will not take it off	Colocado por você - seu companheiro não vai tirar
+in Monkey Dungeon II	na Masmorra dos Macacos II
+to change bonuses at the blacksmith	para trocar bônus no ferreiro
+Set targets, range, skills, potions and pickup kinds. Battle Rider fights from a combat horse.	Defina alvos, alcance, habilidades, poções e tipos de coleta. Cavaleiro de Batalha luta de um cavalo de combate.
+Stop Switchbot first.	Pare o Switchbot primeiro.
+to Pyongmoo	para Pyongmoo
+Price per piece	Preço por unidade
+Your rank: --	Sua posição: --
+in Doyyumhwan	em Doyyumhwan
+in the Guild Land	na Terra da Guilda
+Red (M)	Vermelho (M)
+Let's go see Octavio	Vamos ver o Octavio
+in the Red Wood	na Floresta Vermelha
+The server did not answer - refreshing the page.	O servidor não respondeu - atualizando a página.
+in the middle of the map	no meio do mapa
+%sRetreating - low HP	%sRecuando - HP baixo
+Strong against mystics	Forte contra místicos
+Wanderer	Andarilho
+Alchemy	Alquimia
+in the Ghost Forest	na Floresta Fantasma
+The ItemShop has no offer of 20 scrolls for DC. BS stopped.	A ItemShop não tem oferta de 20 pergaminhos por DC. BS parado.
+The price will be set according to your selection.	O preço será definido conforme sua escolha.
+Combat	Combate
+In the stack: %d pcs.	Na pilha: %d un.
+Popup	Aviso
+Last page	Última página
+Feature / where to open	Função / onde abrir
+Set 1	Conjunto 1
+Trade	Troca
+into Orc Valley	para o Vale dos Orcs
+Partial estimate - loading offers	Estimativa parcial - carregando ofertas
+in Yongan	em Yongan
+Companion shopping	Compras do companheiro
+Help me!	Me ajudem!
+Coordinates: %.2f %.2f %.2f | Texture memory: %d MB	Coordenadas: %.2f %.2f %.2f | Memória de textura: %d MB
+in Hwang Temple	no Templo Hwang
+Buys what it needs in the Item Shop with them. Keeps: leaves them alone.	Compra o que precisa na Item Shop com eles. Guardar: não mexe neles.
+Kill Goo-Paes	Mate Goo-Paes
+Buy 200 scrolls in the IS for DC when you have < 200 scrolls	Comprar 200 pergaminhos na IS por DC quando tiver < 200
+The storage is as large as it gets	O armazém já está no tamanho máximo
+No chest chosen	Nenhum baú escolhido
+The bots have no price for this item yet.	Os bots ainda não têm preço para este item.
+That is not a chest.	Isso não é um baú.
+to Spider Dungeon 2	para a Masmorra das Aranhas 2
+%sHanding the pack over%s: %d brought, %d still after me	%sEntregando o grupo%s: %d trazidos, %d ainda atrás de mim
+%sHunting with %s: %s	%sCaçando com %s: %s
+into Monkey Dungeon II	para a Masmorra dos Macacos II
+The Spears	As Lanças
+Ranking is being calculated; try in %d min.	O ranking está sendo calculado; tente em %d min.
+Browse goods for Dragon Coins and Dragon Marks. In-game vouchers increase your account balance.	Veja produtos por Moedas do Dragão e Marcas do Dragão. Vales do jogo aumentam o saldo da sua conta.
+Resistance: two-handed	Resistência: duas mãos
+%sBreak between rounds at the camp - war with %s	%sPausa entre rodadas no acampamento - guerra contra %s
+%sHanding in to the Biologist: %s	%sEntregando ao Biólogo: %s
+Daily Goal	Meta Diária
+All slots are taken. Drag an item onto a slot to replace it.	Todos os espaços estão ocupados. Arraste um item para um espaço para substituí-lo.
+Help - Metin2 Singleplayer	Ajuda - Metin2 Singleplayer
+Slow chance	Chance de lentidão
+ to the party	 para o grupo
+First hits the archers and casters attacking you, it or the party.	Ataca primeiro os arqueiros e magos que atacam você, ele ou o grupo.
+Your inventory has no room.	Seu inventário não tem espaço.
+Female	Feminino
+Welcome to Metin2 SinglePlayer	Bem-vindo ao Metin2 SinglePlayer
+to the Ghost Forest	para a Floresta Fantasma
+Required character level: %d.	Nível de personagem exigido: %d.
+in the Monkey Dungeon II	na Masmorra dos Macacos II
+Median	Mediana
+Paused - close trade, storage, shop or NPC dialog.	Pausado - feche a troca, o armazém, a loja ou o diálogo com o NPC.
+Storage expansion	Expansão do armazém
+Active items: %d/3	Itens ativos: %d/3
+Reprice all items	Reprecificar todos os itens
+You spend the skill points	Você gasta os pontos de habilidade
+in the Spider Dungeon	na Masmorra das Aranhas
+%sBreak between rounds, holding the middle - war with %s	%sPausa entre rodadas, segurando o meio - guerra contra %s
+That item is not there any more.	Esse item não está mais lá.
+Close	Fechar
+in your bag, or drag it here.	na sua bolsa, ou arraste para cá.
+[BS] Could not save the bonuses	[BS] Não foi possível salvar os bônus
+Next	Próximo
+[BS] The item in this slot does not fit the chosen category	[BS] O item deste espaço não serve na categoria escolhida
+Going to the OX Quiz	Indo ao Quiz OX
+into Mount Sohan	para o Monte Sohan
+Search	Buscar
+Next: %s entries, level %d, %s Yang	Próxima: %s entradas, nível %d, %s Yang
+%sTaking a Medal to the nearest Stable Boy	%sLevando uma Medalha ao Cavalariço mais próximo
+%sLooking for a fishing rod	%sProcurando uma vara de pesca
+The first "+" on the Status tab gives them to you too.	O primeiro "+" na aba Status também os dá a você.
+the player is	o jogador está
+Add an item first to activate set 2	Adicione um item primeiro para ativar o conjunto 2
+Supporting War Device	Máquina de Guerra de Apoio
+The ranking is still empty.	O ranking ainda está vazio.
+Take it off into the bag first.	Tire-o para a bolsa primeiro.
+Vitality	Vitalidade
+After the teleport the item is in another slot. Show it again	Depois do teleporte o item está em outro espaço. Mostre-o de novo
+equipment	equipamento
+%sLooking for a better spot (goal: %s)	%sProcurando um lugar melhor (meta: %s)
+Wait for the previous opening result.	Aguarde o resultado da abertura anterior.
+%sResetting skills at the Old Lady	%sRedefinindo habilidades com a Senhora
+Red (S)	Vermelho (P)
+Dragon Stones have separate storage and two decks. The Alchemist refines them; the bag button opens the window.	As Pedras do Dragão têm armazém próprio e dois decks. O Alquimista as refina; o botão da bolsa abre a janela.
+Store: right-click it	Guardar: clique direito nele
+Wait for the change to be confirmed before clearing the slot	Aguarde a troca ser confirmada antes de limpar o espaço
+No sales yet - this is the base price.	Ainda sem vendas - este é o preço base.
+Whisper	Sussurro
+Expanding...	Expandindo...
+Clear all	Limpar tudo
+Find the Golden Axe	Encontre o Machado Dourado
+Let the Dead Rest	Deixe os Mortos Descansarem
+Quest: %s - going to the NPC	Missão: %s - indo ao NPC
+Use their own marble?	Usar a bola de gude dele?
+Click a skill above.	Clique numa habilidade acima.
+Shift: choose how many.	Shift: escolha quantos.
+Drag to your bag: the stone goes into your Alchemy.	Arraste para a sua bolsa: a pedra vai para a sua Alquimia.
+Nothing in your bag matches the storage.	Nada na sua bolsa combina com o armazém.
+Possession: logging in as the bot...	Possessão: entrando como o bot...
+to Monkey Dungeon II	para a Masmorra dos Macacos II
+Herbalist	Herbalista
+After an attempt the window comes back	Depois de uma tentativa a janela volta
+Overwrite preset: %s?	Sobrescrever predefinição: %s?
+Replace bonuses in slot %d?	Substituir os bônus no espaço %d?
+Click items in your inventory.	Clique nos itens do seu inventário.
+Too few sales for a median.	Poucas vendas para uma mediana.
+Red items will be deleted.	Os itens vermelhos serão apagados.
+Wait for the item move to finish.	Aguarde o item terminar de mover.
+Taken off by you - your companion will not put it on	Tirado por você - seu companheiro não vai colocar
+Return to Yonah	Volte para Yonah
+Stamina regeneration	Regeneração de vigor
+Marker added: %s	Marcador adicionado: %s
+Right-click item in EQ, drag to BS or return to its old EQ slot.	Clique direito no item do EQ, arraste para o BS ou devolva ao espaço antigo do EQ.
+Z and ` pick up only what Set up keeps	Z e ` só pegam o que Configurar mantém
+Item selected	Item selecionado
+Set at least one bonus	Defina pelo menos um bônus
+From:	De:
+H opens and closes help. Ctrl+H keeps its horse action. Some features may be disabled in world settings.	H abre e fecha a ajuda. Ctrl+H mantém a ação do cavalo. Algumas funções podem estar desligadas nas configurações do mundo.
+Alternative bonuses	Bônus alternativos
+Companion (P)	Companheiro (P)
+The deserter	O desertor
+Auto	Auto
+The preset was changed or deleted. Choose it again.	A predefinição foi alterada ou apagada. Escolha de novo.
+Blue (M)	Azul (M)
+to the Spider Dungeon 2	para a Masmorra das Aranhas 2
+Intelligence	Inteligência
+Another item lies in that slot.	Outro item está nesse espaço.
+Plays without me	Joga sem mim
+[BS] All slots are taken	[BS] Todos os espaços estão ocupados
+Deokbae's Golden Axe	O Machado Dourado de Deokbae
+%sChasing %s away from the Metin	%sAfastando %s da Metin
+Queued price changes for %d items.	Alterações de preço na fila para %d itens.
+The secret of the Metin Stones	O segredo das Pedras Metin
+Item and bonuses restored after the teleport	Item e bônus restaurados depois do teleporte
+%sComing back%s: leading %d monsters	%sVoltando%s: guiando %d monstros
+%sGoing to the Monkey Dungeon for a Horse Medal	%sIndo à Masmorra dos Macacos por uma Medalha de Cavalo
+matching the preset bonuses	conforme os bônus da predefinição
+Drag a chest onto the slot	Arraste um baú para o espaço
+in the Spider Dungeon 2	na Masmorra das Aranhas 2
+Go to the Peddler	Vá até o Mascate
+What it does	O que faz
+The market: no comparable offers.	O mercado: sem ofertas comparáveis.
+Senior Gambler	Apostador Sênior
+Map name	Nome do mapa
+Click an inventory item or a monster, Metin or NPC target to open its wiki page in your browser.	Clique num item do inventário ou num alvo (monstro, Metin ou NPC) para abrir a página da wiki no navegador.
+a player	um jogador
+200 for Dragon Coins, at the ItemShop price.	200 por Moedas do Dragão, ao preço da ItemShop.
+Fishing	Pescar
+hunting	caçando
+Saved bonuses loaded. Click Start	Bônus salvos carregados. Clique em Iniciar
+Where: %s	Onde: %s
+Rerolling in this slot will stop.	A troca neste espaço vai parar.
+K: pickup kinds and filter for Z / `. P: Drop and Filter also govern bots collecting your party share.	K: tipos de coleta e filtro para Z / `. P: Drop e Filtro também valem para os bots que coletam a parte do seu grupo.
+Your companion's item will be gone for good.	O item do seu companheiro vai sumir para sempre.
+into the Grotto of Exile	para a Gruta do Exílio
+%sRunning a stall (%s)	%sCuidando de uma banca (%s)
+M3 Farmer	Fazendeiro M3
+to train a Grand Master skill	para treinar uma habilidade Grão-Mestre
+Drag the chest again.	Arraste o baú de novo.
+Scrolls available: %d	Pergaminhos disponíveis: %d
+to the blacksmith	para o ferreiro
+to the Monkey Dungeon III	para a Masmorra dos Macacos III
+Destroy: %s?	Destruir: %s?
+The ItemShop did not sell the scrolls. BS stopped.	A ItemShop não vendeu os pergaminhos. BS parado.
+to the Monkey Dungeon II	para a Masmorra dos Macacos II
+Find the Fisherman	Encontre o Pescador
+Orders	Ordens
+Ranged first	À distância primeiro
+into the Monkey Dungeon III	para a Masmorra dos Macacos III
+into town	para a cidade
+in Orc Valley	no Vale dos Orcs
+Wrong storage password.	Senha do armazém errada.
+Look for materials	Procurar materiais
+Depositing is going on already.	O depósito já está em andamento.
+Persistent Explorer	Explorador Persistente
+Average damage	Dano médio
+Open	Abrir
+Apply	Aplicar
+%sEarning a battle horse in the desert (%d/%d)	%sGanhando um cavalo de batalha no deserto (%d/%d)
+Careful Gatherer	Coletor Cuidadoso
+The package size must be above zero and below the stack.	O tamanho do pacote deve ser maior que zero e menor que a pilha.
+horse training	treino de cavalo
+Last	Última
+Price: high to low	Preço: maior para menor
+Item Shop Storage	Armazém da Item Shop
+to Orc Valley	para o Vale dos Orcs
+Paused - your character is dead.	Pausado - seu personagem está morto.
+No pricing data	Sem dados de preço
+Split item	Dividir item
+Your rank: unranked	Sua posição: sem rank
+Take out: right-click it	Retirar: clique direito nele
+Right click: take off	Clique direito: tirar
+Biologist	Biólogo
+to Hwang Temple	para o Templo Hwang
+Items queued: %d	Itens na fila: %d
+Prices were not changed: the shop total would reach the Yang limit.	Os preços não foram alterados: o total da loja chegaria ao limite de Yang.
+HP absorption	Absorção de HP
+%sTaking a medal to the Stable Boy	%sLevando uma medalha ao Cavalariço
+The choice cannot be loaded. Check the item and wait for the change to finish.	A escolha não pode ser carregada. Confira o item e aguarde a troca terminar.
+Letter from the City Guard	Carta da Guarda da Cidade
+inactive	inativo
+The ninth page	A nona página
+Ore for new armour	Minério para uma armadura nova
+Invalid value or duplicate: set %d	Valor inválido ou repetido: conjunto %d
+Price dialog / Prices	Janela de preço / Preços
+Choose a weapon or a piece of armour	Escolha uma arma ou uma peça de armadura
+Could not save the markers (%s).	Não foi possível salvar os marcadores (%s).
+%sGoing to an ore vein	%sIndo a um veio de minério
+No bots are ready to start.	Nenhum bot está pronto para começar.
+Quest: %s	Missão: %s
+Enter a number above zero.	Informe um número maior que zero.
+here, or drag it to your bag.	aqui, ou arraste para a sua bolsa.
+Heading back to hunt	Voltando a caçar
+Filter	Filtro
+server did not confirm the filter. Pickup paused. Change the filter settings to retry.	o servidor não confirmou o filtro. Coleta pausada. Mude as configurações do filtro para tentar de novo.
+Cannot prepare the relogin. Possession cancelled.	Não foi possível preparar o novo login. Possessão cancelada.
+Valuable equipment found (level 30, 70 or 75+). Continue?	Equipamento valioso encontrado (nível 30, 70 ou 75+). Continuar?
+Destroy the Metin of Battle	Destrua a Metin da Batalha
+%d m from you	a %d m de você
+Looking for the memorials	Procurando os memoriais
+Chest	Baú
+Change speed: %.2fs	Velocidade de troca: %.2fs
+Close the trade, the shop or the other window first.	Feche a troca, a loja ou a outra janela primeiro.
+Offers: %d (matching the filters: %d)	Ofertas: %d (conforme os filtros: %d)
+%sGoing to town for equipment	%sIndo à cidade buscar equipamento
+to the Grotto of Exile 2	para a Gruta do Exílio 2
+Paused - the trash is deleting items.	Pausado - a lixeira está apagando itens.
+Replace the item and bonuses in slot %d?	Substituir o item e os bônus no espaço %d?
+Raises HP and defence.	Aumenta o HP e a defesa.
+cannot be rolled on this item	não pode sair neste item
+%sGuild gathering: Demon Tower	%sReunião da guilda: Torre do Demônio
+Choose a chest from your inventory	Escolha um baú do seu inventário
+[BS] Preset save is busy. Try saving again.	[BS] O salvamento da predefinição está ocupado. Tente salvar de novo.
+Back to the GM character...	Voltando ao personagem GM...
+Orders come from the guild master	As ordens vêm do líder da guilda
+Sample: loaded offers (filters, limit 6000)	Amostra: ofertas carregadas (filtros, limite 6000)
+Buffs	Buffs
+The inventory is already sorted.	O inventário já está organizado.
+Ah-Yu's worries	As preocupações de Ah-Yu
+%s's companion	Companheiro de %s
+Map markers	Marcadores do mapa
+SP regeneration	Regeneração de SP
+Not enough DC for reroll scrolls: you have %d DC, %d DC needed. BS stopped.	DC insuficiente para pergaminhos de troca: você tem %d DC, precisa de %d DC. BS parado.
+Companion	Companheiro
+%sFallen, waiting at the camp for the next round - war with %s	%sCaído, esperando no acampamento a próxima rodada - guerra contra %s
+Damage Redirection %.0f%%	Redirecionamento de dano %.0f%%
+The item, bonuses or preset changed. Choose the preset again.	O item, os bônus ou a predefinição mudaram. Escolha a predefinição de novo.
+Rank	Rank
+You cannot sort the storage while dead.	Você não pode organizar o armazém morto.
+Dragon Coins	Moedas do Dragão
+The item changed. Select it again.	O item mudou. Selecione de novo.
+Order sent.	Ordem enviada.
+The storage is in an unexpected state - nothing was changed. Please report it on Discord.	O armazém está num estado inesperado - nada foi alterado. Por favor, avise no Discord.
+Companion's inventory	Inventário do companheiro
+Trader	Comerciante
+Perfectionist	Perfeccionista
+in Pyungmoo	em Pyungmoo
+You do not have enough Yang for this expansion.	Você não tem Yang suficiente para esta expansão.
+is already in the rare bonuses	já está nos bônus raros
+Drop preview	Prévia de drop
+in the Yongbi Desert	no Deserto de Yongbi
+Buying potions, selling loot	Comprando poções, vendendo o saque
+regeneration	regeneração
+%sWaiting to lure%s (%s)	%sEsperando para atrair%s (%s)
+%d items were moved over from the old storage.	%d itens foram trazidos do armazém antigo.
+Base defence: %d (+%d%% boost)	Defesa base: %d (+%d%% de reforço)
+into the Monkey Dungeon	para a Masmorra dos Macacos
+%sGoing %s (goal: %s)	%sIndo %s (meta: %s)
+Give it an item from your bag.	Dê a ele um item da sua bolsa.
+Inventory sorted: %d moved, %d stacks merged.	Inventário organizado: %d movidos, %d pilhas juntadas.
+into Spider Dungeon 2	para a Masmorra das Aranhas 2
+Add an item to the chosen slot first	Adicione um item ao espaço escolhido primeiro
+The storage did not answer - try again.	O armazém não respondeu - tente de novo.
+There is nothing to do.	Não há nada a fazer.
+Mad Scientist	Cientista Louco
+Item count	Quantidade de itens
+Done.	Pronto.
+%sBoss raid: %s	%sAtaque ao chefe: %s
+Spend again (once for free)	Gastar de novo (uma vez grátis)
+Item excluded from sorting.	Item fora da organização.
+Metin Farmer	Fazendeiro de Metins
+You spend the points:	Você gasta os pontos:
+in Pyongmoo	em Pyongmoo
+Marker removed: %s	Marcador removido: %s
+The preset will be removed from the shared list.	A predefinição será removida da lista compartilhada.
+Notifications: %s	Avisos: %s
+in Yayang	em Yayang
+The storage could not be opened - try again.	O armazém não pôde ser aberto - tente de novo.
+Notifications: Popup + PM	Avisos: Aviso + MP
+Enter a number or leave the field empty.	Digite um número ou deixe o campo vazio.
+Back to categories	Voltar às categorias
+The item has no bonuses to change.	O item não tem bônus para trocar.
+Monster	Monstro
+Right click: put on	Clique direito: vestir
+Presets	Predefinições
+Strong against animals	Forte contra animais
+new_quest_lv19	new_quest_lv19
+The stolen Hairpin	O Grampo Roubado
+General Store in M1	Loja geral em M1
+Left Alt + Shift + LMB: exclude item from sorting	Alt esquerdo + Shift + clique: tirar item da organização
+Drag a chest here from your inventory	Arraste um baú do seu inventário para cá
+%s's companion - fighting	Companheiro de %s - lutando
+Go back	Voltem
+Sell surplus from the whole bag?	Vender o excedente da bolsa toda?
+The storage is not available now.	O armazém não está disponível agora.
+Too fast - try again.	Rápido demais - tente de novo.
+Spent: %d	Gastos: %d
+Stop the bonus switcher first.	Pare o trocador de bônus primeiro.
+Right-click an item in your inventory / drag it into the slot	Clique direito num item do inventário / arraste-o para o espaço
+into the Monkey Dungeon II	para a Masmorra dos Macacos II
+fishing	pesca
+Weapon	Arma
+Wait for the splitting to finish.	Aguarde a divisão terminar.
+Going to the armour dealer	Indo ao vendedor de armaduras
+The storage is full.	O armazém está cheio.
+Green (S)	Verde (P)
+Preset name	Nome da predefinição
+Marker name	Nome do marcador
+Few offers - indicative estimate	Poucas ofertas - estimativa aproximada
+Your companion's AI spends the points.	A IA do seu companheiro gasta os pontos.
+Level %d	Nível %d
+Fetching market prices for %d items, about %d s. Keep the shop window open.	Buscando preços de mercado de %d itens, cerca de %d s. Mantenha a janela da loja aberta.
+Quests	Missões
+All configured bots are already active.	Todos os bots configurados já estão ativos.
+Medal Farmer	Fazendeiro de Medalhas
+Taking over %s...	Assumindo %s...
+Item	Item
+Preset saved: %s[ENTER]Category: %s	Predefinição salva: %s[ENTER]Categoria: %s
+Deck %d	Deck %d
+Loading offers...	Carregando ofertas...
+Resistance: magic	Resistência: magia
+Set %d: this average and skill damage cannot occur together.	Conjunto %d: essa média e esse dano de habilidade não saem juntos.
+First to %d kills	Primeiro a %d abates
+After a kill: next one you already hit	Depois de um abate: o próximo que você já atingiu
+Wait for the change to be confirmed	Aguarde a troca ser confirmada
+Channel CH%d is unavailable.	O canal CH%d está indisponível.
+Report	Relatório
+ Its Master grade will be lost.	 O grau Mestre dela será perdido.
+Start all	Iniciar todos
+To pay for %d pcs.: %s	A pagar por %d un.: %s
+Character	Personagem
+The item type does not fit the chosen preset	O tipo do item não serve na predefinição escolhida
+Choose an item and wait	Escolha um item e aguarde
+Right click on it: reset.	Clique direito nele: redefinir.
+Bag	Bolsa
+Upgrading equipment	Melhorando equipamento
+Collector's Warehouse	Depósito do Colecionador
+%sLooking for a party after dying	%sProcurando um grupo depois de morrer
+to the Monkey Dungeon	para a Masmorra dos Macacos
+Unknown character	Personagem desconhecido
+Enter a valid number of units for the packages.	Informe um número válido de unidades para os pacotes.
+Quantity: low to high	Quantidade: menor para maior
+Auto Hunt ticket: 8 hours of automatic hunting (the K key). The time only runs while you are in the game; more tickets add up (up to 30 days). Use it from your inventory.	Bilhete de Caça Automática: 8 horas de caça automática (tecla K). O tempo só corre enquanto você está no jogo; mais bilhetes se somam (até 30 dias). Use pelo inventário.
+Selected: 0	Selecionados: 0
+Set %d	Conjunto %d
+Running errands in town	Resolvendo coisas na cidade
+Go to Baek-Go	Vá até Baek-Go
+A right click in the inventory adds to a free slot. Drag onto a taken slot to replace its item.	Um clique direito no inventário adiciona num espaço livre. Arraste para um espaço ocupado para trocar o item.
+Your game file metin2client.exe is out of date.[ENTER]Close the game and the launcher, open the launcher again[ENTER]and click PLAY - it replaces the file. If this message[ENTER]comes back, add the game folder to your antivirus exclusions.	Seu arquivo de jogo metin2client.exe está desatualizado.[ENTER]Feche o jogo e o launcher, abra o launcher de novo[ENTER]e clique em JOGAR - ele troca o arquivo. Se esta mensagem[ENTER]voltar, adicione a pasta do jogo às exceções do antivírus.
+Selected: %d | %s	Selecionados: %d | %s
+%sAFK - back soon	%sAFK - já volto
+Per item: %.2fs	Por item: %.2fs
+in Joan	em Joan
+The current bonuses will be replaced, even if they match your targets.	Os bônus atuais serão substituídos, mesmo que já batam com seus alvos.
+Max. HP	HP máx.
+%sTrying to drop for the Biologist: %s	%sTentando dropar para o Biólogo: %s
+Go to Soon	Vá até Soon
+A gift from you	Um presente seu
+Set %d: more targets than the item has bonuses.	Conjunto %d: mais alvos do que o item tem bônus.
+The item was moved - stopped.	O item foi movido - parado.
+Taking books to the storage	Levando livros ao armazém
+Asking for the drop...	Pedindo o drop...
+Executioner	Executor
+That item cannot be kept in the storage.	Esse item não pode ficar no armazém.
+ (inactive)	 (inativo)
+Delete	Apagar
+A moment...	Um momento...
+Preset overwritten: %s	Predefinição sobrescrita: %s
+Take back all your companion's stat points to spend them again? There is only one free reset.	Devolver todos os pontos de status do seu companheiro para gastar de novo? Só há um reset grátis.
+Empty slot	Espaço vazio
+in Spider Dungeon 2	na Masmorra das Aranhas 2
+Piercing hit chance	Chance de golpe perfurante
+Your fame:	Sua fama:
+Presets and bonus catalog	Predefinições e catálogo de bônus
+Started	Iniciado
+Set %d: blocking bonus[ENTER]%s[ENTER]Change or remove this target in BS.	Conjunto %d: bônus que bloqueia[ENTER]%s[ENTER]Altere ou remova esse alvo no BS.
+Red (L)	Vermelho (G)
+Give	Dar
+Features	Funções
+The inventory cannot be sorted while a shop is being opened.	O inventário não pode ser organizado enquanto uma loja é aberta.
+Go to Octavio	Vá até Octavio
+Split	Dividir
+and the ranks allowed to use guild skills.	e os cargos que podem usar habilidades da guilda.
+Auto Hunt	Caça Automática
+Now: down, getting up soon	Agora: caído, levantando logo
+in the north-west	no noroeste
+Target / chest window	Janela de alvo / baú
+Selects the chest to open.	Seleciona o baú a abrir.
+%sPicking up loot	%sPegando o saque
+%sLooking for something at the stalls	%sProcurando algo nas bancas
+Quantity:	Quantidade:
+Wait a moment before opening it again.	Aguarde um pouco antes de abrir de novo.
+to the Guild Land	para a Terra da Guilda
+Preset preview	Prévia da predefinição
+Bravery Cape	Capa da Bravura
+Going to the weapon dealer	Indo ao vendedor de armas
+%s's companion - picking up	Companheiro de %s - coletando
+%s's companion - at the merchant	Companheiro de %s - no comerciante
+Amount:	Quantia:
+On	Ligado
+%s / pc.	%s / un.
+to:	para:
+%s %d - %d to go	%s %d - faltam %d
+ON	LIG
+no	não
+Player:	Jogador:
+Fetch	Buscar
+Type the player's name.	Digite o nome do jogador.
+The quest	A missão
+Reward variant	Variante da recompensa
+Complete with reward	Concluir com recompensa
+The list is the database's copy. The server checks the stage again in the game.	A lista é a cópia do banco de dados. O servidor confere a etapa de novo no jogo.
+Type a valid player name.	Digite um nome de jogador válido.
+Fetching the quests of %s...	Buscando as missões de %s...
+Give the reward above and skip what this quest requires? Click again.	Dar a recompensa acima e pular o que esta missão exige? Clique de novo.
+Confirm the reward	Confirmar a recompensa
+No answer from the server. Refresh the list or the request.	Sem resposta do servidor. Atualize a lista ou o pedido.
+The quest's stage changed. Fetch the list again.	A etapa da missão mudou. Busque a lista de novo.
+The reward changed. Open its preview again.	A recompensa mudou. Abra a prévia de novo.
+The game's reward table needs a reload by the administrator.	A tabela de recompensas do jogo precisa ser recarregada pelo administrador.
+The player's inventory has no room.	O inventário do jogador não tem espaço.
+The reward would pass the player's Yang limit.	A recompensa passaria do limite de Yang do jogador.
+This quest has already been rewarded.	Esta missão já foi recompensada.
+The Biologist's reward has already been given.	A recompensa do Biólogo já foi dada.
+Quest completion is switched off (panel: Player quests).	A conclusão de missões está desligada (painel: Missões do jogador).
+Pick the quest again to refresh its reward.	Escolha a missão de novo para atualizar a recompensa.
+No such character.	Personagem não existe.
+Too many requests. Wait a moment.	Pedidos demais. Aguarde um momento.
+This quest cannot be completed here, or its stage is inactive.	Esta missão não pode ser concluída aqui, ou a etapa dela está inativa.
+This reward needs its room checked by hand.	Esta recompensa precisa ter o espaço conferido à mão.
+This variant does not fit the class or the stage.	Esta variante não serve para a classe ou a etapa.
+The quest's cycle changed. Fetch the quests again.	O ciclo da missão mudou. Busque as missões de novo.
+This series of tasks is already over.	Esta série de tarefas já acabou.
+The horse's level does not fit this task. Refresh the list.	O nível do cavalo não serve para esta tarefa. Atualize a lista.
+A bot gets no reward for free.	Um bot não ganha recompensa de graça.
+%d quests - page %d/%d	%d missões - página %d/%d
+No saved quest in this filter.	Nenhuma missão salva neste filtro.
+Variant: 	Variante: 
+Request #%s: %s. The player must be in the game with the shop and trade closed.	Pedido #%s: %s. O jogador precisa estar no jogo com a loja e a troca fechadas.
+Waiting for the player	Aguardando o jogador
+Being carried out	Em execução
+Completed with its reward	Concluída com a recompensa
+Refused	Recusado
+Expired	Expirado
+Needs checking - do not repeat	Precisa ser conferido - não repita
+The server's answer was not understood. Refresh the list.	A resposta do servidor não foi entendida. Atualize a lista.
+Name / PID	Nome / PID
+No bots	Sem bots
+No matches	Nenhum resultado
+Loading...	Carregando...
+No response	Sem resposta
+Select a bot	Selecione um bot
+Despawn	Remover
+Respawn	Reaparecer
+VNUM	VNUM
+Give item	Dar item
+Refresh bots	Atualizar bots
+Bots: %d / %d	Bots: %d / %d
+PID %d | E%d | %d, %d	PID %d | E%d | %d, %d
+Invalid VNUM or quantity	VNUM ou quantidade inválida
+Request sent	Pedido enviado
+Filters	Filtros
+Lv 9-1	Nv 9-1
+Active (server)	Ativo (servidor)
+In party	No grupo
+Stalls	Bancas
+Refresh selected bot log	Atualizar registro do bot selecionado
+History received %d s ago	Histórico recebido há %d s
+Remove this bot from the game?	Remover este bot do jogo?
+Bot filters	Filtros de bots
+Kingdom	Reino
+E%d	E%d
+Minimum level	Nível mínimo
+Maximum level	Nível máximo
+Shinsoo: %d | Chunjo: %d | Jinno: %d	Shinsoo: %d | Chunjo: %d | Jinno: %d
+Levels: %d-%d | average %.1f	Níveis: %d-%d | média %.1f
+No item preview	Sem prévia do item
+Level distribution (loaded list)	Distribuição de níveis (lista carregada)
+%s | Lv%d | PID %d | E%d	%s | Nv%d | PID %d | E%d
+Filters *	Filtros *
+Selected bot actions	Ações do bot selecionado
+Give an item	Dar um item
+LEVEL %d	NÍVEL %d
+List: %d (%s) | server data: %s	Lista: %d (%s) | dados do servidor: %s
+%d s ago	há %d s
+Auto: 5 s	Auto: 5 s
+Pause	Pausar
+Not achieved	Não alcançado
+Fame 9-1	Fama 9-1
+Fame: any	Fama: qualquer
+Fame from %d	Fama a partir de %d
+No filters	Sem filtros
+Movement	Movimento
+Trading	Negociando
+Rest	Descanso
+No matching entries	Nenhuma entrada encontrada
+Select item: name / VNUM	Selecionar item: nome / VNUM
+Loading names: %d / %d	Carregando nomes: %d / %d
+Results: %d | page %d	Resultados: %d | página %d
+Bot options	Opções do bot
+Pin bot	Fixar bot
+Unpin bot	Desafixar bot
+Freeze log view	Congelar registro
+Resume log view	Retomar registro
+Select text and press Ctrl+C	Selecione o texto e aperte Ctrl+C
+Name	Nome
+Recent items — select to fill fields	Itens recentes - selecione para preencher
+No recently used items	Nenhum item usado recentemente
+Control: no v1	Controle: sem v1
+Control: v1	Controle: v1
+Bots received: %d	Bots recebidos: %d
+Loot	Saque
+Favorites only	Só favoritos
+Expand repeats	Expandir repetições
+Collapse repeats	Recolher repetições
+Find bot	Achar bot
+Winner is not on the active list	O vencedor não está na lista de ativos
+Item goes to the selected bot	O item vai para o bot selecionado
+View equipment	Ver equipamento
+Items	Itens
+Pinned	Fixado
+Recipient	Destinatário
+Last entry	Última entrada
+Command sent; server provides no acknowledgement	Comando enviado; o servidor não confirma
+AI unavailable	IA indisponível
+AI requires a server update.	A IA exige atualizar o servidor.
+Diagnostics	Diagnóstico
+Server panel	Painel do servidor
+Reads %d/%d | under 1 min: %d | queued: %d	Leituras %d/%d | menos de 1 min: %d | na fila: %d
+Reads are retained; their age is shown on the card.	As leituras ficam guardadas; a idade aparece no cartão.
+Scan: up to 100 bots, 1 request per second	Varredura: até 100 bots, 1 pedido por segundo
+These are observations, not continuous AI monitoring.	São observações, não monitoramento contínuo da IA.
+HP <= 0 in last observation	HP <= 0 na última observação
+Not checked / no response	Não verificado / sem resposta
+Observation older than 1 minute	Observação com mais de 1 minuto
+Check list	Verificar lista
+Stop scan	Parar varredura
+Could not open panel: http://127.0.0.1:7788	Não foi possível abrir o painel: http://127.0.0.1:7788
+Map %d | HP %d | MP %d | %ds	Mapa %d | HP %d | MP %d | %ds
+PID %d | Map %d | HP %d | MP %d | read %ds	PID %d | Mapa %d | HP %d | MP %d | lido %ds
+Retrieving history from server...	Buscando histórico no servidor...
+Server returned an empty history for this bot.	O servidor devolveu um histórico vazio para este bot.
+Server did not respond. Refresh the log to retry.	O servidor não respondeu. Atualize o registro para tentar de novo.
+No data received	Nenhum dado recebido
+Retrieving map and HP/MP...	Buscando mapa e HP/MP...
+No online state; server returned saved DB data	Sem estado online; o servidor devolveu os dados salvos no banco
+Character not found by server	Personagem não encontrado pelo servidor
+No map and HP/MP response	Sem resposta de mapa e HP/MP
+Unknown data format; error recorded in log	Formato de dados desconhecido; erro registrado no log
+Freeze view	Congelar visão
+Resume view	Retomar visão
+Ready	Pronto
+Bot log	Registro do bot
+Search log...	Buscar no registro...
+Selected bot	Bot selecionado
+Select an item	Selecione um item
+Item preview	Prévia do item
+Control	Controle
+Teleport to bot	Teleportar até o bot
+Summon	Invocar
+View equipment (target)	Ver equipamento (alvo)
+Multiple selection	Seleção múltipla
+Filter results	Filtrar resultados
+Clear selection	Limpar seleção
+Selected: %d / 100	Selecionados: %d / 100
+Cancel remaining actions	Cancelar ações restantes
+Target this bot in game to view equipment	Selecione este bot no jogo para ver o equipamento
+Apply action to selected bots?	Aplicar a ação aos bots selecionados?
+Queue cancelled	Fila cancelada
+Remaining requests: %d	Pedidos restantes: %d
+PID %d: %s OK (%s)	PID %d: %s OK (%s)
+PID %d: %s failed (%s)	PID %d: %s falhou (%s)
+Server response timed out	Tempo de resposta do servidor esgotado
+Loading state...	Carregando estado...
+Server has not confirmed control v1	O servidor não confirmou o controle v1
+Map %d | Lv %d | X %d Y %d	Mapa %d | Nv %d | X %d Y %d
+HP %d/%d | MP %d/%d	HP %d/%d | MP %d/%d
+Mode: %s | Target: %s | %s	Modo: %s | Alvo: %s | %s
+Automatic	Automático
+Leveling	Upando
+Metin farming	Farmando Metins
+AI paused	IA pausada
+Bot control	Controle de bots
+Pause AI	Pausar IA
+Resume AI	Retomar IA
+Heal	Curar
+Return to town	Voltar à cidade
+Map / level	Mapa / nível
+Command results	Resultados dos comandos
+Map ID	ID do mapa
+Move to map	Mover para o mapa
+Set level	Definir nível
+X/Y: global server coordinates	X/Y: coordenadas globais do servidor
+Done	Pronto
+Bot is not on this core	O bot não está neste núcleo
+Bot is loading	O bot está carregando
+Bot is dead	O bot está morto
+Invalid level	Nível inválido
+Invalid destination	Destino inválido
+Map unavailable	Mapa indisponível
+Unknown command	Comando desconhecido
+Idle	Parado
+Traveling	Viajando
+Fighting	Lutando
+Looting	Coletando saque
+Recovering	Recuperando
+Training	Treinando
+NPC shopping	Comprando em NPC
+Refining	Refinando
+Reading a book	Lendo um livro
+Socketing	Encaixando pedras
+Assembling party	Montando grupo
+Stable	Estábulo
+Stall	Banca
+Market browsing	Olhando o mercado
+Resting	Descansando
+Mining	Minerando
+None	Nenhum
+Possession	Possessão
+Play as the selected bot. Use Back to GM at the top to return.	Jogue como o bot selecionado. Use Voltar ao GM no topo para retornar.
+The server has not confirmed the possession quest. Log in again after the update.	O servidor não confirmou a missão de possessão. Entre de novo depois da atualização.
+Take over bot %s?	Assumir o bot %s?
+Changes to the bot character are saved.	As alterações no personagem do bot são salvas.
+First to level 30	Primeiro ao nível 30
+First to level 60	Primeiro ao nível 60
+First to level 90	Primeiro ao nível 90
+Bot Management [GM]	Gerenciamento de Bots [GM]
+General	Geral
+Bot actions	Ações do bot
+Management	Gerenciamento
+Achievements	Conquistas
+Active bots	Bots ativos
+Active bots: -	Bots ativos: -
+In a party: -	Em grupo: -
+Keeping a stall: -	Com banca: -
+Choose a bot from the list on the left	Escolha um bot na lista à esquerda
+Refresh log	Atualizar registro
+Kick the bot	Expulsar o bot
+Give an item (vnum / amount):	Dar um item (vnum / quantidade):
+Send	Enviar
+Active bots: %s	Bots ativos: %s
+In a party: %s	Em grupo: %s
+Keeping a stall: %s	Com banca: %s
+%s (Lv %d) - pid %d, pos (%d, %d), kingdom %d	%s (Nv %d) - pid %d, pos (%d, %d), reino %d
+(this bot has not said anything yet)	(este bot ainda não disse nada)
+Achievement #%d	Conquista nº %d
+Won by: %s	Conquistada por: %s
+Nobody yet	Ninguém ainda
+The bot admin window did not load in this client - see syserr.txt	A janela de administração de bots não carregou neste cliente - veja o syserr.txt
+Could not save the Auto Hunt shortcut.	Não foi possível salvar o atalho da Caça Automática.
+Auto Hunt - toggle on / off	Caça Automática - ligar / desligar
+Drag Auto Hunt onto the quickbar	Arraste a Caça Automática para a barra rápida
+Off	Desligado
+Hold Enter	Segure Enter
+the server has not confirmed the filter yet - retrying. Pickup waits for the confirmation.	o servidor ainda não confirmou o filtro - tentando de novo. A coleta espera a confirmação.
+the server refused the filter. Pickup paused. Change the filter settings or press Z to retry.	o servidor recusou o filtro. Coleta pausada. Mude as configurações do filtro ou aperte Z para tentar de novo.
+the server does not know the Auto Hunt filter - it is older than the client. Update the server; until then filtered pickup is paused.	o servidor não conhece o filtro da Caça Automática - ele é mais antigo que o cliente. Atualize o servidor; até lá a coleta filtrada fica pausada.
+the server confirmed the filter - pickup resumed.	o servidor confirmou o filtro - coleta retomada.
+Min. +	Mín. +
+[x] Pick up	[x] Pegar
+Selects or deselects the whole category. Clears manual exceptions while preserving Min. +.	Marca ou desmarca a categoria toda. Limpa as exceções manuais e mantém o Mín. +.
+Name or vnum:	Nome ou vnum:
+vnum exception limit. Use Entire page.	limite de exceções por vnum. Use Página inteira.
+exception limit; minimum + was not saved.	limite de exceções; o mínimo + não foi salvo.
+Page %d/%d - %d items	Página %d/%d - %d itens
+Page %d/%d - %s	Página %d/%d - %s
+Loading catalogue: %d/%d	Carregando catálogo: %d/%d
+Click: select item. Min. +: minimum upgrade level.	Clique: escolher item. Mín. +: nível mínimo de melhoria.
+Searching...	Buscando...
+Click a skill: collect only selected skill books.	Clique numa habilidade: coletar só os livros dela.
+Click a skill: collect only selected forget books.	Clique numa habilidade: coletar só os livros de esquecimento dela.
+Variants: +%d to +%d	Variantes: +%d a +%d
+Vnum series: 	Série de vnum: 
+Stop	Parar
+Start	Iniciar
+Other	Outro
+Interface scale	Escala da interface
+Window resolution	Resolução da janela
+UI scale applies without logging in again.	A escala da interface vale sem entrar de novo.
+Resize: drag the window edge or maximize.	Redimensionar: arraste a borda da janela ou maximize.
+Defaults	Padrões
+Restore 100% scale without changing the resolution.	Restaurar a escala de 100% sem mudar a resolução.
+Live changes require windowed mode.	Mudanças ao vivo exigem o modo janela.
+Current scale: %d%%	Escala atual: %d%%
+Selected %d%%. Click Apply.	Selecionado %d%%. Clique em Aplicar.
+Applying display settings...	Aplicando configurações de tela...
+These settings could not be applied.	Essas configurações não puderam ser aplicadas.
+Display change failed (%d).	Falha ao mudar a tela (%d).
+Display / interface	Tela / interface
+Refine all	Refinar tudo
+Current tab, one attempt per set. Click again to stop.	Aba atual, uma tentativa por conjunto. Clique de novo para parar.
+Server rejected the attempt. Batch stopped.	O servidor recusou a tentativa. Lote parado.
+Stop (%d/%d)	Parar (%d/%d)
+Waiting for result	Aguardando resultado
+First place your chosen refining bean in the window.	Primeiro coloque na janela o feijão de refino escolhido.
+No complete refining sets in this tab.	Nenhum conjunto completo de refino nesta aba.
+Server reply timed out. Batch stopped; wait for the pending result.	Tempo de resposta do servidor esgotado. Lote parado; aguarde o resultado pendente.
+Alchemy: %d attempts completed, %d successful.	Alquimia: %d tentativas feitas, %d com sucesso.
+Inventory changed. Start a new batch.	O inventário mudou. Comece um lote novo.
+No more beans of the chosen type. Batch stopped.	Acabaram os feijões do tipo escolhido. Lote parado.
+Enter a valid whole quantity.	Informe uma quantidade inteira válida.
+Marbles	Bolas de gude
+Polymorph from its bag: ask, with you (no question), always (also alone in a fight), off.	Polimorfar com a bolsa dele: perguntar, com você (sem pergunta), sempre (também sozinho em luta), desligado.
+Armour	Armaduras
+Bracelets	Braceletes
+Shoes	Sapatos
+Necklaces	Colares
+Helmets	Elmos
+Shields	Escudos
+Earrings	Brincos
+Load	Carregar
+Save	Salvar
+Accessories	Acessórios
+Swords	Espadas
+Two-handed	Duas mãos
+Daggers	Adagas
+Bows	Arcos
+Bells	Sinos
+Fans	Leques
+Body armour	Armaduras
+Pendants	Pingentes
+Gloves	Luvas
+Rings	Anéis
+Belts	Cintos
+Skill books	Livros de habilidade
+Forget books	Livros de esquecimento
+Yang	Yang
+Gold stones	Pedras de ouro
+Ability potions	Poções de atributo
+Instant potions	Poções instantâneas
+Continuous potions	Poções contínuas
+Quest items	Itens de missão
+Special / manuals	Especiais / manuais
+Upgrading	Melhoria
+Recipes	Receitas
+Other items	Outros itens
+Refinement materials	Materiais de refino
+Guild	Guilda
+Horse riding	Cavalgar
+Gathering	Coleta
+Chests and keys	Baús e chaves
+Rings and amulets	Anéis e amuletos
+Polymorph	Polimorfia
+Other books	Outros livros
+Instructions	Instruções
+Sura	Sura
+Ninja	Ninja
+Monkey dungeon	Masmorra dos Macacos
+Orc Valley	Vale dos Orcs
+Temple	Templo
+Desert	Deserto
+Spider dungeon	Masmorra das Aranhas
+Sohan	Sohan
+Doyyum	Doyyum
+Snakefield	Campo das Serpentes
+Forest	Floresta
+Red forest	Floresta Vermelha
+Demon tower	Torre do Demônio
+Grotto	Gruta
+Catacomb	Catacumba
+Maps 90+	Mapas 90+
+Other sources	Outras fontes
+Body	Corporal
+Mental	Mental
+Assassin	Assassino
+Archer	Arqueiro
+Weaponry	Armas
+Black magic	Magia negra
+Dragon	Dragão
+Healing	Cura
+at your side	ao seu lado
+free hand	livre
+waiting here	esperando aqui
+shopping	fazendo compras
+Attack	Atacar
+No 1st hit	Não inicia
+Don't fight	Não lutar
+hits everything nearby	ataca tudo por perto
+never first, guards you and itself	nunca ataca primeiro, protege você e a si
+does not fight at all	não luta
+Nothing	Nada
+Your drop	Seu drop
+Everything	Tudo
+Helmet	Elmo
+Shield	Escudo
+Bracelet	Bracelete
+Necklace	Colar
+yes	sim
+Companion's skills	Habilidades do companheiro
+Companion's options	Opções do companheiro
+Skills	Habilidades
+keeps	guarda
+spends	gasta
+ask	perguntar
+with you	com você
+always	sempre
+off	desligado
+You have no companion yet.	Você ainda não tem um companheiro.
+Choose one in the "Companion" letter.	Escolha um na carta "Companheiro".
+Companions are switched off on this server.	Os companheiros estão desligados neste servidor.
+The server owner turns them on in the launcher.	O dono do servidor os liga no launcher.
+closing	fechando
+Companion shop	Loja do companheiro
+Surplus from every bag page, including new drops.	Excedente de todas as páginas da bolsa, incluindo drops novos.
+Gifts, needed items and pinned gear stay.	Presentes, itens necessários e equipamento fixado ficam.
+Items dragged in the window wait at least 5 min.	Itens arrastados na janela esperam pelo menos 5 min.
+Bot prices. Collect proceeds with Take yang.	Preços dos bots. Recolha o lucro com Pegar Yang.
+Service at the M1 stand, channel 1, when free.	Atende na banca de M1, canal 1, quando livre.
+Bot markdowns, no automatic return after 24 h.	Descontos dos bots, sem devolução automática depois de 24 h.
+Closing returns goods to the bag when there is room.	Fechar devolve os produtos à bolsa quando há espaço.
+Drag a return in the bag to allow listing again after 5 min.	Arraste uma devolução na bolsa para permitir anunciar de novo depois de 5 min.
+Pick-up filter	Filtro de coleta
+Yes: it picks up only what the filter	Sim: ele pega só o que o filtro
+of your Auto Hunt takes (Select items...):	da sua Caça Automática pega (Selecionar itens...):
+categories, exceptions, Min. + and Gear: min.	categorias, exceções, Mín. + e Equip.: mín.
+Gear: min. N - weapons, armour and jewellery	Equip.: mín. N - armas, armaduras e joias
+only with at least N bonus lines;	só com pelo menos N linhas de bônus;
+a weapon's average and skill damage are no bonus.	a média e o dano de habilidade de uma arma não contam como bônus.
+0 or empty: no such condition.	0 ou vazio: sem essa condição.
+No: everything its Drop allows.	Não: tudo o que o Drop dele permite.
+Companions are switched off here.	Os companheiros estão desligados aqui.
+1. Adding and viewing items	1. Adicionando e vendo itens
+Open BS with its icon in the inventory panel or with F5. You can add up to 3 items.	Abra o BS pelo ícone no painel do inventário ou com F5. Você pode adicionar até 3 itens.
+Drag an item from your inventory into a slot, or right-click it while BS is open.	Arraste um item do inventário para um espaço, ou clique direito nele com o BS aberto.
+Each slot has three tabs: Set 1, Set 2 and Presets. Hover over the icon to see the item.	Cada espaço tem três abas: Conjunto 1, Conjunto 2 e Predefinições. Passe o mouse sobre o ícone para ver o item.
+Equipped items cannot be changed. BS works with the horse bag too.	Itens equipados não podem ser alterados. O BS também funciona com a bolsa do cavalo.
+2. Main and alternative bonuses	2. Bônus principais e alternativos
+Choose up to 5 main bonuses: all of them must reach their values.	Escolha até 5 bônus principais: todos precisam atingir seus valores.
+If you choose alternatives, at least one of them must match as well.	Se escolher alternativos, pelo menos um deles também precisa bater.
+Example: poison as main + devils / undead as alternatives.	Exemplo: veneno como principal + demônios / mortos-vivos como alternativos.
+A value is a minimum (bonus >= target). Any / skip adds no requirement. Right-click a selected bonus to clear its requirement.	Um valor é um mínimo (bônus >= alvo). Qualquer / pular não exige nada. Clique direito num bônus escolhido para limpar a exigência.
+3. Two independent target sets	3. Dois conjuntos de alvos independentes
+Matching one active set is enough. An empty Set 1 or 2 is inactive.	Bater um conjunto ativo basta. Um Conjunto 1 ou 2 vazio fica inativo.
+Hitting one whole set is enough. Set 2 can be activated once an item is added.	Acertar um conjunto inteiro basta. O Conjunto 2 pode ser ativado depois que um item é adicionado.
+Example: Set 1: 30 average + 12 intelligence. Set 2: 40 average alone.	Exemplo: Conjunto 1: 30 de média + 12 de inteligência. Conjunto 2: 40 de média sozinho.
+Both set buttons show their activity. Set 2 must also be enabled.	Os dois botões de conjunto mostram se estão ativos. O Conjunto 2 também precisa estar ligado.
+4. Starting, stopping and a manual change	4. Iniciar, parar e troca manual
+Start begins automatic rerolling in that slot. Stop stops that slot.	Iniciar começa a troca automática naquele espaço. Parar para aquele espaço.
+Start all resumes only inactive slots. Redundant Start all / Stop all shows a message.	Iniciar todos retoma só os espaços inativos. Iniciar todos / Parar todos sem efeito mostra uma mensagem.
+Change bonuses requires stopping this slot first. Clicking while it runs only shows a message. Confirming makes one change, even if the targets already match.	Trocar bônus exige parar este espaço antes. Clicar com ele rodando só mostra uma mensagem. Confirmar faz uma troca, mesmo que os alvos já batam.
+Start/Stop ignores double-clicks for 0.5 s. Start waits for the previous result; a blocking popup names the bonus and reason.	Iniciar/Parar ignora cliques duplos por 0,5 s. Iniciar espera o resultado anterior; um aviso que bloqueia diz o bônus e o motivo.
+5. One speed for all three slots	5. Uma velocidade para os três espaços
+The slider sets the gap between the requests of all active slots: 0.05-1 s.	O controle define o intervalo entre os pedidos de todos os espaços ativos: 0,05-1 s.
+The step is 0.05 s. The default is 0.05 s; the chosen speed is remembered.	O passo é 0,05 s. O padrão é 0,05 s; a velocidade escolhida é lembrada.
+With 3 items at 0.1 s each item changes about every 0.3 s.	Com 3 itens a 0,1 s, cada item muda mais ou menos a cada 0,3 s.
+When one finishes, the others speed up. Server delays can slow them down.	Quando um termina, os outros aceleram. Atrasos do servidor podem deixá-los mais lentos.
+6. Background work and notifications	6. Trabalho em segundo plano e avisos
+Close, X or Esc hide BS without stopping rerolling. With BS open, hits produce neither PM nor minimap notifications.	Fechar, X ou Esc escondem o BS sem parar as trocas. Com o BS aberto, os acertos não geram MP nem aviso no minimapa.
+PM mode hides the status panel by the minimap. Popup and Popup + PM show the counters and speed.	O modo MP esconde o painel de status do minimapa. Aviso e Aviso + MP mostram os contadores e a velocidade.
+Start / Stop in the minimap status panel controls all BS slots. Open BS window shows the full window. The notification type is shared by accounts using this client folder.	Iniciar / Parar no painel de status do minimapa controla todos os espaços do BS. Abrir janela do BS mostra a janela completa. O tipo de aviso é o mesmo para as contas que usam esta pasta do cliente.
+Choose Popup, PM or Popup + PM next to Presets. Hit notifications work only in the background. PM briefly pauses rerolls until its quest ends.	Escolha Aviso, MP ou Aviso + MP ao lado de Predefinições. Os avisos de acerto só funcionam em segundo plano. O MP pausa as trocas por um instante até a missão dele terminar.
+7. Server confirmations and pauses	7. Confirmações do servidor e pausas
+BS waits for a change to be confirmed before it sends the next request.	O BS espera uma troca ser confirmada antes de mandar o próximo pedido.
+BS waits up to 5 s for confirmation, then retries after about 1 s. Three consecutive unconfirmed attempts stop the slot.	O BS espera até 5 s pela confirmação e tenta de novo depois de cerca de 1 s. Três tentativas seguidas sem confirmação param o espaço.
+Trade, storage, shops and NPC dialogs pause BS until the blocking window closes. After death, BS waits for revival.	Troca, armazém, lojas e diálogos com NPC pausam o BS até a janela que bloqueia fechar. Depois de morrer, o BS espera você reviver.
+A manual stop is never resumed by itself.	Uma parada manual nunca é retomada sozinha.
+8. Teleports, channels and where the item is	8. Teleportes, canais e onde está o item
+You can change the channel while rerolling. After a channel change or a teleport BS resumes after 5 s.	Você pode trocar de canal durante as trocas. Depois de trocar de canal ou de um teleporte, o BS retoma após 5 s.
+It resumes only if the item is still in the remembered inventory slot.	Ele só retoma se o item ainda estiver no espaço lembrado do inventário.
+Picking up the item pauses BS. Returning it to the same cell resumes work without resetting the counter.	Pegar o item pausa o BS. Devolvê-lo ao mesmo espaço retoma sem zerar o contador.
+Moving stops BS. Right-click the same item in EQ to assign it again. You can also drag it onto its BS slot or return it to its previous EQ slot; then click Start.	Mover para o BS. Clique direito no mesmo item no EQ para atribuí-lo de novo. Você também pode arrastá-lo para o espaço do BS ou devolvê-lo ao espaço anterior do EQ; depois clique em Iniciar.
+9. Buying reroll scrolls in the ItemShop	9. Comprando pergaminhos de troca na ItemShop
+BS buys 200 scrolls for DC when fewer than 200 remain. It buys while rerolling or processing a manual change.	O BS compra 200 pergaminhos por DC quando restam menos de 200. Ele compra durante as trocas ou numa troca manual.
+Switching it on asks for your consent and shows the price. It applies to this character only.	Ligar pede sua autorização e mostra o preço. Vale só para este personagem.
+A purchase needs free inventory space. If another window blocks it, BS retries every 5 s.	A compra precisa de espaço livre no inventário. Se outra janela bloquear, o BS tenta de novo a cada 5 s.
+Missing Dragon Coins, or a purchase that left no scrolls in the inventory, stops BS.	Falta de Moedas do Dragão, ou uma compra que não deixou pergaminhos no inventário, para o BS.
+10. Presets and quick loading	10. Predefinições e carregamento rápido
+Save preset stores both sets, the chosen bonuses and their values under a name.	Salvar predefinição guarda os dois conjuntos, os bônus escolhidos e seus valores com um nome.
+Each category has its own presets: PvP can be saved separately for weapons and shoes.	Cada categoria tem suas predefinições: PvP pode ser salvo separado para armas e sapatos.
+Bonus catalog: choose a category card with an icon to view its bonuses and possible values.	Catálogo de bônus: escolha um cartão de categoria com ícone para ver os bônus e os valores possíveis.
+Compatible replacements keep targets. Another matching item needs Start. Restarting clears slots; named presets remain.	Substituições compatíveis mantêm os alvos. Outro item compatível precisa de Iniciar. Reiniciar limpa os espaços; as predefinições com nome ficam.
+Presets can load before bonuses exist; Start checks targets. In the selection window, right-click adds to a free slot; dragging replaces a taken one.	As predefinições podem carregar antes de os bônus existirem; Iniciar confere os alvos. Na janela de seleção, clique direito adiciona num espaço livre; arrastar troca um ocupado.
+Replacing selected bonuses, overwriting and deleting presets require confirmation. Presets are shared and synchronized between clients using the same folder.	Substituir bônus escolhidos, sobrescrever e apagar predefinições pedem confirmação. As predefinições são compartilhadas e sincronizadas entre clientes que usam a mesma pasta.
+11. Values, colours and counters	11. Valores, cores e contadores
+A chosen bonus gets its maximum value; you can type your own.	Um bônus escolhido recebe o valor máximo; você pode digitar o seu.
+Ordinary bonuses and values are green, maximum values gold, negative ones red.	Bônus e valores comuns ficam verdes, valores máximos dourados, negativos vermelhos.
+Green in BS and inventory means the targets were reached. Red and yellow cover the full item size (1-3 cells).	Verde no BS e no inventário quer dizer que os alvos foram atingidos. Vermelho e amarelo cobrem o tamanho todo do item (1-3 espaços).
+A selected tab has white text and border; inactive sets keep a red background. Counters total usage and purchases.	Uma aba selecionada tem texto e borda brancos; conjuntos inativos mantêm o fundo vermelho. Os contadores somam uso e compras.
+12. Clearing and safe choices	12. Limpar e escolhas seguras
+A right click on the item icon in BS works like Clear: the slot and its targets go.	Um clique direito no ícone do item no BS funciona como Limpar: o espaço e seus alvos saem.
+Clear all clears every slot, the used-scroll counter and notifications. Clear dismisses the notification for that slot.	Limpar tudo limpa todos os espaços, o contador de pergaminhos usados e os avisos. Limpar descarta o aviso daquele espaço.
+Presets and inventory items remain after clearing. Full slots also show a popup; identical matches need dragging.	As predefinições e os itens do inventário ficam depois de limpar. Espaços cheios também mostram um aviso; itens iguais precisam ser arrastados.
+Changing targets or restarting a slot dismisses its previous notification.	Mudar os alvos ou reiniciar um espaço descarta o aviso anterior dele.
+Red marks the selected item. Yellow with its BS slot number marks the original cell. Closing Info resets the page.	Vermelho marca o item selecionado. Amarelo com o número do espaço do BS marca o espaço original. Fechar o Info reinicia a página.
+Equipment	Equipamento
+Upgrade and bonus items	Itens de melhoria e bônus
+Books and skills	Livros e habilidades
+Stones	Pedras
+Herbs	Ervas
+Consumables	Consumíveis
+Fishing and mining	Pesca e mineração
+Quests and events	Missões e eventos
+Appearance	Aparência
+Status	Status
+Block chat	Bloquear chat
+Auto Hunt needs the new metin2client.exe. Start the game from the launcher (PLAY) or run Aktualizuj.bat in the client folder.	A Caça Automática precisa do novo metin2client.exe. Abra o jogo pelo launcher (JOGAR) ou rode Aktualizuj.bat na pasta do cliente.
+Weapons	Armas
+One-handed swords	Espadas de uma mão
+Two-handed swords	Espadas de duas mãos
+Armour - Warrior	Armaduras - Guerreiro
+Armour - Ninja	Armaduras - Ninja
+Armour - Sura	Armaduras - Sura
+Armour - Shaman	Armaduras - Shaman
+Helmets - Warrior	Elmos - Guerreiro
+Helmets - Ninja	Elmos - Ninja
+Helmets - Sura	Elmos - Sura
+Helmets - Shaman	Elmos - Shaman
+Forgetting books	Livros de esquecimento
+Spirit stones	Pedras espirituais
+Ores	Minérios
+Potions	Poções
+Usable items	Itens usáveis
+Upgrade items	Itens de melhoria
+Dragon Alchemy	Alquimia do Dragão
+Your metin2client.exe is older than the rest of the client[ENTER](2 inventory pages instead of 4), so the game will not let it in.[ENTER]Close the game and start the launcher again - it replaces the file itself.[ENTER]If that does not help, ask on the project's Discord.	Seu metin2client.exe é mais antigo que o resto do cliente[ENTER](2 páginas de inventário em vez de 4), então o jogo não o deixa entrar.[ENTER]Feche o jogo e abra o launcher de novo - ele mesmo troca o arquivo.[ENTER]Se não resolver, pergunte no Discord do projeto.
+Apply the selected mode to every shop listing.	Aplicar o modo escolhido a todos os anúncios da loja.
+Warning: This changes the price of every listed item!	Atenção: isto muda o preço de todos os itens anunciados!
+Game Master	Mestre do Jogo
+on	lig
+No time information	Sem informação de tempo
+PM	MP
+In storage: %d (with your inventory: %d)	No armazém: %d (com seu inventário: %d)
+The storage did not answer in time - try again.	O armazém não respondeu a tempo - tente de novo.
+From the storage into your inventory: %s	Do armazém para o seu inventário: %s
+The smith reaches into your storage once you have opened it at the storekeeper (with its password).	O ferreiro usa o seu armazém depois que você o abre no guardião (com a senha).
+Not enough materials - even with your storage.	Materiais insuficientes - mesmo com o seu armazém.
+No room in your inventory for the materials from your storage.	Sem espaço no inventário para os materiais do armazém.
+Only a smith in a first or second village takes materials from your storage.	Só o ferreiro da primeira ou da segunda vila pega materiais do seu armazém.
+Your storage is busy - close other windows and try again.	Seu armazém está ocupado - feche outras janelas e tente de novo.
+Your storage is not available now.	Seu armazém não está disponível agora.
+The database did not confirm the save - open your storage at the storekeeper and check.	O banco de dados não confirmou o salvamento - abra seu armazém no guardião e confira.
+The materials could not be taken from your storage - nothing was moved.	Os materiais não puderam ser tirados do armazém - nada foi movido.
+Your storage does not have enough of it either: %s	Seu armazém também não tem o suficiente: %s
+The game server is older than the client and its smith does not reach into your storage - update the server.	O servidor do jogo é mais antigo que o cliente e o ferreiro dele não usa o seu armazém - atualize o servidor.
+Left Alt + Shift + LMB: lock this page against sorting	Alt esquerdo + Shift + clique: travar esta página contra a organização
+Page locked against sorting. Left Alt + Shift + LMB: unlock	Página travada contra a organização. Alt esquerdo + Shift + clique: destravar
+Page %s locked - sorting leaves it as it is.	Página %s travada - a organização não mexe nela.
+Page %s unlocked.	Página %s destravada.
+This server cannot lock pages - update the server.	Este servidor não consegue travar páginas - atualize o servidor.
+Could not save the page locks. Check permissions on the client cache folder.	Não foi possível salvar as travas de página. Confira as permissões da pasta de cache do cliente.
+Support the project	Apoie o projeto
+Voluntary support for the project on buycoffee.to - it gives nothing in the game.	Apoio voluntário ao projeto no buycoffee.to - não dá nada no jogo.
+Support is voluntary and gives nothing in the game.	O apoio é voluntário e não dá nada no jogo.
+It buys no Dragon Coins, VIP or items. Open buycoffee.to?	Não compra Moedas do Dragão, VIP nem itens. Abrir o buycoffee.to?
+Mounted	Montado
+Ranged	À distância
+auto	auto
+never	nunca
+Fights from its horse beside you while you ride: auto (Shaman, black-magic Sura climb off), always, never.	Luta do cavalo ao seu lado enquanto você cavalga: auto (Shaman e Sura de magia negra descem), sempre, nunca.
+Upgrading with a scroll takes materials from your storage only in a first or second village.	Melhorar com pergaminho só pega materiais do armazém na primeira ou na segunda vila.
+The game server is older than the client and upgrading with a scroll does not reach into your storage - update the server.	O servidor do jogo é mais antigo que o cliente e melhorar com pergaminho não usa o seu armazém - atualize o servidor.
+Demolish %s?	Demolir %s?
+No refund: the %s and the materials it cost are lost.	Sem reembolso: %s e os materiais gastos se perdem.
+No refund: the yang and the materials it cost are lost.	Sem reembolso: o Yang e os materiais gastos se perdem.
+%sHorse training is waiting for yang	%sO treino do cavalo está esperando Yang
+%s: zoom the camera out with the mouse wheel up to 3500 (%s: 2500).	%s: afaste a câmera com a roda do mouse até 3500 (%s: 2500).
+combat settings	configurações de combate
+Works with the window closed.	Funciona com a janela fechada.
+Auto Hunt - shortcut	Caça Automática - atalho
+Drag onto a quickbar slot.	Arraste para um espaço da barra rápida.
+The assigned key starts / stops hunting.	A tecla escolhida inicia / para a caçada.
+Possession in progress - waiting for the bot to leave the world...	Possessão em andamento - aguardando o bot sair do mundo...
+Possession is not available (no GM quest on the server).	Possessão indisponível (sem a missão GM no servidor).
+Auto Hunt - how it works	Caça Automática - como funciona
+[Auto Hunt] 	[Caça Automática] 
+Start: the character fights by itself from where it stands. Stop ends the hunt, Save in the side drawer keeps this character's selected profile. K opens and closes both windows.	Iniciar: o personagem luta sozinho a partir de onde está. Parar encerra a caçada, Salvar na gaveta lateral guarda o perfil escolhido deste personagem. K abre e fecha as duas janelas.
+Targets (Settings): click a block to enable or disable its category. Drag to set the order from left to right; disabled categories are skipped. Nearest target uses distance instead. Save keeps the settings in the combat profile.	Alvos (Configurações): clique num bloco para ligar ou desligar a categoria. Arraste para definir a ordem da esquerda para a direita; categorias desligadas são puladas. Alvo mais próximo usa a distância. Salvar guarda as configurações no perfil de combate.
+Range (slider): how far targets and drops are looked for - with "Return" round the start, where the character walks back, without it round the character.	Alcance (controle): até onde alvos e drops são procurados - com "Voltar" em volta do início, para onde o personagem volta; sem ele, em volta do personagem.
+Pick-up: select items in the separate window. Z / ` use it when their filter is on. Bonuses: 1-7; separate weapon average and skill damage: 1-100%. Any enabled threshold is enough; 0 disables one. See item selection help for details.	Coleta: escolha os itens na janela separada. Z / ` a usam quando o filtro deles está ligado. Bônus: 1-7; média da arma e dano de habilidade separados: 1-100%. Qualquer limite ligado basta; 0 desliga um. Veja a ajuda da seleção de itens para detalhes.
+Skills: drag one onto a slot; the number under it is the pause in seconds (0: as soon as it is ready). Buffs are recast when they run out, attack skills go only at a target in reach.	Habilidades: arraste uma para um espaço; o número embaixo é a pausa em segundos (0: assim que estiver pronta). Buffs são relançados quando acabam, habilidades de ataque só num alvo ao alcance.
+Potions: used under the % of HP or SP written below them. Timed items: used every so many seconds unless their effect is still on.	Poções: usadas abaixo do HP ou SP (em %) escrito embaixo delas. Itens de tempo: usados a cada tantos segundos, a não ser que o efeito ainda esteja ativo.
+Revive: after a death the character stands up where it fell and waits for "Revive HP %" before it fights. Autologin: a dropped connection logs in again and the hunt goes on.	Reviver: depois de morrer o personagem levanta onde caiu e espera "HP % para reviver" antes de lutar. Login automático: se a conexão cair, entra de novo e a caçada continua.
+Kiting: a Ninja with a bow on foot runs away from a nearby monster, stops and shoots. Does not apply to Metins or while mounted.	Kiting: um Ninja com arco a pé foge de um monstro próximo, para e atira. Não vale para Metins nem montado.
+Battle horse (from horse level 11): fights from the saddle where it stands, only what is near, from level 21 with the horse's skills too; gets off briefly for buffs.	Cavalo de batalha (a partir do nível 11 do cavalo): luta da sela onde está, só o que está perto; a partir do nível 21 também com as habilidades do cavalo; desce por um instante para os buffs.
+Trinkets	Bugigangas
+Books	Livros
+OFF	DESL
+Auto Hunt: autologin on - if the connection drops, the game logs in again by itself and the hunt goes on. Save the combat settings to keep it for next time.	Caça Automática: login automático ligado - se a conexão cair, o jogo entra de novo sozinho e a caçada continua. Salve as configurações de combate para manter da próxima vez.
+Auto Hunt: autologin off.	Caça Automática: login automático desligado.
+Stronger contrast: enable / disable	Contraste mais forte: ligar / desligar
+Saves	Perfis salvos
+Save name	Nome do perfil
+saved %s in slot %d.	%s salvo no espaço %d.
+could not save %s in slot %d.	não foi possível salvar %s no espaço %d.
+pickup filters	filtros de coleta
+loaded %s from slot %d.	%s carregado do espaço %d.
+Auto Hunt - Combat	Caça Automática - Combate
+Time (s)	Tempo (s)
+HP / SP threshold (%)	Limite de HP / SP (%)
+Combat settings	Configurações de combate
+Automatically attacks selected targets within the configured range	Ataca sozinho os alvos escolhidos dentro do alcance definido
+Automatically revives the character at the place of death. Resumes hunting after reaching the configured HP level	Revive o personagem sozinho no lugar da morte. Volta a caçar depois de chegar ao HP definido
+Returns to the auto hunt starting point when there is no attack target or item to pick up	Volta ao ponto de início da caça automática quando não há alvo para atacar nem item para pegar
+Battle horse: fights in place, only what is near - off only for buffs	Cavalo de batalha: luta parado, só o que está perto - desce só para os buffs
+Foot Ninja archer: runs away from a nearby monster, stops and shoots	Ninja arqueiro a pé: foge de um monstro próximo, para e atira
+Settings	Configurações
+Monsters	Monstros
+Metins	Metins
+Bosses	Chefes
+Auto Hunt - Settings	Caça Automática - Configurações
+Item pick-up	Coleta de itens
+Automatic pick-up	Coleta automática
+Automatically picks up items within the configured range according to the selected categories	Pega sozinho os itens dentro do alcance definido conforme as categorias escolhidas
+Filter for Z and `	Filtro para Z e `
+What to attack	O que atacar
+Uses distance instead of the block order. Dragging a block restores category ordering.	Usa a distância em vez da ordem dos blocos. Arrastar um bloco volta à ordem por categoria.
+Additional settings	Configurações extras
+Autologin	Login automático
+Log in again and resume auto hunt after a lost connection	Entrar de novo e retomar a caça automática depois de perder a conexão
+Auto Hunt shortcut	Atalho da Caça Automática
+Range: %d	Alcance: %d
+could not save the profile name.	não foi possível salvar o nome do perfil.
+no saved settings found (%s, slot %d).	nenhuma configuração salva encontrada (%s, espaço %d).
+could not read the saved settings (%s, slot %d).	não foi possível ler as configurações salvas (%s, espaço %d).
+Revive	Reviver
+Revive HP %	HP % para reviver
+Kiting	Kiting
+Battle horse	Cavalo de batalha
+Return	Voltar
+Casting buffs	Lançando buffs
+Archer: kiting	Arqueiro: kiting
+Getting round an obstacle	Contornando um obstáculo
+Taking the way round	Dando a volta
+Drag the icon	Arraste o ícone
+onto the quickbar	para a barra rápida
+Click to rename this save.	Clique para renomear este perfil.
+Enable / disable: 	Ligar / desligar: 
+Waiting for HP (%d%%)	Esperando HP (%d%%)
+Dismounting for skills	Descendo para as habilidades
+Rider: getting off for buffs	Cavaleiro: descendo para os buffs
+Casting skills	Lançando habilidades
+Rider: casting buffs	Cavaleiro: lançando buffs
+Mounting the horse	Montando no cavalo
+Rider: getting on the horse	Cavaleiro: subindo no cavalo
+Rider: waiting for monsters	Cavaleiro: esperando monstros
+Target: %s	Alvo: %s
+Picking up an item	Pegando um item
+Looking for monsters	Procurando monstros
+Click a block to enable or disable its category.	Clique num bloco para ligar ou desligar a categoria.
+Drag blocks: the leftmost category has the highest priority.	Arraste os blocos: a categoria mais à esquerda tem a maior prioridade.
+If that category has no target in range, the next enabled category is checked.	Se essa categoria não tiver alvo ao alcance, a próxima categoria ligada é verificada.
+ (mounted: %d)	 (montado: %d)
+Rider - target: %s	Cavaleiro - alvo: %s
+Nearest target	Alvo mais próximo
+Saved	Salvo
+Empty	Vazio
+K / P	K / P
+Matching Forgetfulness Books: %d, or 1 Skill Reset Document.	Livros do Esquecimento compatíveis: %d, ou 1 Documento de Reset de Habilidade.
+Master: 1 Skill Reset Document. Forgetfulness Books cannot be used.	Mestre: 1 Documento de Reset de Habilidade. Livros do Esquecimento não podem ser usados.
+%d / %d	%d / %d
+METIN	METIN
+BOSS	CHEFE
+MINIBOSS	MINICHEFE
+Bonusy	Bônus
+Podstawowe (zawsze):	Básicos (sempre):
+PRZEDMIOTY	ITENS
+Szukaj...	Buscar...
+Wstecz	Voltar
+HP drain	Dreno de HP
+Monster group	Grupo de monstros
+Bleeding	Sangramento
+Dodatkowe: brak na tej klasie kamienia	Extras: nenhum nesta classe de pedra
+Dodatkowe (losowo %d-%d z listy):	Extras (aleatórios %d-%d da lista):
+Wszystkie	Todos
+Current world	Mundo atual
+Loading data from the server...	Carregando dados do servidor...
+Current data unavailable. Open the page again.	Dados atuais indisponíveis. Abra a página de novo.
+No server table for this entry.	Sem tabela do servidor para esta entrada.
+Possible rewards; conditions and chances depend on gameplay.	Recompensas possíveis; condições e chances dependem do jogo.
+Sources below: base catalogue.	Fontes abaixo: catálogo base.
+wszystko naraz	tudo de uma vez
+losowo jeden	um aleatório
+poziom	nível
+nazwa	nome
+Poziom %d	Nível %d
+Poziom	Nível
+No entries in the server table.	Sem entradas na tabela do servidor.
+The list follows your level, drop bonuses and active events.	A lista segue seu nível, os bônus de drop e os eventos ativos.
+List limited to 400 entries.	Lista limitada a 400 entradas.
+Alchemik i okno Smoczych Kamieni (szlifowanie, ulepszanie)	Alquimista e janela das Pedras do Dragão (lapidar, melhorar)
+Sortuj:	Ordenar:

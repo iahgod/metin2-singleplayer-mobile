@@ -1503,7 +1503,7 @@ m2w.installPtBr = function () {
                 } catch (e) { }
             }
         } catch (e) { }
-        var mine = ['locale_game.txt', 'locale_interface.txt', 'item_names.txt', 'mob_names.txt'];
+        var mine = ['locale_game.txt', 'locale_interface.txt', 'item_names.txt', 'mob_names.txt', 'playerbot_texts.txt'];
         for (var j = 0; j < mine.length; ++j) {
             var src = '/m2w_pt/' + mine[j];
             if (!FS.analyzePath(src).exists) continue;

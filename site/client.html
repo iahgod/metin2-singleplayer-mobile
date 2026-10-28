@@ -16,7 +16,7 @@
 // Versão desta página. Se o navegador abrir uma cópia ANTIGA guardada no cache
 // (acontecia: "às vezes volta uma atualização"), pergunta ao servidor qual é a
 // versão atual e, se for outra, recarrega uma vez já com a nova.
-var M2W_PAGE_VER = "2.0.131-pl221-br8";
+var M2W_PAGE_VER = "2.0.131-pl221-br9";
 (function () {
   try {
     if (sessionStorage.getItem("m2w.verReload") === M2W_PAGE_VER) return;
@@ -316,7 +316,7 @@ var Module = {
     /// client.js (m2w.installPtBr) a instala quando o idioma escolhido for 'pt'.
     function () {
       if (typeof fetch !== "function" || !Module.addRunDependency) return;
-      var files = ["locale_game.txt", "locale_interface.txt", "item_names.txt", "mob_names.txt"];
+      var files = ["locale_game.txt", "locale_interface.txt", "item_names.txt", "mob_names.txt", "playerbot_texts.txt"];
       try { Module.FS.mkdir("/m2w_pt"); } catch (e) { }
       Module.addRunDependency("m2w_ptbr");
       var pending = files.length;
@@ -427,9 +427,9 @@ window.addEventListener("error", function (ev) {
   };
 })();
 </script>
-<script src="client.js?v=2.0.131-pl221-br8" async></script>
-<script src="preload.js?v=2.0.131-pl221-br8"></script>
-<script src="mobile_overlay.js?v=2.0.131-pl221-br8"></script>
-<script src="replay_hud.js?v=2.0.131-pl221-br8"></script>
+<script src="client.js?v=2.0.131-pl221-br9" async></script>
+<script src="preload.js?v=2.0.131-pl221-br9"></script>
+<script src="mobile_overlay.js?v=2.0.131-pl221-br9"></script>
+<script src="replay_hud.js?v=2.0.131-pl221-br9"></script>
 </body>
 </html>
