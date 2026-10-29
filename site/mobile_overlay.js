@@ -3208,6 +3208,37 @@
       "            _sk._state['eqWindow'] = None"
     ]));
   }
+  // Depósito do colecionador no celular: o jogo abre a janela de PC (500x507), mais
+  // alta que a tela, então o título fica no topo mas o rodapé (navegação/fechar) sai
+  // da tela embaixo. Refaz o layout: os botões de navegação e Fechar vão para uma
+  // linha logo abaixo da grade; o status e "Depositar iguais" vão para a coluna da
+  // esquerda. A janela fica ~450 de altura e abre no topo.
+  var COLLECTOR_MOBILE_BUILD = "def _m2oCollectorBuildMobile(self):\n    _T = self._CollectorWindow__Text\n    _B = self._CollectorWindow__Button\n    GH = proto.GRID_ROWS * CELL\n    GW = DISPLAY_COLUMNS * CELL\n    W = GRID_X + GW + 10\n    rowY = GRID_Y + GH + 4\n    H = rowY + 26\n    self.SetSize(W, H)\n    self.AddFlag('movable')\n    self.AddFlag('float')\n    self.SetTitleName(T('Magazyn kolekcjonera', \"Collector's Warehouse\"))\n    self.SetCloseEvent(ui.__mem_func__(self.Close))\n    y = VIEW_Y\n    for view in proto.LISTED_VIEWS:\n        row = ViewRow(self, view)\n        row.SetParent(self)\n        row.SetPosition(VIEW_X, y)\n        row.Show()\n        self.viewRows[view] = row\n        self.widgets.append(row)\n        y += VIEW_ROW_HEIGHT\n    self.capacityLine = _T(VIEW_X + 4, y + 5)\n    self.expandButton = _B(VIEW_X + 4, y + 22, T('Rozbuduj', 'Expand'), self.OnExpand, 'large', T('Wi\\xeacej miejsca w magazynie', 'More room in the storage'))\n    y += 46\n    for text in HINTS:\n        _T(VIEW_X + 4, y, text, COLOR_COUNT)\n        y += 13\n    self.statusLine = _T(VIEW_X + 4, y + 2, '', COLOR_STATUS)\n    self.matchButton = _B(VIEW_X + 4, rowY, MSG_MATCH_BUTTON, self.OnDepositMatching, 'xlarge', MSG_MATCH_TIP)\n    grid = ui.GridSlotWindow()\n    grid.SetParent(self)\n    grid.SetPosition(GRID_X, GRID_Y)\n    grid.ArrangeSlot(0, DISPLAY_COLUMNS, proto.GRID_ROWS, CELL, CELL, 0, 0)\n    grid.SetSlotBaseImage(SLOT_BASE_IMAGE, 1.0, 1.0, 1.0, 1.0)\n    grid.SetSelectEmptySlotEvent(ui.__mem_func__(self.OnSelectEmptySlot))\n    grid.SetSelectItemSlotEvent(ui.__mem_func__(self.OnSelectItemSlot))\n    grid.SetUnselectItemSlotEvent(ui.__mem_func__(self.OnRightClickSlot))\n    grid.SetUseSlotEvent(ui.__mem_func__(self.OnUseSlot))\n    grid.SetOverInItemEvent(ui.__mem_func__(self.OnOverInItem))\n    grid.SetOverOutItemEvent(ui.__mem_func__(self.OnOverOutItem))\n    grid.Show()\n    self.widgets.append(grid)\n    self.grid = grid\n    nx = GRID_X\n    _B(nx, rowY, '<<', self.OnFirstPage, 'small', T('Pierwsza strona', 'First page'))\n    _B(nx + 32, rowY, '<', self.OnPreviousPage, 'small', T('Poprzednia strona', 'Previous page'))\n    self.pageLine = _T(nx + 72, rowY + 4, '1 / 1')\n    self.pageLine.SetHorizontalAlignCenter()\n    _B(nx + 92, rowY, '>', self.OnNextPage, 'small', T('Nast\\xeapna strona', 'Next page'))\n    _B(nx + 124, rowY, '>>', self.OnLastPage, 'small', T('Ostatnia strona', 'Last page'))\n    _B(nx + 180, rowY, T('Zamknij', 'Close'), self.Close, 'large')\n    import safeboxtransfer\n    self.pickDialog = safeboxtransfer.MakePickDialog(ui.__mem_func__(self.OnPickCount))\n    self._CollectorWindow__RefreshControls()\n";
+  function installCollectorLayout() {
+    if (!inWorld || !isMobile) return;
+    runPy(safePy([
+      "import os, sys",
+      "if os.path.exists('/mobile.flag'):",
+      "    try:",
+      "        import uicollector as _co",
+      "    except Exception:",
+      "        _co = None",
+      "    if _co is not None and not getattr(_co, '_m2oMobileLayout', False):",
+      "        exec(" + JSON.stringify(COLLECTOR_MOBILE_BUILD) + ", _co.__dict__)",
+      "        _co.CollectorWindow._CollectorWindow__Build = _co._m2oCollectorBuildMobile",
+      "        _co.HEIGHT = _co.GRID_Y + _co.proto.GRID_ROWS * _co.CELL + 30",
+      "        _co.OPEN_X = 8",
+      "        _co.OPEN_Y = 6",
+      "        _co._m2oMobileLayout = True",
+      "        _w = _co._window.get('window')",
+      "        if _w is not None and not _w.IsShow():",
+      "            try:",
+      "                _w.Destroy()",
+      "            except Exception:",
+      "                pass",
+      "            _co._window['window'] = None"
+    ]));
+  }
   function installWhisperPatch() { if (inWorld) runPy(safePy(WB_PY)); }
   function whisperUnread() {
     var n = 0;
@@ -3284,7 +3315,7 @@
   }, 300);
   // Instala (uma vez por entrada no mapa) e confere de tempos em tempos.
   setInterval(function () {
-    try { if (inWorld && !fsExists("/m2w_cmd.py")) { installWhisperPatch(); installSidekickLayout(); } } catch (e) { }
+    try { if (inWorld && !fsExists("/m2w_cmd.py")) { installWhisperPatch(); installSidekickLayout(); installCollectorLayout(); } } catch (e) { }
   }, 10000);
   // Painel do histórico: largura da barra de chat (mín. 450 do jogo), do topo da tela
   // até logo acima da barra. Fecha no botão, no X da janela ou tocando fora dela.
@@ -4336,6 +4367,7 @@
       whisperList = []; renderWhisperBadge();
       setTimeout(installWhisperPatch, 2200);
       setTimeout(installSidekickLayout, 3600);
+      setTimeout(installCollectorLayout, 3800);
       setTimeout(function () { runPy(SHOP_PEEK_PY); }, 3200);
       refreshJoyRect();
       lastLayoutSig = "";
