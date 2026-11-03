@@ -8,6 +8,7 @@ import os
 import pathlib
 import re
 import shutil
+import struct
 import subprocess
 import sys
 import threading
@@ -161,13 +162,188 @@ def merge_atlas(data_dir):
     return len(add)
 
 
+LARGE_PACK_CLIENT_DATA_PREFIXES = (
+    'maps/', 'icon/', 'textureset/', 'ymir work/environment/', 'ymir work/ui/',
+    'localadvent/', 'localchristmas/', 'localchristmas2019/'
+)
+
+
+def merge_property_crc(prop_out, data_dir):
+    """Appends any missing <CRC>\t<path> entries from unpacked `property` pack into
+    data_dir/property/crc_index.txt."""
+    crc_file = data_dir / 'property' / 'crc_index.txt'
+    if not crc_file.is_file() or not prop_out.is_dir():
+        return 0
+    existing_lines = crc_file.read_text(encoding='latin1').splitlines()
+    have_paths = {l.split('\t', 1)[1].strip().lower() for l in existing_lines if '\t' in l}
+    added = []
+    for p in sorted(prop_out.rglob('*')):
+        if not p.is_file():
+            continue
+        rel = p.relative_to(prop_out).as_posix()
+        if not rel.lower().startswith('property/'):
+            rel = 'property/' + rel
+        if rel.lower() in have_paths:
+            continue
+        try:
+            lines = p.read_text(encoding='latin1', errors='replace').splitlines()
+            if len(lines) >= 2 and lines[0].strip().startswith('YPRT'):
+                crc_val = lines[1].strip()
+                if crc_val.isdigit():
+                    added.append(f'{crc_val}\t{rel}')
+                    have_paths.add(rel.lower())
+        except Exception:
+            pass
+    if added:
+        body = crc_file.read_bytes()
+        if not body.endswith(b'\n'):
+            body += b'\n'
+        crc_file.write_bytes(body + ('\n'.join(added) + '\n').encode('latin1'))
+    return len(added)
+
+
+def append_to_corpus(work_dir, names, corpus_dir=None):
+    """Appends any files from unpacked packs in `work_dir` that are missing from
+    `corpus/manifest.bin` into new 4 MB content-addressed chunks and updates manifest.bin(.gz)."""
+    corpus_dir = corpus_dir or (SITE_DIR / 'corpus')
+    man_path = corpus_dir / 'manifest.bin'
+    man_bak = corpus_dir / 'manifest.bin.bak_orig'
+    if not man_bak.exists() and man_path.exists():
+        shutil.copy2(man_path, man_bak)
+    base_man = man_bak if man_bak.exists() else man_path
+    if not base_man.exists():
+        return 0, 0
+
+    b = base_man.read_bytes()
+    if b[:4] != b'M2WF':
+        return 0, 0
+    ver, chunk_size, chunk_total, pack_count, file_count, boot = struct.unpack_from('<6I', b, 4)
+    pos = 28
+    chunks = []
+    for _ in range(chunk_total):
+        chunks.append((b[pos:pos + 16].hex(), struct.unpack_from('<I', b, pos + 16)[0]))
+        pos += 20
+    packs = []
+    for _ in range(pack_count):
+        nlen = struct.unpack_from('<H', b, pos)[0]
+        pos += 2
+        packs.append(b[pos:pos + nlen])
+        pos += nlen
+    files_tail = bytearray(b[pos:])
+    existing = {}
+    for _ in range(file_count):
+        p_idx, c_idx, off, sz = struct.unpack_from('<HIII', b, pos)
+        pos += 14
+        nlen = struct.unpack_from('<H', b, pos)[0]
+        pos += 2
+        name = b[pos:pos + nlen].decode('utf-8', 'replace')
+        pos += nlen
+        existing[name.lower()] = sz
+
+    to_add = {}
+    for name in names:
+        out = work_dir / name
+        if not out.is_dir():
+            continue
+        for p in sorted(out.rglob('*')):
+            if not p.is_file():
+                continue
+            rel = p.relative_to(out).as_posix().lower()
+            if name == 'property' and not rel.startswith('property/'):
+                rel = 'property/' + rel
+            if rel.endswith('.py'):
+                continue
+            sz = p.stat().st_size
+            if existing.get(rel) == sz:
+                continue
+            to_add[rel] = p
+
+    if not to_add:
+        return 0, 0
+
+    file_list = sorted(to_add.items())
+    new_chunks = []
+    new_entries = []
+    buf = bytearray()
+    chunk_num = len(chunks)
+    BOMS = (bytes([0xFE, 0xFF]), bytes([0xFF, 0xFE]), bytes([0xEF, 0xBB, 0xBF]))
+
+    def starts_with_bom(x):
+        return any(x[:len(bm)] == bm for bm in BOMS)
+
+    def close_chunk():
+        nonlocal buf, chunk_num
+        if not buf:
+            return
+        data = bytes(buf)
+        digest = hashlib.sha256(data).hexdigest()[:32]
+        c_bin = corpus_dir / f'{digest}.bin'
+        if not c_bin.exists():
+            c_bin.write_bytes(data)
+            subprocess.run(['gzip', '-k', '-9', '-f', str(c_bin)], check=False)
+        new_chunks.append((digest, len(data)))
+        buf = bytearray()
+        chunk_num += 1
+
+    def close_avoiding_bom(next_b):
+        nonlocal buf
+        cut = len(buf)
+        while cut > 0 and starts_with_bom(bytes(buf[cut:]) + next_b[:3]):
+            cut -= 1
+        suffix = bytes(buf[cut:])
+        if suffix:
+            for i in range(len(new_entries) - 1, -1, -1):
+                ck, shf, sz, nm = new_entries[i]
+                if ck != chunk_num:
+                    break
+                if shf >= cut:
+                    new_entries[i] = (ck + 1, shf - cut, sz, nm)
+            del buf[cut:]
+        close_chunk()
+        buf += suffix
+
+    for idx, (rel_name, fpath) in enumerate(file_list):
+        content = fpath.read_bytes()
+        new_entries.append((chunk_num, len(buf), len(content), rel_name))
+        rest = content
+        while rest:
+            place = chunk_size - len(buf)
+            buf += rest[:place]
+            rest = rest[place:]
+            if len(buf) >= chunk_size:
+                nxt = rest[:3] if rest else (file_list[idx + 1][1].read_bytes()[:3] if idx + 1 < len(file_list) else b'')
+                close_avoiding_bom(nxt)
+    close_chunk()
+
+    all_chunks = chunks + new_chunks
+    total_files = file_count + len(new_entries)
+    out_parts = [b'M2WF', struct.pack('<6I', ver, chunk_size, len(all_chunks), len(packs), total_files, boot)]
+    for digest, sz in all_chunks:
+        out_parts.append(bytes.fromhex(digest))
+        out_parts.append(struct.pack('<I', sz))
+    for pb in packs:
+        out_parts.append(struct.pack('<H', len(pb)))
+        out_parts.append(pb)
+    out_parts.append(bytes(files_tail))
+    for ck, shf, sz, nm in new_entries:
+        nb = nm.encode('utf-8')
+        out_parts.append(struct.pack('<HIII', 0, ck, shf, sz))
+        out_parts.append(struct.pack('<H', len(nb)))
+        out_parts.append(nb)
+
+    new_man_bytes = b''.join(out_parts)
+    man_path.write_bytes(new_man_bytes)
+    subprocess.run(['gzip', '-k', '-9', '-f', str(man_path)], check=False)
+    return len(new_entries), len(new_chunks)
+
+
 def sync_data_packs(packs_dir, data_dir, node='node', unpack_js=None, work_dir=None):
-    """Unpacks `gamedata` and every patch_* pack of the client package and copies their files into
-    data_dir (the extracted client.data); returns how many files were added or replaced."""
+    """Unpacks `gamedata`, `property` and every `patch_*` pack of the client package, updates
+    data_dir (client.data) and appends any missing 3D/texture assets to corpus/manifest.bin."""
     unpack_js = unpack_js or (UPDATER_DIR / 'unpack_pack.js')
     work_dir = work_dir or (UPDATER_DIR / 'datapacks')
     shutil.rmtree(work_dir, ignore_errors=True)
-    names = ['gamedata'] + sorted(p.stem for p in packs_dir.glob('patch_*.index') if p.stem not in DATA_PACK_SKIP)
+    names = ['gamedata', 'property'] + sorted(p.stem for p in packs_dir.glob('patch_*.index') if p.stem not in DATA_PACK_SKIP)
     exact = {}
     for p in data_dir.rglob('*'):
         if p.is_file():
@@ -185,17 +361,24 @@ def sync_data_packs(packs_dir, data_dir, node='node', unpack_js=None, work_dir=N
         if r.returncode != 0:
             log_line(f'UWAGA: nie rozpakowano paczki {name}: {(r.stdout + r.stderr).strip()[:200]}')
             continue
+        if name == 'property':
+            crc_added = merge_property_crc(out, data_dir)
+            if crc_added:
+                log_line(f'property/crc_index.txt: dopisano {crc_added} nowych obiektow 3D.')
+                changed += crc_added
+            continue
         files = [p for p in out.rglob('*') if p.is_file()]
         size = sum(p.stat().st_size for p in files)
-        if name != 'gamedata' and size > DATA_PACK_MAX_BYTES:
-            log_line(f'Paczka {name}: {size // 1024} kB - za duza do obrazu startowego, zostaje w korpusie.')
-            continue
+        large_pack = (name != 'gamedata' and size > DATA_PACK_MAX_BYTES)
         added = 0
         for p in files:
             rel = p.relative_to(out).as_posix()
-            if rel.lower().endswith('.py'):
-                continue   # scripts take the conversion path above
-            dest = rel if rel in exact else lower.get(rel.lower(), rel)
+            rel_low = rel.lower()
+            if rel_low.endswith('.py'):
+                continue
+            if large_pack and not rel_low.startswith(LARGE_PACK_CLIENT_DATA_PREFIXES):
+                continue
+            dest = rel if rel in exact else lower.get(rel_low, rel)
             target = data_dir / dest
             data = p.read_bytes()
             if target.is_file() and target.read_bytes() == data:
@@ -203,10 +386,16 @@ def sync_data_packs(packs_dir, data_dir, node='node', unpack_js=None, work_dir=N
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(data)
             exact[dest] = True
-            lower.setdefault(dest.lower(), dest)
+            lower.setdefault(rel_low, dest)
             added += 1
         changed += added
-        log_line(f'Paczka danych {name}: {len(files)} plikow, nowych/zmienionych {added}.')
+        if large_pack:
+            log_line(f'Paczka {name} ({size // 1024} kB): dodano mapy/ikony do client.data ({added}), modele 3D trafia do korpusu.')
+        else:
+            log_line(f'Paczka danych {name}: {len(files)} plikow, nowych/zmienionych {added}.')
+    c_files, c_chunks = append_to_corpus(work_dir, [n for n in names if n != 'gamedata'])
+    if c_files:
+        log_line(f'Korpus WebFS (manifest.bin): dopisano {c_files} plikow w {c_chunks} nowych blokach 4 MB.')
     merged = merge_atlas(data_dir)
     if merged:
         log_line(f'AtlasInfo.txt: dopisano {merged} linii map z atlasinfo.txt.')
@@ -409,17 +598,20 @@ def rebuild_webclient(manifest):
     tmp_data.replace(data_path)
 
     new_pkg_json = json.dumps({'files': files_meta, 'remote_package_size': offset})
-    extra_dirs = ''
-    for d in sorted(dirs_set):
-        parent_d = '/' + '/'.join(d.strip('/').split('/')[:-1]) if '/' in d.strip('/') else '/'
-        leaf_d = d.strip('/').split('/')[-1]
-        CreateLine = f"Module['FS_createPath'](\"{parent_d}\", \"{leaf_d}\", true, true);"
-        if CreateLine not in js_txt:
-            extra_dirs += CreateLine + '\n'
     new_js_txt = js_txt[:m.start()] + f'loadPackage({new_pkg_json});' + js_txt[m.end():]
-    anchor = "Module['FS_createPath'](\"/\", \"cursors\", true, true);"
-    if extra_dirs and anchor in new_js_txt:
-        new_js_txt = new_js_txt.replace(anchor, anchor + '\n' + extra_dirs.rstrip('\n'), 1)
+    fc_pat = re.compile(r'^Module\[\'FS_createPath\'\]\("([^"]*)",\s*"([^"]*)",\s*true,\s*true\);\r?$', re.M)
+    fc_matches = list(fc_pat.finditer(new_js_txt))
+    if fc_matches:
+        for fm in fc_matches:
+            fp, fleaf = fm.group(1), fm.group(2)
+            dirs_set.add(('/' + fleaf) if fp == '/' else (fp.rstrip('/') + '/' + fleaf))
+        fc_lines = []
+        for d in sorted(dirs_set, key=lambda x: (x.count('/'), x)):
+            s = d.strip('/')
+            parent_d = '/' + '/'.join(s.split('/')[:-1]) if '/' in s else '/'
+            leaf_d = s.split('/')[-1]
+            fc_lines.append(f"Module['FS_createPath'](\"{parent_d}\", \"{leaf_d}\", true, true);")
+        new_js_txt = new_js_txt[:fc_matches[0].start()] + '\n'.join(fc_lines) + new_js_txt[fc_matches[-1].end():]
     tmp_js = SITE_DIR / (js_path.name + '.tmp')
     tmp_js.write_text(new_js_txt, encoding='utf-8', newline='\n')
     os.chmod(tmp_js, 0o644)
@@ -432,6 +624,7 @@ def rebuild_webclient(manifest):
     html_txt = re.sub(r'(\?v=)[A-Za-z0-9_.-]+', rf'\g<1>{ver_hash}', html_txt)
     html_txt = re.sub(r'(@)[A-Za-z0-9_.-]+(")', rf'\g<1>{ver_hash}\2', html_txt)
     html_txt = re.sub(r'(var\s+M2W_PAGE_VER\s*=\s*")[A-Za-z0-9_.-]+(")', rf'\g<1>{ver_hash}\2', html_txt)
+    html_txt = re.sub(r'(var\s+BUILD_VER\s*=\s*")[A-Za-z0-9_.-]+(")', rf'\g<1>{ver_hash}\2', html_txt)
     html_path.write_text(html_txt, encoding='utf-8', newline='\n')
     os.chmod(html_path, 0o644)
 

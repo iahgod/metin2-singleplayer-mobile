@@ -88,7 +88,7 @@ def main(repo_dir, live_dir, out_dir, before_dir=None):
         take = (name.startswith(TAKE_LIVE_PREFIXES) or TAKE_LIVE_RE.match(name) or name in TAKE_LIVE_FILES) \
             and name not in KEEP_REPO_FILES
         if name not in repo:
-            if take:
+            if take or (before is not None and name not in before):
                 result[name] = body
                 order.append(name)
                 new_files.append(name)
@@ -136,18 +136,19 @@ def main(repo_dir, live_dir, out_dir, before_dir=None):
         while p and p != '/':
             dirs.add(p)
             p = os.path.dirname(p)
-    extra = ''
-    for d in sorted(dirs):
+    pat = re.compile(r'^Module\[\'FS_createPath\'\]\("([^"]*)",\s*"([^"]*)",\s*true,\s*true\);\r?$', re.M)
+    matches = list(pat.finditer(js))
+    if not matches:
+        sys.exit('REFUSED: FS_createPath block not found in client.js')
+    for m in matches:
+        p, leaf = m.group(1), m.group(2)
+        dirs.add(('/' + leaf) if p == '/' else (p.rstrip('/') + '/' + leaf))
+    lines = []
+    for d in sorted(dirs, key=lambda x: (x.count('/'), x)):
         s = d.strip('/')
         parent = '/' + '/'.join(s.split('/')[:-1]) if '/' in s else '/'
-        line = "Module['FS_createPath'](\"%s\", \"%s\", true, true);" % (parent, s.split('/')[-1])
-        if line not in js:
-            extra += line + '\n'
-    if extra:
-        anchor = "Module['FS_createPath'](\"/\", \"cursors\", true, true);"
-        if anchor not in js:
-            sys.exit('REFUSED: FS_createPath anchor not found in client.js')
-        js = js.replace(anchor, anchor + '\n' + extra.rstrip('\n'), 1)
+        lines.append("Module['FS_createPath'](\"%s\", \"%s\", true, true);" % (parent, s.split('/')[-1]))
+    js = js[:matches[0].start()] + '\n'.join(lines) + js[matches[-1].end():]
 
     os.makedirs(out_dir, exist_ok=True)
     open(os.path.join(out_dir, 'client.data'), 'wb').write(out)
