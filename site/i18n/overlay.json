@@ -692,6 +692,30 @@
   "Ocultar controles": {
    "en": "Hide controls",
    "pl": "Ukryj sterowanie"
+  },
+  "Comunidade": {
+   "en": "Community",
+   "pl": "Społeczność"
+  },
+  "Comunidade (Alt+M)": {
+   "en": "Community (Alt+M)",
+   "pl": "Społeczność (Alt+M)"
+  },
+  "Denunciar jogador": {
+   "en": "Report player",
+   "pl": "Zgłoś gracza"
+  },
+  "Denúncias GM (F12)": {
+   "en": "GM Reports (F12)",
+   "pl": "Zgłoszenia GM (F12)"
+  },
+  "Auto Łowy (K)": {
+   "en": "Auto Hunt (K)",
+   "pl": "Auto Łowy (K)"
+  },
+  "ŁOWY": {
+   "en": "HUNT",
+   "pl": "ŁOWY"
   }
  }
 }

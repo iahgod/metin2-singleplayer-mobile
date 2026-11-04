@@ -162,6 +162,7 @@ def merge_atlas(data_dir):
     return len(add)
 
 
+
 LARGE_PACK_CLIENT_DATA_PREFIXES = (
     'maps/', 'icon/', 'textureset/', 'ymir work/environment/', 'ymir work/ui/',
     'localadvent/', 'localchristmas/', 'localchristmas2019/'
@@ -202,6 +203,42 @@ def merge_property_crc(prop_out, data_dir):
     return len(added)
 
 
+
+def pad_dds_pot(raw: bytes) -> bytes:
+    if len(raw) < 128 or raw[:4] != b'DDS ':
+        return raw
+    magic, size, flags, height, width, pitch, depth, mips = struct.unpack_from("<4s7I", raw, 0)
+    pf_size, pf_flags, fourcc, rgb_bits = struct.unpack_from("<2I4sI", raw, 76)
+    if fourcc not in (b'DXT1', b'DXT3', b'DXT5'):
+        return raw
+    is_pot = (width & (width - 1)) == 0 and (height & (height - 1)) == 0
+    if is_pot and mips <= 1:
+        return raw
+    new_w = 1
+    while new_w < width:
+        new_w <<= 1
+    new_h = 1
+    while new_h < height:
+        new_h <<= 1
+    block_sz = 8 if fourcc == b'DXT1' else 16
+    old_bw = (width + 3) >> 2
+    old_bh = (height + 3) >> 2
+    new_bw = new_w >> 2
+    new_bh = new_h >> 2
+    out = bytearray(128 + new_bw * new_bh * block_sz)
+    out[:128] = raw[:128]
+    for by in range(old_bh):
+        src_off = 128 + by * old_bw * block_sz
+        dst_off = 128 + by * new_bw * block_sz
+        out[dst_off:dst_off + old_bw * block_sz] = raw[src_off:src_off + old_bw * block_sz]
+    new_flags = flags & ~0x20000
+    struct.pack_into("<I", out, 8, new_flags)
+    struct.pack_into("<I", out, 12, new_h)
+    struct.pack_into("<I", out, 16, new_w)
+    struct.pack_into("<I", out, 20, new_bw * new_bh * block_sz)
+    struct.pack_into("<I", out, 28, 0)
+    return bytes(out)
+
 def append_to_corpus(work_dir, names, corpus_dir=None):
     """Appends any files from unpacked packs in `work_dir` that are missing from
     `corpus/manifest.bin` into new 4 MB content-addressed chunks and updates manifest.bin(.gz)."""
@@ -229,16 +266,17 @@ def append_to_corpus(work_dir, names, corpus_dir=None):
         pos += 2
         packs.append(b[pos:pos + nlen])
         pos += nlen
-    files_tail = bytearray(b[pos:])
+    existing_entries = {}
     existing = {}
     for _ in range(file_count):
         p_idx, c_idx, off, sz = struct.unpack_from('<HIII', b, pos)
         pos += 14
         nlen = struct.unpack_from('<H', b, pos)[0]
         pos += 2
-        name = b[pos:pos + nlen].decode('utf-8', 'replace')
+        name = b[pos:pos + nlen].decode('utf-8', 'replace').lower()
         pos += nlen
-        existing[name.lower()] = sz
+        existing[name] = sz
+        existing_entries[name] = (p_idx, c_idx, off, sz)
 
     to_add = {}
     for name in names:
@@ -304,6 +342,8 @@ def append_to_corpus(work_dir, names, corpus_dir=None):
 
     for idx, (rel_name, fpath) in enumerate(file_list):
         content = fpath.read_bytes()
+        if rel_name.startswith('ymir work/ui/community/') and rel_name.endswith('.dds'):
+            content = pad_dds_pot(content)
         new_entries.append((chunk_num, len(buf), len(content), rel_name))
         rest = content
         while rest:
@@ -315,8 +355,11 @@ def append_to_corpus(work_dir, names, corpus_dir=None):
                 close_avoiding_bom(nxt)
     close_chunk()
 
+    for ck, shf, sz, nm in new_entries:
+        existing_entries[nm.lower()] = (0, ck, shf, sz)
+    sorted_entries = sorted(existing_entries.items(), key=lambda x: x[0])
     all_chunks = chunks + new_chunks
-    total_files = file_count + len(new_entries)
+    total_files = len(sorted_entries)
     out_parts = [b'M2WF', struct.pack('<6I', ver, chunk_size, len(all_chunks), len(packs), total_files, boot)]
     for digest, sz in all_chunks:
         out_parts.append(bytes.fromhex(digest))
@@ -324,10 +367,9 @@ def append_to_corpus(work_dir, names, corpus_dir=None):
     for pb in packs:
         out_parts.append(struct.pack('<H', len(pb)))
         out_parts.append(pb)
-    out_parts.append(bytes(files_tail))
-    for ck, shf, sz, nm in new_entries:
+    for nm, (p_idx, ck, shf, sz) in sorted_entries:
         nb = nm.encode('utf-8')
-        out_parts.append(struct.pack('<HIII', 0, ck, shf, sz))
+        out_parts.append(struct.pack('<HIII', p_idx, ck, shf, sz))
         out_parts.append(struct.pack('<H', len(nb)))
         out_parts.append(nb)
 
@@ -357,7 +399,7 @@ def sync_data_packs(packs_dir, data_dir, node='node', unpack_js=None, work_dir=N
             continue
         out = work_dir / name
         r = subprocess.run([node, str(unpack_js), '.', name, str(out)], cwd=str(packs_dir),
-                           capture_output=True, text=True)
+                           capture_output=True, text=True, encoding='utf-8', errors='replace')
         if r.returncode != 0:
             log_line(f'UWAGA: nie rozpakowano paczki {name}: {(r.stdout + r.stderr).strip()[:200]}')
             continue
@@ -393,7 +435,13 @@ def sync_data_packs(packs_dir, data_dir, node='node', unpack_js=None, work_dir=N
             log_line(f'Paczka {name} ({size // 1024} kB): dodano mapy/ikony do client.data ({added}), modele 3D trafia do korpusu.')
         else:
             log_line(f'Paczka danych {name}: {len(files)} plikow, nowych/zmienionych {added}.')
-    c_files, c_chunks = append_to_corpus(work_dir, [n for n in names if n != 'gamedata'])
+    scripts_link = work_dir / '_scripts'
+    if (UPDATER_DIR / 'scripts').is_dir() and not scripts_link.exists():
+        try:
+            os.symlink(str(UPDATER_DIR / 'scripts'), str(scripts_link))
+        except Exception:
+            pass
+    c_files, c_chunks = append_to_corpus(work_dir, [n for n in names if n != 'gamedata'] + (['_scripts'] if scripts_link.exists() else []))
     if c_files:
         log_line(f'Korpus WebFS (manifest.bin): dopisano {c_files} plikow w {c_chunks} nowych blokach 4 MB.')
     merged = merge_atlas(data_dir)
@@ -459,6 +507,8 @@ def rebuild_webclient(manifest):
                 cwd=str(packs_dir),
                 capture_output=True,
                 text=True,
+                encoding='utf-8',
+                errors='replace',
             )
             if r.returncode != 0:
                 raise RuntimeError(f'Blad unpack_pack dla {pack_name}: {r.stdout} {r.stderr}')
@@ -469,7 +519,7 @@ def rebuild_webclient(manifest):
     import ast
     to_fix = []
     for p in py_files:
-        if p.stat().st_size > 150000:
+        if p.stat().st_size > 400000:
             try:
                 ast.parse(p.read_text(encoding='utf-8', errors='replace'))
                 continue
@@ -488,7 +538,7 @@ def rebuild_webclient(manifest):
     import importlib; importlib.reload(script_patches); script_patches.apply_all(str(scripts_dir))
 
     for p in sorted(scripts_dir.rglob('*.py')):
-        if p.stat().st_size > 150000:
+        if p.stat().st_size > 400000:
             continue
         txt = p.read_text(encoding='utf-8', errors='replace')
         try:
@@ -545,14 +595,18 @@ def rebuild_webclient(manifest):
         rel = p.relative_to(scripts_dir).as_posix()
         rel_low = rel.lower()
         ext = p.suffix.lower()
-        if ext in skip_exts and p.name.lower() not in ('login_small.jpg', 'loginwindow.sub', 'login.dds', 'loginwindow.tga'):
-            continue
-        if not ext and p.name.lower() == 'locale.cfg':
-            continue
-        if rel_low.startswith('locale/') and not rel_low.startswith(('locale/pl/', 'locale/en/', 'locale/tr/', 'locale/common/')):
-            continue
-        if '/' in rel_low and not rel_low.startswith(('locale/', 'uiscript/')) and ext != '.py':
-            continue
+        is_ui_bundle = rel_low.startswith('ymir work/ui/community/') or (
+            rel_low.startswith('playerbot_ui/') and not rel_low.startswith('playerbot_ui/fortune_wheel/')
+        )
+        if not is_ui_bundle:
+            if ext in skip_exts and p.name.lower() not in ('login_small.jpg', 'loginwindow.sub', 'login.dds', 'loginwindow.tga'):
+                continue
+            if not ext and p.name.lower() == 'locale.cfg':
+                continue
+            if rel_low.startswith('locale/') and not rel_low.startswith(('locale/pl/', 'locale/en/', 'locale/tr/', 'locale/common/')):
+                continue
+            if '/' in rel_low and not rel_low.startswith(('locale/', 'uiscript/')) and ext != '.py':
+                continue
 
         if rel_low.startswith('uiscript/') and ext == '.py':
             spelled = ui_spellings.get(p.name.lower(), p.name)
@@ -564,7 +618,10 @@ def rebuild_webclient(manifest):
 
         dest_path = data_dir / dest_rel
         dest_path.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(p, dest_path)
+        if is_ui_bundle and ext == '.dds':
+            dest_path.write_bytes(pad_dds_pot(p.read_bytes()))
+        else:
+            shutil.copy2(p, dest_path)
         updated_files += 1
 
     log_line(f'Zaktualizowano {updated_files} plikow skryptow i ukladow okien w obrazie danych.')
@@ -656,6 +713,8 @@ def worker_run(mode):
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT,
                 text=True,
+                encoding='utf-8',
+                errors='replace',
                 bufsize=1,
             )
             for line in proc.stdout:
@@ -667,6 +726,15 @@ def worker_run(mode):
                 raise RuntimeError(f'vps-install.sh update zakonczyl sie kodem {proc.returncode}')
             log_line('Serwer gry na VPS zostal pomyslnie zaktualizowany.')
             subprocess.run(['/opt/metin2-web/updater/install_m2w_assistant.sh'], check=False)
+            subprocess.run(['/opt/metin2-web/updater/install_teleexpress.sh'], check=False)
+            for _pws in ('/opt/metin2/files/playerbot_world_settings.py', '/opt/metin2/linux-port/docker/panel/app/playerbot_world_settings.py'):
+                if os.path.exists(_pws):
+                    _s = open(_pws, encoding='utf-8', errors='replace').read()
+                    _old = "    def performance_red():\n        now = int(time.time())\n        with locked(path):\n            values = read(path)\n            if values['ROTATION_ENABLED'] and values['ROTATION_PERF_UNTIL'] <= now:\n                values['ROTATION_PERF_UNTIL'] = now + 1800\n                write(path, values)"
+                    if _old in _s:
+                        open(_pws, 'w', encoding='utf-8').write(_s.replace(_old, "    def performance_red():\n        return"))
+            subprocess.run(['docker', 'cp', '/opt/metin2/files/playerbot_world_settings.py', 'metin2-panel:/opt/panel/playerbot_world_settings.py'], check=False)
+            subprocess.run(['docker', 'restart', 'metin2-panel'], check=False)
             log_line('Przywrocono Asystenta Straznika Wsi (Buffy VIP + 1-Klik Misje).')
 
         log_line('--- ETAP 2/2: Aktualizacja i przebudowa Klienta Web na VPS ---')

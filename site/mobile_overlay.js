@@ -842,6 +842,7 @@
     "#m2o .zoom-bar.active .zoom-knob{transform:scale(1.2)}" +
     "#m2o.win-open .zoom-bar{visibility:hidden;pointer-events:none}" +
     "#m2o .shop-btn{position:absolute;top:4px;width:30px;height:30px;border-radius:50%;padding:0;display:flex;align-items:center;justify-content:center;border:2px solid #b48a3c;outline:1px solid #1c1a17;background:radial-gradient(circle,#3a2a12 0%,#120c05 100%);box-shadow:inset 0 0 6px #000,0 0 7px rgba(255,190,70,0.55),0 2px 5px rgba(0,0,0,0.9);pointer-events:auto;z-index:21}" +
+    "#m2o .shop-btn img{width:20px;height:20px;object-fit:contain;border-radius:50%;transform:scale(1.15);display:block;pointer-events:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.92))}" +
     "#m2o .shop-btn:active{transform:scale(0.93)}" +
     "#m2o.win-open .shop-btn:not(.esc-btn):not(.kb-btn):not(.ui-toggle){display:none}" +
     "#m2o.ui-hidden > *:not(.ui-toggle):not(.esc-btn):not(#m2o-kb){visibility:hidden !important;pointer-events:none !important}" +
@@ -858,6 +859,12 @@
     "#m2o .q-item img{width:24px;height:24px;flex:none;pointer-events:none}" +
     "#m2o .q-item span{flex:1;white-space:normal}" +
     "#m2o .q-empty{color:#c8bba0;font-size:11px;padding:6px}" +
+    "#m2o .q-cat{min-height:28px;border-radius:2px;justify-content:flex-start;padding:3px 9px;text-align:left;font:700 11.5px/1.25 Tahoma,sans-serif;background:rgba(45,37,24,0.82);border:1px solid #5a4b32;color:#d9bd79;touch-action:pan-y}" +
+    "#m2o .q-cat.empty{background:rgba(20,20,20,0.45);border-color:#332f29;color:#77736b}" +
+    "#m2o .q-subitem{min-height:38px;border-radius:2px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;padding:4px 10px 4px 18px;text-align:left;background:rgba(20,20,20,0.65);border:1px solid #4a4133;touch-action:pan-y}" +
+    "#m2o .q-subitem .q-title{color:#efe7ce;font:600 11.5px/1.25 Tahoma,sans-serif;white-space:normal}" +
+    "#m2o .q-subitem .q-detail{color:#aaa79b;font:400 10px/1.2 Tahoma,sans-serif;white-space:normal}" +
+    "#m2o .q-foot{color:#a9a18d;font:600 10.5px/1.2 Tahoma,sans-serif;padding:2px 4px 0 4px;border-top:1px solid #3a3429}" +
     "#m2o .chat-histbtn.wb-btn{position:relative;overflow:visible}" +
     "#m2o .chat-histbtn.wb-new{animation:m2wbBlink 0.9s ease-in-out infinite}" +
     "@keyframes m2wbBlink{50%{background:rgba(200,150,40,0.95);border-color:#ffd75e;box-shadow:0 0 8px rgba(255,215,94,0.9)}}" +
@@ -1124,9 +1131,22 @@
     } catch (e) { }
     return t.replace(/\|c[0-9a-fA-F]{8}|\|r|\|h|\|H[^|]*\|h/g, "").trim();
   }
+  var QUEST_CATS = [
+    { key: "story",   pl: "Misje fabularne",          en: "Story quests",          pt: "Miss\u00F5es de hist\u00F3ria" },
+    { key: "side",    pl: "Misje poboczne",           en: "Side quests",           pt: "Miss\u00F5es secund\u00E1rias" },
+    { key: "hunting", pl: "Polowania",                en: "Hunting",               pt: "Ca\u00E7adas" },
+    { key: "biology", pl: "Zadania Biologa",          en: "Biologist research",    pt: "Pesquisa do Bi\u00F3logo" },
+    { key: "horse",   pl: "Rozw\u00F3j konia",       en: "Horse training",        pt: "Treino do cavalo" },
+    { key: "events",  pl: "Misje wydarze\u0144",     en: "Event quests",          pt: "Miss\u00F5es de evento" },
+    { key: "books",   pl: "Ksi\u0119gi misji",       en: "Mission books",         pt: "Livros de miss\u00E3o" },
+    { key: "daily",   pl: "Misje dzienne",            en: "Daily quests",          pt: "Miss\u00F5es di\u00E1rias" },
+    { key: "system",  pl: "Misje gry i pozosta\u0142e", en: "Game and other quests", pt: "Miss\u00F5es do jogo e outras" }
+  ];
+  var questExpanded = {};
+
   function requestQuestList() {
     runPy(safePy([
-      "import interfaceModule, json",
+      "import interfaceModule, json, quest, localeInfo, questjournal",
       "interfaceModule.IsQBHide = 1",
       "_itf = getattr(self, 'interface', None)",
       "_ql = []",
@@ -1135,21 +1155,38 @@
       "        _itf.HideAllQuestButton()",
       "    except Exception:",
       "        pass",
-      "    for _b in list(getattr(_itf, 'questButtonList', [])):",
-      "        _ql.append({'i': int(getattr(_b, 'index', -1)), 'n': str(getattr(_b, 'name', '') or '')})",
+      "    _rows = questjournal.ReadRows(quest, getattr(_itf, 'questButtonList', ()))",
+      "    for _r in _rows:",
+      "        _bits = []",
+      "        if _r.get('counter'):",
+      "            try:",
+      "                import utils",
+      "                _cn, _ = utils.process_string(_r['counter'], 'm')",
+      "            except Exception:",
+      "                _cn = str(_r['counter'])",
+      "            _bits.append('%s: %s' % (_cn, _r.get('value', 0)))",
+      "        _pos = _r.get('position')",
+      "        if _pos is not None and quest.IsExist(_pos) and quest.GetQuestIndex(_pos) == _r['id']:",
+      "            _tn, _sec = quest.GetQuestLastTime(_pos)",
+      "            if _tn:",
+      "                _bits.append(str(_tn) + ': ' + (localeInfo.SecondToDHMS(_sec, True) if _sec > 0 else localeInfo.QUEST_TIMEOVER))",
+      "        _det = ' | '.join(_bits) if _bits else getattr(localeInfo, 'QUEST_UNLIMITED_TIME', '')",
+      "        _ql.append({",
+      "            'i': int(_r['id']),",
+      "            'a': int(_r['action']),",
+      "            'c': str(_r.get('category') or 'system'),",
+      "            'n': str(_r.get('title') or ''),",
+      "            'd': str(_det or '')",
+      "        })",
       "_f = open('/m2w_quests.json', 'w')",
       "_f.write(json.dumps(_ql))",
       "_f.close()"
     ]));
   }
-  function startQuest(idx) {
+  function startQuest(actionId) {
     runPy(safePy([
-      "_itf = getattr(self, 'interface', None)",
-      "if _itf:",
-      "    for _b in list(getattr(_itf, 'questButtonList', [])):",
-      "        if int(getattr(_b, 'index', -1)) == " + Number(idx) + ":",
-      "            _itf._Interface__StartQuest(_b)",
-      "            break"
+      "import event",
+      "event.QuestButtonClick(" + Number(actionId) + ")"
     ]));
     if (questPanel) { questPanel.remove(); questPanel = null; }
     setTimeout(requestQuestList, 800);
@@ -1159,28 +1196,58 @@
     if (badge) badge.textContent = questList.length ? String(questList.length) : "";
     if (!questPanel) return;
     var listEl = questPanel.querySelector(".q-list");
+    var footEl = questPanel.querySelector(".q-foot");
     listEl.innerHTML = "";
-    if (!questList.length) {
-      var em = document.createElement("div");
-      em.className = "q-empty";
-      em.textContent = "Nenhuma missão no momento.";
-      listEl.appendChild(em);
-      return;
-    }
+    var lang = (M2I18N && M2I18N.lang) || "pt";
+    var groups = {};
+    QUEST_CATS.forEach(function (c) { groups[c.key] = []; });
     questList.forEach(function (q) {
-      var b = btn("", function () { startQuest(q.i); });
-      b.className = "q-item";
-      b.innerHTML = '<img src="icons/ui/quests.png" alt=""><span></span>';
-      b.querySelector("span").textContent = questText(q.n) || ("Missão " + q.i);
-      listEl.appendChild(b);
+      var ck = groups[q.c] ? q.c : "system";
+      groups[ck].push(q);
     });
+    QUEST_CATS.forEach(function (cat) {
+      var items = groups[cat.key] || [];
+      var count = items.length;
+      var isExp = !!questExpanded[cat.key] && count > 0;
+      var marker = isExp ? "-" : "+";
+      var catTitle = cat[lang] || cat.en;
+      var catBtn = btn(marker + " " + catTitle + " (" + count + ")", function () {
+        if (!count) return;
+        questExpanded[cat.key] = !questExpanded[cat.key];
+        renderQuestPanel();
+      });
+      catBtn.className = "q-cat" + (count ? "" : " empty");
+      listEl.appendChild(catBtn);
+      if (isExp) {
+        items.forEach(function (q) {
+          var actId = (typeof q.a === "number") ? q.a : q.i;
+          var b = btn("", function () { startQuest(actId); }, "q-subitem", "", true);
+          var tSpan = document.createElement("div");
+          tSpan.className = "q-title";
+          tSpan.textContent = questText(q.n) || ("#" + q.i);
+          b.appendChild(tSpan);
+          var dTxt = questText(q.d);
+          if (dTxt) {
+            var dSpan = document.createElement("div");
+            dSpan.className = "q-detail";
+            dSpan.textContent = dTxt;
+            b.appendChild(dSpan);
+          }
+          listEl.appendChild(b);
+        });
+      }
+    });
+    if (footEl) {
+      var footLbl = lang === "pl" ? "Aktywne misje: " : (lang === "en" ? "Active quests: " : "Miss\u00F5es ativas: ");
+      footEl.textContent = footLbl + questList.length;
+    }
   }
   function toggleQuestPanel(forceOpen) {
     if (questPanel && !forceOpen) { questPanel.remove(); questPanel = null; return; }
     if (!questPanel) {
       questPanel = document.createElement("div");
       questPanel.className = "q-panel gold-box";
-      questPanel.innerHTML = '<div class="q-head"><span>Missões</span></div><div class="q-list"></div>';
+      questPanel.innerHTML = '<div class="q-head"><span>Miss\u00F5es</span></div><div class="q-list"></div><div class="q-foot"></div>';
       var x = btn("X", function () { toggleQuestPanel(); });
       x.className = "q-close";
       questPanel.querySelector(".q-head").appendChild(x);
@@ -1502,9 +1569,72 @@
   }
   setInterval(function () { try { autoAtkTick(); } catch (e) { } }, 200);
   tlSide.appendChild(btnAuto);
+  var btnAutoHunt = btn(
+    ICONS.swords + '<span class="mini-tag">\u0141OWY</span>',
+    function () {
+      runPy("try:\n    self._GameWindow__ToggleAutoHunt()\nexcept Exception:\n    pass");
+    },
+    "",
+    "Auto \u0141owy (K)",
+    true
+  );
+  tlSide.appendChild(btnAutoHunt);
   tlSide.appendChild(btnClickMode);
   tlSide.appendChild(btnShift);
   root.appendChild(tlSide);
+
+  // Persist /autohunt/ configuration & profiles between browser sessions via localStorage
+  window.__M2SyncAutoHuntFS = function () {
+    try {
+      if (!window.Module || !Module.FS) return;
+      var files = {};
+      function walkDir(dir) {
+        var list = [];
+        try { list = Module.FS.readdir(dir); } catch (e) { return; }
+        for (var i = 0; i < list.length; i++) {
+          var name = list[i];
+          if (name === "." || name === "..") continue;
+          var full = dir + "/" + name;
+          var st = null;
+          try { st = Module.FS.stat(full); } catch (e2) { continue; }
+          if (Module.FS.isDir(st.mode)) walkDir(full);
+          else if (Module.FS.isFile(st.mode)) {
+            try { files[full] = Module.FS.readFile(full, { encoding: "utf8" }); } catch (e3) { }
+          }
+        }
+      }
+      walkDir("/autohunt");
+      localStorage.setItem("m2w.autohunt.fs", JSON.stringify(files));
+    } catch (e) { }
+  };
+  function restoreAutoHuntFS() {
+    try {
+      if (!window.Module || !Module.FS) return false;
+      var raw = localStorage.getItem("m2w.autohunt.fs");
+      if (!raw) return true;
+      var files = JSON.parse(raw);
+      if (!files || typeof files !== "object") return true;
+      function ensureDir(dir) {
+        var parts = dir.split("/").filter(Boolean);
+        var cur = "";
+        for (var i = 0; i < parts.length; i++) {
+          cur += "/" + parts[i];
+          try { Module.FS.mkdir(cur); } catch (e) { }
+        }
+      }
+      Object.keys(files).forEach(function (full) {
+        var idx = full.lastIndexOf("/");
+        if (idx > 0) ensureDir(full.slice(0, idx));
+        try { Module.FS.writeFile(full, String(files[full]), { encoding: "utf8" }); } catch (e2) { }
+      });
+      return true;
+    } catch (e) { return false; }
+  }
+  var ahRestored = false;
+  var ahRestoreTimer = setInterval(function () {
+    if (!ahRestored && restoreAutoHuntFS()) ahRestored = true;
+    if (ahRestored && inWorld) window.__M2SyncAutoHuntFS();
+  }, 5000);
 
   // =========================================================================
   // 2. RIGHT COLUMN OF 5 DOUBLE-RING GOLD SVG ICONS (top: 128px, right: 10px, 34x34)
@@ -1853,6 +1983,10 @@
     gmModal.classList.remove("open");
     runPy("import net; net.SendChatPacket('/gmpanel_open')");
   });
+  addGmBtn("Den\u00FAncias GM (F12)", function () {
+    gmModal.classList.remove("open");
+    runPy("import net; net.SendChatPacket('/community panel_open')");
+  });
   addGmBtn("Possuir bot", function () {
     gmModal.classList.remove("open");
     runPy(safePy([
@@ -1959,6 +2093,31 @@
       try { if (fsExists("/m2w_key_p")) { fsRm("/m2w_key_p"); tapKey(KEYS.P); } } catch (e) { }
     }, 600);
   }, "", "Companheiro (P)", true));
+
+  function toggleCommunityWindow() {
+    gearMenu.classList.remove("open");
+    settingsModal.classList.remove("open");
+    gmModal.classList.remove("open");
+    runPy([
+      "try:",
+      "    if hasattr(self, 'interface') and self.interface:",
+      "        _wm = getattr(self.interface, 'wndMessenger', None)",
+      "        if _wm and not _wm.IsShow():",
+      "            import wndMgr",
+      "            _wm.SetPosition(max(0, (wndMgr.GetScreenWidth() - _wm.GetWidth()) // 2), max(6, (wndMgr.GetScreenHeight() - _wm.GetHeight()) // 2 - 10))",
+      "        self.interface.ToggleMessenger()",
+      "except Exception:",
+      "    pass"
+    ].join("\n"));
+  }
+  var communityBtn = btn('<img src="icons/ui/community.png" alt="Comunidade"><span class="rc-badge" id="m2o_comm_badge"></span>', function () {
+    toggleCommunityWindow();
+  }, "", "Comunidade (Alt+M)", true);
+  rCol.appendChild(communityBtn);
+  addGearItem("Comunidade (Alt+M)", toggleCommunityWindow);
+  addGearItem("Denunciar jogador", function () {
+    runPy("try:\n    self.interface.wndMessenger.ReportByName()\nexcept Exception:\n    pass");
+  });
 
   // Loja de itens: o botão nativo fica pequeno, no canto do minimapa. Este é um atalho
   // maior, à esquerda da estrela, no topo (mesma ação).
@@ -2170,6 +2329,7 @@
         fsRm("/m2w_vip.json");
         vipActive = !!(v && v.a);
         vipBtn.style.display = (vipActive && inWorld) ? "" : "none";
+        positionShopBtn();
         if (!vipActive && vipPanel) { vipPanel.remove(); vipPanel = null; }
       }
     } catch (e) { }
@@ -2268,17 +2428,22 @@
       uiToggleBtn.style.top = shopBtn.style.top;
       vipBtn.style.right = (shopRight + 144) + "px";
       vipBtn.style.top = shopBtn.style.top;
+      if (gmBtn) {
+        gmBtn.style.right = (shopRight + (vipActive ? 180 : 144)) + "px";
+        gmBtn.style.top = shopBtn.style.top;
+      }
     } catch (e) { }
   }
-  positionShopBtn();
-  window.addEventListener("resize", function () { setTimeout(positionShopBtn, 200); });
-
   var gmBtn = btn('<img src="icons/ui/gm.png" alt="GM">', function () {
     gearMenu.classList.remove("open");
+    settingsModal.classList.remove("open");
     gmModal.classList.toggle("open");
-  }, "", "Painel GM", true);
+  }, "shop-btn gm-top-btn", "Painel GM", true);
   gmBtn.style.display = "none";
-  rCol.appendChild(gmBtn);
+  root.appendChild(gmBtn);
+
+  positionShopBtn();
+  window.addEventListener("resize", function () { setTimeout(positionShopBtn, 200); });
 
   // =========================================================================
   // 3. BOTTOM-RIGHT COMBAT WHEEL (86x86px, center right:95px, bottom:57px) + 34x34 SLOTS ON R=84px
@@ -3740,7 +3905,34 @@
     "            pass",
     "        return r",
     "    ui.EditLine.OnMouseLeftButtonDown = _m2oEditTap",
+    "    _osf = ui.EditLine.SetFocus",
+    "    def _m2oSetFocus(self, *a, _osf=_osf):",
+    "        import constInfo",
+    "        _before = getattr(constInfo, '_mob_edit_seq', 0)",
+    "        r = _osf(self, *a)",
+    "        if getattr(constInfo, '_mob_edit_seq', 0) == _before:",
+    "            try: self.OnSetFocus()",
+    "            except Exception: pass",
+    "        return r",
+    "    ui.EditLine.SetFocus = _m2oSetFocus",
     "    ui.EditLine._m2oTapPatch = True",
+    "try:",
+    "    import uiMessenger",
+    "    _SRE = getattr(uiMessenger, 'ScrollingReportEdit', None)",
+    "    if _SRE and not getattr(_SRE, '_m2oTapPatch', False):",
+    "        _ofm = _SRE.FocusAtMouse",
+    "        def _m2oFocusAtMouse(self, _ofm=_ofm):",
+    "            _ofm(self)",
+    "            try:",
+    "                self.OnSetFocus()",
+    "                if os.path.exists('/m2w_edit.json'):",
+    "                    _f = open('/m2w_edit.json', 'r'); _d = json.loads(_f.read()); _f.close()",
+    "                    _d['tap'] = True; _d['text'] = str(self.GetText() or '')",
+    "                    _f = open('/m2w_edit.json', 'w'); _f.write(json.dumps(_d)); _f.close()",
+    "            except Exception: pass",
+    "        _SRE.FocusAtMouse = _m2oFocusAtMouse",
+    "        _SRE._m2oTapPatch = True",
+    "except Exception: pass",
     "open('/m2w_tap_ok', 'w').close()"
   ].join("\n");
   setInterval(function () {
@@ -4028,12 +4220,13 @@
         if (tEl === chatInp) sendChatInput();
         return;
       }
+      var seqBeforeOk = lastEditSeq;
       keyEv("Enter");
-      // Enter pode levar o foco para o próximo campo (usuário -> senha): o teclado fica.
-      keepKbUntil = Date.now() + 900;
+      keepKbUntil = Date.now() + 450;
       setTimeout(function () {
-        if (Date.now() >= keepKbUntil && !fsExists("/m2w_edit.json")) hideGameKb();
-      }, 950);
+        var eiAfter = readEditInfo();
+        if (!eiAfter || (Number(eiAfter.seq) || 1) === seqBeforeOk) hideGameKb();
+      }, 350);
       return;
     }
     var ch = k;
@@ -4355,6 +4548,7 @@
     worldEls.forEach(function (el) { el.style.display = inWorld ? "" : "none"; });
     updateChatLogVisibility();
     vipBtn.style.display = (inWorld && vipActive) ? "" : "none";
+    if (gmBtn) gmBtn.style.display = (inWorld && prevIsGm) ? "" : "none";
     if (!inWorld && vipPanel) { vipPanel.remove(); vipPanel = null; }
     if (!inWorld && whisperPanel) { whisperPanel.remove(); whisperPanel = null; }
     if (!inWorld && uiHidden) setUiHidden(false);
@@ -4545,6 +4739,7 @@
     if (isGm !== prevIsGm) {
       prevIsGm = isGm;
       if (gmBtn) gmBtn.style.display = (inWorld && isGm) ? "" : "none";
+      positionShopBtn();
       if (!isGm && gmModal.classList.contains("open")) gmModal.classList.remove("open");
     }
 
@@ -4786,9 +4981,53 @@
     "    _co = sys.modules.get('uicollector')",
     "    if _co is not None:",
     "        _m2oR(_co._window.get('window'))",
+    "    _ah = sys.modules.get('uiautohunt')",
+    "    if _ah is not None:",
+    "        _h = getattr(_ah, '_hunter', None)",
+    "        if _h is not None:",
+    "            for _hw in (getattr(_h, 'mainWindow', None), getattr(_h, 'lootWindow', None)):",
+    "                if _hw is not None and _hw.IsShow():",
+    "                    _o = 1",
+    "                    _m2oR(_hw)",
+    "                    _pd = getattr(_hw, 'profileDrawer', None)",
+    "                    if _pd is not None and _pd.IsShow():",
+    "                        _m2oR(_pd)",
+    "                    _mp = getattr(_hw, 'mobilePicker', None)",
+    "                    if _mp is not None and _mp.IsShow():",
+    "                        _m2oR(_mp)",
+    "            _lw = getattr(_h, 'lootWindow', None)",
+    "            _iw = getattr(_lw, 'itemWindow', None) if _lw is not None else None",
+    "            if _iw is not None and _iw.IsShow():",
+    "                _o = 1",
+    "                _m2oR(_iw)",
+    "                _ipd = getattr(_iw, 'profileDrawer', None)",
+    "                if _ipd is not None and _ipd.IsShow():",
+    "                    _m2oR(_ipd)",
+    "                _cd = getattr(_iw, 'customDialog', None)",
+    "                if _cd is not None and _cd.IsShow():",
+    "                    _m2oR(_cd)",
     "except Exception:",
     "    pass",
-    "open('/m2w_xwin', 'w').write('%d,%d,%d|%s' % (_o, _s, _c, ';'.join(_r)))"
+    "_rq = 0",
+    "try:",
+    "    _ms = getattr(getattr(self, 'interface', None), 'wndMessenger', None)",
+    "    if _ms is not None:",
+    "        _rq = len(getattr(_ms, 'requests', None) or ())",
+    "        for _dn in ('friendNameBoard', 'inputDialog', 'reportDialog', 'popupDialog', 'questionDialog', 'reportsPanel'):",
+    "            _dw = getattr(_ms, _dn, None)",
+    "            if _dw is not None and _dw.IsShow():",
+    "                _o = 1",
+    "                _m2oR(_dw)",
+    "        _rpw = getattr(_ms, 'reportsPanel', None)",
+    "        if _rpw is not None:",
+    "            for _rn in ('question', 'popup'):",
+    "                _rw = getattr(_rpw, _rn, None)",
+    "                if _rw is not None and _rw.IsShow():",
+    "                    _o = 1",
+    "                    _m2oR(_rw)",
+    "except Exception:",
+    "    pass",
+    "open('/m2w_xwin', 'w').write('%d,%d,%d,%d|%s' % (_o, _s, _c, _rq, ';'.join(_r)))"
   ].join("\n");
   // Janelas do jogo "na frente" dos controles: o jogo desenha as janelas no canvas, que
   // fica por baixo do overlay. Então, onde uma janela aberta está, os controles do overlay
@@ -4806,7 +5045,7 @@
     return { left: r.left + x * kx, top: r.top + y * ky, right: r.left + (x + w) * kx, bottom: r.top + (y + h) * ky };
   }
   function underWinCandidates() {
-    var list = [hudTl, tlSide, atkBtn, joy, pickupBtn, chatBar, zoomBar, shopBtn, kbBtn, vipBtn].concat(slotEls);
+    var list = [hudTl, tlSide, atkBtn, joy, pickupBtn, chatBar, zoomBar, shopBtn, kbBtn, vipBtn, gmBtn].concat(slotEls);
     for (var i = 0; i < rCol.children.length; i++) list.push(rCol.children[i]);
     return list;
   }
@@ -4846,6 +5085,11 @@
         var v = xr[0] === "1";
         var shopNow = xr[1] === "1";
         root.classList.toggle("chatlog-open", xr[2] === "1");
+        var commBadge = document.getElementById("m2o_comm_badge");
+        if (commBadge) {
+          var rqCnt = Number(xr[3]) || 0;
+          commBadge.textContent = rqCnt > 0 ? String(rqCnt) : "";
+        }
         if (v !== xWinOpen) { xWinOpen = v; applyOpenWin(); }
         if (shopNow && !shopOpen) placeItemShop();
         shopOpen = shopNow;
