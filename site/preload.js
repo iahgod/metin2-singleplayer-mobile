@@ -175,6 +175,7 @@
                 var name = list[i++] + '.bin';
                 var sUrl = base + name;
                 var wasNet = false;
+                var dlStart = 0;
                 if (m2w.chunks && m2w.chunks.map && m2w.chunks.map.has(name)) {
                     ++download.fromCache;
                     setTimeout(next, 2);
@@ -190,6 +191,7 @@
                         return;
                     }
                     wasNet = true;
+                    dlStart = performance.now();
                     return fetch(sUrl).then(function (o) {
                         if (!o || !o.ok) throw new Error('HTTP ' + (o && o.status));
                         return o.arrayBuffer().then(function (b) {
@@ -202,7 +204,10 @@
                     if (download.done > 0 || (n % 25) === 0)
                         show(DLT.bg + n + ' / ' + download.total, n / download.total,
                              download.done ? (megabytesPerSecond().toFixed(1) + ' MB/s' + (download.errors ? DLT.errs + download.errors : '')) : DLT.mem);
-                    setTimeout(next, wasNet ? 35 : 5);
+                    // Throttle adaptativo: delay proporcional ao tempo de download do chunk
+                    // Conexões rápidas (<50ms) → delay mínimo (5ms); lentas (>200ms) → até 80ms
+                    var delay = wasNet ? Math.min(80, Math.max(5, Math.round((performance.now() - dlStart) * 0.3))) : 5;
+                    setTimeout(next, delay);
                 });
             }
             next();

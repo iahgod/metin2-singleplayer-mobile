@@ -1528899,7 +1528899,7 @@ class PlanWindow(inv._Window, HelpMark):
         self.previous=self.Control('arrow',77,0,'<',self.Fallback)
         self.fallback=self.Control('selector',104,0,'',self.Fallback)
         self.next=self.Control('arrow',230,0,'>',self.Fallback)
-        self.afterControls=(self.previous,self.fallback,self.__next__)
+        self.afterControls=(self.previous,self.fallback,self.next)
         self._StatusLines(0)
         self.layoutKinds=None
         self.Refresh()

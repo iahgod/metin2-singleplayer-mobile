@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Tutorial Definitivo: Metin2 Web & Mobile Client (/site)</title>
+<style>
+  :root {
+    --bg-main: #0a0806;
+    --bg-card: #16130f;
+    --border-color: #3a2f22;
+    --gold: #f7dfa0;
+    --gold-light: #ffcb52;
+    --text: #e8d9b8;
+    --text-muted: #9a8f7c;
+    --accent: #c49a45;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--bg-main);
+    color: var(--text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.8);
+  }
+  h1 {
+    font-family: 'Cinzel', 'Trajan Pro', Georgia, serif;
+    color: var(--gold);
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    text-align: center;
+    text-shadow: 0 2px 6px #000;
+  }
+  .subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+  }
+  h2 {
+    color: var(--gold-light);
+    font-size: 1.4rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent);
+    padding-left: 10px;
+  }
+  h3 {
+    color: var(--gold);
+    font-size: 1.1rem;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+  p, li {
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+  ul, ol {
+    margin-left: 24px;
+    margin-bottom: 15px;
+  }
+  code {
+    background: #0d0b09;
+    border: 1px solid var(--border-color);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--gold-light);
+    font-size: 0.9em;
+  }
+  pre {
+    background: #0d0b09;
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 15px 0;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #e0d0b0;
+  }
+  .file-path {
+    display: inline-block;
+    background: #252018;
+    color: var(--gold-light);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-family: monospace;
+    margin: 2px 0;
+  }
+  .tip-box {
+    background: rgba(196, 154, 69, 0.1);
+    border: 1px solid var(--accent);
+    padding: 15px;
+    border-radius: 6px;
+    margin: 20px 0;
+  }
+  .tip-box b {
+    color: var(--gold-light);
+  }
+  .toc {
+    background: #110e0b;
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+  }
+  .toc h3 {
+    margin-top: 0;
+    color: var(--gold-light);
+  }
+  .toc ul {
+    margin-bottom: 0;
+  }
+  .toc a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  .toc a:hover {
+    color: var(--gold);
+    text-decoration: underline;
+  }
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Guia Definitivo da Pasta <code>/site</code></h1>
+  <div class="subtitle">Onde alterar cada elemento da interface, janelas UI, telas de carregamento e motor do Metin2 Web & Mobile</div>
+
+  <div class="toc">
+    <h3>Índice do Tutorial</h3>
+    <ul>
+      <li><a href="#intro">1. Visão Geral da Pasta <code>/site</code></a></li>
+      <li><a href="#overlay">2. Onde estão as Janelas UI e Controles Móveis (<code>mobile_overlay.js</code>)</a></li>
+      <li><a href="#loading">3. Tela de Carregamento e Wallpapers (<code>loading/</code>)</a></li>
+      <li><a href="#i18n">4. Traduções, Itens, Habilidades e Mobs (<code>i18n/</code>)</a></li>
+      <li><a href="#client">5. Configurações do Cliente, Desempenho e Canvas (<code>client.html</code> e <code>mobile.html</code>)</a></li>
+      <li><a href="#pwa">6. PWA, Ícones e Service Worker (<code>manifest.json</code> e <code>sw.js</code>)</a></li>
+      <li><a href="#extras">7. Páginas Extras (Registro, Guerras e Atualizações)</a></li>
+      <li><a href="#dicas">8. Dicas Práticas para Desenvolvedores</a></li>
+    </ul>
+  </div>
+
+  <h2 id="intro">1. Visão Geral da Pasta <code>/site</code></h2>
+  <p>A pasta <code>/site</code> abriga todo o front-end web e mobile do cliente Metin2 WebAssembly. Quando você acessa o servidor via navegador, é esta pasta que é servida pelo Nginx. Aqui você pode modificar praticamente tudo na interface visual, adicionar novos recursos, traduzir textos, trocar imagens de carregamento e ajustar o comportamento tátil.</p>
+
+  <h2 id="overlay">2. Onde estão as Janelas UI e Controles Móveis (<span class="file-path">mobile_overlay.js</span>)</h2>
+  <p>O arquivo <span class="file-path">site/mobile_overlay.js</span> é o coração da interface web e mobile. Ele injeta dinamicamente o HUD estilo Dark-Fantasy (Old2) sobre o canvas do jogo quando detecta um dispositivo touch ou modo mobile (<code>?mobile=1</code>).</p>
+  
+  <h3>O que você pode alterar nele:</h3>
+  <ul>
+    <li><b>Joystick Virtual & Botões de Movimento:</b> Gerencia o analógico virtual flutuante no lado esquerdo da tela para controle das direções (WASD).</li>
+    <li><b>Atalhos de Ação Rápida:</b> Botões de ataque físico (Espaço), coleta rápida de itens no chão (Z), poções vermelhas/azuis e atalhos de habilidades (1, 2, 3, 4).</li>
+    <li><b>Janelas do Jogo (UI):</b> Contém a lógica de abertura e fechamento de janelas essenciais:
+      <ul>
+        <li>Inventário (<code>I</code>)</li>
+        <li>Habilidades (<code>K</code>)</li>
+        <li>Janela de Personagem (<code>P</code>)</li>
+        <li>Opções / Configurações (<code>Esc</code>)</li>
+      </ul>
+    </li>
+    <li><b>Histórico de Chat & Caixa de Mensagens:</b> Interface HTML flutuante que exibe as mensagens do chat do jogo em tempo real e permite enviar comandos via bridge Python/WebSocket.</li>
+    <li><b>Menu Flutuante de Configurações do Jogador:</b>
+      <ul>
+        <li>Modo de Desempenho (<code>Eco</code>, <code>Equilibrado</code>, <code>Qualidade</code>)</li>
+        <li>Limite de FPS (30, 60, ilimitado)</li>
+        <li>Vibração tátil (Haptics)</li>
+        <li>Seletor rápido de idiomas (Português, Polonês, Inglês)</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2 id="loading">3. Tela de Carregamento e Wallpapers (<span class="file-path">loading/</span>)</h2>
+  <p>O Metin2 Web possui uma recriação fiel da clássica tela de carregamento de 2009 com wallpapers rotativos, barra de progresso autêntica (336x25 pixels) e dicas rotativas.</p>
+  <ul>
+    <li><b>Wallpapers:</b> O script escaneia automaticamente imagens em <span class="file-path">site/loading/loading0.jpg</span>, <code>loading1.jpg</code>, etc. Para adicionar novos papéis de parede, basta colocar imagens `.jpg` ou `.png` nessa pasta.</li>
+    <li><b>Barra de Carregamento:</b> As imagens <span class="file-path">site/loading/gauge_empty.png</span> e <span class="file-path">site/loading/gauge_full.png</span> definem o visual da barra de progresso.</li>
+    <li><b>Dicas do Jogo:</b> O array <code>LOADING_TIPS</code> dentro de <span class="file-path">mobile_overlay.js</span> (ou traduzido via <code>i18n/overlay.json</code>) controla as dicas exibidas na parte inferior durante o carregamento.</li>
+  </ul>
+
+  <h2 id="i18n">4. Traduções, Itens, Habilidades e Mobs (<span class="file-path">i18n/</span>)</h2>
+  <p>A pasta <span class="file-path">site/i18n/</span> contém os dicionários JSON utilizados para traduzir a interface e os dados do jogo para Português, Polonês e Inglês:</p>
+  <ul>
+    <li><span class="file-path">site/i18n/overlay.json</span>: Textos do HUD, botões do mobile overlay, títulos de janelas e dicas de carregamento.</li>
+    <li><span class="file-path">site/i18n/items_i18n.json</span>: Nomes e descrições dos itens do Metin2 em múltiplos idiomas.</li>
+    <li><span class="file-path">site/i18n/skills_i18n.json</span>: Nomes das habilidades de todas as classes (Guerreiro, Ninja, Sura, Shaman).</li>
+    <li><span class="file-path">site/i18n/mobs_i18n.json</span>: Nomes dos monstros, chefes e NPCs.</li>
+    <li><span class="file-path">site/i18n/bonuses_i18n.json</span>: Descrição dos bônus de equipamentos (ex: Força, Vitalidade, Dano de Habilidade, Resistência a Magia).</li>
+  </ul>
+
+  <h2 id="client">5. Configurações do Cliente, Desempenho e Canvas (<span class="file-path">client.html</span> e <span class="file-path">mobile.html</span>)</h2>
+  <ul>
+    <li><span class="file-path">site/client.html</span>: É a página principal onde o WebAssembly roda. Aqui você encontra:
+      <ul>
+        <li>Configurações de WebGL com alta performance (<code>powerPreference: "high-performance"</code>).</li>
+        <li>Definições de DPR (PixelRatio) adaptáveis para economizar bateria em celulares ou entregar máxima nitidez no PC.</li>
+        <li>Orçamento de memória para o carregamento dinâmico do <code>corpus</code> (arquivos de assets do jogo divididos em partes).</li>
+      </ul>
+    </li>
+    <li><span class="file-path">site/mobile.html</span>: Página leve de redirecionamento que detecta dispositivos móveis e inicia o cliente com parâmetros otimizados (buffer interno de 960x540, neblina ajustada, sem sombras pesadas).</li>
+  </ul>
+
+  <h2 id="pwa">6. PWA, Ícones e Service Worker (<span class="file-path">manifest.json</span> e <span class="file-path">sw.js</span>)</h2>
+  <ul>
+    <li><span class="file-path">site/manifest.json</span>: Configura o aplicativo como PWA (Progressive Web App). Permite que os jogadores instalem o Metin2 na tela inicial do celular com ícone próprio, cor de tema (<code>#080604</code>) e modo tela cheia.</li>
+    <li><span class="file-path">site/sw.js</span>: Service Worker que gerencia o cache offline dos arquivos essenciais, garantindo carregamento ultrarrápido em visitas posteriores.</li>
+  </ul>
+
+  <h2 id="extras">7. Páginas Extras (Registro, Guerras e Atualizações)</h2>
+  <ul>
+    <li><span class="file-path">site/rejestracja.html</span>: Interface web para criação rápida de contas de jogadores integrada ao banco de dados MariaDB via <span class="file-path">reg/server.py</span>.</li>
+    <li><span class="file-path">site/wojny.html</span>: Central de Guerras de Guildas ao vivo, tabela de classificação e reprodutor de replays 2D/3D.</li>
+    <li><span class="file-path">site/aktualizacja.html</span>: Página de notas de atualização e changelog do servidor.</li>
+  </ul>
+
+  <h2 id="dicas">8. Dicas Práticas para Desenvolvedores</h2>
+  <div class="tip-box">
+    <b>Como testar suas alterações:</b><br>
+    Sempre que modificar arquivos na pasta <code>/site</code> no seu servidor VPS, limpe o cache do navegador ou abra a página em aba anônima (ou adicione um parâmetro de versão como <code>?v=999</code> na URL) para garantir que o navegador baixe os arquivos atualizados.
+  </div>
+
+  <h2 id="performance">9. Otimização de Desempenho e Solução de Crashes no Celular</h2>
+  <p>Se o jogo está lento ou fechando (crash) em alguns dispositivos móveis, isso geralmente ocorre por estouro de memória (RAM), sobrecarga da GPU ou superaquecimento. Aqui está como otimizar:</p>
+  <ul>
+    <li><b>Resolução de Renderização:</b> O cliente ajusta a resolução interna baseada no <code>DPR</code> (densidade de pixels) da tela. Use o modo <b>Gráficos: Baixo</b> nas configurações do HUD (ícone de engrenagem) para forçar uma resolução menor, economizando muita RAM e GPU.</li>
+    <li><b>Limitação de FPS:</b> Jogar com FPS ilimitado em telas de 120Hz drena a bateria e causa superaquecimento. Configure o limite de FPS para <b>30</b> ou <b>45</b> no menu de configurações do HUD. Isso estabiliza o consumo e evita que o navegador mate o processo.</li>
+    <li><b>Ocultar Lojas (M1):</b> Em áreas lotadas, o excesso de lojas privadas causa lag. Use os botões <b>"Lojas: Escondidas"</b> ou <b>"Lojas: Perto"</b> no menu de configurações do HUD para reduzir o número de elementos renderizados.</li>
+    <li><b>Memória RAM (Android/iOS):</b> O cliente utiliza muita RAM para carregar texturas e modelos. O <code>corpusBudget</code> (configurado em <code>client.html</code>) controla o cache de assets. Celulares com menos de 4GB de RAM podem precisar de um ajuste mais conservador neste valor se os crashes persistirem.</li>
+  </ul>
+
+  <footer>
+    Metin2 Web & Mobile Client Community Edition • Guia da Pasta <code>/site</code>
+  </footer>
+</div>
+</body>
+</html>

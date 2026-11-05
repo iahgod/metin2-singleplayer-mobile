@@ -93,23 +93,11 @@
     }).catch(function () { });
   })();
 
-  // ---------------------------------------------------------------- PWA, WebGL High-Performance, Persistent Storage & WakeLock
+  // ---------------------------------------------------------------- PWA, Persistent Storage & WakeLock
+  // NOTA: O patch WebGL para powerPreference: "high-performance" já é aplicado
+  // em client.html antes deste script carregar. Não duplicar aqui.
   (function initPwaAndDeviceBoost() {
-    // 1. Force powerPreference: "high-performance" on WebGL context creation
-    try {
-      if (!window._m2wGlPatched && typeof HTMLCanvasElement !== "undefined") {
-        window._m2wGlPatched = true;
-        var origGetCtx = HTMLCanvasElement.prototype.getContext;
-        HTMLCanvasElement.prototype.getContext = function (type, attrs) {
-          if (type === "webgl" || type === "webgl2" || type === "experimental-webgl") {
-            attrs = Object.assign({ powerPreference: "high-performance" }, attrs || {}, { powerPreference: "high-performance" });
-          }
-          return origGetCtx.call(this, type, attrs);
-        };
-      }
-    } catch (e) { }
-
-    // 2. Register test-safe Service Worker (sw.js with updateViaCache: 'none')
+    // 1. Register test-safe Service Worker (sw.js with updateViaCache: 'none')
     try {
       if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost" || location.hostname === "127.0.0.1")) {
         navigator.serviceWorker.register("sw.js", { updateViaCache: "none" }).then(function (reg) {
@@ -247,30 +235,53 @@
   var loadingFillWrap = document.getElementById("m2_loading_fill_wrap");
   var loadingTipEl = document.getElementById("m2_loading_tip");
 
-  // Imagens de carregamento: usa TODAS as que existirem na pasta loading/, com o
-  // nome loading0.jpg, loading1.jpg, loading2.jpg... (ou .png), sem limite de 6.
-  // Elas são conferidas no servidor a cada abertura (cache "no-cache"), então trocar
-  // uma imagem na pasta vale na próxima vez que o jogo abrir, sem limpar dados.
+  // Imagens de carregamento: verifica primeiro loading/manifest.json (lista explícita),
+  // senão usa range fixo limitado (0-9) para evitar dezenas de requests HEAD sequenciais.
+  // Para adicionar mais wallpapers, crie loading/manifest.json com array de caminhos.
   var LOADING_WALLPAPERS = ["loading/loading0.jpg"];
   var loadingBlobUrl = null;
   (function discoverLoadingImages() {
     if (typeof fetch !== "function") return;
-    var found = [];
-    var MAX = 60;
-    function probe(i) {
-      if (i >= MAX) return finish();
-      var tryExt = function (exts) {
-        if (!exts.length) return finish();
-        var url = "loading/loading" + i + "." + exts[0];
-        fetch(url, { method: "HEAD", cache: "no-store" }).then(function (r) {
-          if (r.ok && !/text\/html/i.test(r.headers.get("Content-Type") || "")) { found.push(url); probe(i + 1); }
-          else tryExt(exts.slice(1));
-        }).catch(function () { tryExt(exts.slice(1)); });
-      };
-      tryExt(["jpg", "png", "jpeg", "webp"]);
-    }
-    function finish() { if (found.length) LOADING_WALLPAPERS = found; }
-    probe(0);
+    // Tentar manifesto primeiro (zero probing se existir)
+    fetch("loading/manifest.json", { cache: "no-cache" }).then(function (r) {
+      if (r.ok) return r.json().then(function (list) {
+        if (Array.isArray(list) && list.length) LOADING_WALLPAPERS = list;
+      });
+    }).catch(function () {}).then(function () {
+      // Se manifesto não existe ou falhou, usar range fixo limitado (0-9)
+      if (LOADING_WALLPAPERS.length === 1 && LOADING_WALLPAPERS[0] === "loading/loading0.jpg") {
+        var found = [];
+        var MAX_RANGE = 10; // Limite fixo para evitar excesso de requests
+        var pending = 0;
+        for (var i = 0; i < MAX_RANGE; i++) {
+          (function (idx) {
+            var extensions = ["jpg", "png", "jpeg", "webp"];
+            function tryExt(ei) {
+              if (ei >= extensions.length) return;
+              var url = "loading/loading" + idx + "." + extensions[ei];
+              pending++;
+              fetch(url, { method: "HEAD", cache: "no-store" }).then(function (r) {
+                if (r.ok && !/text\/html/i.test(r.headers.get("Content-Type") || "")) {
+                  found[idx] = url;
+                } else if (ei + 1 < extensions.length) {
+                  tryExt(ei + 1);
+                }
+              }).catch(function () {
+                if (ei + 1 < extensions.length) tryExt(ei + 1);
+              }).finally(function () {
+                pending--;
+                if (pending === 0) finish();
+              });
+            }
+            tryExt(0);
+          })(i);
+        }
+        function finish() {
+          var valid = found.filter(Boolean);
+          if (valid.length) LOADING_WALLPAPERS = valid;
+        }
+      }
+    });
   })();
   function setLoadingWallpaper(url) {
     loadingEl.style.backgroundImage = "url('" + url + "')";
@@ -387,21 +398,44 @@
     }, 300);
   }
 
-  // Smooth progress glide
-  setInterval(function () {
-    if (!loadingActive) return;
-    if (loadingCurPct < loadingTgtPct) {
-      var step = Math.max(1, (loadingTgtPct - loadingCurPct) * 0.22);
+  // Smooth progress glide via requestAnimationFrame (replaces 40ms setInterval)
+  // Unified adaptive polling for loading/hud files (replaces 120ms setInterval)
+  var hadLoadingFile = false;
+  var lastPollTime = 0;
+  var POLL_INTERVAL_LOADING = 120;   // ms durante loading
+  var POLL_INTERVAL_GAMEPLAY = 500;  // ms após jogo iniciar (menos CPU)
+  var currentPollInterval = POLL_INTERVAL_LOADING;
+
+  function loadingLoop(timestamp) {
+    if (!loadingActive && currentPollInterval === POLL_INTERVAL_GAMEPLAY) {
+      // Jogo já iniciou, usar polling mais lento apenas para HUD updates
+      if (timestamp - lastPollTime >= currentPollInterval) {
+        lastPollTime = timestamp;
+        pollHudFile();
+      }
+      requestAnimationFrame(loadingLoop);
+      return;
+    }
+
+    // Animação suave da barra de progresso
+    if (loadingActive && loadingCurPct < loadingTgtPct) {
+      var step = Math.max(0.5, (loadingTgtPct - loadingCurPct) * 0.18);
       loadingCurPct = Math.min(loadingTgtPct, loadingCurPct + step);
       var disp = Math.round(loadingCurPct);
       loadingPctEl.textContent = disp + "%";
       loadingFillWrap.style.width = loadingCurPct + "%";
     }
-  }, 40);
 
-  // Loading polling interval (only reads /m2w_hud.json while loadingActive is true!)
-  var hadLoadingFile = false;
-  setInterval(function () {
+    // Polling adaptativo dos arquivos de loading/HUD
+    if (timestamp - lastPollTime >= currentPollInterval) {
+      lastPollTime = timestamp;
+      pollLoadingAndHudFiles();
+    }
+
+    requestAnimationFrame(loadingLoop);
+  }
+
+  function pollLoadingAndHudFiles() {
     try {
       if (!window.Module || !Module.FS) return;
       if (fsExists("/m2w_loading.json")) {
@@ -424,11 +458,25 @@
         var dh = JSON.parse(rawHud);
         if (dh && dh.max_hp > 0) {
           hadLoadingFile = false;
+          currentPollInterval = POLL_INTERVAL_GAMEPLAY;
           hideLoadingScreen();
         }
       }
     } catch (e) { }
-  }, 120);
+  }
+
+  function pollHudFile() {
+    try {
+      if (!window.Module || !Module.FS) return;
+      if (fsExists("/m2w_hud.json")) {
+        var rawHud = Module.FS.readFile("/m2w_hud.json", { encoding: "utf8" });
+        // Apenas verifica se arquivo existe e é válido; HUD updates são lidos pelo overlay
+      }
+    } catch (e) { }
+  }
+
+  // Iniciar loop unificado
+  requestAnimationFrame(loadingLoop);
 
   if (!isMobile) return;
 
@@ -693,7 +741,7 @@
   css.textContent =
     "html,body{margin:0 !important;padding:0 !important;width:100vw !important;height:100vh !important;width:100dvw !important;height:100dvh !important;overflow:hidden !important;background:#000 !important;position:fixed !important;inset:0 !important}" +
     "#canvas{position:fixed !important;inset:0 !important;top:0 !important;left:0 !important;width:100vw !important;height:100vh !important;width:100dvw !important;height:100dvh !important;max-width:none !important;max-height:none !important;object-fit:fill !important;margin:0 !important;padding:0 !important;border:none !important;display:block !important}" +
-    "#m2o{position:fixed;top:0;bottom:0;left:env(safe-area-inset-left,0px);right:env(safe-area-inset-right,0px);z-index:9999;pointer-events:none;font:600 11.5px/1.2 Tahoma,'Segoe UI',Arial,sans-serif;color:#e2dfd7;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}" +
+    "#m2o{position:fixed;top:0;bottom:0;left:0;right:0;z-index:9999;pointer-events:none;font:600 11.5px/1.2 Tahoma,'Segoe UI',Arial,sans-serif;color:#e2dfd7;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}" +
     "#m2o *{box-sizing:border-box}" +
     ":root{--sat:env(safe-area-inset-top,0px);--sar:env(safe-area-inset-right,0px);--sab:env(safe-area-inset-bottom,0px);--sal:env(safe-area-inset-left,0px)}" +
     "#m2o .settings-tabs{display:flex;gap:4px;margin-bottom:6px;border-bottom:1px solid #4a3e2e;padding-bottom:6px}" +
@@ -1683,6 +1731,14 @@
     '    <button type="button" data-val="100">100%</button>' +
     '    <button type="button" data-val="115">115%</button>' +
     '  </div>' +
+    '  <div style="font-size:10.5px;color:#b0a894;margin-top:2px">Layout da tela:</div>' +
+    '  <div class="settings-btns" id="m2o_set_layout_row">' +
+    '    <button type="button" data-val="mobile">HUD do celular</button>' +
+    '    <button type="button" data-val="bar">Barra embaixo</button>' +
+    '  </div>' +
+    '  <div class="settings-btns">' +
+    '    <button type="button" id="m2o_btn_edit_layout">\u270E Mudar a posi\u00E7\u00E3o dos bot\u00F5es</button>' +
+    '  </div>' +
     '</div>' +
     '<div class="settings-pane" data-pane="m1">' +
     '  <div style="font-size:10.5px;color:#b0a894">Lojas privadas (M1):</div>' +
@@ -1753,6 +1809,11 @@
     for (var k = 0; k < hudBtns.length; k++) {
       hudBtns[k].classList.toggle("active", hudBtns[k].getAttribute("data-val") === curHud);
     }
+    var curLayout = screenLayout();
+    var layBtns = settingsModal.querySelectorAll("#m2o_set_layout_row button");
+    for (var q = 0; q < layBtns.length; q++) {
+      layBtns[q].classList.toggle("active", layBtns[q].getAttribute("data-val") === curLayout);
+    }
   }
 
   var setCloseBtn = settingsModal.querySelector("#m2o_set_close");
@@ -1805,6 +1866,27 @@
       updateSettingsModalActive();
       applyHudScale(val);
       runPy("import chat; chat.AppendChat(chat.CHAT_TYPE_INFO, 'Tamanho do HUD: " + val + "%')");
+    });
+  }
+
+  var layoutRow = settingsModal.querySelector("#m2o_set_layout_row");
+  if (layoutRow) {
+    layoutRow.addEventListener("click", function (e) {
+      var btnEl = e.target.closest("button");
+      if (!btnEl) return;
+      var val = btnEl.getAttribute("data-val");
+      if (val !== "bar" && val !== "mobile") return;
+      try { localStorage.setItem("m2o.layout", val); } catch (e2) { }
+      updateSettingsModalActive();
+      applyScreenLayout(true);
+    });
+  }
+
+  var btnEditLayout = settingsModal.querySelector("#m2o_btn_edit_layout");
+  if (btnEditLayout) {
+    btnEditLayout.addEventListener("click", function () {
+      settingsModal.classList.remove("open");
+      startLayoutEdit();
     });
   }
 
@@ -2113,6 +2195,15 @@
   var communityBtn = btn('<img src="icons/ui/community.png" alt="Comunidade"><span class="rc-badge" id="m2o_comm_badge"></span>', function () {
     toggleCommunityWindow();
   }, "", "Comunidade (Alt+M)", true);
+  // Se icons/ui/community.png faltar no servidor, usa a mesma imagem guardada aqui dentro.
+  (function () {
+    var im = communityBtn.querySelector("img");
+    if (!im) return;
+    im.addEventListener("error", function () {
+      if (im.src.indexOf("data:") === 0) return;
+      im.src = "data:image/png;base64,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";
+    });
+  })();
   rCol.appendChild(communityBtn);
   addGearItem("Comunidade (Alt+M)", toggleCommunityWindow);
   addGearItem("Denunciar jogador", function () {
@@ -3345,10 +3436,62 @@
     "    _m2oWbHide(_itf)",
     "    _itf._m2oWbDump()"
   ];
-  // Inventário do companheiro no celular: o jogo abre a versão de PC (alta, 590 px,
-  // equipamento em cima e bolsa embaixo) e ela corta na tela. Igual ao inventário do
-  // personagem no celular: equipamento à esquerda, bolsa à direita (380 x 388).
-  var SIDEKICK_MOBILE_BUILD = "def _m2oMobileBuild(self):\n    LEFT = 8\n    COLW = DS_SLOTS * CELL\n    y = 32\n    self.equipmentBase = self._Image(self, LEFT + (COLW - EQUIPMENT_BASE_WIDTH) // 2, y, EQUIPMENT_BASE_IMAGE)\n    equip = ui.SlotWindow()\n    equip.SetParent(self.equipmentBase)\n    equip.SetPosition(3, 3)\n    equip.SetSize(150, 182)\n    for wear, x, slotY, width, height in EQUIPMENT_LAYOUT:\n        equip.AppendSlot(WearPos(wear), x, slotY, width, height)\n    equip.SetSelectEmptySlotEvent(ui.__mem_func__(self.OnSelectEmptyEquip))\n    equip.SetSelectItemSlotEvent(ui.__mem_func__(self.OnSelectItemEquip))\n    equip.SetUnselectItemSlotEvent(ui.__mem_func__(self.OnRightClickEquip))\n    equip.SetUseSlotEvent(ui.__mem_func__(self.OnUseEquip))\n    equip.SetOverInItemEvent(ui.__mem_func__(self.OnOverInEquip))\n    equip.SetOverOutItemEvent(ui.__mem_func__(self.OnOverOut))\n    equip.Show()\n    self.widgets.append(equip)\n    self.equipSlots = equip\n    by = y + EQUIPMENT_BASE_HEIGHT + 4\n    bx = LEFT + (COLW - 182) // 2\n    self.bagMode = self._Btn(self, 'small', bx, by, TEXT_BAG, self.ShowBag)\n    self.dsMode = self._Btn(self, 'small', bx + 46, by, TEXT_ALCHEMY, self.ShowAlchemy)\n    self.dsBoard = ui.Window()\n    self.dsBoard.SetParent(self)\n    self.dsBoard.SetPosition(LEFT, 32)\n    self.dsBoard.SetSize(COLW, DS_BOARD_HEIGHT)\n    self.widgets.append(self.dsBoard)\n    self.dsSlots = ui.SlotWindow()\n    self.dsSlots.SetParent(self.dsBoard)\n    self.dsSlots.SetPosition(0, 0)\n    self.dsSlots.SetSize(DS_SLOTS * CELL, DS_BOARD_HEIGHT)\n    for deck in range(DS_DECKS):\n        self._Label(self.dsBoard, 4, 2 + deck * 78, TEXT_DS_DECK % (deck + 1))\n        for kind in range(DS_SLOTS):\n            self.dsSlots.AppendSlot(WearPos(WEAR_MAX + deck * DS_SLOTS + kind), kind * CELL, 22 + deck * 78, CELL, CELL)\n    self.dsSlots.SetSlotBaseImage(SLOT_BASE_IMAGE, 1.0, 1.0, 1.0, 1.0)\n    self.dsSlots.SetSelectEmptySlotEvent(ui.__mem_func__(self.OnSelectEmptyEquip))\n    self.dsSlots.SetSelectItemSlotEvent(ui.__mem_func__(self.OnSelectItemEquip))\n    self.dsSlots.SetUnselectItemSlotEvent(ui.__mem_func__(self.OnRightClickEquip))\n    self.dsSlots.SetUseSlotEvent(ui.__mem_func__(self.OnUseEquip))\n    self.dsSlots.SetOverInItemEvent(ui.__mem_func__(self.OnOverInEquip))\n    self.dsSlots.SetOverOutItemEvent(ui.__mem_func__(self.OnOverOut))\n    self.dsSlots.Show()\n    self.widgets.append(self.dsSlots)\n    self.dsBoard.Hide()\n    self.unpinButton = self._Btn(self, 'small', bx + 92, by, TEXT_UNPIN, self.OnUnpinButton)\n    self.destroyButton = self._Btn(self, 'small', bx + 138, by, TEXT_DESTROY, self.OnDestroyButton)\n    gridX = LEFT + COLW + 10\n    ty = 34\n    self.tabs = []\n    for i in range(MAX_PAGES):\n        tab = ui.RadioButton()\n        tab.SetParent(self)\n        tab.SetPosition(gridX + 4 + i * TAB_STEP, ty)\n        tab.SetUpVisual(TAB_IMAGE % 1)\n        tab.SetOverVisual(TAB_IMAGE % 2)\n        tab.SetDownVisual(TAB_IMAGE % 3)\n        tab.SetText(PAGE_NAMES[i])\n        tab.SAFE_SetEvent(self.SetPage, i)\n        tab.Show()\n        self.widgets.append(tab)\n        self.tabs.append(tab)\n    self.dsPrev = self._Btn(self, 'small', gridX, ty, '<', self.PreviousDsPage)\n    self.dsNext = self._Btn(self, 'small', gridX + 116, ty, '>', self.NextDsPage)\n    self.dsPageLine = self._Label(self, gridX + 56, ty + 2, '')\n    gy = ty + TAB_HEIGHT + 3\n    grid = ui.GridSlotWindow()\n    grid.SetParent(self)\n    grid.SetPosition(gridX, gy)\n    grid.ArrangeSlot(0, GRID_COLUMNS, GRID_ROWS, CELL, CELL, 0, 0)\n    grid.SetSlotBaseImage(SLOT_BASE_IMAGE, 1.0, 1.0, 1.0, 1.0)\n    grid.SetSelectEmptySlotEvent(ui.__mem_func__(self.OnSelectEmptyBag))\n    grid.SetSelectItemSlotEvent(ui.__mem_func__(self.OnSelectItemBag))\n    grid.SetUnselectItemSlotEvent(ui.__mem_func__(self.OnRightClickBag))\n    grid.SetUseSlotEvent(ui.__mem_func__(self.OnUseBag))\n    grid.SetOverInItemEvent(ui.__mem_func__(self.OnOverInBag))\n    grid.SetOverOutItemEvent(ui.__mem_func__(self.OnOverOut))\n    grid.Show()\n    self.widgets.append(grid)\n    self.bagSlots = grid\n    my = by + 30\n    self._Image(self, LEFT + 4, my + 1, MONEY_ICON_IMAGE)\n    self.goldLine = self._Label(self, LEFT + 24, my, '')\n    self.giveYangButton = self._Btn(self, 'small', bx + 92, my + 20, TEXT_GIVE_YANG, self.OnGiveYang)\n    self.takeYangButton = self._Btn(self, 'small', bx + 138, my + 20, TEXT_TAKE_YANG, self.OnTakeYang)\n    self._StatusLines(gy + GRID_ROWS * CELL + 6)\n    tooltip = uiToolTip.ItemToolTip()\n    if hasattr(tooltip, 'SetCannotUseItemForceSetDisableColor'):\n        tooltip.SetCannotUseItemForceSetDisableColor(False)\n    tooltip.HideToolTip()\n    self.tooltip = tooltip\n";
+  // Inventário do companheiro no celular: a janela nova do jogo (176 x 565, equipamento
+  // em cima e bolsa embaixo) é mais alta que a tela do celular. Monta a janela do jogo
+  // normalmente e só reposiciona as peças: equipamento e yang à esquerda, bolsa à direita
+  // (346 x 385). Como usa a montagem do próprio jogo, não quebra quando o jogo muda os
+  // botões. (A versão antiga deste ajuste recriava a janela inteira e, com a janela nova,
+  // dava erro e o inventário não abria.)
+  // "Comprar artigos" (BuyWindow) não podia vir para a frente (sem a marca "float") e
+  // abria centralizada por baixo da janela do companheiro: agora abre ao lado e na frente.
+  var SIDEKICK_MOBILE_PY = [
+    "def _m2oMobileBuild(self):",
+    "    _m2oOrigBuild(self)",
+    "    gridX = 10 + EQUIPMENT_BASE_WIDTH + 10",
+    "    ty = 33",
+    "    for i, tab in enumerate(self.tabs):",
+    "        tab.SetPosition(gridX + 4 + i * TAB_STEP, ty)",
+    "    gy = ty + TAB_HEIGHT + 3",
+    "    self.bagSlots.SetPosition(gridX, gy)",
+    "    by = 33 + EQUIPMENT_BASE_HEIGHT + 8",
+    "    self.goldSlot.SetPosition(31, by)",
+    "    self.goldIcon.SetPosition(13, by + 2)",
+    "    self.goldLine.SetPosition(158, by + 3)",
+    "    sy = gy + GRID_ROWS * CELL + 6",
+    "    for i, line in enumerate(self.statusLines):",
+    "        line.SetPosition(self.WIDTH // 2, sy + i * STATUS_LINE_HEIGHT)",
+    "",
+    "def _m2oSetStatus(self, *args, **kwargs):",
+    "    _m2oOrigSetStatus(self, *args, **kwargs)",
+    "    for w in (getattr(self, 'goldSlot', None), getattr(self, 'goldIcon', None), getattr(self, 'goldLine', None)):",
+    "        if w is not None:",
+    "            w.Show()",
+    ""
+  ].join("\n");
+  var SIDEKICK_BUY_PY = [
+    "def _m2oBuyShow(self, *args, **kwargs):",
+    "    self.AddFlag('float')",
+    "    self.AddFlag('movable')",
+    "    try:",
+    "        import uisidekick, wndMgr",
+    "        _a = uisidekick._window.get('window')",
+    "        if _a is not None and _a.IsShow():",
+    "            ax, ay = _a.GetGlobalPosition()",
+    "            aw = _a.GetWidth()",
+    "            sw, sh = wndMgr.GetScreenWidth(), wndMgr.GetScreenHeight()",
+    "            mw, mh = self.GetWidth(), self.GetHeight()",
+    "            x = ax + aw + 4",
+    "            if x + mw > sw:",
+    "                x = ax - mw - 4",
+    "            if x < 0:",
+    "                x = max(0, sw - mw)",
+    "            self.SetPosition(x, max(0, min(ay, sh - mh)))",
+    "    except Exception:",
+    "        pass",
+    "    _m2oOrigBuyShow(self, *args, **kwargs)",
+    "    self.SetTop()",
+    ""
+  ].join("\n");
   function installSidekickLayout() {
     if (!inWorld || !isMobile) return;
     runPy(safePy([
@@ -3358,19 +3501,31 @@
       "        import uisidekickinventory as _sk",
       "    except Exception:",
       "        _sk = None",
-      "    if _sk is not None and not getattr(_sk, '_m2oMobileLayout', False):",
-      "        exec(" + JSON.stringify(SIDEKICK_MOBILE_BUILD) + ", _sk.__dict__)",
-      "        _sk.EquipmentWindow.WIDTH = 380",
-      "        _sk.EquipmentWindow.HEIGHT = 388",
+      "    if _sk is not None and not getattr(_sk, '_m2oMobileLayout2', False):",
+      "        _sk._m2oOrigBuild = _sk.EquipmentWindow.Build",
+      "        _sk._m2oOrigSetStatus = _sk.EquipmentWindow.SetStatus",
+      "        exec(" + JSON.stringify(SIDEKICK_MOBILE_PY) + ", _sk.__dict__)",
+      "        _sk.EquipmentWindow.WIDTH = 10 + _sk.EQUIPMENT_BASE_WIDTH + 10 + _sk.GRID_COLUMNS * _sk.CELL + 10",
+      "        _sk.EquipmentWindow.HEIGHT = 33 + _sk.TAB_HEIGHT + 3 + _sk.GRID_ROWS * _sk.CELL + 6 + _sk.STATUS_LINES * _sk.STATUS_LINE_HEIGHT + 8",
       "        _sk.EquipmentWindow.Build = _sk._m2oMobileBuild",
-      "        _sk._m2oMobileLayout = True",
+      "        _sk.EquipmentWindow.SetStatus = _sk._m2oSetStatus",
+      "        _sk._m2oMobileLayout2 = True",
       "        _w = _sk._state.get('eqWindow')",
       "        if _w is not None and not _w.IsShow():",
       "            try:",
       "                _w.Destroy()",
       "            except Exception:",
       "                pass",
-      "            _sk._state['eqWindow'] = None"
+      "            _sk._state['eqWindow'] = None",
+      "    try:",
+      "        import sidekickbuy as _sb",
+      "    except Exception:",
+      "        _sb = None",
+      "    if _sb is not None and not getattr(_sb, '_m2oMobileBuy', False):",
+      "        _sb._m2oOrigBuyShow = _sb.BuyWindow.Show",
+      "        exec(" + JSON.stringify(SIDEKICK_BUY_PY) + ", _sb.__dict__)",
+      "        _sb.BuyWindow.Show = _sb._m2oBuyShow",
+      "        _sb._m2oMobileBuy = True"
     ]));
   }
   // Depósito do colecionador no celular: o jogo abre a janela de PC (500x507), mais
@@ -4562,6 +4717,7 @@
       setTimeout(installWhisperPatch, 2200);
       setTimeout(installSidekickLayout, 3600);
       setTimeout(installCollectorLayout, 3800);
+      setTimeout(function () { applyScreenLayout(false); }, 600);
       setTimeout(function () { runPy(SHOP_PEEK_PY); }, 3200);
       refreshJoyRect();
       lastLayoutSig = "";
@@ -4588,6 +4744,292 @@
   setWorldMode(false);
 
   // =========================================================================
+  // LAYOUT DA TELA: "HUD do celular" (padrão, como antes) ou "Barra embaixo".
+  // A barra embaixo é do overlay (HTML), não a barra do jogo: uma faixa na base
+  // da tela com vida e mana (com os números), as 4 bolinhas de EXP, o nível e, à
+  // direita, os botões do menu. Os botões são os MESMOS da coluna da direita
+  // (configurações, inventário, missões, montaria, companheiro, comunidade...):
+  // eles saem da coluna e vão para a barra, então somem da tela e não ficam
+  // repetidos. Voltando para "HUD do celular", voltam para a coluna.
+  // Joystick, ataque, atalhos e chat sobem acima da barra.
+  // Preferência: localStorage "m2o.layout" = "mobile" | "bar".
+  // =========================================================================
+  var bbarCss = document.createElement("style");
+  bbarCss.textContent =
+    "#m2o .m2o-bbar{position:absolute;left:0;right:0;bottom:0;height:calc(var(--bb-h) + var(--sab));padding:0 10px var(--sab) 10px;display:none;align-items:center;gap:12px;pointer-events:auto;z-index:15;" +
+      "background:linear-gradient(180deg,rgba(28,26,22,0.94) 0%,rgba(10,10,10,0.97) 100%);border-top:1px solid #6e5f40;box-shadow:0 -1px 0 #1a1712,0 -3px 10px rgba(0,0,0,0.6)}" +
+    "#m2o.layout-bar .m2o-bbar{display:flex}" +
+    "#m2o .bb-gauges{flex:none;width:var(--bb-gw);display:flex;flex-direction:column;gap:2px;cursor:pointer}" +
+    "#m2o .bb-g{position:relative;height:var(--bb-gh);overflow:hidden;background:#0a0807;border:1px solid #5a4a30;border-radius:1px;box-shadow:inset 0 1px 3px #000,0 0 0 1px #000}" +
+    "#m2o .bb-fill{position:absolute;left:0;top:0;bottom:0;width:0%;background-repeat:no-repeat;background-position:left top;background-size:var(--bb-gw) 100%;transition:width 0.15s linear}" +
+    "#m2o .bb-hp .bb-fill{background-image:url(icons/ui/hud_hp_fill.png)}" +
+    "#m2o .bb-mp .bb-fill{background-image:url(icons/ui/hud_mp_fill.png)}" +
+    "#m2o .bb-g.bb-st{height:5px}" +
+    "#m2o .bb-st .bb-fill{width:100%;background-image:url(icons/ui/hud_st_fill.png)}" +
+    "#m2o .bb-g span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:700 9px/1 Tahoma,'Segoe UI',sans-serif;color:#fff;text-shadow:1px 1px 0 #000,-1px -1px 0 #000;pointer-events:none}" +
+    "#m2o .bb-exp{flex:none;position:relative;width:105px;height:25px;background:url(icons/ui/hud_exp_strip.png) no-repeat;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.85));cursor:pointer}" +
+    "#m2o .bb-lv{flex:none;font:700 10.5px/1 Tahoma,'Segoe UI',sans-serif;color:#e8dcc0;text-shadow:1px 1px 0 #000;white-space:nowrap}" +
+    "#m2o .bb-menu{margin-left:auto;display:flex;align-items:center;gap:6px}" +
+    "#m2o .bb-menu button{position:relative;overflow:visible;width:calc(var(--bb-h) - 8px);height:calc(var(--bb-h) - 8px);border-radius:4px;padding:0;display:flex;align-items:center;justify-content:center;" +
+      "border:1px solid #8a7444;outline:1px solid #1c1a17;background:radial-gradient(circle,#2a2c30 0%,#121315 100%);box-shadow:inset 0 0 0 1px #3a3429,inset 0 0 6px #000,0 2px 4px rgba(0,0,0,0.85)}" +
+    "#m2o .bb-menu button img{width:76%;height:76%;object-fit:contain;display:block;pointer-events:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.92))}" +
+    "#m2o .bb-menu button.bb-tex{border:none;outline:none;border-radius:0;box-shadow:none;background:var(--tex-up) center/100% 100% no-repeat}" +
+    "#m2o .bb-menu button.bb-tex:active{background-image:var(--tex-down)}" +
+    "#m2o .bb-menu button.bb-ico{border-radius:7px}" +
+    "#m2o .bb-menu .rc-badge{position:absolute;top:-5px;right:-5px}" +
+    "#m2o.layout-bar .bb-dup{display:none !important}" +
+    "#m2o .bb-menu button svg{width:70% !important;height:70% !important}" +
+    "#m2o .bb-menu button:active{border-color:#d8c08a;transform:scale(0.94)}" +
+    "#m2o.layout-bar .hud-tl{display:none !important}" +
+    "#m2o.layout-bar .tl-side,#m2o.layout-bar[data-scale] .tl-side{top:6px !important}" +
+    "#m2o.layout-bar .joy,#m2o.layout-bar .atk-btn,#m2o.layout-bar .pickup-btn,#m2o.layout-bar .qslot,#m2o.layout-bar .chat-bar,#m2o.layout-bar .chat-log{margin-bottom:calc(var(--bb-h) + var(--sab))}" +
+    "#m2o.layout-bar.ui-hidden .m2o-bbar{visibility:hidden !important;pointer-events:none !important}" +
+    "#m2o{--bb-h:42px;--bb-gw:180px;--bb-gh:13px}" +
+    "@media (max-height:420px){#m2o{--bb-h:36px;--bb-gw:150px;--bb-gh:11px}}";
+  document.head.appendChild(bbarCss);
+
+  var bottomBar = document.createElement("div");
+  bottomBar.className = "m2o-bbar";
+  bottomBar.innerHTML =
+    '<div class="bb-gauges" title="Personagem (C)">' +
+      '<div class="bb-g bb-hp"><div class="bb-fill" id="m2o_bb_hp"></div><span id="m2o_bb_hp_txt"></span></div>' +
+      '<div class="bb-g bb-mp"><div class="bb-fill" id="m2o_bb_mp"></div><span id="m2o_bb_mp_txt"></span></div>' +
+      '<div class="bb-g bb-st" title="Resist\u00EAncia (ST)"><div class="bb-fill" id="m2o_bb_st"></div></div>' +
+    '</div>' +
+    '<div class="bb-exp" title="Experiência">' +
+      '<div class="hud-exp-socket" style="left:5px"><div class="hud-exp-point"></div></div>' +
+      '<div class="hud-exp-socket" style="left:30px"><div class="hud-exp-point"></div></div>' +
+      '<div class="hud-exp-socket" style="left:55px"><div class="hud-exp-point"></div></div>' +
+      '<div class="hud-exp-socket" style="left:80px"><div class="hud-exp-point"></div></div>' +
+    '</div>' +
+    '<div class="bb-lv" id="m2o_bb_lv"></div>' +
+    '<div class="bb-menu"></div>';
+  root.appendChild(bottomBar);
+  // Só no jogo: some na tela de login e na seleção de personagem (como o resto do HUD).
+  bottomBar.style.display = inWorld ? "" : "none";
+  worldEls.push(bottomBar);
+  var bbMenu = bottomBar.querySelector(".bb-menu");
+  var bbHp = bottomBar.querySelector("#m2o_bb_hp"), bbHpTxt = bottomBar.querySelector("#m2o_bb_hp_txt");
+  var bbMp = bottomBar.querySelector("#m2o_bb_mp"), bbMpTxt = bottomBar.querySelector("#m2o_bb_mp_txt");
+  var bbLv = bottomBar.querySelector("#m2o_bb_lv");
+  var bbOrbs = bottomBar.querySelectorAll(".hud-exp-point");
+  ["mousedown", "mouseup", "mousemove"].forEach(function (evName) {
+    bottomBar.addEventListener(evName, function (e) { e.stopPropagation(); });
+  });
+  bottomBar.querySelector(".bb-gauges").addEventListener("click", function (e) {
+    e.stopPropagation();
+    runPy("try:\n    self.interface.ToggleCharacterWindow('STATUS')\nexcept Exception:\n    pass");
+  });
+  bottomBar.querySelector(".bb-exp").addEventListener("click", function (e) {
+    e.stopPropagation();
+    showHudTip("<b>EXP</b> " + curExp + " / " + curMaxExp + " (" + curExpPct.toFixed(1) + "%)", 200, 8);
+  });
+  var bbPrev = "";
+  var bbSt = bottomBar.querySelector("#m2o_bb_st");
+  var hudStFill = document.getElementById("m2o_st_fill");
+  var prevStW = "";
+  function updateStamina(st, mst) {
+    if (!(mst > 0)) return;
+    var w = Math.min(100, Math.max(0, Math.round(st / mst * 100))) + "%";
+    if (w === prevStW) return;
+    prevStW = w;
+    if (bbSt) bbSt.style.width = w;
+    if (hudStFill) hudStFill.style.width = w;
+  }
+  function updateBottomBar(hp, maxHp, sp, maxSp, expPct, level) {
+    if (!root.classList.contains("layout-bar")) return;
+    var sig = [hp, maxHp, sp, maxSp, expPct.toFixed(1), level].join(",");
+    if (sig === bbPrev) return;
+    bbPrev = sig;
+    bbHp.style.width = Math.min(100, Math.round(hp / maxHp * 100)) + "%";
+    bbHpTxt.textContent = hp + " / " + maxHp;
+    bbMp.style.width = Math.min(100, Math.round(sp / maxSp * 100)) + "%";
+    bbMpTxt.textContent = sp + " / " + maxSp;
+    for (var i = 0; i < bbOrbs.length; i++) {
+      bbOrbs[i].style.height = Math.min(100, Math.max(0, (expPct - i * 25) / 25 * 100)).toFixed(1) + "%";
+    }
+    bbLv.textContent = "Nv " + level + " — " + Math.floor(expPct) + "%";
+  }
+  function screenLayout() {
+    try { return localStorage.getItem("m2o.layout") === "bar" ? "bar" : "mobile"; } catch (e) { return "mobile"; }
+  }
+  // Botões da barra, na ordem da barra do jogo no PC: companheiro, auto-caça,
+  // personagem, inventário, amigos/guilda; depois montaria e missões; por último as
+  // configurações. Cada um só "aperta" o botão que já existe na tela (mesma ação do
+  // jogo); esses botões da tela ficam escondidos enquanto a barra está ligada.
+  // Texturas: as da barra do jogo (icons/ui/tb_*_button_01/02.png, tiradas de
+  // ymir work/ui/taskbar.tga e playerbot_ui/*_button_0X.tga).
+  function rColButton(prefix) {
+    for (var i = 0; i < rCol.children.length; i++) {
+      var b = rCol.children[i];
+      if ((b.title || "").indexOf(prefix) === 0) return b;
+    }
+    return null;
+  }
+  var BB_BUTTONS = [
+    { tex: "sidekick", title: "Companheiro (P)", src: function () { return rColButton("Companheiro"); } },
+    { tex: "autohunt", title: "Auto-caça (K)", src: function () { return btnAutoHunt; } },
+    { tex: "character", title: "Personagem (C)", run: "try:\n    self.interface.ToggleCharacterWindow('STATUS')\nexcept Exception:\n    pass" },
+    { tex: "inventory", title: "Inventário (I)", src: function () { return rColButton("Invent"); } },
+    { tex: "community", title: "Amigos e guilda (Alt+M)", src: function () { return rColButton("Comunidade"); } },
+    { img: "icons/ui/mount.png", title: "Montar / desmontar", src: function () { return rColButton("Montar"); } },
+    { img: "icons/ui/quests.png", title: "Missões", src: function () { return rColButton("Miss"); } },
+    { tex: "system", title: "Configurações", src: function () { return rColButton("Configura"); } }
+  ];
+  BB_BUTTONS.forEach(function (d) {
+    var b = btn(d.img ? '<img src="' + d.img + '" alt=""><span class="rc-badge"></span>' : '<span class="rc-badge"></span>', function () {
+      if (d.run) { runPy(d.run); return; }
+      var s = d.src && d.src();
+      if (s) s.click();
+    }, d.tex ? "bb-tex" : "bb-ico", d.title, true);
+    if (d.tex) b.style.setProperty("--tex-up", "url(icons/ui/tb_" + d.tex + "_button_01.png)");
+    if (d.tex) b.style.setProperty("--tex-down", "url(icons/ui/tb_" + d.tex + "_button_02.png)");
+    d.el = b;
+    bbMenu.appendChild(b);
+  });
+  // As bolinhas de aviso (missões, mensagens da comunidade) vêm do botão da tela.
+  setInterval(function () {
+    if (!root.classList.contains("layout-bar")) return;
+    BB_BUTTONS.forEach(function (d) {
+      var s = d.src && d.src();
+      var from = s && s.querySelector(".rc-badge"), to = d.el.querySelector(".rc-badge");
+      var txt = from ? from.textContent : "";
+      if (to && to.textContent !== txt) to.textContent = txt;
+    });
+  }, 1000);
+  function markMenuDuplicates(bar) {
+    BB_BUTTONS.forEach(function (d) {
+      var s = d.src && d.src();
+      if (s) s.classList.toggle("bb-dup", bar);
+    });
+  }
+  function applyScreenLayout(fromUser) {
+    var bar = screenLayout() === "bar";
+    var was = root.classList.contains("layout-bar");
+    if (bar !== was) {
+      markMenuDuplicates(bar);
+      root.classList.toggle("layout-bar", bar);
+      bbPrev = "";
+      if (bar) updateBottomBar(curHp || 0, curMaxHp || 1, curSp || 0, curMaxSp || 1, curExpPct || 0, (prevLvStr || "Lv. 1").replace(/\D+/g, "") || 1);
+    }
+    try { refreshJoyRect(); } catch (e) { }
+    try { if (typeof updateUnderWin === "function") updateUnderWin(); } catch (e) { }
+    if (bar !== was && typeof applyBtnPositions === "function" && EDITABLE) { btnPos = loadPos(); applyBtnPositions(); }
+    if (!inWorld) return;
+    lastLayoutSig = "";
+    scheduleLayoutSync(200, true);
+    if (fromUser || bar !== was) setTimeout(applyNativeChat, 250);
+  }
+  applyScreenLayout(false);
+
+  // =========================================================================
+  // POSIÇÃO DOS BOTÕES (Configurações > Gráficos e HUD > Mudar a posição dos botões)
+  // Arrasta joystick, ataque, atalhos, chat, coluna da direita, botões do topo...
+  // (tudo menos a barra de baixo) e salva. Fica guardado neste aparelho, um para
+  // cada layout (HUD do celular / Barra embaixo): localStorage "m2o.btnPos.<layout>",
+  // deslocamento de cada peça em fração da largura/altura da tela.
+  // =========================================================================
+  var editCss = document.createElement("style");
+  editCss.textContent =
+    "#m2o.edit-layout .m2o-edit{outline:2px dashed rgba(255,215,94,0.9);outline-offset:2px;visibility:visible !important;pointer-events:auto !important}" +
+    "#m2o.edit-layout .m2o-edit.dragging{outline-color:#7dff9a}" +
+    "#m2o.layout-bar .rcol.m2o-edit{outline:none}" +
+    "#m2o .edit-panel{position:absolute;top:46px;left:50%;transform:translateX(-50%);display:none;flex-direction:column;align-items:center;gap:6px;padding:8px 12px;z-index:100010;pointer-events:auto;background:rgba(10,11,13,0.92);border:1px solid #c8a862;border-radius:4px;box-shadow:0 4px 16px rgba(0,0,0,0.9);color:#f3dfb0;font:700 11px/1.3 Tahoma,'Segoe UI',sans-serif;text-align:center}" +
+    "#m2o.edit-layout .edit-panel{display:flex}" +
+    "#m2o .edit-panel .ep-row{display:flex;gap:6px}" +
+    "#m2o .edit-panel button{height:28px;padding:0 12px;border-radius:3px;font-size:11px}";
+  document.head.appendChild(editCss);
+  var EDITABLE = [["hud", hudTl], ["side", tlSide], ["rcol", rCol], ["joy", joy], ["atk", atkBtn],
+    ["pick", pickupBtn], ["chat", chatBar, [chatLog]], ["zoom", zoomBar], ["shop", shopBtn],
+    ["esc", escBtn], ["kb", kbBtn], ["eye", uiToggleBtn], ["vip", vipBtn]];
+  slotEls.forEach(function (el, i) { EDITABLE.push(["qs" + i, el]); });
+  function posKey() { return "m2o.btnPos." + screenLayout(); }
+  function loadPos() {
+    try { var o = JSON.parse(localStorage.getItem(posKey()) || "{}"); return (o && typeof o === "object") ? o : {}; } catch (e) { return {}; }
+  }
+  var btnPos = loadPos();
+  function shiftEditable(entry, fx, fy) {
+    var v = (fx || fy) ? Math.round(fx * window.innerWidth) + "px " + Math.round(fy * window.innerHeight) + "px" : "";
+    [entry[1]].concat(entry[2] || []).forEach(function (el) { if (el) el.style.translate = v; });
+  }
+  function applyBtnPositions() {
+    EDITABLE.forEach(function (en) {
+      var p = btnPos[en[0]];
+      shiftEditable(en, p ? p[0] : 0, p ? p[1] : 0);
+    });
+    try { refreshJoyRect(); } catch (e) { }
+    try { if (typeof updateUnderWin === "function") updateUnderWin(); } catch (e) { }
+  }
+  var editPanel = document.createElement("div");
+  editPanel.className = "edit-panel";
+  editPanel.innerHTML = '<div>Arraste os botões para onde quiser.</div><div class="ep-row"></div>';
+  var epRow = editPanel.querySelector(".ep-row");
+  root.appendChild(editPanel);
+  var editing = false, editBackup = null, drag = null;
+  function finishEdit(save) {
+    if (!editing) return;
+    editing = false;
+    root.classList.remove("edit-layout");
+    EDITABLE.forEach(function (en) { en[1] && en[1].classList.remove("m2o-edit", "dragging"); });
+    if (save) {
+      try { localStorage.setItem(posKey(), JSON.stringify(btnPos)); } catch (e) { }
+    } else {
+      btnPos = editBackup || {};
+    }
+    applyBtnPositions();
+    if (inWorld) setTimeout(applyNativeChat, 150);
+  }
+  epRow.appendChild(btn("Salvar", function () { finishEdit(true); }));
+  epRow.appendChild(btn("Padrão", function () { btnPos = {}; applyBtnPositions(); }));
+  epRow.appendChild(btn("Cancelar", function () { finishEdit(false); }));
+  function startLayoutEdit() {
+    if (editing) return;
+    editing = true;
+    editBackup = JSON.parse(JSON.stringify(btnPos));
+    root.classList.add("edit-layout");
+    EDITABLE.forEach(function (en) { en[1] && en[1].classList.add("m2o-edit"); });
+  }
+  function entryFor(target) {
+    for (var i = 0; i < EDITABLE.length; i++) {
+      var el = EDITABLE[i][1];
+      if (el && (el === target || el.contains(target))) return EDITABLE[i];
+    }
+    return null;
+  }
+  function pt(e) { var p = (e.touches && e.touches[0]) || (e.changedTouches && e.changedTouches[0]) || e; return { x: p.clientX, y: p.clientY }; }
+  function onEditDown(e) {
+    if (!editing || editPanel.contains(e.target)) return;
+    var en = entryFor(e.target);
+    e.preventDefault(); e.stopPropagation();
+    if (!en) return;
+    var p = btnPos[en[0]] || [0, 0], q = pt(e);
+    drag = { en: en, sx: q.x, sy: q.y, fx: p[0], fy: p[1] };
+    en[1].classList.add("dragging");
+  }
+  function onEditMove(e) {
+    if (!editing) return;
+    if (!drag) { if (!editPanel.contains(e.target) && entryFor(e.target)) e.stopPropagation(); return; }
+    e.preventDefault(); e.stopPropagation();
+    var q = pt(e);
+    var fx = drag.fx + (q.x - drag.sx) / window.innerWidth, fy = drag.fy + (q.y - drag.sy) / window.innerHeight;
+    btnPos[drag.en[0]] = [fx, fy];
+    shiftEditable(drag.en, fx, fy);
+  }
+  function onEditUp(e) {
+    if (!editing) return;
+    if (!editPanel.contains(e.target)) { e.preventDefault(); e.stopPropagation(); }
+    if (drag) { drag.en[1].classList.remove("dragging"); drag = null; }
+  }
+  ["touchstart", "mousedown"].forEach(function (n) { root.addEventListener(n, onEditDown, { capture: true, passive: false }); });
+  ["touchmove", "mousemove"].forEach(function (n) { root.addEventListener(n, onEditMove, { capture: true, passive: false }); });
+  ["touchend", "touchcancel", "mouseup"].forEach(function (n) { root.addEventListener(n, onEditUp, { capture: true, passive: false }); });
+  root.addEventListener("click", function (e) {
+    if (editing && !editPanel.contains(e.target)) { e.preventDefault(); e.stopPropagation(); }
+  }, true);
+  window.addEventListener("resize", function () { setTimeout(applyBtnPositions, 300); });
+  applyBtnPositions();
+
+  // =========================================================================
   // LAYOUT DA UI NATIVA x HUD HTML
   // O HUD (vida/mana/exp + botões AUTO/SEL/DIV) é HTML e fica por cima do canvas,
   // exatamente no canto em que o jogo desenha os ícones de buffs (affectBar, 10,10)
@@ -4601,8 +5043,8 @@
       if (!inWorld || !window.Module || !Module.FS) return;
       var vw = window.innerWidth || 0, vh = window.innerHeight || 0;
       if (vw < 50 || vh < 50) return;
-      var hr = hudTl.getBoundingClientRect();
       var sr = tlSide.getBoundingClientRect();
+      var hr = root.classList.contains("layout-bar") ? sr : hudTl.getBoundingClientRect();
       if (!hr.width || !hr.height) return;
       var ax = Math.round(hr.right + 6);
       var ay = 4;
@@ -4734,6 +5176,7 @@
         elOrbs[oi].style.height = orbH;
       }
     }
+    updateBottomBar(hp, maxHp, sp, maxSp, expPct, d.level || 1);
 
     var isGm = !!d.is_gm;
     if (isGm !== prevIsGm) {
@@ -4923,6 +5366,12 @@
     "    _i = sys.modules.get('uisidekickinventory')",
     "    if not _o and _i is not None and _i.AnyShown():",
     "        _o = 1",
+    "    _of = sys.modules.get('uisidekickoffline')",
+    "    if not _o and _of is not None and _of.AnyShown():",
+    "        _o = 1",
+    "    _bw = getattr(_w, 'buyWindow', None) if _m is not None and _w is not None else None",
+    "    if not _o and _bw is not None and _bw.IsShow():",
+    "        _o = 1",
     "except Exception:",
     "    pass",
     "_s = 0",
@@ -4975,9 +5424,16 @@
     "    _m = sys.modules.get('uisidekick')",
     "    if _m is not None:",
     "        _m2oR(_m._window.get('window'))",
+    "        _m2oR(getattr(_m._window.get('window'), 'buyWindow', None))",
     "    _i = sys.modules.get('uisidekickinventory')",
     "    if _i is not None:",
     "        _m2oR(_i._state.get('eqWindow'))",
+    "    _of = sys.modules.get('uisidekickoffline')",
+    "    if _of is not None:",
+    "        _m2oR(_of._state.get('window'))",
+    "    _al = sys.modules.get('uisidekickalchemy')",
+    "    if _al is not None and hasattr(_al, 'Shown'):",
+    "        _m2oR(_al.Shown())",
     "    _co = sys.modules.get('uicollector')",
     "    if _co is not None:",
     "        _m2oR(_co._window.get('window'))",
@@ -5027,7 +5483,14 @@
     "                    _m2oR(_rw)",
     "except Exception:",
     "    pass",
-    "open('/m2w_xwin', 'w').write('%d,%d,%d,%d|%s' % (_o, _s, _c, _rq, ';'.join(_r)))"
+    "_st = _mst = 0",
+    "try:",
+    "    import player",
+    "    _st = int(player.GetStatus(player.STAMINA))",
+    "    _mst = int(player.GetStatus(player.MAX_STAMINA))",
+    "except Exception:",
+    "    pass",
+    "open('/m2w_xwin', 'w').write('%d,%d,%d,%d,%d,%d|%s' % (_o, _s, _c, _rq, _st, _mst, ';'.join(_r)))"
   ].join("\n");
   // Janelas do jogo "na frente" dos controles: o jogo desenha as janelas no canvas, que
   // fica por baixo do overlay. Então, onde uma janela aberta está, os controles do overlay
@@ -5072,6 +5535,7 @@
       if (fsExists("/m2w_xwin")) {
         var xraw = String(Module.FS.readFile("/m2w_xwin", { encoding: "utf8" }) || "").trim().split("|");
         var xr = xraw[0].split(",");
+        updateStamina(Number(xr[4]) || 0, Number(xr[5]) || 0);
         fsRm("/m2w_xwin");
         winRects = [];
         String(xraw[1] || "").split(";").forEach(function (t) {
