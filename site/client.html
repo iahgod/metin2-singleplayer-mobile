@@ -16,7 +16,7 @@
 // Versão desta página. Se o navegador abrir uma cópia ANTIGA guardada no cache
 // (acontecia: "às vezes volta uma atualização"), pergunta ao servidor qual é a
 // versão atual e, se for outra, recarrega uma vez já com a nova.
-var M2W_PAGE_VER = "2.0.141-autohunt-br5";
+var M2W_PAGE_VER = "2.0.141-autohunt-br5-fix1";
 (function () {
   try {
     if (sessionStorage.getItem("m2w.verReload") === M2W_PAGE_VER) return;
@@ -307,6 +307,29 @@ window.m2w = { config: { bridge: "", mobile: MOBILE } };
   });
 })();
 if (MOBILE) document.body.className += " mobile";
+/// Idioma da página (mesma ordem do overlay): ?lang, escolha salva, idioma do aparelho; padrão pt.
+var M2W_LANG = (function () {
+  try {
+    var sp = new URLSearchParams(location.search);
+    var v = sp.get("lang") || sp.get("deflang") || localStorage.getItem("m2w.uiLang") || localStorage.getItem("m2/lang") ||
+      String((navigator.languages && navigator.languages[0]) || navigator.language || "");
+    v = String(v).toLowerCase().slice(0, 2);
+    return (v === "en" || v === "pl") ? v : "pt";
+  } catch (e) { return "pt"; }
+})();
+(function () {
+  var e = document.getElementById("m2w_error");
+  if (!e || M2W_LANG === "pt") return;
+  var d = e.querySelector("div"), pre = document.getElementById("m2w_error_text");
+  if (!d || !pre) return;
+  var T = M2W_LANG === "pl"
+    ? ["Klient przesta\u0142 dzia\u0142a\u0107.", "Od\u015Bwie\u017C stron\u0119, aby zacz\u0105\u0107 od nowa."]
+    : ["The client stopped working.", "Reload the page to start again."];
+  d.innerHTML = "<b></b>";
+  d.firstChild.textContent = T[0];
+  d.appendChild(pre);
+  d.appendChild(document.createTextNode(T[1]));
+})();
 var statusEl = document.getElementById("status");
 var Module = {
   /// Engine files get `?v=<build time>`, so a new build is never served from cache.
@@ -336,13 +359,20 @@ var Module = {
   /// Engine start-up text in the middle of the screen; empty = hide it.
   setStatus: function (t) {
     if (!statusEl) return;
-    // Mensagens padrão do Emscripten -> PT-BR
-    t = String(t || "")
+    // Mensagens padrão do Emscripten -> idioma do jogador (en já vem certo; pt e pl traduzidos)
+    t = String(t || "");
+    if (M2W_LANG === "pt") t = t
       .replace(/^Downloading data\.\.\./, "Baixando dados...")
       .replace(/^Downloading\.\.\./, "Baixando...")
       .replace(/^Preparing\.\.\./, "Preparando...")
       .replace(/^Running\.\.\./, "Iniciando...")
       .replace(/^All downloads complete\./, "Downloads concluídos.");
+    else if (M2W_LANG === "pl") t = t
+      .replace(/^Downloading data\.\.\./, "Pobieranie danych...")
+      .replace(/^Downloading\.\.\./, "Pobieranie...")
+      .replace(/^Preparing\.\.\./, "Przygotowywanie...")
+      .replace(/^Running\.\.\./, "Uruchamianie...")
+      .replace(/^All downloads complete\./, "Pobieranie zakończone.");
     statusEl.textContent = t;
     if (!t) statusEl.className = "done";
   },
@@ -431,8 +461,8 @@ window.addEventListener("error", function (ev) {
 })();
 </script>
 <script src="client.js?v=2.0.141-autohunt-br5" async></script>
-<script src="preload.js?v=2.0.141-autohunt-br5"></script>
-<script src="mobile_overlay.js?v=2.0.141-autohunt-br5"></script>
+<script src="preload.js?v=2.0.141-autohunt-br5-fix1"></script>
+<script src="mobile_overlay.js?v=2.0.141-autohunt-br5-fix1"></script>
 <script src="replay_hud.js?v=2.0.141-autohunt-br5"></script>
 </body>
 </html>

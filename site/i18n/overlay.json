@@ -716,6 +716,154 @@
   "ŁOWY": {
    "en": "HUNT",
    "pl": "ŁOWY"
+  },
+  "Copiado!": {
+   "en": "Copied!",
+   "pl": "Skopiowano!"
+  },
+  "Selecione e copie manualmente": {
+   "en": "Select and copy manually",
+   "pl": "Zaznacz i skopiuj ręcznie"
+  },
+  "Copiar": {
+   "en": "Copy",
+   "pl": "Kopiuj"
+  },
+  "Instalar o Metin2 no celular": {
+   "en": "Install Metin2 on your phone",
+   "pl": "Zainstaluj Metin2 na telefonie"
+  },
+  "1. Abra este endereço no": {
+   "en": "1. Open this address in",
+   "pl": "1. Otwórz ten adres w"
+  },
+  "2. Toque em": {
+   "en": "2. Tap",
+   "pl": "2. Stuknij"
+  },
+  "Compartilhar": {
+   "en": "Share",
+   "pl": "Udostępnij"
+  },
+  "(quadrado com seta ↑).": {
+   "en": "(square with an ↑ arrow).",
+   "pl": "(kwadrat ze strzałką ↑)."
+  },
+  "3. Escolha": {
+   "en": "3. Choose",
+   "pl": "3. Wybierz"
+  },
+  "Adicionar à Tela de Início": {
+   "en": "Add to Home Screen",
+   "pl": "Do ekranu początkowego"
+  },
+  "e confirme.": {
+   "en": "and confirm.",
+   "pl": "i potwierdź."
+  },
+  "1. Toque no menu": {
+   "en": "1. Tap the",
+   "pl": "1. Stuknij menu"
+  },
+  "do Chrome (canto superior direito).": {
+   "en": "menu in Chrome (top right corner).",
+   "pl": "w Chrome (prawy górny róg)."
+  },
+  "2. Escolha": {
+   "en": "2. Choose",
+   "pl": "2. Wybierz"
+  },
+  "ou": {
+   "en": "or",
+   "pl": "lub"
+  },
+  "Adicionar à tela inicial": {
+   "en": "Add to Home screen",
+   "pl": "Dodaj do ekranu głównego"
+  },
+  "3. Abra o jogo pelo ícone": {
+   "en": "3. Open the game from the",
+   "pl": "3. Otwórz grę ikoną"
+  },
+  "na tela inicial.": {
+   "en": "icon on your home screen.",
+   "pl": "na ekranie głównym."
+  },
+  "Obs.: o site está sem HTTPS, então o navegador cria apenas um atalho (funciona igual, mas sem a instalação completa de app).": {
+   "en": "Note: the site has no HTTPS, so the browser only creates a shortcut (it works the same, just without a full app install).",
+   "pl": "Uwaga: strona nie ma HTTPS, więc przeglądarka utworzy tylko skrót (działa tak samo, ale bez pełnej instalacji aplikacji)."
+  },
+  "Entendi": {
+   "en": "Got it",
+   "pl": "Rozumiem"
+  },
+  "Experiência:": {
+   "en": "Experience:",
+   "pl": "Doświadczenie:"
+  },
+  "Modo de toque: Auto / Janelas (arrastar) / Câmera (girar)": {
+   "en": "Touch mode: Auto / Windows (drag) / Camera (rotate)",
+   "pl": "Tryb dotyku: Auto / Okna (przeciąganie) / Kamera (obrót)"
+  },
+  "JAN": {
+   "en": "WIN",
+   "pl": "OKN"
+  },
+  "CÂM": {
+   "en": "CAM",
+   "pl": "KAM"
+  },
+  "Layout da tela:": {
+   "en": "Screen layout:",
+   "pl": "Układ ekranu:"
+  },
+  "HUD do celular": {
+   "en": "Mobile HUD",
+   "pl": "HUD mobilny"
+  },
+  "Barra embaixo": {
+   "en": "Bottom bar",
+   "pl": "Pasek na dole"
+  },
+  "✎ Mudar a posição dos botões": {
+   "en": "✎ Move the buttons",
+   "pl": "✎ Zmień położenie przycisków"
+  },
+  "Gráficos:": {
+   "en": "Graphics:",
+   "pl": "Grafika:"
+  },
+  "Personagem (C)": {
+   "en": "Character (C)",
+   "pl": "Postać (C)"
+  },
+  "Amigos e guilda (Alt+M)": {
+   "en": "Friends & guild (Alt+M)",
+   "pl": "Przyjaciele i gildia (Alt+M)"
+  },
+  "Auto-caça (K)": {
+   "en": "Auto Hunt (K)",
+   "pl": "Auto Łowy (K)"
+  },
+  "CAÇA": {
+   "en": "HUNT",
+   "pl": "ŁOWY"
+  },
+  "Arraste os botões para onde quiser.": {
+   "en": "Drag the buttons wherever you like.",
+   "pl": "Przeciągnij przyciski, gdzie chcesz."
+  },
+  "Salvar": {
+   "en": "Save",
+   "pl": "Zapisz"
+  },
+  "Padrão": {
+   "en": "Default",
+   "pl": "Domyślne"
+  },
+  "Cancelar": {
+   "en": "Cancel",
+   "pl": "Anuluj"
   }
  }
 }

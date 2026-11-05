@@ -49,6 +49,13 @@
       (document.head || document.documentElement).appendChild(fcss);
     } catch (e) { }
   })();
+  // tl("texto pt", "english", "polski"): escolhe pelo idioma atual (textos dinâmicos).
+  function tl(pt, en, pl) {
+    var l = M2I18N.lang;
+    if (l === "en") return en != null ? en : pt;
+    if (l === "pl") return pl != null ? pl : (en != null ? en : pt);
+    return pt;
+  }
   function trS(s) {
     if (!M2I18N.texts || M2I18N.lang === "pt" || !s) return s;
     var k = String(s).trim();
@@ -57,21 +64,52 @@
     var v = e[M2I18N.lang] || e.en;
     return v ? String(s).replace(k, v) : s;
   }
+  // Guarda o texto ORIGINAL (português) de cada nó traduzido: assim dá para trocar
+  // de idioma com o jogo aberto (ex.: o jogo escolheu inglês depois que o overlay
+  // já tinha montado tudo em português) e voltar para o português também.
   function trTree(node) {
-    if (!M2I18N.texts || M2I18N.lang === "pt" || !node) return;
+    if (!M2I18N.texts || !node) return;
+    if (M2I18N.lang === "pt" && !M2I18N.everTr) return;
     if (node.nodeType === 3) {
-      var nv = trS(node.nodeValue);
-      if (nv !== node.nodeValue) node.nodeValue = nv;
+      var cur = node.nodeValue;
+      var orig = (node.__m2oTr !== undefined && cur === node.__m2oTr) ? node.__m2oPt : cur;
+      var nv = trS(orig);
+      if (nv !== orig) { node.__m2oPt = orig; node.__m2oTr = nv; M2I18N.everTr = true; }
+      else { node.__m2oPt = undefined; node.__m2oTr = undefined; }
+      if (nv !== cur) node.nodeValue = nv;
       return;
     }
     if (node.nodeType !== 1) return;
     if (node.tagName === "SCRIPT" || node.tagName === "STYLE" || node.tagName === "CANVAS") return;
     ["title", "placeholder", "alt"].forEach(function (a) {
       var v = node.getAttribute && node.getAttribute(a);
-      if (v) { var t = trS(v); if (t !== v) node.setAttribute(a, t); }
+      if (!v) return;
+      var mem = node.__m2oAttr || (node.__m2oAttr = {});
+      var m = mem[a];
+      var orig = (m && v === m.tr) ? m.pt : v;
+      var t = trS(orig);
+      if (t !== orig) { mem[a] = { pt: orig, tr: t }; M2I18N.everTr = true; } else delete mem[a];
+      if (t !== v) node.setAttribute(a, t);
     });
     for (var c = node.firstChild; c; c = c.nextSibling) trTree(c);
   }
+  // O jogo decide o idioma final (linha LANGUAGE do game1.cfg, escolhida nas opções
+  // do jogo) e grava em m2w.uiLang. Se for diferente do que o overlay usou ao abrir,
+  // o overlay passa a usar o mesmo idioma do jogo na hora, sem recarregar.
+  function syncLangWithGame() {
+    try {
+      var g = window.m2w && window.m2w.uiLang;
+      if (!g) return;
+      g = String(g).toLowerCase().slice(0, 2);
+      if (g !== "pt" && g !== "en" && g !== "pl") return;
+      if (/[?&]lang=/.test(location.search)) return;
+      if (g === M2I18N.lang) return;
+      M2I18N.lang = g;
+      if (document.body) trTree(document.body);
+      if (typeof window.__m2oOnLangChange === "function") window.__m2oOnLangChange(g);
+    } catch (e) { }
+  }
+  setInterval(syncLangWithGame, 1500);
   (function loadOverlayI18n() {
     if (typeof fetch !== "function") return;
     fetch("i18n/overlay.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
@@ -364,9 +402,29 @@
     "Wejscie do gry...": "Entrando no jogo...",
     "Wczytywanie postaci...": "Carregando personagem..."
   };
+  var STAGE_EN = {
+    "Inicjalizacja gry...": "Starting the game...",
+    "Inicjalizacja...": "Starting...",
+    "Wczytywanie mapy i terenu...": "Loading map and terrain...",
+    "Wczytywanie audio...": "Loading audio...",
+    "Wczytywanie efektow...": "Loading effects...",
+    "Wczytywanie modeli postaci...": "Loading character models...",
+    "Rejestracja animacji walki...": "Registering combat animations...",
+    "Rejestracja zbroi i broni...": "Registering armour and weapons...",
+    "Rejestracja umiejetnosci...": "Registering skills...",
+    "Wczytywanie skilli...": "Loading skills...",
+    "Wczytywanie potworow...": "Loading monsters...",
+    "Wczytywanie NPC...": "Loading NPCs...",
+    "Wczytywanie obiektow...": "Loading objects...",
+    "Wczytywanie swiata gry...": "Loading the game world...",
+    "Wejscie do gry...": "Entering the game...",
+    "Wczytywanie postaci...": "Loading character..."
+  };
   function trStage(stage) {
     if (!stage) return stage;
     var k = String(stage).trim();
+    if (M2I18N.lang === "pl") return k;
+    if (M2I18N.lang === "en") return STAGE_EN[k] || k;
     return STAGE_PT[k] || k;
   }
 
@@ -552,7 +610,7 @@
   function typeIntoActive() {
     if (kbPref() !== "native" && typeof openGameKbManual === "function") { openGameKbManual(); return; }
     if (busy) return;
-    var t = prompt("Digite o texto para o campo ativo:");
+    var t = prompt(tl("Digite o texto para o campo ativo:", "Type the text for the active field:", "Wpisz tekst do aktywnego pola:"));
     if (t === null || t === "") return;
     busy = true;
     typeText(t).then(function () { busy = false; }, function () { busy = false; });
@@ -561,9 +619,9 @@
     if (busy) return;
     var ls = null;
     try { ls = window.localStorage; } catch (e) { }
-    var u = prompt("Usu\u00E1rio:", (ls && ls.getItem("m2o.login")) || "");
+    var u = prompt(tl("Usu\u00E1rio:", "Username:", "Login:"), (ls && ls.getItem("m2o.login")) || "");
     if (u === null) return;
-    var pw = prompt("Senha:", (ls && ls.getItem("m2o.pass")) || "");
+    var pw = prompt(tl("Senha:", "Password:", "Has\u0142o:"), (ls && ls.getItem("m2o.pass")) || "");
     if (pw === null) return;
     try { ls.setItem("m2o.login", u); ls.setItem("m2o.pass", pw); } catch (e) { }
     busy = true;
@@ -946,7 +1004,7 @@
     if (isHtml) b.innerHTML = label;
     else b.textContent = label;
     if (cls) b.className = cls;
-    if (title) b.title = title;
+    if (title) { b.title = title; b.setAttribute("data-ptitle", title); }
     b.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); fn(); });
     return b;
   }
@@ -1004,17 +1062,17 @@
     }
     if (raw === null || lines.length === 0) {
       text = (raw === null)
-        ? "(syserr.txt: arquivo inexistente - nada foi registrado ainda)"
-        : "(syserr.txt: 0 linhas relevantes ap\u00F3s o filtro)";
+        ? tl("(syserr.txt: arquivo inexistente - nada foi registrado ainda)", "(syserr.txt: file does not exist - nothing has been logged yet)", "(syserr.txt: plik nie istnieje - nic jeszcze nie zapisano)")
+        : tl("(syserr.txt: 0 linhas relevantes ap\u00F3s o filtro)", "(syserr.txt: 0 relevant lines after filtering)", "(syserr.txt: 0 istotnych linii po filtrze)");
       if (jsErrors.length > 0) {
-        text += "\n\n--- Erros de JS capturados (window.onerror) ---\n" + jsErrors.join("\n");
+        text += "\n\n--- " + tl("Erros de JS capturados", "Captured JS errors", "Przechwycone b\u0142\u0119dy JS") + " (window.onerror) ---\n" + jsErrors.join("\n");
       } else {
-        text += "\n(Nenhum erro de JS capturado nesta sess\u00E3o)";
+        text += "\n" + tl("(Nenhum erro de JS capturado nesta sess\u00E3o)", "(No JS errors captured in this session)", "(Brak b\u0142\u0119d\u00F3w JS w tej sesji)");
       }
     } else {
-      text = "syserr.txt: " + lines.length + " linhas ap\u00F3s o filtro, \u00FAltimas 80:\n\n" + lines.slice(-80).join("\n");
+      text = "syserr.txt: " + lines.length + tl(" linhas ap\u00F3s o filtro, \u00FAltimas 80:", " lines after filtering, last 80:", " linii po filtrze, ostatnie 80:") + "\n\n" + lines.slice(-80).join("\n");
       if (jsErrors.length > 0) {
-        text += "\n\n--- Erros de JS capturados (window.onerror) ---\n" + jsErrors.join("\n");
+        text += "\n\n--- " + tl("Erros de JS capturados", "Captured JS errors", "Przechwycone b\u0142\u0119dy JS") + " (window.onerror) ---\n" + jsErrors.join("\n");
       }
     }
     var m = document.createElement("div");
@@ -1475,7 +1533,7 @@
     var pts = curExp.toLocaleString() + " / " + curMaxExp.toLocaleString();
     showHudTip(
       '<span style="color:#e6c875">Experi\u00EAncia: </span><span style="color:#72f77e">' + pStr + '</span><br>' +
-      '<span style="color:#cfd6e6;font-size:9.5px;font-weight:normal">Pontos: ' + pts + '</span>',
+      '<span style="color:#cfd6e6;font-size:9.5px;font-weight:normal">' + tl("Pontos: ", "Points: ", "Punkty: ") + pts + '</span>',
       162, 24
     );
   });
@@ -1618,12 +1676,12 @@
   setInterval(function () { try { autoAtkTick(); } catch (e) { } }, 200);
   tlSide.appendChild(btnAuto);
   var btnAutoHunt = btn(
-    ICONS.swords + '<span class="mini-tag">\u0141OWY</span>',
+    ICONS.swords + '<span class="mini-tag">CA\u00C7A</span>',
     function () {
       runPy("try:\n    self._GameWindow__ToggleAutoHunt()\nexcept Exception:\n    pass");
     },
     "",
-    "Auto \u0141owy (K)",
+    "Auto-ca\u00E7a (K)",
     true
   );
   tlSide.appendChild(btnAutoHunt);
@@ -1837,7 +1895,7 @@
       updateSettingsModalActive();
       var names = { low: "Baixo", med: "M\u00E9dio", high: "Alto" };
       var needReload = (val === "low") !== (gfxAtLoad === "low");
-      showHudTip("<b>Gr\u00E1ficos: " + names[val] + "</b>" + (needReload ? "<br>A resolu\u00E7\u00E3o muda na pr\u00F3xima vez que o jogo abrir." : ""), 200, 8);
+      showHudTip("<b>" + trS("Gr\u00E1ficos:") + " " + trS(names[val]) + "</b>" + (needReload ? "<br>A resolu\u00E7\u00E3o muda na pr\u00F3xima vez que o jogo abrir." : ""), 200, 8);
     });
   }
 
@@ -1850,8 +1908,8 @@
       if (val === null) return;
       localStorage.setItem("m2o_fps_limit", val);
       updateSettingsModalActive();
-      var lbl = val === "0" ? "Sem limite" : (val + " FPS");
-      runPy("import chat; chat.AppendChat(chat.CHAT_TYPE_INFO, 'Limite de FPS: " + lbl + "')");
+      var lbl = val === "0" ? tl("Sem limite", "Unlimited", "Bez limitu") : (val + " FPS");
+      runPy("import chat; chat.AppendChat(chat.CHAT_TYPE_INFO, '" + tl("Limite de FPS", "FPS limit", "Limit FPS") + ": " + lbl + "')");
     });
   }
 
@@ -1865,7 +1923,7 @@
       localStorage.setItem("m2o_hud_scale", val);
       updateSettingsModalActive();
       applyHudScale(val);
-      runPy("import chat; chat.AppendChat(chat.CHAT_TYPE_INFO, 'Tamanho do HUD: " + val + "%')");
+      runPy("import chat; chat.AppendChat(chat.CHAT_TYPE_INFO, '" + tl("Tamanho do HUD", "HUD size", "Rozmiar HUD") + ": " + val + "%')");
     });
   }
 
@@ -1893,31 +1951,31 @@
   var btnShopHide = settingsModal.querySelector("#m2o_btn_shop_hide");
   if (btnShopHide) {
     btnShopHide.addEventListener("click", function () {
-      runPy("import systemSetting, chat\ntry:\n    systemSetting.SetShopRangeView(0.0)\n    systemSetting.SetShowSalesTextFlag(0)\n    chat.AppendChat(chat.CHAT_TYPE_INFO, 'Lojas privadas: ESCONDIDAS (mais FPS no M1)')\nexcept Exception as e:\n    chat.AppendChat(chat.CHAT_TYPE_INFO, 'Erro: ' + str(e))");
+      runPy("import systemSetting, chat\ntry:\n    systemSetting.SetShopRangeView(0.0)\n    systemSetting.SetShowSalesTextFlag(0)\n    chat.AppendChat(chat.CHAT_TYPE_INFO, '" + tl("Lojas privadas: ESCONDIDAS (mais FPS no M1)", "Private shops: HIDDEN (more FPS in M1)", "Sklepy prywatne: UKRYTE (wiecej FPS w M1)") + "')\nexcept Exception as e:\n    chat.AppendChat(chat.CHAT_TYPE_INFO, '" + tl("Erro", "Error", "Blad") + ": ' + str(e))");
     });
   }
   var btnShopNear = settingsModal.querySelector("#m2o_btn_shop_near");
   if (btnShopNear) {
     btnShopNear.addEventListener("click", function () {
-      runPy("import systemSetting, chat\ntry:\n    systemSetting.SetShopRangeView(1000.0)\n    chat.AppendChat(chat.CHAT_TYPE_INFO, 'Lojas: so as de perto (10 m)')\nexcept Exception as e:\n    chat.AppendChat(chat.CHAT_TYPE_INFO, 'Erro: ' + str(e))");
+      runPy("import systemSetting, chat\ntry:\n    systemSetting.SetShopRangeView(1000.0)\n    chat.AppendChat(chat.CHAT_TYPE_INFO, '" + tl("Lojas: so as de perto (10 m)", "Shops: only nearby ones (10 m)", "Sklepy: tylko pobliskie (10 m)") + "')\nexcept Exception as e:\n    chat.AppendChat(chat.CHAT_TYPE_INFO, '" + tl("Erro", "Error", "Blad") + ": ' + str(e))");
     });
   }
   var btnShopAll = settingsModal.querySelector("#m2o_btn_shop_all");
   if (btnShopAll) {
     btnShopAll.addEventListener("click", function () {
-      runPy("import systemSetting, chat\ntry:\n    systemSetting.SetShopRangeView(5000.0)\n    chat.AppendChat(chat.CHAT_TYPE_INFO, 'Lojas: todas (50 m)')\nexcept Exception as e:\n    chat.AppendChat(chat.CHAT_TYPE_INFO, 'Erro: ' + str(e))");
+      runPy("import systemSetting, chat\ntry:\n    systemSetting.SetShopRangeView(5000.0)\n    chat.AppendChat(chat.CHAT_TYPE_INFO, '" + tl("Lojas: todas (50 m)", "Shops: all (50 m)", "Sklepy: wszystkie (50 m)") + "')\nexcept Exception as e:\n    chat.AppendChat(chat.CHAT_TYPE_INFO, '" + tl("Erro", "Error", "Blad") + ": ' + str(e))");
     });
   }
   var btnSalesOff = settingsModal.querySelector("#m2o_btn_sales_off");
   if (btnSalesOff) {
     btnSalesOff.addEventListener("click", function () {
-      runPy("import systemSetting, chat\ntry:\n    systemSetting.SetShowSalesTextFlag(0)\n    chat.AppendChat(chat.CHAT_TYPE_INFO, 'Placas das lojas: ESCONDIDAS')\nexcept Exception as e:\n    pass");
+      runPy("import systemSetting, chat\ntry:\n    systemSetting.SetShowSalesTextFlag(0)\n    chat.AppendChat(chat.CHAT_TYPE_INFO, '" + tl("Placas das lojas: ESCONDIDAS", "Shop signs: HIDDEN", "Szyldy sklepow: UKRYTE") + "')\nexcept Exception as e:\n    pass");
     });
   }
   var btnSalesOn = settingsModal.querySelector("#m2o_btn_sales_on");
   if (btnSalesOn) {
     btnSalesOn.addEventListener("click", function () {
-      runPy("import systemSetting, chat\ntry:\n    systemSetting.SetShowSalesTextFlag(1)\n    chat.AppendChat(chat.CHAT_TYPE_INFO, 'Placas das lojas: VISIVEIS')\nexcept Exception as e:\n    pass");
+      runPy("import systemSetting, chat\ntry:\n    systemSetting.SetShowSalesTextFlag(1)\n    chat.AppendChat(chat.CHAT_TYPE_INFO, '" + tl("Placas das lojas: VISIVEIS", "Shop signs: VISIBLE", "Szyldy sklepow: WIDOCZNE") + "')\nexcept Exception as e:\n    pass");
     });
   }
   var btnNamesOff = settingsModal.querySelector("#m2o_btn_names_off");
@@ -1931,7 +1989,9 @@
         "except Exception: pass",
         "try: self.HideName()",
         "except Exception: pass",
-        "chat.AppendChat(chat.CHAT_TYPE_INFO, 'Nomes e baloes: ESCONDIDOS (aparecem ao selecionar o alvo)')"
+        "try: import player; player.SetQuickPage(int(getattr(self, 'quickSlotPageIndex', 0)))",
+        "except Exception: pass",
+        "chat.AppendChat(chat.CHAT_TYPE_INFO, '" + tl("Nomes e baloes: ESCONDIDOS (aparecem ao selecionar o alvo)", "Names and chat bubbles: HIDDEN (shown when you select a target)", "Nazwy i dymki: UKRYTE (widoczne po wybraniu celu)") + "')"
       ]));
     });
   }
@@ -1946,7 +2006,9 @@
         "except Exception: pass",
         "try: self.ShowName()",
         "except Exception: pass",
-        "chat.AppendChat(chat.CHAT_TYPE_INFO, 'Nomes e baloes: VISIVEIS')"
+        "try: import player; player.SetQuickPage(int(getattr(self, 'quickSlotPageIndex', 0)))",
+        "except Exception: pass",
+        "chat.AppendChat(chat.CHAT_TYPE_INFO, '" + tl("Nomes e baloes: VISIVEIS", "Names and chat bubbles: VISIBLE", "Nazwy i dymki: WIDOCZNE") + "')"
       ]));
     });
   }
@@ -2077,7 +2139,7 @@
       "if _vid:",
       "    gmpossess.RequestPossess(chr.GetNameByVID(_vid))",
       "else:",
-      "    chat.AppendChat(chat.CHAT_TYPE_INFO, 'Possuir: selecione um bot primeiro!')"
+      "    chat.AppendChat(chat.CHAT_TYPE_INFO, '" + tl("Possuir: selecione um bot primeiro!", "Possess: select a bot first!", "Przemiana: najpierw wybierz bota!") + "')"
     ]));
   });
   addGmBtn("Voltar ao GM", function () {
@@ -2097,14 +2159,14 @@
     "_me = player.GetMainCharacterIndex()",
     "_vids = [v for v in range(1, 400000) if v != _me and chr.HasInstance(v)]",
     "if not _vids:",
-    "    chat.AppendChat(chat.CHAT_TYPE_INFO, 'Espectador: nenhum personagem por perto')",
+    "    chat.AppendChat(chat.CHAT_TYPE_INFO, '" + tl("Espectador: nenhum personagem por perto", "Spectator: no characters nearby", "Obserwator: brak postaci w poblizu") + "')",
     "else:",
     "    _i = (getattr(constInfo, '_spec_idx', -1) + 1) % len(_vids)",
     "    constInfo._spec_idx = _i",
     "    _v = _vids[_i]",
     "    player.SetTarget(_v)",
     "    _x, _y, _z = chr.GetPixelPosition(_v)",
-    "    chat.AppendChat(chat.CHAT_TYPE_INFO, 'Espectador %d/%d: VID %d %s (%d, %d)' % (_i + 1, len(_vids), _v, chr.GetNameByVID(_v), int(_x) // 100, int(_y) // 100))"
+    "    chat.AppendChat(chat.CHAT_TYPE_INFO, '" + tl("Espectador", "Spectator", "Obserwator") + " %d/%d: VID %d %s (%d, %d)' % (_i + 1, len(_vids), _v, chr.GetNameByVID(_v), int(_x) // 100, int(_y) // 100))"
   ]));
   addGmBtn("C\u00E2mera zoom m\u00E1x.", safePy([
     "import app, background",
@@ -2315,8 +2377,8 @@
         m.remove();
         var needReload = (o[0] === "low") !== (gfxAtLoad === "low");
         showHudTip(needReload
-          ? "<b>Gr\u00E1ficos: " + o[1].split(" - ")[0] + "</b><br>A resolu\u00E7\u00E3o muda na pr\u00F3xima vez que o jogo abrir (ou recarregue a p\u00E1gina)."
-          : "<b>Gr\u00E1ficos: " + o[1].split(" - ")[0] + "</b>", 200, 8);
+          ? "<b>" + trS("Gr\u00E1ficos:") + " " + trS(o[1].split(" - ")[0]) + "</b><br>A resolu\u00E7\u00E3o muda na pr\u00F3xima vez que o jogo abrir (ou recarregue a p\u00E1gina)."
+          : "<b>" + trS("Gr\u00E1ficos:") + " " + trS(o[1].split(" - ")[0]) + "</b>", 200, 8);
       });
       b.style.cssText = "height:32px;border-radius:3px;justify-content:flex-start;padding:0 10px;text-align:left";
       m.appendChild(b);
@@ -2885,10 +2947,63 @@
   root.appendChild(joy);
 
   var held = { 87: false, 65: false, 83: false, 68: false };
+  // DIK (DirectInput) de cada tecla de movimento: usado para "reafirmar" a tecla
+  // direto na tabela de teclas do jogo enquanto o joystick está em uso.
+  var MOVE_DIK = { 87: 17, 65: 30, 83: 31, 68: 32 };
+  var MOVE_VK = { 87: 87, 65: 65, 83: 83, 68: 68 };
   function setHeld(k, on) {
     if (held[k] === on) return;
     held[k] = on;
     sendKey(k, on);
+  }
+  // BUG "joystick mostra a direção mas o personagem não anda":
+  // o client.js ignora (e zera) as teclas quando há um campo de texto HTML com foco
+  // (chat do overlay, input escondido do teclado) ou quando um campo de texto do
+  // jogo está ativo (IME). Depois de usar o chat, o foco ficava lá e o joystick
+  // "morria" até tocar no chão. Agora, ao pegar no joystick, o foco de texto é
+  // liberado e as teclas seguradas são reafirmadas a cada instante.
+  function releaseTextFocusForMove() {
+    try {
+      var ae = document.activeElement;
+      if (ae && ae !== document.body && ae !== document.documentElement && ae.id !== "canvas") {
+        var tag = (ae.tagName || "").toUpperCase();
+        if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || ae.isContentEditable) ae.blur();
+      }
+    } catch (e) { }
+    try { if (typeof gameKbOpen === "function" && gameKbOpen() && typeof hideGameKb === "function") hideGameKb(); } catch (e) { }
+    var gameIme = false;
+    try { gameIme = !!(window.m2w && window.m2w.imeActive); } catch (e) { }
+    if (gameIme || (typeof editActive !== "undefined" && editActive)) {
+      try { if (typeof cancelEdit === "function") cancelEdit(); } catch (e) { }
+      runPy(
+        "try:\n" +
+        "    _wc = getattr(getattr(self, 'interface', None), 'wndChat', None)\n" +
+        "    if _wc is not None and getattr(_wc, 'IsEditMode', None) and _wc.IsEditMode():\n" +
+        "        _wc.CloseChat()\n" +
+        "except Exception:\n" +
+        "    pass\n" +
+        "try:\n" +
+        "    import wndMgr\n" +
+        "    wndMgr.KillFocus()\n" +
+        "except Exception:\n" +
+        "    pass\n"
+      );
+      try { if (window.m2w) window.m2w.imeActive = false; } catch (e) { }
+    }
+  }
+  // Mantém as teclas seguradas "vivas" na tabela do jogo (se algo zerou a tabela -
+  // foco, troca de aba, campo de texto - o personagem volta a andar sozinho).
+  var joyKeepAlive = 0;
+  function joyReassert() {
+    if (joyId === null) return;
+    try {
+      var dik = window.m2w && window.m2w.dik, vk = window.m2w_keys;
+      for (var k in held) {
+        if (!held[k]) continue;
+        if (dik && !dik[MOVE_DIK[k]]) dik[MOVE_DIK[k]] = 1;
+        if (vk && !vk[MOVE_VK[k]]) vk[MOVE_VK[k]] = 1;
+      }
+    } catch (e) { }
   }
   var joyId = null;
   var joyRect = null;
@@ -2903,6 +3018,35 @@
     joyRafId = 0;
     knob.style.transform = "translate3d(" + joyKnobX.toFixed(1) + "px," + joyKnobY.toFixed(1) + "px,0)";
   }
+  // Direção em 8 setores (o jogo só aceita 8 direções pelo teclado: W, W+D, D...).
+  // Antes cada eixo tinha uma zona morta própria: com o polegar para cima, um
+  // desvio pequeno para o lado (~13°) já ligava a diagonal e o boneco virava 45°
+  // de uma vez. Agora a direção é escolhida pelo ÂNGULO do polegar, com histerese:
+  // só troca de setor depois de passar bem da fronteira, então pequenos desvios
+  // não fazem o personagem "pular" de direção.
+  // Setor 0 = direita, 1 = baixo-direita, 2 = baixo ... 6 = cima, 7 = cima-direita.
+  var SECTOR_KEYS = [
+    [KEYS.D], [KEYS.S, KEYS.D], [KEYS.S], [KEYS.S, KEYS.A],
+    [KEYS.A], [KEYS.W, KEYS.A], [KEYS.W], [KEYS.W, KEYS.D]
+  ];
+  var joySector = -1;
+  var SECTOR_HALF = Math.PI / 8;        // 22,5°
+  var SECTOR_HYST = 10 * Math.PI / 180;  // precisa passar 10° da fronteira para trocar
+  function angDiff(a, b) {
+    var d = a - b;
+    while (d > Math.PI) d -= 2 * Math.PI;
+    while (d < -Math.PI) d += 2 * Math.PI;
+    return Math.abs(d);
+  }
+  function applySector(sec) {
+    if (sec === joySector) return;
+    joySector = sec;
+    var want = { 87: false, 65: false, 83: false, 68: false };
+    if (sec >= 0) SECTOR_KEYS[sec].forEach(function (k) { want[k] = true; });
+    // Solta primeiro e depois aperta: nunca fica W+S ou A+D juntos no meio da troca.
+    [87, 65, 83, 68].forEach(function (k) { if (!want[k]) setHeld(k, false); });
+    [87, 65, 83, 68].forEach(function (k) { if (want[k]) setHeld(k, true); });
+  }
   function joyMove(t) {
     markInputActive();
     var r = joyRect || joy.getBoundingClientRect();
@@ -2913,14 +3057,31 @@
     joyKnobX = (dx / len) * k * 28;
     joyKnobY = (dy / len) * k * 28;
     if (!joyRafId) joyRafId = requestAnimationFrame(renderJoyKnob);
-    var dead = 0.22 * max;
-    setHeld(KEYS.D, dx > dead);
-    setHeld(KEYS.A, dx < -dead);
-    setHeld(KEYS.S, dy > dead);
-    setHeld(KEYS.W, dy < -dead);
+    // Zona morta com histerese: começa a andar a 22% do raio, só para abaixo de 15%.
+    var dead = (joySector >= 0 ? 0.15 : 0.22) * max;
+    if (len < dead) { applySector(-1); return; }
+    var ang = Math.atan2(dy, dx);
+    var sec = joySector;
+    if (sec < 0 || angDiff(ang, sec * Math.PI / 4) > SECTOR_HALF + SECTOR_HYST) {
+      sec = Math.round(ang / (Math.PI / 4));
+      sec = ((sec % 8) + 8) % 8;
+    }
+    applySector(sec);
+  }
+  function joyBegin(t) {
+    releaseTextFocusForMove();
+    // Se o jogo zerou as teclas por conta própria (perda de foco etc.), o "held"
+    // daqui pode ter ficado desatualizado: começa sempre do zero.
+    joySector = -1;
+    [87, 65, 83, 68].forEach(function (k) { if (held[k]) { held[k] = false; sendKey(k, false); } });
+    joyId = t.identifier;
+    if (!joyKeepAlive) joyKeepAlive = setInterval(joyReassert, 150);
+    joyMove(t);
   }
   function joyEnd() {
     joyId = null;
+    joySector = -1;
+    if (joyKeepAlive) { clearInterval(joyKeepAlive); joyKeepAlive = 0; }
     joyKnobX = 0;
     joyKnobY = 0;
     if (joyRafId) { cancelAnimationFrame(joyRafId); joyRafId = 0; }
@@ -2939,8 +3100,7 @@
     if (joyId !== null) return;
     refreshJoyRect();
     var t = e.changedTouches[0];
-    joyId = t.identifier;
-    joyMove(t);
+    joyBegin(t);
   }, { passive: false });
   joy.addEventListener("touchmove", function (e) {
     e.preventDefault(); e.stopPropagation();
@@ -3190,6 +3350,11 @@
   chatInp.type = "text";
   chatInp.className = "chat-inp";
   chatInp.placeholder = isTouchDevice ? (M2I18N.lang === "pl" ? "Czat..." : (M2I18N.lang === "en" ? "Chat..." : "Conversar...")) : (M2I18N.lang === "pl" ? "Czat... (lub /komenda)" : (M2I18N.lang === "en" ? "Chat... (or /command)" : "Conversar... (ou /comando)"));
+  window.__m2oOnLangChange = function () {
+    try {
+      chatInp.placeholder = isTouchDevice ? tl("Conversar...", "Chat...", "Czat...") : tl("Conversar... (ou /comando)", "Chat... (or /command)", "Czat... (lub /komenda)");
+    } catch (e) { }
+  };
   chatInp.autocomplete = "off";
   chatInp.autocorrect = "off";
   chatInp.autocapitalize = "off";
@@ -4848,7 +5013,7 @@
     for (var i = 0; i < bbOrbs.length; i++) {
       bbOrbs[i].style.height = Math.min(100, Math.max(0, (expPct - i * 25) / 25 * 100)).toFixed(1) + "%";
     }
-    bbLv.textContent = "Nv " + level + " — " + Math.floor(expPct) + "%";
+    bbLv.textContent = tl("Nv ", "Lv ", "Poz. ") + level + " — " + Math.floor(expPct) + "%";
   }
   function screenLayout() {
     try { return localStorage.getItem("m2o.layout") === "bar" ? "bar" : "mobile"; } catch (e) { return "mobile"; }
@@ -4862,7 +5027,7 @@
   function rColButton(prefix) {
     for (var i = 0; i < rCol.children.length; i++) {
       var b = rCol.children[i];
-      if ((b.title || "").indexOf(prefix) === 0) return b;
+      if ((b.getAttribute("data-ptitle") || b.title || "").indexOf(prefix) === 0) return b;
     }
     return null;
   }
@@ -5725,8 +5890,7 @@
           joy.style.bottom = jBottom + "px";
           joyFloating = true;
           refreshJoyRect();
-          joyId = t.identifier;
-          joyMove(t);
+          joyBegin(t);
           return;
         }
       }
