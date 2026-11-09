@@ -641,6 +641,9 @@ m2w.cursorMode = function () {
     var v = m2w.options.get('cursor');
     if (v === 'software') return 1;
     if (v === 'hardware') return 2;
+    // PATCH (PT-BR): no celular/app nao existe mouse; o cursor desenhado pelo
+    // jogo (software) ficava parado na tela. Mobile usa sempre o modo hardware.
+    if (m2w.isMobile && m2w.isMobile()) return 2;
     return 0;
 };
 
@@ -12595,7 +12598,7 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('wasmMemory');
 }
 var ASM_CONSTS = {
-  3394462: () => { m2w.cursor.software = true; },  
+  3394462: () => { if (!(m2w.isMobile && m2w.isMobile())) m2w.cursor.software = true; },  
  3394494: ($0) => { try { FS.mkdir(UTF8ToString($0)); } catch (e) { } }
 };
 function m2w_cursor_set(c_szCss) { m2w.cursorSet(UTF8ToString(c_szCss)); }

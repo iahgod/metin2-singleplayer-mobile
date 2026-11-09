@@ -850,7 +850,40 @@
     "#m2o .hud-exp-board:active{filter:drop-shadow(0 2px 4px rgba(0,0,0,0.85)) brightness(1.2)}" +
     "#m2o .hud-exp-socket{position:absolute;top:4px;width:19px;height:19px;overflow:hidden;pointer-events:none}" +
     "#m2o .hud-exp-point{position:absolute;left:0;bottom:0;width:19px;height:0%;background:url(icons/ui/hud_exp_point.png) left bottom no-repeat;background-size:19px 19px;transition:height 0.18s linear}" +
-    "#m2o .target-pill{position:absolute;top:56px;left:50%;transform:translateX(-50%);padding:2px 9px;border-radius:10px;background:rgba(10,11,13,0.84);border:1px solid #786b52;box-shadow:0 2px 6px rgba(0,0,0,0.9);color:#f3dfb0;font:700 10px/1.3 Tahoma,'Segoe UI',sans-serif;text-shadow:1px 1px 1px #000;pointer-events:none;z-index:18;display:none;white-space:nowrap}" +
+    "#m2o .target-pill{position:absolute;top:2px;width:max-content;max-width:min(90vw,280px);box-sizing:border-box;left:50%;transform:translateX(-50%);padding:4px 6px;border-radius:10px;background:rgba(10,11,13,0.9);border:1px solid #786b52;box-shadow:0 2px 6px rgba(0,0,0,0.9);color:#f3dfb0;font:700 10px/1.3 Tahoma,'Segoe UI',sans-serif;text-shadow:1px 1px 1px #000;pointer-events:none;z-index:18;display:none;white-space:nowrap;min-width:140px}" +
+    "#m2o .target-pill .tp-row{display:flex;align-items:center;gap:5px}" +
+    "#m2o .target-pill .tp-main{flex:1;min-width:0}" +
+    "#m2o .target-pill .tp-top{display:flex;align-items:center;gap:5px;min-height:20px}" +
+    "#m2o .target-pill .tp-lv{color:#e8c46a;font-size:9px}" +
+    "#m2o .target-pill .tp-name{overflow:hidden;text-overflow:ellipsis;max-width:170px}" +
+    "#m2o .target-pill .tp-dist{color:#b9ad93;font-size:9px;margin-left:auto;padding-left:6px}" +
+    "#m2o .target-pill .tp-bar{position:relative;height:7px;margin-top:1px;border-radius:5px;background:#2a0b0b;border:1px solid #5a2a22;overflow:hidden;display:none}" +
+    "#m2o .target-pill .tp-fill{position:absolute;left:0;top:0;bottom:0;width:100%;background:linear-gradient(#ff6a5c,#b3150d);transition:width .25s}" +
+    "#m2o .target-pill .tp-fill.poison{background:linear-gradient(#8be36a,#2f8f17)}" +
+    "#m2o .target-pill .tp-hptx{position:absolute;inset:0;text-align:center;font-size:7px;line-height:7px;color:#fff}" +
+    "#m2o .target-pill .tp-drop{pointer-events:auto;flex:none;box-sizing:border-box;width:20px;height:20px;border-radius:6px;border:1px solid #a08a5c;background:linear-gradient(#3b3020,#1a140c);color:#f3dfb0;font:700 12px/18px Tahoma,sans-serif;text-align:center;padding:0;cursor:pointer;display:none}" +
+    "#m2o .target-pill .tp-drop:active{filter:brightness(1.4)}" +
+    "#m2o .target-pill .tp-x{pointer-events:auto;flex:none;width:20px;height:20px;border-radius:6px;border:1px solid #6a5a40;background:#221a10;color:#d8c9a5;font:700 11px/18px Tahoma,sans-serif;text-align:center;padding:0}" +
+    "#m2o .target-pill .tp-btns{display:none;grid-template-columns:repeat(3,max-content);justify-content:center;gap:5px;margin-top:6px;max-width:100%;white-space:normal}" +
+    "#m2o .target-pill .tp-btns.on{display:grid}" +
+    "#m2o .target-pill .tp-btns button{pointer-events:auto;box-sizing:border-box;justify-self:center;width:auto;max-width:100%;min-width:0;padding:2px 5px;min-height:21px;border-radius:6px;border:1px solid #8a7550;background:linear-gradient(#3b3020,#1a140c);color:#f3dfb0;font:700 10px/1.15 Tahoma,'Segoe UI',sans-serif;text-shadow:1px 1px 1px #000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}" +
+    "#m2o .target-pill .tp-btns button.gm{border-color:#b0503a;background:linear-gradient(#4a2016,#200c08);color:#ffd2c4}" +
+    "#m2o .target-pill .tp-btns button:active{filter:brightness(1.4)}" +
+    "#m2o_dropwin{position:fixed;inset:0;z-index:100000;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.55);font-family:Tahoma,'Segoe UI',sans-serif}" +
+    "#m2o_dropwin.open{display:flex}" +
+    "#m2o_dropwin .dw-box{width:min(92vw,460px);max-height:82vh;display:flex;flex-direction:column;background:linear-gradient(#1c1812,#0e0c09);border:1px solid #8a7550;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,0.9);color:#f3dfb0}" +
+    "#m2o_dropwin .dw-head{display:flex;align-items:center;gap:8px;padding:9px 12px;border-bottom:1px solid #4a3f2c}" +
+    "#m2o_dropwin .dw-title{flex:1;font-weight:700;font-size:13px}" +
+    "#m2o_dropwin .dw-sub{font-size:10px;color:#b9ad93;font-weight:400}" +
+    "#m2o_dropwin .dw-x{width:26px;height:26px;border-radius:6px;border:1px solid #7a6545;background:#2a2116;color:#f3dfb0;font:700 14px/24px Tahoma;padding:0}" +
+    "#m2o_dropwin .dw-search{margin:8px 12px 0;padding:6px 8px;border-radius:6px;border:1px solid #5a4b33;background:#0a0907;color:#f3dfb0;font-size:12px;outline:none}" +
+    "#m2o_dropwin .dw-list{overflow-y:auto;padding:8px 12px 12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:6px;-webkit-overflow-scrolling:touch}" +
+    "#m2o_dropwin .dw-item{display:flex;align-items:center;gap:8px;padding:4px 6px;border-radius:6px;background:rgba(255,255,255,0.04);border:1px solid #33291b}" +
+    "#m2o_dropwin .dw-ico{width:32px;height:32px;flex:none;background:#000 url(icons/ui/slot.png) center/cover;border:1px solid #4a3f2c;border-radius:4px;display:flex;align-items:center;justify-content:center;position:relative}" +
+    "#m2o_dropwin .dw-ico img{max-width:32px;max-height:32px}" +
+    "#m2o_dropwin .dw-cnt{position:absolute;right:1px;bottom:0;font-size:9px;font-weight:700;color:#fff;text-shadow:1px 1px 1px #000}" +
+    "#m2o_dropwin .dw-nm{font-size:11px;line-height:1.25;word-break:break-word}" +
+    "#m2o_dropwin .dw-msg{padding:22px 12px;text-align:center;color:#b9ad93;font-size:12px}" +
     /* Tooltip in authentic ThinBoard style placed on the RIGHT of HUD with z-index: 100000 so buttons never cover it */
     "#m2o .hud-tooltip{position:absolute;left:162px;top:8px;background:rgba(0,0,0,0.82);border:8px solid transparent;border-image:url(icons/ui/thinboard_9slice.png) 16 fill stretch;box-shadow:0 3px 10px rgba(0,0,0,0.95);padding:1px 6px;font-family:Tahoma,'Segoe UI',Arial,sans-serif;font-size:10.5px;font-weight:700;color:#e6e2d8;text-shadow:1px 1px 0 #000,-1px -1px 0 #000,0 1px 2px #000;white-space:nowrap;pointer-events:none;z-index:100000;opacity:0;transform:translateX(-4px);transition:opacity 0.16s ease,transform 0.16s ease;line-height:1.3;text-align:left}" +
     "#m2o .hud-tooltip.show{opacity:1;transform:translateX(0)}" +
@@ -1562,6 +1595,287 @@
   var targetPillEl = document.createElement("div");
   targetPillEl.className = "target-pill";
   targetPillEl.id = "m2o_target_pill";
+  targetPillEl.innerHTML =
+    '<div class="tp-row"><div class="tp-main">' +
+    '<div class="tp-top"><span class="tp-lv" id="m2o_tgt_lv"></span><span class="tp-name" id="m2o_tgt_name"></span><span class="tp-dist" id="m2o_tgt_dist"></span></div>' +
+    '<div class="tp-bar" id="m2o_tgt_bar"><div class="tp-fill" id="m2o_tgt_hp"></div><div class="tp-hptx" id="m2o_tgt_hptx"></div></div>' +
+    '</div><button type="button" class="tp-drop" id="m2o_tgt_drop" title="Drop">?</button><button type="button" class="tp-x" id="m2o_tgt_x" title="Fechar">\u2715</button></div>' +
+    '<div class="tp-btns" id="m2o_tgt_btns"></div>';
+  var tgtLvEl = targetPillEl.querySelector("#m2o_tgt_lv");
+  var tgtNameEl = targetPillEl.querySelector("#m2o_tgt_name");
+  var tgtDistEl = targetPillEl.querySelector("#m2o_tgt_dist");
+  var tgtBarEl = targetPillEl.querySelector("#m2o_tgt_bar");
+  var tgtHpEl = targetPillEl.querySelector("#m2o_tgt_hp");
+  var tgtHpTxEl = targetPillEl.querySelector("#m2o_tgt_hptx");
+  var tgtDropBtn = targetPillEl.querySelector("#m2o_tgt_drop");
+  var tgtBtnsEl = targetPillEl.querySelector("#m2o_tgt_btns");
+  var tgtCloseBtn = targetPillEl.querySelector("#m2o_tgt_x");
+  var tgtBtnsSig = "";
+  var TGT_GM_IDX = { 18: 1, 19: 1, 20: 1, 21: 1, 22: 1 };
+  function tgtStop(e) { e.stopPropagation(); }
+  [tgtBtnsEl, tgtCloseBtn].forEach(function (el) {
+    ["touchstart", "touchend", "mousedown", "mouseup"].forEach(function (ev) { el.addEventListener(ev, tgtStop, { passive: true }); });
+  });
+  tgtBtnsEl.addEventListener("click", function (e) {
+    var b = e.target.closest ? e.target.closest("button[data-i]") : null;
+    if (!b) return;
+    e.preventDefault(); e.stopPropagation();
+    var idx = parseInt(b.getAttribute("data-i"), 10);
+    runPy([
+      "_tb = getattr(self, 'targetBoard', None)",
+      "if _tb is not None:",
+      "    _bk = _tb.BUTTON_NAME_LIST[" + idx + "]",
+      "    _bb = _tb.buttonDict.get(_bk)",
+      "    if _bb is not None and _bb in (_tb.showingButtonList or []):",
+      "        _ev = _bb.eventDict.get('MOUSE_LEFT_BUTTON_UP')",
+      "        if _ev:",
+      "            _ev(*_bb.eventArgs.get('MOUSE_LEFT_BUTTON_UP', ()))"
+    ].join("\n"));
+    tgtInfoBusy = false;
+  });
+  tgtCloseBtn.addEventListener("click", function (e) {
+    e.preventDefault(); e.stopPropagation();
+    runPy("player.ClearTarget()\n_tb = getattr(self, 'targetBoard', None)\nif _tb is not None:\n    _tb.Close()");
+    targetPillEl.style.display = "none";
+  });
+  var tgtInfo = null;           // ultimo /m2w_tgt.json lido
+  var tgtInfoBusy = false, tgtInfoT = 0;
+  var TGT_GRADES = { 1: "Nível 1", 2: "Nível 2", 3: "Nível 3", 4: "Chefe", 5: "Rei" };
+
+  // Pede ao Python os dados do alvo (nivel, vida, se tem drop) e grava em /m2w_tgt.json.
+  function requestTargetInfo() {
+    if (tgtInfoBusy && Date.now() - tgtInfoT < 2500) return;
+    tgtInfoBusy = true; tgtInfoT = Date.now();
+    runPy([
+      "import json as _tj",
+      "_tv = int(player.GetTargetVID())",
+      "_to = {'vid': _tv}",
+      "_tb0 = getattr(self, 'targetBoard', None)",
+      "if _tb0 is not None and not getattr(_tb0, '_m2wHideHook', False):",
+      "    _tb0._m2wHideHook = True",
+      "    _tbShow = _tb0.Show",
+      "    def _m2wTbShow(_tb0=_tb0, _tbShow=_tbShow):",
+      "        try:",
+      "            _vv = _tb0.GetTargetVID()",
+      "            if _vv > 0:",
+      "                _tb0.Hide()",
+      "                return",
+      "        except Exception:",
+      "            pass",
+      "        _tbShow()",
+      "    _tb0.Show = _m2wTbShow",
+      "    try:",
+      "        _vv0 = _tb0.GetTargetVID()",
+      "        if _tb0.IsShow() and _vv0 > 0:",
+      "            _tb0.Hide()",
+      "    except Exception:",
+      "        pass",
+      "if _tv > 0 and chr.HasInstance(_tv):",
+      "    _np = __import__('nonplayer')",
+      "    try:",
+      "        _to['lv'] = int(_np.GetLevelByVID(_tv)); _to['grade'] = int(_np.GetGradeByVID(_tv)); _to['race'] = int(_np.GetVnumByVID(_tv))",
+      "    except Exception:",
+      "        pass",
+      "    _tb = getattr(self, 'targetBoard', None)",
+      "    if _tb and _tb.GetTargetVID() == _tv:",
+      "        _hv = getattr(_tb, 'hpGaugeValue', None)",
+      "        if _hv and _hv[1] > 0:",
+      "            _to['hp'] = int(_hv[0]); _to['mhp'] = int(_hv[1])",
+      "        _to['poison'] = getattr(_tb, 'hpGaugeColor', '') == 'green'",
+      "        try:",
+      "            _sl = list(_tb.showingButtonList or [])",
+      "            _ek = _tb.buttonDict.get(localeInfo.TARGET_BUTTON_EXCHANGE)",
+      "            if _tb.IsShowButton() and _ek is not None:",
+      "                _dd = player.GetCharacterDistance(_tv)",
+      "                if _dd >= 0 and ((_ek in _sl and _dd > _tb.EXCHANGE_LIMIT_RANGE) or (_ek not in _sl and _dd < _tb.EXCHANGE_LIMIT_RANGE)):",
+      "                    _tb.RefreshButton(); _sl = list(_tb.showingButtonList or [])",
+      "            _bl = []",
+      "            for _bi, _bk in enumerate(_tb.BUTTON_NAME_LIST):",
+      "                _bb = _tb.buttonDict.get(_bk)",
+      "                if _bb is not None and _bb in _sl:",
+      "                    _bt = ''",
+      "                    try:",
+      "                        _bt = str(_bb.ButtonText.GetText() if _bb.ButtonText else '')",
+      "                    except Exception:",
+      "                        _bt = ''",
+      "                    _bl.append([_bi, _bt or str(_bk)])",
+      "            _to['btns'] = _bl",
+      "        except Exception:",
+      "            pass",
+      "    _to['pc'] = chr.GetInstanceType(_tv) == chr.INSTANCE_TYPE_PLAYER",
+      "    try:",
+      "        _to['drop'] = bool(getattr(self, 'mobDropWindow', None)) and bool(__import__('uiTarget').IsDropPreviewTarget(_tv))",
+      "    except Exception:",
+      "        _to['drop'] = False",
+      "_tf = open('/m2w_tgt.json', 'w'); _tf.write(_tj.dumps(_to)); _tf.close()"
+    ].join("\n"));
+  }
+  function readTargetInfo() {
+    if (!fsExists("/m2w_tgt.json")) return;
+    try { tgtInfo = JSON.parse(Module.FS.readFile("/m2w_tgt.json", { encoding: "utf8" })); } catch (e) { tgtInfo = null; }
+    fsRm("/m2w_tgt.json");
+    tgtInfoBusy = false;
+  }
+  function dwEscT(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function renderTargetInfo() {
+    var ok = tgtInfo && tgtInfo.vid === curTargetVid;
+    var lv = ok && tgtInfo.lv > 0 ? ("Lv." + tgtInfo.lv + (TGT_GRADES[tgtInfo.grade] ? " (" + TGT_GRADES[tgtInfo.grade] + ")" : "")) : "";
+    if (tgtLvEl.textContent !== lv) tgtLvEl.textContent = lv;
+    if (ok && tgtInfo.pc) {
+      tgtBarEl.style.display = "block";
+      tgtHpEl.style.width = "100%";
+      tgtHpEl.classList.remove("poison");
+      if (tgtHpTxEl.textContent !== "?") tgtHpTxEl.textContent = "?";
+    } else if (ok && tgtInfo.mhp > 0) {
+      var pct = Math.max(0, Math.min(100, tgtInfo.hp / tgtInfo.mhp * 100));
+      tgtBarEl.style.display = "block";
+      tgtHpEl.style.width = pct.toFixed(1) + "%";
+      tgtHpEl.classList.toggle("poison", !!tgtInfo.poison);
+      var tx = tgtInfo.mhp === 100 ? (Math.round(pct) + "%") : (tgtInfo.hp + " / " + tgtInfo.mhp);
+      if (tgtHpTxEl.textContent !== tx) tgtHpTxEl.textContent = tx;
+    } else {
+      tgtBarEl.style.display = "none";
+    }
+    tgtDropBtn.style.display = ok && tgtInfo.drop ? "block" : "none";
+    var btns = ok && Array.isArray(tgtInfo.btns) ? tgtInfo.btns : [];
+    var sig = btns.map(function (b) { return b[0] + ":" + b[1]; }).join("|");
+    if (sig !== tgtBtnsSig) {
+      tgtBtnsSig = sig;
+      tgtBtnsEl.innerHTML = btns.map(function (b) {
+        return '<button type="button" data-i="' + (b[0] | 0) + '"' + (TGT_GM_IDX[b[0]] ? ' class="gm"' : '') + '>' + dwEscT(b[1]) + '</button>';
+      }).join("");
+    }
+    tgtBtnsEl.classList.toggle("on", btns.length > 0);
+  }
+  setInterval(function () {
+    try {
+      readTargetInfo();
+      if (inWorld && curTargetVid > 0 && targetPillEl.style.display !== "none") {
+        renderTargetInfo();
+        requestTargetInfo();
+      }
+    } catch (e) { }
+  }, 350);
+
+  // ---- janela de drop (HTML) ----
+  var dropWin = document.createElement("div");
+  dropWin.id = "m2o_dropwin";
+  dropWin.innerHTML =
+    '<div class="dw-box"><div class="dw-head"><div class="dw-title"><span id="m2o_dw_title">Drop</span><div class="dw-sub" id="m2o_dw_sub"></div></div>' +
+    '<button type="button" class="dw-x" id="m2o_dw_x">✕</button></div>' +
+    '<input class="dw-search" id="m2o_dw_search" placeholder="Buscar item..." autocomplete="off">' +
+    '<div class="dw-list" id="m2o_dw_list"></div></div>';
+  document.body.appendChild(dropWin);
+  var dwTitle = dropWin.querySelector("#m2o_dw_title"), dwSub = dropWin.querySelector("#m2o_dw_sub");
+  var dwList = dropWin.querySelector("#m2o_dw_list"), dwSearch = dropWin.querySelector("#m2o_dw_search");
+  var dwItems = [], dwPollT = null;
+  function dwEsc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function closeDropWin() { dropWin.classList.remove("open"); if (dwPollT) { clearTimeout(dwPollT); dwPollT = null; } try { dwSearch.blur(); } catch (e) { } }
+  function dwMsg(t) { dwList.innerHTML = '<div class="dw-msg" style="grid-column:1/-1">' + dwEsc(t) + '</div>'; }
+  function renderDropList() {
+    var q = dwSearch.value.trim().toLowerCase();
+    var arr = dwItems.filter(function (it) { return !q || String(it.name || "").toLowerCase().indexOf(q) >= 0; });
+    if (!dwItems.length) { dwMsg("Nada cai das tabelas de drop deste monstro."); return; }
+    if (!arr.length) { dwMsg("Nenhum item encontrado."); return; }
+    dwList.innerHTML = arr.map(function (it) {
+      return '<div class="dw-item"><div class="dw-ico"><img src="icons/item/' + it.vnum + '.png" onerror="this.style.display=\'none\'">' +
+        (it.count > 1 ? '<span class="dw-cnt">' + it.count + '</span>' : '') + '</div>' +
+        '<div class="dw-nm">' + dwEsc(it.name || ("#" + it.vnum)) + '</div></div>';
+    }).join("");
+  }
+  dwSearch.addEventListener("input", renderDropList);
+  dropWin.querySelector("#m2o_dw_x").addEventListener("click", closeDropWin);
+  dropWin.addEventListener("click", function (e) { if (e.target === dropWin) closeDropWin(); });
+  ["touchstart", "touchmove", "touchend", "mousedown", "mouseup", "wheel"].forEach(function (ev) {
+    dropWin.addEventListener(ev, function (e) { e.stopPropagation(); }, { passive: true });
+  });
+
+  function openDropWin() {
+    var vid = curTargetVid;
+    if (!vid) return;
+    var nm = (tgtNameEl.textContent || "Monstro");
+    dwTitle.textContent = "Drop: " + nm;
+    dwSub.textContent = tgtLvEl.textContent || "";
+    dwSearch.value = ""; dwItems = [];
+    dwMsg("Carregando drop...");
+    dropWin.classList.add("open");
+    fsRm("/m2w_drop.json");
+    runPy([
+      "import json as _dj, net as _dn",
+      "_w = getattr(self, 'mobDropWindow', None)",
+      "if _w is not None:",
+      "    if not getattr(_w, '_m2wHook', False):",
+      "        _w._m2wHook = True",
+      "        _w._m2wHtml = 0",
+      "        _w._m2wRw = []",
+      "        _oB, _oI, _oE, _oR = _w.ReceiveBegin, _w.ReceiveItem, _w.ReceiveEnd, _w.ReceiveError",
+      "        def _m2wDump(o):",
+      "            _f = open('/m2w_drop.json', 'w'); _f.write(_dj.dumps(o)); _f.close()",
+      "        def _hB(data, _w=_w, _oB=_oB):",
+      "            if _w._m2wHtml:",
+      "                _w._m2wRw = []",
+      "                return",
+      "            _oB(data)",
+      "        def _hI(data, _w=_w, _oI=_oI):",
+      "            if _w._m2wHtml:",
+      "                try:",
+      "                    _v, _c = [int(x) for x in data.split('|', 1)]",
+      "                    if _v > 0 and len(_w._m2wRw) < 500:",
+      "                        _w._m2wRw.append((_v, _c))",
+      "                except Exception:",
+      "                    pass",
+      "                return",
+      "            _oI(data)",
+      "        def _hE(data, _w=_w, _oE=_oE, _m2wDump=_m2wDump):",
+      "            if _w._m2wHtml:",
+      "                _vid = _w._m2wHtml; _w._m2wHtml = 0",
+      "                _it = __import__('item'); _seen = {}; _out = []",
+      "                for _v, _c in _w._m2wRw:",
+      "                    if _v in _seen:",
+      "                        _out[_seen[_v]]['count'] = max(_out[_seen[_v]]['count'], _c); continue",
+      "                    _n = ''",
+      "                    try:",
+      "                        _it.SelectItem(_v); _n = str(_it.GetItemName() or '')",
+      "                    except Exception:",
+      "                        pass",
+      "                    _seen[_v] = len(_out); _out.append({'vnum': _v, 'count': _c, 'name': _n})",
+      "                _m2wDump({'vid': _vid, 'items': _out})",
+      "                return",
+      "            _oE(data)",
+      "        def _hR(data, _w=_w, _oR=_oR, _m2wDump=_m2wDump):",
+      "            if _w._m2wHtml:",
+      "                _vid = _w._m2wHtml; _w._m2wHtml = 0",
+      "                _m2wDump({'vid': _vid, 'error': str(data)})",
+      "                return",
+      "            _oR(data)",
+      "        _w.ReceiveBegin, _w.ReceiveItem, _w.ReceiveEnd, _w.ReceiveError = _hB, _hI, _hE, _hR",
+      "    if _w.IsShow():",
+      "        _w.Close()",
+      "    _w._m2wHtml = " + vid,
+      "    _w._m2wRw = []",
+      "    _dn.SendChatPacket('/mob_drop_preview %d' % " + vid + ")"
+    ].join("\n"));
+    var t0 = Date.now();
+    (function poll() {
+      dwPollT = null;
+      if (!dropWin.classList.contains("open")) return;
+      if (fsExists("/m2w_drop.json")) {
+        var d = null;
+        try { d = JSON.parse(Module.FS.readFile("/m2w_drop.json", { encoding: "utf8" })); } catch (e) { }
+        fsRm("/m2w_drop.json");
+        if (!d) { dwMsg("Erro ao ler o drop."); return; }
+        if (d.error) { dwMsg("Sem dados de drop para este monstro (longe demais ou indisponível)."); return; }
+        dwItems = d.items || [];
+        dwSub.textContent = (tgtLvEl.textContent ? tgtLvEl.textContent + " • " : "") + dwItems.length + " itens";
+        renderDropList();
+        return;
+      }
+      if (Date.now() - t0 > 8000) { dwMsg("O servidor não respondeu. Tente de novo."); return; }
+      dwPollT = setTimeout(poll, 120);
+    })();
+  }
+  tgtDropBtn.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); openDropWin(); });
+  tgtDropBtn.addEventListener("touchstart", function (e) { e.stopPropagation(); }, { passive: true });
 
   root.appendChild(hudTl);
   root.appendChild(hudTipEl);
@@ -5363,17 +5677,20 @@
     var tName = String(d.target_name || "").trim();
     curTargetVid = tVid;
     curTargetDist = tDist;
-    var targetStr = (inWorld && tVid > 0 && tDist >= 0)
-      ? ("\uD83C\uDFAF " + (tName ? (tName + " \u2022 ") : "") + tDist + " m")
-      : "";
+    var targetStr = (inWorld && tVid > 0 && tDist >= 0) ? (tVid + "|" + tName + "|" + tDist) : "";
     if (targetStr !== prevTargetStr) {
       prevTargetStr = targetStr;
       if (targetPillEl) {
         if (targetStr) {
-          targetPillEl.textContent = targetStr;
+          var nmTx = "\uD83C\uDFAF " + (tName || "Alvo");
+          if (tgtNameEl.textContent !== nmTx) tgtNameEl.textContent = nmTx;
+          tgtDistEl.textContent = tDist + " m";
           targetPillEl.style.display = "block";
+          renderTargetInfo();
+          requestTargetInfo();
         } else {
           targetPillEl.style.display = "none";
+          if (dropWin.classList.contains("open") && !tVid) { /* mantém a janela aberta */ }
         }
       }
     }
