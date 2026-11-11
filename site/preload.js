@@ -214,8 +214,60 @@
         });
     }
 
+    // --- first-run gate --------------------------------------------------------
+    // PT-BR: na primeira vez (dados essenciais ainda nao estao no aparelho) uma tela
+    // cobre o jogo e mostra a porcentagem; so libera quando o essencial terminou.
+    // Assim login -> selecao de personagem nao fica numa tela preta baixando dados.
+    // `?nogate=1` desliga. `m2w.gate` = true enquanto bloqueado.
+    var GT = { pt: ['Baixando dados do jogo', 'Somente na primeira vez. Mantenha esta tela aberta.'],
+               en: ['Downloading game data', 'Only the first time. Keep this screen open.'],
+               pl: ['Pobieranie danych gry', 'Tylko za pierwszym razem. Nie zamykaj tej strony.'] }[dlLang];
+    var noGate = q.get('nogate') === '1';
+    var gate = null, gateFill = null, gatePct = null, gateDetail = null, gateDone = false;
+    m2w.gate = false;
+    function gateShow(done, total) {
+        if (noGate || gateDone) return;
+        if (!gate) {
+            gate = document.createElement('div');
+            gate.id = 'm2w_gate';
+            gate.style.cssText = 'position:fixed;inset:0;z-index:2147483000;display:flex;flex-direction:column;align-items:center;' +
+                'justify-content:center;gap:12px;background:#0b0907;color:#efe2c4;font:15px/1.4 system-ui,sans-serif;' +
+                'text-align:center;touch-action:none;user-select:none;-webkit-user-select:none';
+            gate.innerHTML = '<div style="font-weight:700;font-size:18px;letter-spacing:.3px">' + GT[0] + '</div>' +
+                '<div id="m2w_gate_pct" style="font:700 34px/1 system-ui,sans-serif;color:#c9a24a">0%</div>' +
+                '<div style="width:min(420px,78vw);height:8px;background:#2a2218;border-radius:4px;overflow:hidden">' +
+                '<div id="m2w_gate_fill" style="height:100%;width:0;background:#c9a24a;transition:width .3s"></div></div>' +
+                '<div id="m2w_gate_detail" style="font-size:12px;color:#c8bba0"></div>' +
+                '<div style="font-size:12px;color:#8f846f;max-width:80vw">' + GT[1] + '</div>';
+            ['touchstart', 'touchmove', 'touchend', 'mousedown', 'mouseup', 'click', 'pointerdown', 'pointerup', 'wheel', 'keydown', 'keyup'].forEach(function (n) {
+                gate.addEventListener(n, function (e) { e.stopPropagation(); if (e.cancelable) e.preventDefault(); }, { passive: false });
+            });
+            document.body.appendChild(gate);
+            gateFill = gate.querySelector('#m2w_gate_fill');
+            gatePct = gate.querySelector('#m2w_gate_pct');
+            gateDetail = gate.querySelector('#m2w_gate_detail');
+            // teclado: nada chega ao jogo enquanto bloqueado
+            window.addEventListener('keydown', gateKey, true);
+            window.addEventListener('keyup', gateKey, true);
+        }
+        var pct = Math.floor(done / total * 100);
+        gateFill.style.width = pct + '%';
+        gatePct.textContent = pct + '%';
+        gateDetail.textContent = Math.round(done * 4) + ' / ' + Math.round(total * 4) + ' MB';
+        m2w.gate = true;
+    }
+    function gateKey(e) { if (m2w.gate) { e.stopPropagation(); if (e.cancelable) e.preventDefault(); } }
+    function gateHide() {
+        gateDone = true;
+        m2w.gate = false;
+        if (gate) { gate.remove(); gate = null; }
+        window.removeEventListener('keydown', gateKey, true);
+        window.removeEventListener('keyup', gateKey, true);
+    }
+
     // --- phase 1: prefetch progress from compat ----------------------------
     var backgroundStarted = false;
+    var gateDecided = false;
     var lastDone = -1, lastChange = 0;
     /// Polls `m2w.prefetch` every 500 ms: shows phase 1, and starts phase 2
     /// when it is done or has stalled for 10 s (or there is no order.txt).
@@ -228,6 +280,15 @@
             // stall when the game has left the recorded path - after 10 s without progress
             // we move to the background, which covers the rest of the list anyway.
             var bStalled = performance.now() - lastChange > 12000;
+            // Primeira vez (ou download interrompido) = algum pedaco essencial veio da rede.
+            // Se tudo vem do armazenamento do aparelho, nao bloqueia.
+            var essKey = 'm2w.essOk.' + w.total;
+            var essOk = false;
+            try { essOk = localStorage.getItem(essKey) === '1'; } catch (e) { }
+            if (!essOk && w.done - (w.fromStorage || 0) > 0) gateDecided = true;
+            if (w.done >= w.total) { try { localStorage.setItem(essKey, '1'); } catch (e) { } }
+            if (w.done < w.total && !bStalled && gateDecided) gateShow(w.done, w.total);
+            else if (gate && (w.done >= w.total || bStalled)) gateHide();
             if (w.done < w.total && !bStalled)
                 show(DLT.ess + w.done + ' / ' + w.total, w.done / w.total,
                      (w.fromStorage ? w.fromStorage + DLT.fromSt : ''));
@@ -243,5 +304,5 @@
         }
         if (!backgroundStarted || (download.start && !download.end)) setTimeout(watch, 500);
     }
-    setTimeout(watch, 2000);
+    setTimeout(watch, 300);
 })();
