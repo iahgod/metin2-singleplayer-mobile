@@ -32,21 +32,22 @@
     // PT-BR: barra semitransparente com botões de minimizar (–) e fechar (×).
     // Minimizada vira uma pílula pequena com a porcentagem (toque para abrir de novo);
     // fechada some até recarregar a página. O download continua em segundo plano.
-    // Textos da barra de download no idioma do jogador (pt padrão, en, pl).
-    var dlLang = 'pt';
+    // Textos da barra de download no idioma do jogador (en padrão, pt, pl).
+    // Padrao: ingles. Usa o idioma escolhido no jogo / ?lang= / do aparelho quando for pt ou pl.
+    var dlLang = 'en';
     try {
         var _dsp = new URLSearchParams(location.search);
         var _dl = _dsp.get('lang') || localStorage.getItem('m2w.uiLang') || localStorage.getItem('m2/lang') ||
                   String((navigator.languages && navigator.languages[0]) || navigator.language || '');
         _dl = String(_dl).toLowerCase().slice(0, 2);
-        if (_dl === 'en' || _dl === 'pl') dlLang = _dl;
+        if (_dl === 'pt' || _dl === 'pl' || _dl === 'en') dlLang = _dl;
     } catch (e) { }
     var DLT = {
-        pt: { data: 'Dados do jogo', saved: 'Dados do jogo: tudo salvo no aparelho', parts: ' partes', bg: 'Dados do jogo (em segundo plano): ',
+        pt: { min: 'Minimizar', close: 'Fechar', open: 'Mostrar o download', data: 'Dados do jogo', saved: 'Dados do jogo: tudo salvo no aparelho', parts: ' partes', bg: 'Dados do jogo (em segundo plano): ',
               errs: ', erros ', mem: 'carregando na mem\u00F3ria...', ess: 'Dados essenciais: ', fromSt: ' do armazenamento', essOk: 'Dados essenciais: prontos' },
-        en: { data: 'Game data', saved: 'Game data: all saved on this device', parts: ' parts', bg: 'Game data (in background): ',
+        en: { min: 'Minimize', close: 'Close', open: 'Show download', data: 'Game data', saved: 'Game data: all saved on this device', parts: ' parts', bg: 'Game data (in background): ',
               errs: ', errors ', mem: 'loading into memory...', ess: 'Essential data: ', fromSt: ' from storage', essOk: 'Essential data: ready' },
-        pl: { data: 'Dane gry', saved: 'Dane gry: zapisano w pami\u0119ci', parts: ' cz.', bg: 'Dane gry (w tle): ',
+        pl: { min: 'Minimalizuj', close: 'Zamknij', open: 'Poka\u017C pobieranie', data: 'Dane gry', saved: 'Dane gry: zapisano w pami\u0119ci', parts: ' cz.', bg: 'Dane gry (w tle): ',
               errs: ', b\u0142\u0119dy ', mem: '\u0142adowanie do pami\u0119ci...', ess: 'Dane podstawowe: ', fromSt: ' z pami\u0119ci', essOk: 'Dane podstawowe: gotowe' }
     }[dlLang];
     var isMobilePage = /[?&]mobile=1(&|$)/.test(location.search) || (!/[?&]mobile=0(&|$)/.test(location.search) && (/Android|iPhone|iPad|iPod|Mobile|Tablet/i.test(navigator.userAgent || '') || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches && Math.min(window.innerWidth || 9999, window.innerHeight || 9999) <= 920)));
@@ -81,13 +82,13 @@
     bar.innerHTML =
         '<div class="dl-full">' +
           '<div class="dl-head"><span class="dl-text" id="m2w_download_text">' + DLT.data + '</span>' +
-          '<button type="button" class="dl-btn" data-act="min" title="Minimizar" aria-label="Minimizar">&#8211;</button>' +
-          '<button type="button" class="dl-btn" data-act="close" title="Fechar" aria-label="Fechar">&#215;</button></div>' +
+          '<button type="button" class="dl-btn" data-act="min" title="' + DLT.min + '" aria-label="' + DLT.min + '">&#8211;</button>' +
+          '<button type="button" class="dl-btn" data-act="close" title="' + DLT.close + '" aria-label="' + DLT.close + '">&#215;</button></div>' +
           '<div class="dl-track"><div class="dl-fill" id="m2w_download_fill"></div></div>' +
           '<div class="dl-detail" id="m2w_download_detail"></div>' +
         '</div>' +
-        '<div class="dl-pill" title="Mostrar o download"><span>&#11015; <span id="m2w_download_pct">0%</span></span>' +
-          '<button type="button" class="dl-btn" data-act="close" title="Fechar" aria-label="Fechar">&#215;</button></div>';
+        '<div class="dl-pill" title="' + DLT.open + '"><span>&#11015; <span id="m2w_download_pct">0%</span></span>' +
+          '<button type="button" class="dl-btn" data-act="close" title="' + DLT.close + '" aria-label="' + DLT.close + '">&#215;</button></div>';
     document.body.appendChild(bar);
     var elText = bar.querySelector('#m2w_download_text');
     var elFill = bar.querySelector('#m2w_download_fill');
@@ -215,9 +216,9 @@
     }
 
     // --- first-run gate --------------------------------------------------------
-    // PT-BR: na primeira vez (dados essenciais ainda nao estao no aparelho) uma tela
-    // cobre o jogo e mostra a porcentagem; so libera quando o essencial terminou.
-    // Assim login -> selecao de personagem nao fica numa tela preta baixando dados.
+    // Na primeira vez (dados essenciais ainda nao estao no aparelho) uma tela cobre o
+    // jogo e mostra a porcentagem; so libera quando o essencial terminou. Assim
+    // login -> selecao de personagem nao fica numa tela preta baixando dados.
     // `?nogate=1` desliga. `m2w.gate` = true enquanto bloqueado.
     var GT = { pt: ['Baixando dados do jogo', 'Somente na primeira vez. Mantenha esta tela aberta.'],
                en: ['Downloading game data', 'Only the first time. Keep this screen open.'],
@@ -225,6 +226,7 @@
     var noGate = q.get('nogate') === '1';
     var gate = null, gateFill = null, gatePct = null, gateDetail = null, gateDone = false;
     m2w.gate = false;
+    m2w.gateTitle = GT[0];
     function gateShow(done, total) {
         if (noGate || gateDone) return;
         if (!gate) {
@@ -233,7 +235,7 @@
             gate.style.cssText = 'position:fixed;inset:0;z-index:2147483000;display:flex;flex-direction:column;align-items:center;' +
                 'justify-content:center;gap:12px;background:#0b0907;color:#efe2c4;font:15px/1.4 system-ui,sans-serif;' +
                 'text-align:center;touch-action:none;user-select:none;-webkit-user-select:none';
-            gate.innerHTML = '<div style="font-weight:700;font-size:18px;letter-spacing:.3px">' + GT[0] + '</div>' +
+            gate.innerHTML = '<div id="m2w_gate_title" style="font-weight:700;font-size:18px;letter-spacing:.3px">' + GT[0] + '</div>' +
                 '<div id="m2w_gate_pct" style="font:700 34px/1 system-ui,sans-serif;color:#c9a24a">0%</div>' +
                 '<div style="width:min(420px,78vw);height:8px;background:#2a2218;border-radius:4px;overflow:hidden">' +
                 '<div id="m2w_gate_fill" style="height:100%;width:0;background:#c9a24a;transition:width .3s"></div></div>' +
@@ -246,7 +248,6 @@
             gateFill = gate.querySelector('#m2w_gate_fill');
             gatePct = gate.querySelector('#m2w_gate_pct');
             gateDetail = gate.querySelector('#m2w_gate_detail');
-            // teclado: nada chega ao jogo enquanto bloqueado
             window.addEventListener('keydown', gateKey, true);
             window.addEventListener('keyup', gateKey, true);
         }
@@ -281,7 +282,7 @@
             // we move to the background, which covers the rest of the list anyway.
             var bStalled = performance.now() - lastChange > 12000;
             // Primeira vez (ou download interrompido) = algum pedaco essencial veio da rede.
-            // Se tudo vem do armazenamento do aparelho, nao bloqueia.
+            // Se o essencial ja esta no aparelho, nao bloqueia.
             var essKey = 'm2w.essOk.' + w.total;
             var essOk = false;
             try { essOk = localStorage.getItem(essKey) === '1'; } catch (e) { }
