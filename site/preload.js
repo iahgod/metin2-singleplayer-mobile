@@ -163,6 +163,8 @@
                 if (i >= list.length) {
                     download.end = performance.now();
                     show(DLT.saved, 1, download.total + DLT.parts);
+                    // tudo no aparelho: o essencial tambem esta, nao bloqueia mais nas proximas vezes
+                    try { var _pw = m2w.prefetch; if (_pw && _pw.essKey && !download.errors) localStorage.setItem(_pw.essKey, '1'); } catch (e) { }
                     console.log('[corpus] background: ' + download.done + ' downloaded, ' + download.fromCache + ' from disk, ' +
                                 download.errors + ' errors, ' + Math.round((download.end - download.start) / 1000) + ' s');
                     hide(4000);
@@ -283,10 +285,13 @@
             var bStalled = performance.now() - lastChange > 12000;
             // Primeira vez (ou download interrompido) = algum pedaco essencial veio da rede.
             // Se o essencial ja esta no aparelho, nao bloqueia.
-            var essKey = 'm2w.essOk.' + w.total;
+            var essKey = w.essKey || ('m2w.essOk.' + w.total);
             var essOk = false;
             try { essOk = localStorage.getItem(essKey) === '1'; } catch (e) { }
-            if (!essOk && w.done - (w.fromStorage || 0) > 0) gateDecided = true;
+            // So bloqueia se algum pedaco essencial veio DA REDE nesta sessao (fromNet);
+            // pedacos que ja estavam na memoria nao contam como download.
+            var fromNet = (typeof w.fromNet === 'number') ? w.fromNet : (w.done - (w.fromStorage || 0));
+            if (!essOk && fromNet > 0) gateDecided = true;
             if (w.done >= w.total) { try { localStorage.setItem(essKey, '1'); } catch (e) { } }
             if (w.done < w.total && !bStalled && gateDecided) gateShow(w.done, w.total);
             else if (gate && (w.done >= w.total || bStalled)) gateHide();

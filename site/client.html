@@ -178,7 +178,7 @@ window.m2w = { config: { bridge: "", mobile: MOBILE } };
         if (window.m2w.options && window.m2w.options.get("noprefetch") === "1") return;
         var CHUNK = 4 * 1048576;
         var w = window.m2w.prefetch = {
-          total: 0, done: 0, toMemory: 0, fromStorage: 0, errors: 0,
+          total: 0, done: 0, toMemory: 0, fromStorage: 0, fromNet: 0, errors: 0, essKey: '',
           waits: 0, forcedEvictions: 0, start: performance.now(), end: 0,
           lastProgress: performance.now()
         };
@@ -244,6 +244,11 @@ window.m2w = { config: { bridge: "", mobile: MOBILE } };
             if (h && !seen.has(h)) { seen.add(h); hashes.push(h); }
           }
           w.total = hashes.length;
+          // Chave estavel dos dados essenciais: so a lista do servidor (order.txt), sem a ordem
+          // aprendida (que cresce a cada sessao e mudava a chave, pedindo o download de novo).
+          var _hk = 0, _hs = serverHashes.join('');
+          for (var _i = 0; _i < _hs.length; _i++) _hk = (_hk * 31 + _hs.charCodeAt(_i)) | 0;
+          w.essKey = 'm2w.essOk2.' + serverHashes.length + '.' + (_hk >>> 0).toString(36);
           var waitIfSyncBusy = function (chunkIdx) {
             if (chunkIdx <= 5) return Promise.resolve();
             if (window._m2wSyncBusyUntil && performance.now() < window._m2wSyncBusyUntil) {
@@ -279,6 +284,7 @@ window.m2w = { config: { bridge: "", mobile: MOBILE } };
                     return fetch(url).then(function (response2) {
                       if (!response2 || !response2.ok) throw new Error("HTTP " + (response2 && response2.status));
                       if (storage) { try { storage.put(url, response2.clone()); } catch (e) { } }
+                      ++w.fromNet;
                       return response2.arrayBuffer().then(function (b) { put(name, b); });
                     }).then(function () {
                       return new Promise(function (r) { setTimeout(r, 25); });
@@ -416,8 +422,23 @@ window.addEventListener("error", function (ev) {
     }
     var isWasm = /client\.wasm(\?|$)/.test(url);
     var mime = isWasm ? "application/wasm" : "application/octet-stream";
+    // A chave do cache inclui a assinatura do arquivo NO SERVIDOR (ETag / data / tamanho),
+    // lida com um HEAD sem cache. Assim, qualquer client.data/client.wasm novo na VPS e
+    // baixado de novo, mesmo sem mudar BUILD_VER. Sem internet usa a ultima versao salva.
+    var plain = url.split("?")[0];
+    var lsKey = "m2w.cacheKey." + (isWasm ? "wasm" : "data");
+    var sigP = Promise.race([
+      origFetch(plain, { method: "HEAD", cache: "no-store" }).then(function (h) {
+        if (!h || !h.ok) return "";
+        return (h.headers.get("ETag") || "") + "|" + (h.headers.get("Last-Modified") || "") + "|" + (h.headers.get("Content-Length") || "");
+      }).catch(function () { return ""; }),
+      new Promise(function (r) { setTimeout(function () { r(""); }, 5000); })
+    ]);
     var cacheKey = url + "@" + BUILD_VER;
-    return dbPromise.then(function (db) {
+    return Promise.all([dbPromise, sigP]).then(function (all) {
+      var db = all[0], sig = all[1];
+      if (sig && sig !== "||") cacheKey = url + "@" + BUILD_VER + "#" + sig;
+      else { try { cacheKey = localStorage.getItem(lsKey) || cacheKey; } catch (e) {} }
       if (!db) return origFetch(input, init);
       return new Promise(function (resolve) {
         try {
@@ -432,7 +453,9 @@ window.addEventListener("error", function (ev) {
           console.log("[cache] loaded from IndexedDB: " + cacheKey + " (" + (buf.byteLength >> 10) + " kB)");
           return new Response(buf, { status: 200, headers: { "Content-Type": mime, "Content-Length": String(buf.byteLength) } });
         }
-        return origFetch(url + (url.indexOf("?") < 0 ? "?v=" + BUILD_VER : ""), init).then(function (resp) {
+        var bust = 0;
+        for (var j = 0; j < cacheKey.length; j++) bust = (bust * 31 + cacheKey.charCodeAt(j)) | 0;
+        return origFetch(url + (url.indexOf("?") < 0 ? "?v=" + BUILD_VER + "&s=" + (bust >>> 0).toString(36) : ""), Object.assign({}, init || {}, { cache: "no-store" })).then(function (resp) {
           if (!resp || !resp.ok) return resp;
           // Com compressão (gzip/br) o Content-Length é do arquivo comprimido: não dá para comparar.
           var expectLen = resp.headers.get("Content-Encoding") ? 0 : Number(resp.headers.get("Content-Length") || 0);
@@ -445,12 +468,14 @@ window.addEventListener("error", function (ev) {
                 var keys = (ev && ev.target && ev.target.result) || [];
                 for (var i = 0; i < keys.length; i++) {
                   var k = String(keys[i]);
-                  if (/client\.(data|wasm)/.test(k) && k.indexOf("@" + BUILD_VER) < 0) {
+                  // apaga as versoes antigas deste arquivo (outra BUILD_VER ou outra assinatura)
+                  if (k !== cacheKey && k.split("@")[0] === url) {
                     try { store.delete(keys[i]); } catch (e2) {}
                   }
                 }
               };
               store.put(buf, cacheKey);
+              try { localStorage.setItem(lsKey, cacheKey); } catch (e3) {}
             } catch (e) {}
           }).catch(function () {});
           return resp;
@@ -461,8 +486,8 @@ window.addEventListener("error", function (ev) {
 })();
 </script>
 <script src="client.js?v=2.0.141-autohunt-br6" async></script>
-<script src="preload.js?v=2.0.141-autohunt-br5-perf2"></script>
-<script src="mobile_overlay.js?v=2.0.148-target-actions-compact"></script>
+<script src="preload.js?v=2.0.141-autohunt-br5-perf2-ess2"></script>
+<script src="mobile_overlay.js?v=2.0.152-itemshop-info"></script>
 <script src="replay_hud.js?v=2.0.141-autohunt-br5"></script>
 </body>
 </html>

@@ -5786,6 +5786,571 @@
     if (!lw) lw = c.width || r.width;
     return Math.round((cssX - r.left) * lw / (r.width || 1));
   }
+  // ---- Loja de itens compacta (HTML) ----
+  // A janela original (662x464) não cabe no celular. O servidor continua abrindo a
+  // janela do jogo (ela guarda a sessão e os dados), mas ela nunca é desenhada: o
+  // overlay mostra esta versão em HTML com os mesmos dados (constInfo.ITEMSHOP_DATA /
+  // uiItemShop.ITEMSHOP_CATEGORIES). Os comandos são os mesmos da janela original.
+  var ishopData = null, ishopCat = null, ishopPollT = null, ishopTickT = null;
+  var ishopAuction = false, ishopTimeOff = 0, ishopTickN = 0;
+  var IS_T = {
+    title: tl("Loja de itens", "Item Shop", "Sklep z przedmiotami"),
+    search: tl("Buscar item...", "Search item...", "Szukaj przedmiotu..."),
+    loading: tl("Carregando loja...", "Loading shop...", "Ładowanie sklepu..."),
+    loadingAuc: tl("Carregando leilões...", "Loading auctions...", "Ładowanie aukcji..."),
+    notFound: tl("Nenhum item encontrado.", "No items found.", "Nie znaleziono przedmiotów."),
+    empty: tl("Nenhum item nesta categoria.", "No items in this category.", "Brak przedmiotów w tej kategorii."),
+    noAnswer: tl("O servidor não respondeu. Tente de novo.", "The server did not respond. Try again.", "Serwer nie odpowiedział. Spróbuj ponownie."),
+    minLevel: tl("Nível mínimo: ", "Minimum level: ", "Minimalny poziom: "),
+    total: tl("Total: ", "Total: ", "Razem: "),
+    noMoney: tl("Saldo insuficiente", "Not enough balance", "Za mało środków"),
+    cancel: tl("Cancelar", "Cancel", "Anuluj"),
+    buy: tl("Comprar", "Buy", "Kup"),
+    refresh: tl("Atualizar", "Refresh", "Odśwież"),
+    startsIn: tl("Começa em ", "Starts in ", "Start za "),
+    endsIn: tl("Termina em ", "Ends in ", "Koniec za "),
+    ended: tl("Encerrado", "Ended", "Zakończone"),
+    soldOut: tl("Esgotado", "Sold out", "Wyprzedane"),
+    left: tl("Restam: ", "Left: ", "Pozostało: "),
+    limit: tl("Limite por conta: ", "Limit per account: ", "Limit na konto: "),
+    noAuctions: tl("Nenhum leilão no momento.", "No auctions right now.", "Brak aukcji w tej chwili."),
+    vcPh: tl("Código do vale", "Voucher code", "Kod vouchera"),
+    vcBtn: tl("Usar vale", "Use voucher", "Użyj vouchera"),
+    vcWait: tl("Enviando...", "Sending...", "Wysyłanie..."),
+    vcShort: tl("O código precisa ter pelo menos 3 caracteres.", "The code needs at least 3 characters.", "Kod musi mieć co najmniej 3 znaki."),
+    sup1: tl("O apoio é voluntário e não dá nada no jogo.", "Support is voluntary and gives nothing in the game.", "Wsparcie jest dobrowolne i nic nie daje w grze."),
+    sup2: tl("Você não compra Moedas do Dragão, VIP nem itens com ele.", "It buys no Dragon Coins, VIP or items.", "Nie kupujesz za nie SM, VIP ani przedmiotów."),
+    supBtn: tl("Abrir buycoffee.to", "Open buycoffee.to", "Otwórz buycoffee.to")
+  };
+  var ishopCss = document.createElement("style");
+  ishopCss.textContent =
+    "#m2o_ishop{position:fixed;inset:0;z-index:100000;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);font-family:Tahoma,'Segoe UI',sans-serif}" +
+    "#m2o_ishop.open{display:flex}" +
+    "#m2o_ishop .is-box{position:relative;width:min(96vw,540px);height:min(92vh,520px);display:flex;flex-direction:column;background:linear-gradient(#1c1812,#0e0c09);border:1px solid #8a7550;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,0.9);color:#f3dfb0;overflow:hidden}" +
+    "#m2o_ishop .is-head{display:flex;align-items:center;gap:6px;padding:6px 8px;border-bottom:1px solid #4a3f2c}" +
+    "#m2o_ishop .is-title{font-weight:700;font-size:13px;white-space:nowrap}" +
+    "#m2o_ishop .is-bal{flex:1;display:flex;gap:8px;justify-content:flex-end;font-size:11px;font-weight:700;white-space:nowrap}" +
+    "#m2o_ishop .is-dc{color:#ffc948}#m2o_ishop .is-dm{color:#cfa696}" +
+    "#m2o_ishop .is-hb{height:24px;min-width:24px;padding:0 6px;border-radius:6px;border:1px solid #7a6545;background:#2a2116;color:#f3dfb0;font:700 11px/22px Tahoma}" +
+    "#m2o_ishop .is-body{flex:1;display:flex;min-height:0}" +
+    "#m2o_ishop .is-main{flex:1;display:flex;flex-direction:column;min-width:0}" +
+    "#m2o_ishop .is-cats{width:112px;flex:none;display:flex;flex-direction:column;gap:3px;overflow-y:auto;padding:6px 5px;border-right:1px solid #33291b;-webkit-overflow-scrolling:touch}" +
+    "#m2o_ishop .is-cat{flex:none;min-height:26px;padding:3px 7px;border-radius:5px;border:1px solid #5a4b33;background:#16120c;color:#d9c79f;font:700 10.5px/1.2 Tahoma;text-align:left;white-space:normal;word-break:break-word}" +
+    "#m2o_ishop .is-cat.on{background:#6b5530;border-color:#d4b16f;color:#fff3d1}" +
+    "#m2o_ishop .is-search{margin:5px 8px 0;padding:5px 8px;border-radius:6px;border:1px solid #5a4b33;background:#0a0907;color:#f3dfb0;font-size:12px;outline:none;flex:none}" +
+    "#m2o_ishop .is-list{flex:1;overflow-y:auto;padding:6px 8px 8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:5px;align-content:start;-webkit-overflow-scrolling:touch}" +
+    "#m2o_ishop .is-item{display:flex;align-items:center;gap:6px;padding:4px 5px;border-radius:6px;background:rgba(255,255,255,0.04);border:1px solid #33291b;cursor:pointer}" +
+    "#m2o_ishop .is-item:active{background:rgba(255,220,150,0.12)}" +
+    "#m2o_ishop .is-item.off{opacity:0.55}" +
+    "#m2o_ishop .is-ico{width:32px;height:32px;flex:none;background:#000 url(icons/ui/slot.png) center/cover;border:1px solid #4a3f2c;border-radius:4px;display:flex;align-items:center;justify-content:center;position:relative}" +
+    "#m2o_ishop .is-ico img{max-width:32px;max-height:32px}" +
+    "#m2o_ishop .is-cnt{position:absolute;right:1px;bottom:0;font-size:9px;font-weight:700;color:#fff;text-shadow:1px 1px 0 #000}" +
+    "#m2o_ishop .is-info{min-width:0;flex:1}" +
+    "#m2o_ishop .is-nm{font-size:11px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}" +
+    "#m2o_ishop .is-pr{font-size:10.5px;font-weight:700;margin-top:2px}" +
+    "#m2o_ishop .is-tm{font-size:9.5px;color:#9fd0ff;margin-top:1px}" +
+    "#m2o_ishop .is-old{color:#8d826c;text-decoration:line-through;font-weight:400;margin-right:4px}" +
+    "#m2o_ishop .is-msg{grid-column:1/-1;text-align:center;color:#b9ad93;font-size:12px;padding:18px 4px}" +
+    "#m2o_ishop .is-pane{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 10px;text-align:center;font-size:12px}" +
+    "#m2o_ishop .is-pane input{width:min(100%,220px);padding:7px 9px;border-radius:6px;border:1px solid #5a4b33;background:#0a0907;color:#f3dfb0;font-size:13px;outline:none;text-align:center}" +
+    "#m2o_ishop .is-pane .is-hb{height:30px;padding:0 16px;font-size:12px}" +
+    "#m2o_ishop .is-vres{min-height:16px;font-weight:700}" +
+    "#m2o_ishop .is-buy{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6)}" +
+    "#m2o_ishop .is-buy.open{display:flex}" +
+    "#m2o_ishop .is-bbox{width:min(90%,330px);max-height:94%;overflow-y:auto;padding:12px;border-radius:8px;background:#17130d;border:1px solid #8a7550;text-align:center}" +
+    "#m2o_ishop .is-bbox .is-ico{margin:0 auto 6px}" +
+    "#m2o_ishop .is-bname{font-weight:700;font-size:12.5px;margin-bottom:4px}" +
+    "#m2o_ishop .is-bdesc{font-size:10.5px;line-height:1.35;color:#b9ad93;margin-bottom:8px;max-height:min(42vh,220px);overflow-y:auto;white-space:pre-line;padding:4px 6px;background:rgba(0,0,0,0.35);border-radius:5px}" +
+    "#m2o_ishop .is-qty{display:flex;gap:5px;justify-content:center;margin-bottom:8px}" +
+    "#m2o_ishop .is-qty button{min-width:42px}" +
+    "#m2o_ishop .is-qty button.on{background:#6b5530;border-color:#d4b16f}" +
+    "#m2o_ishop .is-btot{font-size:12px;font-weight:700;margin-bottom:10px}" +
+    "#m2o_ishop .is-bact{display:flex;gap:8px;justify-content:center}" +
+    "#m2o_ishop .is-bact button{height:28px;padding:0 14px;font-size:12px}" +
+    "#m2o_ishop .is-ok{background:#4d6b2a!important;border-color:#9fc46a!important}";
+  document.head.appendChild(ishopCss);
+  var ishopWin = document.createElement("div");
+  ishopWin.id = "m2o_ishop";
+  ishopWin.innerHTML =
+    '<div class="is-box"><div class="is-head"><span class="is-title"></span>' +
+    '<div class="is-bal"><span class="is-dc" id="m2o_is_dc">-</span><span class="is-dm" id="m2o_is_dm">-</span></div>' +
+    '<button type="button" class="is-hb" id="m2o_is_ref">⟳</button>' +
+    '<button type="button" class="is-hb" id="m2o_is_x">✕</button></div>' +
+    '<div class="is-body"><div class="is-cats" id="m2o_is_cats"></div><div class="is-main">' +
+    '<input class="is-search" id="m2o_is_search" autocomplete="off">' +
+    '<div class="is-list" id="m2o_is_list"></div></div></div>' +
+    '<div class="is-buy" id="m2o_is_buy"><div class="is-bbox"><div class="is-ico" id="m2o_is_bico"></div>' +
+    '<div class="is-bname" id="m2o_is_bname"></div><div class="is-bdesc" id="m2o_is_bdesc"></div>' +
+    '<div class="is-qty" id="m2o_is_qty"></div><div class="is-btot" id="m2o_is_btot"></div>' +
+    '<div class="is-bact"><button type="button" class="is-hb" id="m2o_is_bno"></button>' +
+    '<button type="button" class="is-hb is-ok" id="m2o_is_bok"></button></div></div></div></div>';
+  document.body.appendChild(ishopWin);
+  function isQ(id) { return ishopWin.querySelector("#" + id); }
+  ishopWin.querySelector(".is-title").textContent = IS_T.title;
+  isQ("m2o_is_ref").title = IS_T.refresh;
+  isQ("m2o_is_bno").textContent = IS_T.cancel;
+  isQ("m2o_is_bok").textContent = IS_T.buy;
+  var isCats = isQ("m2o_is_cats"), isList = isQ("m2o_is_list"), isSearch = isQ("m2o_is_search");
+  isSearch.placeholder = IS_T.search;
+  var isBuy = isQ("m2o_is_buy"), isBuyItem = null, isBuyQty = 1;
+  ["touchstart", "touchmove", "touchend", "mousedown", "mouseup", "wheel", "keydown", "keyup", "keypress"].forEach(function (ev) {
+    ishopWin.addEventListener(ev, function (e) { e.stopPropagation(); }, { passive: true });
+  });
+  function isEsc(t) { return String(t == null ? "" : t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function isFmt(n) { return String(n | 0).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
+  function isCur(c) { var d = ishopData || {}; return c === 1 ? (d.dcName || "DC") : (d.dmName || "DM"); }
+  function isNow() { return Math.floor(Date.now() / 1000) + ishopTimeOff; }
+  function isDur(s) {
+    s = Math.max(0, s | 0);
+    var d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60), x = s % 60;
+    if (d) return d + "d " + h + "h";
+    if (h) return h + "h " + m + "m";
+    return m + "m " + x + "s";
+  }
+  function isTimed(it) {
+    // Mesma regra de TimeState.CanBuy da janela original.
+    var t = it.timed; if (!t) return { ok: true, txt: "" };
+    var now = isNow();
+    if (t.left < 1) return { ok: false, txt: IS_T.soldOut };
+    if (now < t.start) return { ok: false, txt: IS_T.startsIn + isDur(t.start - now) };
+    if (now >= t.end) return { ok: false, txt: IS_T.ended };
+    return { ok: true, txt: IS_T.endsIn + isDur(t.end - now) + " • " + IS_T.left + t.left + "%" };
+  }
+  function isIcon(vnum, cnt) {
+    var b = vnum - (vnum % 10);
+    return '<img src="icons/item/' + vnum + '.png" onerror="if(!this.dataset.f&&' + b + '!==' + vnum + '){this.dataset.f=1;this.src=\'icons/item/' + b + '.png\'}else{this.style.display=\'none\'}">' +
+      (cnt > 1 ? '<span class="is-cnt">' + cnt + '</span>' : '');
+  }
+  function isPriceHtml(it, qty) {
+    qty = qty || 1;
+    var cls = it.cur === 1 ? "is-dc" : "is-dm";
+    var old = it.old ? '<span class="is-old">' + isFmt(it.old * qty) + '</span>' : '';
+    return old + '<span class="' + cls + '">' + isFmt(it.price * qty) + ' ' + isEsc(isCur(it.cur)) + '</span>';
+  }
+  function isMsg(t) { isList.innerHTML = '<div class="is-msg">' + isEsc(t) + '</div>'; }
+  function isCurCat() { return ishopData ? (ishopData.cats || []).filter(function (c) { return c.id === ishopCat; })[0] : null; }
+  function renderIshopCats() {
+    isCats.innerHTML = ((ishopData && ishopData.cats) || []).map(function (c) {
+      return '<button type="button" class="is-cat' + (c.id === ishopCat ? ' on' : '') + '" data-c="' + c.id + '"' +
+        (c.color ? ' style="color:' + c.color + '"' : '') + '>' + isEsc(c.name) + '</button>';
+    }).join("");
+  }
+  function renderIshopList(keepScroll) {
+    var d = ishopData;
+    if (!d) { isMsg(IS_T.loading); return; }
+    var st = isList.scrollTop;
+    var q = isSearch.value.trim().toLowerCase(), ids, cat = isCurCat();
+    isSearch.style.display = (cat && (cat.type === "voucher" || cat.type === "support")) ? "none" : "";
+    if (!q && cat && cat.type === "voucher") {
+      isList.innerHTML = '<div class="is-pane"><input id="m2o_is_vc" maxlength="20" autocomplete="off" placeholder="' + isEsc(d.vcPh || IS_T.vcPh) + '">' +
+        '<button type="button" class="is-hb is-ok" id="m2o_is_vcb">' + isEsc(d.vcBtn || IS_T.vcBtn) + '</button><div class="is-vres" id="m2o_is_vres"></div></div>';
+      return;
+    }
+    if (!q && cat && cat.type === "support") {
+      isList.innerHTML = '<div class="is-pane"><div>' + isEsc(IS_T.sup1) + '</div><div style="color:#b9ad93">' + isEsc(IS_T.sup2) + '</div>' +
+        '<button type="button" class="is-hb is-ok" id="m2o_is_supb">' + isEsc(IS_T.supBtn) + '</button></div>';
+      return;
+    }
+    if (q) {
+      ids = Object.keys(d.items).filter(function (k) { return !d.items[k].timed && String(d.items[k].name).toLowerCase().indexOf(q) >= 0; });
+      ids.sort(function (a, b) { return d.items[a].price - d.items[b].price; });
+    } else {
+      ids = cat && cat.items ? cat.items.map(String) : [];
+    }
+    ids = ids.filter(function (k) { return d.items[k]; });
+    if (!ids.length) {
+      if (!q && cat && cat.type === "timed") isMsg(d.auctionEnd ? IS_T.loadingAuc : (d.noAuctions || IS_T.noAuctions));
+      else isMsg(q ? IS_T.notFound : IS_T.empty);
+      return;
+    }
+    isList.innerHTML = ids.map(function (k) {
+      var it = d.items[k], tm = isTimed(it);
+      return '<div class="is-item' + (tm.ok ? '' : ' off') + '" data-i="' + k + '"><div class="is-ico">' + isIcon(it.vnum, it.count) + '</div>' +
+        '<div class="is-info"><div class="is-nm">' + isEsc(it.name) + '</div><div class="is-pr">' + isPriceHtml(it) + '</div>' +
+        (tm.txt ? '<div class="is-tm">' + isEsc(tm.txt) + '</div>' : '') + '</div></div>';
+    }).join("");
+    isList.scrollTop = keepScroll ? st : 0;
+  }
+  function renderIshopBal() {
+    var d = ishopData || {};
+    isQ("m2o_is_dc").textContent = isFmt(d.dc) + " " + isCur(1);
+    isQ("m2o_is_dm").textContent = isFmt(d.dm) + " " + isCur(2);
+  }
+  function isRenderBuy() {
+    var it = isBuyItem;
+    var qs = [1]; if (!it.timed) { if (it.stack >= 5) qs.push(5); if (it.stack >= 10) qs.push(10); }
+    isQ("m2o_is_qty").innerHTML = qs.length > 1 ? qs.map(function (n) {
+      return '<button type="button" class="is-hb' + (n === isBuyQty ? ' on' : '') + '" data-q="' + n + '">' + (n * it.count) + 'x</button>';
+    }).join("") : "";
+    var bal = it.cur === 1 ? ishopData.dc : ishopData.dm;
+    var tot = it.price * isBuyQty, tm = isTimed(it);
+    var bad = tot > bal || !tm.ok;
+    isQ("m2o_is_btot").innerHTML = isEsc(IS_T.total) + isPriceHtml(it, isBuyQty) +
+      (tot > bal ? '<div style="color:#e06a5a;font-size:10.5px;margin-top:3px">' + isEsc(IS_T.noMoney) + '</div>' : '') +
+      (!tm.ok ? '<div style="color:#e06a5a;font-size:10.5px;margin-top:3px">' + isEsc(tm.txt) + '</div>' : '');
+    isQ("m2o_is_bok").disabled = bad;
+    isQ("m2o_is_bok").style.opacity = bad ? "0.45" : "1";
+  }
+  // Informações do item (o mesmo tooltip da janela original, lido linha a linha).
+  var isTTVnum = 0;
+  function ishopTTPy(it) {
+    return [
+      "import json as _tj, ui as _tu, uiToolTip as _tut, re as _tre",
+      "_w = self.interface.wndItemShop",
+      "_tt = getattr(_w, '_m2wTT', None)",
+      "if _tt is None:",
+      "    _tt = _tut.ItemToolTip()",
+      "    _w._m2wTT = _tt",
+      "_tt.HideToolTip()",
+      "_oP = _tu.TextLine.SetPackedFontColor",
+      "def _nP(s, c, _oP=_oP):",
+      "    s._m2wC = c",
+      "    _oP(s, c)",
+      "_tu.TextLine.SetPackedFontColor = _nP",
+      "try:",
+      "    _tt.SetItemShopItemToolTip(" + (it.vnum | 0) + ", " + (it.price | 0) + ", " + (it.cur | 0) + ")",
+      "finally:",
+      "    _tu.TextLine.SetPackedFontColor = _oP",
+      "_tt.HideToolTip()",
+      "def _ts(x):",
+      "    try:",
+      "        if not isinstance(x, str):",
+      "            x = x.decode('cp1252', 'replace') if isinstance(x, bytes) else str(x)",
+      "        elif bytes is str:",
+      "            x = x.decode('cp1252', 'replace')",
+      "    except Exception:",
+      "        x = ''",
+      "    return _tre.sub(r'\\|c[0-9a-fA-F]{8}|\\|[rRhH]', '', x)",
+      "_ln = []",
+      "for _i, _c in enumerate(list(_tt.childrenList)):",
+      "    try:",
+      "        _t = _c.GetText()",
+      "    except Exception:",
+      "        continue",
+      "    _t = _ts(_t).strip()",
+      "    if not _t:",
+      "        continue",
+      "    try:",
+      "        _y = _c.GetLocalPosition()[1]",
+      "    except Exception:",
+      "        _y = 0",
+      "    _col = -1",
+      "    try:",
+      "        if getattr(_c, '_m2wC', None) is not None:",
+      "            _col = int(_c._m2wC) & 0xffffff",
+      "        elif getattr(_c, 'color', None):",
+      "            _cl = _c.color",
+      "            _col = (int(_cl[0] * 255) << 16) | (int(_cl[1] * 255) << 8) | int(_cl[2] * 255)",
+      "    except Exception:",
+      "        _col = -1",
+      "    _ln.append((_y, _i, _t, _col))",
+      "_ln.sort()",
+      "_f = open('/m2w_ishop_tt.json', 'w'); _f.write(_tj.dumps({'vnum': " + (it.vnum | 0) + ", 'lines': [[l[2], l[3]] for l in _ln]})); _f.close()"
+    ];
+  }
+  function isOpenBuy(k) {
+    var it = ishopData && ishopData.items[k];
+    if (!it) return;
+    isBuyItem = it; isBuyQty = 1;
+    isQ("m2o_is_bico").innerHTML = isIcon(it.vnum, it.count);
+    isQ("m2o_is_bname").textContent = it.name + (it.count > 1 ? " (" + it.count + "x)" : "");
+    var desc = it.desc || "";
+    if (it.timed && it.timed.limit > 0) desc += (desc ? "\n" : "") + IS_T.limit + it.timed.limit;
+    if (it.minLevel > 0) desc = IS_T.minLevel + it.minLevel + (desc ? "\n" + desc : "");
+    isQ("m2o_is_bdesc").textContent = desc;
+    isTTVnum = it.vnum;
+    fsRm("/m2w_ishop_tt.json");
+    runPy(safePy(ishopTTPy(it)));
+    isRenderBuy();
+    isBuy.classList.add("open");
+  }
+  function isAuctionClose() {
+    if (!ishopAuction) return;
+    ishopAuction = false;
+    runPy(safePy(["import net", "net.SendChatPacket('/itemshop auction_close')"]));
+  }
+  // Roda da Fortuna: fecha a loja (a roda é uma janela do jogo e ficava atrás do HTML)
+  // e abre a roda num tamanho compacto. O layout original (até 620x710) deixava muito
+  // espaço vazio dos lados; aqui a janela fica só um pouco maior que o disco.
+  function openFortuneWheel() {
+    closeIshop(true);
+    runPy(safePy([
+      "import uifortunewheel as _fw",
+      "def _m2wWL(sw, sh):",
+      "    _disc = max(200, min(300, int(sh) - 24 - 58 - 120))",
+      "    _wd = max(320, _disc + 44)",
+      "    return _wd, 58 + _disc + 120, (_wd - _disc) // 2, 58, _disc",
+      "_fw.WindowLayout = _m2wWL",
+      "_fw.Open()",
+      "_fw.GetWindow().SetCenterPosition()"
+    ]));
+  }
+  isCats.addEventListener("click", function (e) {
+    var b = e.target.closest(".is-cat"); if (!b || !ishopData) return;
+    var id = Number(b.getAttribute("data-c"));
+    var cat = (ishopData.cats || []).filter(function (c) { return c.id === id; })[0];
+    if (!cat) return;
+    if (cat.type === "fortune_wheel") { openFortuneWheel(); return; }
+    if (cat.type === "url") { runPy(safePy(["import utils", "utils.open_url(" + JSON.stringify(String(cat.url || "")) + ")"])); return; }
+    if (cat.type === "timed") {
+      if (!ishopAuction && ishopData.auctionEnd) {
+        ishopAuction = true;
+        runPy(safePy(["import net", "net.SendChatPacket('/itemshop auction_open')"]));
+      }
+    } else isAuctionClose();
+    ishopCat = id; isSearch.value = "";
+    renderIshopCats(); renderIshopList();
+  });
+  isList.addEventListener("click", function (e) {
+    if (e.target.id === "m2o_is_vcb") {
+      var inp = isQ("m2o_is_vc"), res = isQ("m2o_is_vres");
+      var code = String(inp.value || "").trim().replace(/[^0-9A-Za-z_-]/g, "");
+      if (code.length < 3) { res.style.color = "#e06a5a"; res.textContent = IS_T.vcShort; return; }
+      res.style.color = "#b9ad93"; res.textContent = IS_T.vcWait;
+      runPy(safePy(["import net", "net.SendChatPacket('/itemshop use_voucher %s' % " + JSON.stringify(code) + ")"]));
+      return;
+    }
+    if (e.target.id === "m2o_is_supb") {
+      runPy(safePy(["import uiItemShop as _iu, utils", "utils.open_url(_iu.ITEMSHOP_SUPPORT_URL)"]));
+      return;
+    }
+    var b = e.target.closest(".is-item"); if (b) isOpenBuy(b.getAttribute("data-i"));
+  });
+  isSearch.addEventListener("input", function () { renderIshopList(); });
+  isQ("m2o_is_qty").addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-q]"); if (!b) return;
+    isBuyQty = Number(b.getAttribute("data-q")) || 1; isRenderBuy();
+  });
+  isQ("m2o_is_bno").addEventListener("click", function () { isBuy.classList.remove("open"); });
+  isQ("m2o_is_bok").addEventListener("click", function () {
+    var it = isBuyItem; if (!it) return;
+    isBuy.classList.remove("open");
+    runPy(safePy(["import net", "net.SendChatPacket('/itemshop buy %d %d' % (" + (it.idx | 0) + ", " + (isBuyQty | 0) + "))"]));
+  });
+  isQ("m2o_is_x").addEventListener("click", function () { closeIshop(true); });
+  isQ("m2o_is_ref").addEventListener("click", function () {
+    runPy(safePy(["import net", "net.SendChatPacket('/itemshop refresh')"]));
+    setTimeout(function () { ishopCapture(true); }, 900);
+  });
+  ishopWin.addEventListener("click", function (e) { if (e.target === ishopWin) closeIshop(true); });
+  function closeIshop(sendClose) {
+    ishopWin.classList.remove("open"); isBuy.classList.remove("open");
+    if (ishopPollT) { clearTimeout(ishopPollT); ishopPollT = null; }
+    if (ishopTickT) { clearInterval(ishopTickT); ishopTickT = null; }
+    try { isSearch.blur(); } catch (e) { }
+    if (sendClose) { isAuctionClose(); runPy(safePy(["self.interface.wndItemShop.Close()"])); }
+    ishopAuction = false;
+  }
+  function ishopOpen() { return ishopWin.classList.contains("open"); }
+  // Lê os dados da janela original (depois que o servidor os enviou) e grava um JSON
+  // para o HTML. force=1: relê mesmo com a loja já aberta (leilões, atualizar).
+  function ishopDumpPy(force) {
+    return [
+      "import json as _ij, constInfo as _ic, uiItemShop as _iu, item as _it, app as _ia, re as _ire, localeInfo as _il, eventManager as _iem",
+      "_force = " + (force ? 1 : 0),
+      "_w = self.interface.wndItemShop",
+      "if not getattr(_w, '_m2wShowHook', False):",
+      "    _w._m2wShowHook = True",
+      "    def _m2wMk(w):",
+      "        def _f(*a):",
+      "            w._m2wWant = 1",
+      "        return _f",
+      "    _w.Show = _m2wMk(_w)",
+      "def _m2wFile(p, t):",
+      "    try:",
+      "        _f = open(p, 'w'); _f.write(t); _f.close()",
+      "    except Exception:",
+      "        pass",
+      "if not getattr(_w, '_m2wTaHook', False):",
+      "    _w._m2wTaHook = True",
+      "    def _m2wTa(fn, _m2wFile=_m2wFile):",
+      "        def _g(*a):",
+      "            r = fn(*a)",
+      "            _m2wFile('/m2w_ishop_dirty', '1')",
+      "            return r",
+      "        return _g",
+      "    _w.SetTimedAuctions = _m2wTa(_w.SetTimedAuctions)",
+      "if not getattr(_iem, '_m2wVcFn', None):",
+      "    def _m2wVc(r=4, *a, **k):",
+      "        try:",
+      "            _f = open('/m2w_ishop_vc', 'w'); _f.write(str(int(r))); _f.close()",
+      "        except Exception:",
+      "            pass",
+      "    _iem._m2wVcFn = _m2wVc",
+      "    _iem.EventManager().add_observer(_iem.EVENT_USE_CODE_VOUCHER, _m2wVc)",
+      "if (_w.IsShow() or getattr(_w, '_m2wWant', 0) or _force) and getattr(_w, 'isLoaded', False) and getattr(_w, 'shopContent', None) is not None:",
+      "    _w._m2wWant = 0",
+      "    if _w.IsShow():",
+      "        _w.Hide()",
+      "    if not getattr(_w, '_m2wBalHook', False):",
+      "        _w._m2wBalHook = True",
+      "        _oSB = _w.SetBalance",
+      "        def _nSB(a, b, _oSB=_oSB):",
+      "            _oSB(a, b)",
+      "            try:",
+      "                _f = open('/m2w_ishop_bal', 'w'); _f.write('%d %d' % (int(a), int(b))); _f.close()",
+      "            except Exception:",
+      "                pass",
+      "        _w.SetBalance = _nSB",
+      "    def _s(x):",
+      "        try:",
+      "            if not isinstance(x, str):",
+      "                x = x.decode('cp1252', 'replace') if isinstance(x, bytes) else str(x)",
+      "            elif bytes is str:",
+      "                x = x.decode('cp1252', 'replace')",
+      "        except Exception:",
+      "            x = ''",
+      "        return _ire.sub(r'\\|c[0-9a-fA-F]{8}|\\|[rRhH]|\\[ENTER\\]', lambda m: '\\n' if m.group(0) == '[ENTER]' else '', x)",
+      "    def _L(n, d=''):",
+      "        return _s(getattr(_il, n, d))",
+      "    def _n(x):",
+      "        try:",
+      "            return int(str(x).replace('.', '').replace(',', '').strip() or 0)",
+      "        except Exception:",
+      "            return 0",
+      "    _vd = _w.shopContent.itemViewDict",
+      "    _now = _ia.GetGlobalTimeStamp()",
+      "    _items = {}",
+      "    for _k, _d in _ic.ITEMSHOP_DATA.items():",
+      "        if 'custom' in _d or 'itemVnum' not in _d or (_k not in _vd and 'timed' not in _d):",
+      "            continue",
+      "        try:",
+      "            _p = int(_d['itemPrice']); _old = 0",
+      "            _pr = _d.get('promotion')",
+      "            if _pr and _now < _pr.get('endTime', 0):",
+      "                _old = _p; _p = int(_pr['itemPrice'])",
+      "            _st = 1",
+      "            _it.SelectItem(_d['itemVnum'])",
+      "            if not _it.IsAntiFlag(_it.ANTIFLAG_STACK) and _it.IsFlag(_it.ITEM_FLAG_STACKABLE):",
+      "                _st = _it.GetItemMaxStack()",
+      "            _o = {'idx': _k, 'vnum': int(_d['itemVnum']), 'name': _s(_d.get('itemName', '')), 'count': int(_d.get('itemCount', 1)),",
+      "                'price': _p, 'old': _old, 'cur': int(_d.get('currency', 1)), 'minLevel': int(_d.get('minLevel', 0) or 0),",
+      "                'stack': int(_st), 'desc': _s(_d.get('description', '') or '')}",
+      "            if 'timed' in _d:",
+      "                _td = _d['timed']",
+      "                _o['timed'] = {'start': int(_td.get('startTime', 0)), 'end': int(_td.get('endTime', 0)),",
+      "                    'left': min(int(_td.get('amountLeft', 0)), 100), 'limit': int(_td.get('accountLimit', 0) or 0)}",
+      "            _items[str(_k)] = _o",
+      "        except Exception:",
+      "            pass",
+      "    _cats = []",
+      "    for _ci in _iu.ITEMSHOP_CATEGORIES_SORT:",
+      "        _c = _iu.ITEMSHOP_CATEGORIES.get(_ci)",
+      "        if not _c:",
+      "            continue",
+      "        _a = _c['action']; _t = _a.get('type')",
+      "        _col = ''",
+      "        if 'color' in _c:",
+      "            _col = 'rgb(%d,%d,%d)' % tuple(_c['color'][:3])",
+      "        _nm = _s(_c.get('name', ''))",
+      "        if _ci == _iu.ITEMSHOP_CATEGORY_TIMED_INDEX:",
+      "            _ids = sorted([i for i in _items if 'timed' in _items[i]], key=lambda i: _items[i]['timed']['start'])",
+      "            _cats.append({'id': _ci, 'name': _nm, 'type': 'timed', 'items': [int(i) for i in _ids], 'color': _col})",
+      "        elif _t == 'items':",
+      "            _ids = [i for i in _a.get('items', []) if str(i) in _items and 'timed' not in _items[str(i)]]",
+      "            if _ci == _iu.ITEMSHOP_CATEGORY_DRAGON_VOUCHER_INDEX:",
+      "                _ids.sort(key=lambda i: _items[str(i)]['price'])",
+      "            else:",
+      "                _ids.sort(key=lambda i: _items[str(i)]['vnum'])",
+      "            if _ids:",
+      "                _cats.append({'id': _ci, 'name': _nm, 'type': 'items', 'items': _ids, 'color': _col})",
+      "        elif _t == 'fortune_wheel':",
+      "            _cats.append({'id': _ci, 'name': _nm, 'type': 'fortune_wheel', 'color': _col})",
+      "        elif _t == 'open_content' and _a.get('value') == 'use_voucher':",
+      "            _cats.append({'id': _ci, 'name': _nm, 'type': 'voucher', 'color': _col})",
+      "        elif _t == 'open_url':",
+      "            _sup = _ci == getattr(_iu, 'ITEMSHOP_CATEGORY_SUPPORT_INDEX', -1)",
+      "            _cats.append({'id': _ci, 'name': _nm, 'type': 'support' if _sup else 'url', 'url': _s(_a.get('value', '')), 'color': _col})",
+      "    _out = {'cats': _cats, 'items': _items, 'dc': _n(_w.dragonCoinLabel.GetText()), 'dm': _n(_w.dragonMarkLabel.GetText()),",
+      "        'dcName': _s(_iu.GetCurrencyShortName(_iu.CURRENCY_DRAGON_COIN)), 'dmName': _s(_iu.GetCurrencyShortName(_iu.CURRENCY_DRAGON_MARK)),",
+      "        'sel': getattr(_w, 'selectedCategoryIndex', -1), 'now': int(_now), 'auctionEnd': int(getattr(_w, 'timeAuctionEndTime', 0) or 0),",
+      "        'noAuctions': _L('ITEMSHOP_NO_AUCTIONS'), 'vcPh': _L('ITEMSHOP_USE_VOUCHER_PLACEHOLDER'), 'vcBtn': _L('ITEMSHOP_USE_VOUCHER'),",
+      "        'vc': [_L('USE_VOUCHER_SUCCESS'), _L('USE_VOUCHER_NO_CODE'), _L('USE_VOUCHER_ALREADY_USED'), _L('USE_VOUCHER_TRY_AGAIN_LATER')]}",
+      "    _f = open('/m2w_ishop.json', 'w'); _f.write(_ij.dumps(_out)); _f.close()"
+    ];
+  }
+  // Tenta capturar por até ~8 s (o servidor manda os dados e "abre" a janela).
+  function ishopCapture(force) {
+    if (ishopPollT) clearTimeout(ishopPollT);
+    fsRm("/m2w_ishop.json");
+    var t0 = Date.now(), lastSend = 0, py = safePy(ishopDumpPy(force));
+    (function poll() {
+      ishopPollT = null;
+      if (fsExists("/m2w_ishop.json")) {
+        var d = null;
+        try { d = JSON.parse(Module.FS.readFile("/m2w_ishop.json", { encoding: "utf8" })); } catch (e) { }
+        fsRm("/m2w_ishop.json");
+        if (d) showIshop(d);
+        return;
+      }
+      if (Date.now() - t0 > 8000) {
+        if (ishopOpen() && !ishopData) isMsg(IS_T.noAnswer);
+        return;
+      }
+      if (Date.now() - lastSend > 250 && !fsExists("/m2w_cmd.py")) { lastSend = Date.now(); runPy(py); }
+      ishopPollT = setTimeout(poll, 120);
+    })();
+  }
+  function showIshop(d) {
+    var wasOpen = ishopOpen() && ishopData;
+    var keep = wasOpen ? ishopCat : null;
+    ishopData = d;
+    ishopTimeOff = (d.now | 0) - Math.floor(Date.now() / 1000);
+    var ids = (d.cats || []).map(function (c) { return c.id; });
+    var itemIds = (d.cats || []).filter(function (c) { return c.type === "items"; }).map(function (c) { return c.id; });
+    if (keep != null && ids.indexOf(keep) >= 0) ishopCat = keep;
+    else ishopCat = itemIds.indexOf(d.sel) >= 0 ? d.sel : (itemIds[0] != null ? itemIds[0] : null);
+    renderIshopBal(); renderIshopCats();
+    // Não apaga o código do vale que a pessoa está digitando.
+    var cat = isCurCat();
+    if (!(wasOpen && cat && (cat.type === "voucher" || cat.type === "support"))) renderIshopList(!!wasOpen);
+    ishopWin.classList.add("open");
+    if (!ishopTickT) ishopTickT = setInterval(ishopTick, 400);
+  }
+  function ishopTick() {
+    try {
+      if (fsExists("/m2w_ishop_bal")) {
+        var p = String(Module.FS.readFile("/m2w_ishop_bal", { encoding: "utf8" })).trim().split(/\s+/);
+        fsRm("/m2w_ishop_bal");
+        ishopData.dc = Number(p[0]) || 0; ishopData.dm = Number(p[1]) || 0;
+        renderIshopBal();
+        if (isBuy.classList.contains("open")) isRenderBuy();
+      }
+      if (fsExists("/m2w_ishop_vc")) {
+        var r = Number(String(Module.FS.readFile("/m2w_ishop_vc", { encoding: "utf8" })).trim()) | 0;
+        fsRm("/m2w_ishop_vc");
+        var res = isQ("m2o_is_vres");
+        if (res) {
+          var tx = (ishopData.vc || [])[r > 3 ? 3 : r] || "";
+          res.style.color = r === 0 ? "#8fd16a" : (r === 3 || r > 3 ? "#e6d0a0" : "#e06a5a");
+          res.textContent = tx;
+          if (r === 0) { var vi = isQ("m2o_is_vc"); if (vi) vi.value = ""; }
+        }
+      }
+      if (fsExists("/m2w_ishop_tt.json")) {
+        var tt = null;
+        try { tt = JSON.parse(Module.FS.readFile("/m2w_ishop_tt.json", { encoding: "utf8" })); } catch (e2) { }
+        fsRm("/m2w_ishop_tt.json");
+        if (tt && tt.vnum === isTTVnum && isBuyItem && isBuyItem.vnum === tt.vnum && isBuy.classList.contains("open") && (tt.lines || []).length) {
+          var bd = isQ("m2o_is_bdesc"), extra = bd.textContent;
+          bd.innerHTML = tt.lines.map(function (l) {
+            var c = l[1] >= 0 ? "#" + ("000000" + l[1].toString(16)).slice(-6) : "#e6dcc4";
+            return '<div style="color:' + c + '">' + isEsc(l[0]) + '</div>';
+          }).join("") + (extra ? '<div style="color:#b9ad93;margin-top:4px">' + isEsc(extra) + '</div>' : "");
+        }
+      }
+      if (fsExists("/m2w_ishop_dirty")) {
+        fsRm("/m2w_ishop_dirty");
+        if (!ishopPollT) ishopCapture(true);
+      }
+      // Contagem regressiva dos leilões.
+      var cat = isCurCat();
+      if (cat && cat.type === "timed" && !isSearch.value && (++ishopTickN % 3 === 0)) {
+        renderIshopList(true);
+        if (isBuy.classList.contains("open")) isRenderBuy();
+      }
+    } catch (e) { }
+  }
   // Loja de itens (662x464): grande demais para o celular e abria por baixo do HUD da
   // esquerda e dos botões da direita. Colocamos no espaço livre entre os dois, no topo.
   function placeItemShop() {
@@ -5816,7 +6381,10 @@
   function toggleItemShop() {
     // Mesmo caminho do botão do minimapa: pede ao servidor a lista de itens
     // ("/itemshop open") e o servidor abre a janela. Chamar só Open() mostrava a
-    // loja vazia.
+    // loja vazia. A janela aberta é trocada pela versão compacta (ishopCapture).
+    if (ishopOpen()) { closeIshop(true); return; }
+    if (!ishopData) { isMsg(IS_T.loading); isCats.innerHTML = ""; ishopWin.classList.add("open"); }
+    setTimeout(ishopCapture, 200);
     runPy(safePy([
       "import eventManager, uiItemShop",
       "eventManager.EventManager().send_event(uiItemShop.EVENT_OPEN_ITEMSHOP)"
@@ -5874,7 +6442,14 @@
     "    pass",
     "try:",
     "    _isw = getattr(getattr(self, 'interface', None), 'wndItemShop', None)",
-    "    if _isw is not None and _isw.IsShow():",
+    "    if _isw is not None and not getattr(_isw, '_m2wShowHook', False):",
+    "        _isw._m2wShowHook = True",
+    "        def _m2wMk(w):",
+    "            def _f(*a):",
+    "                w._m2wWant = 1",
+    "            return _f",
+    "        _isw.Show = _m2wMk(_isw)",
+    "    if _isw is not None and (_isw.IsShow() or getattr(_isw, '_m2wWant', 0)):",
     "        _s = 1",
     "        _o = 1",
     "except Exception:",
@@ -5884,6 +6459,14 @@
     "    if _co is not None:",
     "        _cw = _co._window.get('window')",
     "        if _cw is not None and _cw.IsShow():",
+    "            _o = 1",
+    "except Exception:",
+    "    pass",
+    "try:",
+    "    _fwm = sys.modules.get('uifortunewheel')",
+    "    if _fwm is not None:",
+    "        _fww = _fwm._window.get('window')",
+    "        if _fww is not None and _fww.IsShow():",
     "            _o = 1",
     "except Exception:",
     "    pass",
@@ -5907,6 +6490,9 @@
     "    if _m is not None:",
     "        _m2oR(_m._window.get('window'))",
     "        _m2oR(getattr(_m._window.get('window'), 'buyWindow', None))",
+    "    _fwm = sys.modules.get('uifortunewheel')",
+    "    if _fwm is not None:",
+    "        _m2oR(_fwm._window.get('window'))",
     "    _i = sys.modules.get('uisidekickinventory')",
     "    if _i is not None:",
     "        _m2oR(_i._state.get('eqWindow'))",
@@ -6037,7 +6623,9 @@
           commBadge.textContent = rqCnt > 0 ? String(rqCnt) : "";
         }
         if (v !== xWinOpen) { xWinOpen = v; applyOpenWin(); }
-        if (shopNow && !shopOpen) placeItemShop();
+        if (shopNow && !shopOpen) {
+          if (!ishopPollT) ishopCapture();
+        }
         shopOpen = shopNow;
       }
       if (!inWorld) {
